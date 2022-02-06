@@ -89,12 +89,13 @@ def therm_pow(mass_flow_rate_kg_s, cp_kj_kg_c, delta_temp):                     
 def glob_htc_coeff(thermal_pow_kw, surf_m2, lmtd):                                                                      # glob_htc_coeff(Thermal power [kW], Surface [m^2], Log-mean temperature difference [°C] or [K])
   return thermal_pow_kw/(surf_m2*lmtd)                                                                                  # Return global heat transfer coefficient (global HTC) [kW/(m^2*K)]
 
-## LAST
+## LAST ##
 # Function definition to print measures calcs results
 def print_measures_calcs_res(measures, dbg_flg):                                                                        # print_measures_calcs_res(Measures list, Debug flag)
-  idx = 0                                                                                                               # Measure index
-  for meas in measures:                                                                                                 # Measures scrollin' cycle
-    print("\n--> "+da.meas_names[idx]+" measure calculations results:")                                                 # Print dbg fbk
-    meas.print_info(dbg_flg)                                                                                            # Print measures calcs results (if debug flag is enabled) by callin' the print-info method of the class
-    idx += 1                                                                                                            # Measure index upd
-  return                                                                                                                # Return nothing
+  if (dbg_flg):                                                                                                         # If dbg flg is ena
+    idx = 0                                                                                                             # Measure index
+    for meas in measures:                                                                                               # Measures scrollin' cycle
+      print("\n--> "+da.meas_names[idx]+" measure calculations results:")                                               # Print dbg fbk
+      meas.print_info(dbg_flg)                                                                                          # Print measures calcs results (if debug flag is enabled) by callin' the print-info method of the class
+      idx += 1                                                                                                          # Measure index upd
+    return                                                                                                              # Return nothing
