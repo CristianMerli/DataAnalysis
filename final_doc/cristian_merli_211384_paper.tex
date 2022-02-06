@@ -1,0 +1,70 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%         PACKAGES INCLUSION         %                                                                                      % PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{article}                                                                                                     % Document specs
+\usepackage[legalpaper, margin=2cm]{geometry}                                                                               % Document margin
+\usepackage[utf8]{inputenc}                                                                                                 % Encoding specs
+\usepackage{tocloft}                                                                                                        % Package import for table of contents with dots
+\usepackage{hyperref}                                                                                                       % Package import for external references
+\usepackage{graphicx}                                                                                                       % Package import to manage images labels and captions
+\usepackage{cite}                                                                                                           % Package import for bibliographies (citations)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           PREAMBLE START           %                                                                                      % PREAMBLE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength{\parindent}{0em}                                                                                                 % Remove indentation at paragraph's start
+\hypersetup{colorlinks=true, linkcolor=red, urlcolor=blue}                                                                  % External references definition: red links and blue URLs (\href call)
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}                                                                       % Configure table of contents to display dots
+\bibliographystyle{plain}                                                                                                   % Bibliography style (plain standard style)
+
+\title{Dijkstra's algorithm implementation \\                                                                               % Title definition (printed with \maketitle command)
+\large C project - G3 n.3, numerical calc and programming [145725] AY 2020/2021}                                            % Subtitle definition (printed with \maketitle command)
+\author{Cristian Merli, id. 211384}                                                                                         % Authors definition (printed with \maketitle command)
+\date{20/07/2021}                                                                                                           % Date definition (printed with \maketitle command)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END OF PREAMBLE and DOCUMENT START %                                                                                      % DOC-START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}                                                                                                            % Document-start
+
+\maketitle                                                                                                                  % Plot previously defined title
+
+\vspace{1cm}                                                                                                                % Vertical-space command
+  \begin{abstract}                                                                                                          % Abstract creation
+    \noindent \textit{C-code implementation of Dijkstra's algorithm, inside a dedicated library to manage graphs.           % Abstract text
+    This library has also been extended so that a graph's structure could be allocated inside heap to test
+    Dijkstras algorithm. With the aim of getting a more user-friendly output, gnuplot takes care of plotting graphics
+    to show the structure of the graph and the elaborated shortest path.}
+  \end{abstract}                                                                                                            % Abstract end
+\vspace{3.5cm}                                                                                                              % Vertical-space command
+
+\vspace{3.5cm}                                                                                                              % Vertical-space command
+  \tableofcontents                                                                                                          % Plot table of contents
+\pagebreak                                                                                                                  % Go to new page
+
+\section{Project request}                                                                                                   % Section creation: "Project request"
+\label{sec:project_request}                                                                                                 % "project_request" reference-label definition
+  Dijkstra. Write a software which reads a graph and given two nodes, calculates the minimum path with Dijkstra             % Section text
+  algorithm.
+
+\section{Introduction}                                                                                                      % Section creation: "Introduction"
+\label{sec:introduction}                                                                                                    % "introduction" reference-label definition
+  This document has the main purpose of giving an overview of the project, deeping into theoretical aspects of              % Section text
+  Dijkstra's algorithm and how it has been implemented in C-code. While to have further details about technical
+  aspects, there is the possibility to consult html documentation of the software (see '\textbf{Doxygen html
+  documentation}' section inside '\textbf{README.md}' file).
+
+\section{Dijkstra's algorithm}                                                                                              % Section creation: "Dijkstra's algorithm"
+\label{sec:dijkstra_algorithm}                                                                                              % "dijkstra_algorithm" reference-label definition
+  Dijkstra's algorithm has been conceived in 1956, by a Dutch computer sientist called Edsger Wybe Dijkstra. The algorithm  % Section text
+
+\bibliography{biblio/references}                                                                                            % Bibliography inclusion (biblio/references.bib)
+
+\end{document}                                                                                                              % End document code
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            DOCUMENT END            %                                                                                      % DOC-END
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

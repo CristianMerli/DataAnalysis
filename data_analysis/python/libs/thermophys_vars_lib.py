@@ -7,8 +7,9 @@ import pandas as pd                                                             
 import numpy as np                                                                                                      # Data-analysis numpy lib
 import enum as en                                                                                                       # Enum lib
 # Project personal libraries import
-import poly_approx_lib as pa                                                                                            # Poly-approximation lib
-import plotting_lib as pl                                                                                               # Plotting lib
+import libs.poly_approx_lib as pa                                                                                       # Poly-approximation lib
+import libs.plotting_lib as pl                                                                                          # Plotting lib
+import libs.eng_calcs_lib as ec                                                                                         # Engineering calcs lib
 
 ########
 # VARS #
@@ -22,6 +23,7 @@ csv_aisi_316_filepath = "../thermophys_vars/aisi_316_thermo_vars.csv"           
 csv_sep_chr = ';'                                                                                                       # Sep chr in (.csv) table files
 # Table files columns vars
 temp_col = "T(degC)"                                                                                                    # Temp col in table files (Temperature [°C])
+temp_col_k = "T(K)"                                                                                                     # Temp col in table files (Temperature [K])
 rho_col = "Rho(kg/m3)"                                                                                                  # Rho col in table files (Density [kg/m^3])
 cp_col = "Cp(kJ/kg*K)"                                                                                                  # Cp col in table files (Specific heat at constant pressure [kJ/(kg*K)])
 lambda_col = "Lambda(W/m*K)"                                                                                            # Lambda col in table files (Thermal conductivity [W/(m*K)])
@@ -209,7 +211,7 @@ def poly_approx_plot_water_thermophys_vars(water, plt_flg):                     
 # Function definition to apply polynomial approximation and plot AISI-316-stainless-steel's
 # thermophysics variables vs temperature
 def poly_approx_plot_aisi_316_thermophys_vars(aisi_316, plt_flg):                                                       # poly_approx_plot_aisi_316_thermophys_vars(AISI-316 DataFrame var, Plotting flag)
-  aisi_316_temp = np.array(aisi_316[temp_col])                                                                          # Extract AISI-316 interpolation/fitting temperatures array from DataFrame
+  aisi_316_temp = ec.conv_temp_k_c(np.array(aisi_316[temp_col_k]))                                                      # Extract AISI-316 interpolation/fitting temperatures array from DataFrame and convert it from [K] into [°C]
   aisi_316_lambda = np.array(aisi_316[lambda_col])                                                                      # Extract AISI-316 thermal conductivity array from DataFrame (thermophysic variable vs temp)
   # Poly-interpolation discarded, bad approximation
   f_aisi_316_lambda, x, y = pa.poly_approx(aisi_316_temp, aisi_316_lambda, pa.Poly_approx_md.int, aisi_316_intp_typ)    # AISI-316 thermal conductivity interpolation function (thermophysic variable at atm pressure vs temp)

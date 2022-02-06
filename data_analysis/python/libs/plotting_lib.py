@@ -8,8 +8,7 @@ import numpy as np                                                              
 import matplotlib.pyplot as plt                                                                                         # Math plottin' lib
 import seaborn as sns                                                                                                   # Seaborn plottin' lib
 # Project personal libraries import
-import data_analysis_lib as da                                                                                          # Data analysis lib
-import thermophys_vars_lib as tv                                                                                        # Thermophysics-variables lib
+import libs.data_analysis_lib as da                                                                                     # Data analysis lib
 
 ########
 # VARS #
@@ -48,7 +47,7 @@ ploy_approx_box_alpha = 0.7                                                     
 plt_line = "--"                                                                                                         # Plotting line type
 plt_marker = 'o'                                                                                                        # Plotting marker type
 # Data-acquisition plotting label-vars
-plt_title = "Experimental data from LabView data-acquisition on heat-exchanger with measure windows"                    # Title lbl
+plt_title = "Experimental data from LabView data-acquisition on heat-exchanger with measure-windows"                    # Title lbl
 plt_time_lbl = "Time [s]"                                                                                               # X-axis lbl
 plt_temp_flow_lbl = "Temperatures [°C]   /   Volume flow rates [l/h]"                                                   # Y-axis lbl
 plt_f1_lbl = "F1 - Cold fluid volume flow rate [l/h]"                                                                   # Cold fluid vol flow rate (F1) lbl
@@ -106,6 +105,7 @@ def set_plt_style():                                                            
   plt.grid(color=grid_col);                                                                                             # Set grid col
   leg = plt.legend();                                                                                                   # Mod legend
   plt.setp(leg.get_texts(), color=leg_txt_col);                                                                         # Set legend txt col
+  return                                                                                                                # Return nothing
 
 # Function to initialize personalized plotting style
 def init_plt_style():                                                                                                   # init_plt_style()
@@ -113,6 +113,7 @@ def init_plt_style():                                                           
   plt.cla();                                                                                                            # Clear graph plotted axes
   plt.clf();                                                                                                            # Clear graph plotted to set personalized plotting style
   plt.close();                                                                                                          # Close plotted graph
+  return                                                                                                                # Return nothing
 
 # Function definition to graphically plot data filtering operations
 def plot_data_flt(db, call_str, start_idxs_dbs, end_idxs_dbs, min_stddevs_dbs_idx, mode):                               # plot_data_flt(Datablock to split, Datablocks start idxs, Datablocks end idxs, Function call string, Ploting mode: complete/detailed)
@@ -160,6 +161,7 @@ def plot_data_flt(db, call_str, start_idxs_dbs, end_idxs_dbs, min_stddevs_dbs_id
     plt.axvline(db[da.time_col].values[e_idx-1]+1, linewidth=dbs_w, color=dbs_c)                                        # Plot last datablock-extra line
   set_plt_style()                                                                                                       # Function call to set personalized plotting style  
   plt.figure()                                                                                                          # Plot figure
+  return                                                                                                                # Return nothing
   
 # Function definition to graphically plot thermophysics variables interpolation/fitting
 def plot_tp_vars(x_arr, y_arr, f_intp_fit, intp_fit_pts, mat_typ, x_lbl, y_lbl, y_intp_fit_lbl, res, tb_y_pos_offs):    # plot_tp_vars(X-array, Y-array, Interpolation/fitting function, Number of interpolation/fitting points to plot, Material type: Air at atm-pressure/water/AISI-316-stainless-steel, X-label, Y-label, Y_interp_fitting-label, Poly-approximation result: discarded/accepted, Textbox Y-pos-offset)
@@ -178,3 +180,4 @@ def plot_tp_vars(x_arr, y_arr, f_intp_fit, intp_fit_pts, mat_typ, x_lbl, y_lbl, 
           bbox = dict(facecolor = poly_approx_res_col[res.value], alpha = ploy_approx_box_alpha))                       # Plot poly-approximation result txt and box
   set_plt_style()                                                                                                       # Function call to set personalized plotting style
   plt.figure()                                                                                                          # Plot figure
+  return                                                                                                                # Return nothing
