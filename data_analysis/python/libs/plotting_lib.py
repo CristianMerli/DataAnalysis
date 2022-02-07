@@ -40,7 +40,7 @@ dbs_sel_w = 9                                                                   
 dbs_sel_alpha = 0.15                                                                                                    # Selected datablocks fill alpha
 interval_txt_y_offs_p = 70                                                                                              # Interval txt Y pos offset (percentage)
 sel_interval_txt_y_offs_p = -10                                                                                         # Selected interval txt Y pos offset (percentage)
-interval_txt_size = 14                                                                                                  # Interval text size
+interval_txt_size = 20                                                                                                  # Interval text size
 interval_box_alpha = 0.8                                                                                                # Interval text-box alpha
 poly_approx_txt_size = 17                                                                                               # Poly-approximation text size
 ploy_approx_box_alpha = 0.7                                                                                             # Poly-approximation text-box alpha
@@ -153,7 +153,7 @@ def plot_data_flt(db, call_str, start_idxs_dbs, end_idxs_dbs, min_stddevs_dbs_id
         bottom, top = plt.ylim()                                                                                        # Get Y-axis limits to calc interval text-box pos
         plt.axvspan(start_col, end_col, alpha=dbs_sel_alpha, color=dbs_sel_col)                                         # Plot fill-color
         plt.text((start_col+end_col)/2, (bottom+top)/2+(((bottom+top)/2)/100)*interval_txt_y_offs_p,
-                 da.meas_names[int(idx/2)], fontsize=interval_txt_size, ha="center", va="center",
+                 da.meas_str+str(int(idx/2)+1), fontsize=interval_txt_size, ha="center", va="center",
                  bbox = dict(facecolor = inteval_box_col, alpha = interval_box_alpha))                                  # Plot interval txt and box
         tgt_idx += 2                                                                                                    # Upd detailed plotting mode list scrolling target index
     idx += 1                                                                                                            # Upd detailed plotting mode list scrolling index

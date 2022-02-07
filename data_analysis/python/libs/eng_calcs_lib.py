@@ -44,7 +44,7 @@ class He:                                                                       
     return                                                                                                              # Return nothing
   def print_info(self, dbg_flg):                                                                                        # Info printing method with debug flag
     if (dbg_flg):                                                                                                       # If dbg flg is ena
-      print("--> Heat-exchanger effective length: "+str(self.eff_len_m)+" [m]")                                         # Print dbg fbk
+      print("\n--> Heat-exchanger effective length: "+str(self.eff_len_m)+" [m]")                                       # Print dbg fbk
       print("--> Heat-exchanger glass pipe internal-diameter: "+str(self.glass_pipe_id_m)+" [m]")                       # Print dbg fbk
       print("--> Heat-exchanger steel pipes internal-diameter: "+str(self.steel_pipes_id_m)+" [m]")                     # Print dbg fbk
       print("--> Heat-exchanger steel pipes external-diameter: "+str(self.steel_pipes_ed_m)+" [m]")                     # Print dbg fbk

@@ -33,8 +33,8 @@ t2_col = "T2(degC)"                                                             
 t3_col = "T3(degC)"                                                                                                     # Temp 3 col in dataset (cold-out fluid temp vals [°C])
 t4_col = "T4(degC)"                                                                                                     # Temp 4 col in dataset (hot-out fluid temp vals [°C])
 conf_col = "Configurazione"                                                                                             # Config col in dataset
-# Measure-types strings array definition
-meas_names = ["Cocurrent measure 1", "Countercurrent measure 1", "Countercurrent measure 2", "Cocurrent measure 2"]     # Measure-names strings array def (ONLY FOR PRINTS/PLOTS B4 MEASURES DEF)
+# Measures strings definition
+meas_str = "Measure "                                                                                                   # Measure string def (ONLY FOR PRINTS/PLOTS B4 MEASURES DEF)
 meas_typ_str = ["Undefined measure", "Cocurrent measure", "Countercurrent measure"]                                     # Measure-types strings array
 
 ########
@@ -132,7 +132,7 @@ def find_plt_measures(he_data, plt_flg, dbg_flg):                               
   if (plt_flg):                                                                                                         # If plotting flag is ena
     pl.plot_data_flt(he_data, pl.plt_title, None, delim_idxs, None, pl.Plt_mode.complete)                               # Function call to graphically plot data filtering operations (complete plottin' mode)
   if (dbg_flg):                                                                                                         # If dbg flg is ena
-    print("--> Measures-delimiting indexes: ", delim_idxs)                                                              # Print dbg fbk
+    print("\n--> Measures-delimiting indexes: ", delim_idxs)                                                            # Print dbg fbk
   return he_measures_data, delim_idxs                                                                                   # Return heat-exchanger measures data list and measures delimiters indexes list
 
 # Function definition to find min value index in vals list (non-zero idx)
@@ -151,7 +151,7 @@ def find_plt_stdy_cond_win(dbs, win_span, plt_flg, dbg_flg):                    
   for db in dbs:                                                                                                        # Measures-data datablocks scrollin' cycle
     if (dbg_flg):                                                                                                       # If dbg flg is ena
       print("\n-----------------------------------------------------------------------")                                # Print dbg fbk
-      print("--> NEW 'find_stdy_cond()' FUNCTION CALL FOR", meas_names[idx])                                            # Print dbg fbk
+      print("--> NEW 'find_stdy_cond()' FUNCTION CALL FOR", meas_str+str(idx+1))                                        # Print dbg fbk
       print("-----------------------------------------------------------------------\n")                                # Print dbg fbk
     win_list_size = len(db) // win_span                                                                                 # Data-windows list size (zero-idx)
     max_win_idx = db.index[-1]-db.index[0]                                                                              # Max data-windows dataframe-idx
@@ -177,7 +177,8 @@ def find_plt_stdy_cond_win(dbs, win_span, plt_flg, dbg_flg):                    
     min_stddevs_win_idx = find_min_idx(win_stddevs)                                                                     # Function call to find data-window with min standard deviations avg in data-windows list by-index (non-zero idx)
     sc_windows.append(db[win_start_idxs[min_stddevs_win_idx]:win_end_idxs[min_stddevs_win_idx]])                        # Add optimal steady-conditions data window for each heat-exchanger data measure
     if (plt_flg):                                                                                                       # If plotting flag is ena
-      pl.plot_data_flt(db, meas_names[idx], win_start_idxs, win_end_idxs, min_stddevs_win_idx, pl.Plt_mode.detailed)    # Function call to graphically plot data filtering operations (detailed plottin' mode)
+      pl.plot_data_flt(db, meas_str+str(idx+1), win_start_idxs,
+                       win_end_idxs, min_stddevs_win_idx, pl.Plt_mode.detailed)                                         # Function call to graphically plot data filtering operations (detailed plottin' mode)
     if (dbg_flg):                                                                                                       # If dbg flg is ena
       print("min_stddevs_datablocks_idx: ", min_stddevs_win_idx)                                                        # Print dbg fbk
     idx += 1                                                                                                            # Measure index upd
@@ -216,10 +217,10 @@ def def_meas_vars(sc_windows, dbg_flg):                                         
     measures.append(measure)                                                                                            # Add measure data-structure in measures list
     if (dbg_flg):                                                                                                       # If dbg flg is ena
       print("\n--> "+measure.name+" mean vals:")                                                                        # Print dbg fbk
-      print("F1[l/h]: "+str(measure.f1))                                                                                # Print dbg fbk
-      print("F2[l/h]: "+str(measure.f2))                                                                                # Print dbg fbk
-      print("T1[°C]: "+str(measure.t1))                                                                                 # Print dbg fbk
-      print("T2[°C]: "+str(measure.t2))                                                                                 # Print dbg fbk
-      print("T3[°C]: "+str(measure.t3))                                                                                 # Print dbg fbk
-      print("T4[°C]: "+str(measure.t4))                                                                                 # Print dbg fbk
+      print("F1: "+str(measure.f1)+" [l/h]")                                                                            # Print dbg fbk
+      print("F2: "+str(measure.f2)+" [l/h]")                                                                            # Print dbg fbk
+      print("T1: "+str(measure.t1)+" [°C]")                                                                             # Print dbg fbk
+      print("T2: "+str(measure.t2)+" [°C]")                                                                             # Print dbg fbk
+      print("T3: "+str(measure.t3)+" [°C]")                                                                             # Print dbg fbk
+      print("T4: "+str(measure.t4)+" [°C]")                                                                             # Print dbg fbk
   return measures                                                                                                       # Return measure-vars data-structures list
