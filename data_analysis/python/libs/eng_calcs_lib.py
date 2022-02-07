@@ -93,9 +93,7 @@ def glob_htc_coeff(thermal_pow_kw, surf_m2, lmtd):                              
 # Function definition to print measures calcs results
 def print_measures_calcs_res(measures, dbg_flg):                                                                        # print_measures_calcs_res(Measures list, Debug flag)
   if (dbg_flg):                                                                                                         # If dbg flg is ena
-    idx = 0                                                                                                             # Measure index
     for meas in measures:                                                                                               # Measures scrollin' cycle
-      print("\n--> "+da.meas_names[idx]+" measure calculations results:")                                               # Print dbg fbk
+      print("\n--> "+meas.name+" calculations results:")                                                                # Print dbg fbk
       meas.print_info(dbg_flg)                                                                                          # Print measures calcs results (if debug flag is enabled) by callin' the print-info method of the class
-      idx += 1                                                                                                          # Measure index upd
     return                                                                                                              # Return nothing

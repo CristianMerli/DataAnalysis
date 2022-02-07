@@ -4,6 +4,7 @@
 
 # Libraries import
 import pandas as pd                                                                                                     # Data-analysis panda lib
+import enum as en                                                                                                       # Enum lib
 # Project personal libraries import
 import libs.plotting_lib as pl                                                                                          # Plotting lib
 
@@ -32,15 +33,24 @@ t2_col = "T2(degC)"                                                             
 t3_col = "T3(degC)"                                                                                                     # Temp 3 col in dataset (cold-out fluid temp vals [°C])
 t4_col = "T4(degC)"                                                                                                     # Temp 4 col in dataset (hot-out fluid temp vals [°C])
 conf_col = "Configurazione"                                                                                             # Config col in dataset
-# Measure-names strings array definition
-meas_names = ["Cocurrent measure 1", "Countercurrent measure 1", "Countercurrent measure 2", "Cocurrent measure 2"]     # Measure-names strings array def
+# Measure-types strings array definition
+meas_names = ["Cocurrent measure 1", "Countercurrent measure 1", "Countercurrent measure 2", "Cocurrent measure 2"]     # Measure-names strings array def (ONLY FOR PRINTS/PLOTS B4 MEASURES DEF)
+meas_typ_str = ["Undefined measure", "Cocurrent measure", "Countercurrent measure"]                                     # Measure-types strings array
 
 ########
 # DEFS #
 ########
 
+# Measure type enum definition
+class Meas_typ(en.Enum):                                                                                                # Measure type enum class
+  undef = 0                                                                                                             # Undefined measure type
+  ccurr = 1                                                                                                             # Cocurrent measure type
+  cntcurr = 2                                                                                                           # Countercurrent measure type
 # Measure-variables class
 class Meas_vars:                                                                                                        # Measure-vars class (attributes, constructor, methods)
+  typ = Meas_typ.undef                                                                                                  # Measure type
+  typ_counter = 0                                                                                                       # Measure type counter
+  name = ""                                                                                                             # Measure name
   f1 = 0.0                                                                                                              # Mean F1 var value --> Cold fluid volume flow rate [l/h] --> mass flow rate [kg/s]
   f2 = 0.0                                                                                                              # Mean F2 var value --> Hot fluid volume flow rate [l/h] --> mass flow rate [kg/s]
   t1 = 0.0                                                                                                              # Mean T1 var value --> Cold fluid inlet temperature [°C]
@@ -177,9 +187,26 @@ def find_plt_stdy_cond_win(dbs, win_span, plt_flg, dbg_flg):                    
 # and define measure-vars data-structures list
 def def_meas_vars(sc_windows, dbg_flg):                                                                                 # def_meas_vars(Steady-conditions data-windows, Debug flag)
   measures = list()                                                                                                     # New measures list declaration and following definition
-  idx = 0                                                                                                               # Measure index
+  ccurr_meas_counter = 0                                                                                                # Cocurrent-measures counter
+  cntcurr_meas_counter = 0                                                                                              # Countercurrent-measures counter
+  undef_meas_counter = 0                                                                                                # Undefined-measures counter
   for sc_win in sc_windows:                                                                                             # Steady-conditions data-windows scrollin' cycle
     measure = Meas_vars()                                                                                               # Define new measure-values data-structure
+    if (sc_win[conf_col].iloc[0] == cocurrent_flow_lbl):                                                                # Cocurrent measure detectin' cond
+      ccurr_meas_counter += 1                                                                                           # Cocurrent-measures counter upd
+      measure.typ = Meas_typ.ccurr                                                                                      # Measure type definition
+      measure.typ_counter = ccurr_meas_counter                                                                          # Measure type counter definition
+      measure.name = meas_typ_str[measure.typ.value]+" "+str(measure.typ_counter)                                       # Measure name definition
+    elif (sc_win[conf_col].iloc[0] == countercurrent_flow_lbl):                                                         # Countercurrent measure detectin' cond
+      cntcurr_meas_counter += 1                                                                                         # Countercurrent-measures counter upd
+      measure.typ = Meas_typ.cntcurr                                                                                    # Measure type definition
+      measure.typ_counter = cntcurr_meas_counter                                                                        # Measure type counter definition
+      measure.name = meas_typ_str[measure.typ.value]+" "+str(measure.typ_counter)                                       # Measure name definition
+    else:                                                                                                               # Undefined measure detectin' cond
+      undef_meas_counter += 1                                                                                           # Undefined-measures counter upd
+      measure.typ = Meas_typ.undef                                                                                      # Measure type definition
+      measure.typ_counter = undef_meas_counter                                                                          # Measure type counter definition
+      measure.name = meas_typ_str[measure.typ.value]+" "+str(measure.typ_counter)                                       # Measure name definition
     measure.f1 = sc_win[f1_col].mean()                                                                                  # Calc mean F1 var value in optimal steady-conditions data-window and populate measure data-structure
     measure.f2 = sc_win[f2_col].mean()                                                                                  # Calc mean F2 var value in optimal steady-conditions data-window and populate measure data-structure
     measure.t1 = sc_win[t1_col].mean()                                                                                  # Calc mean T1 var value in optimal steady-conditions data-window and populate measure data-structure
@@ -188,12 +215,11 @@ def def_meas_vars(sc_windows, dbg_flg):                                         
     measure.t4 = sc_win[t4_col].mean()                                                                                  # Calc mean T4 var value in optimal steady-conditions data-window and populate measure data-structure
     measures.append(measure)                                                                                            # Add measure data-structure in measures list
     if (dbg_flg):                                                                                                       # If dbg flg is ena
-      print("\n--> "+meas_names[idx]+" mean vals:")                                                                     # Print dbg fbk
-      print("F1[l/h]: "+str(measures[idx].f1))                                                                          # Print dbg fbk
-      print("F2[l/h]: "+str(measures[idx].f2))                                                                          # Print dbg fbk
-      print("T1[°C]: "+str(measures[idx].t1))                                                                           # Print dbg fbk
-      print("T2[°C]: "+str(measures[idx].t2))                                                                           # Print dbg fbk
-      print("T3[°C]: "+str(measures[idx].t3))                                                                           # Print dbg fbk
-      print("T4[°C]: "+str(measures[idx].t4))                                                                           # Print dbg fbk
-      idx += 1                                                                                                          # Measure index upd
+      print("\n--> "+measure.name+" mean vals:")                                                                        # Print dbg fbk
+      print("F1[l/h]: "+str(measure.f1))                                                                                # Print dbg fbk
+      print("F2[l/h]: "+str(measure.f2))                                                                                # Print dbg fbk
+      print("T1[°C]: "+str(measure.t1))                                                                                 # Print dbg fbk
+      print("T2[°C]: "+str(measure.t2))                                                                                 # Print dbg fbk
+      print("T3[°C]: "+str(measure.t3))                                                                                 # Print dbg fbk
+      print("T4[°C]: "+str(measure.t4))                                                                                 # Print dbg fbk
   return measures                                                                                                       # Return measure-vars data-structures list
