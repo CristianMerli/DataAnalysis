@@ -61,11 +61,16 @@ class Meas_vars:                                                                
   avg_hot_fl_temp = 0.0                                                                                                 # Average hot fluid temperature [°C]
   cold_fl_delta_temp = 0.0                                                                                              # Cold fluid delta temperature [°C] or [K]
   hot_fl_delta_temp = 0.0                                                                                               # Hot fluid delta temperature [°C] or [K]
-  lmtd = 0.0                                                                                                            # Log-mean temperature difference (LMTD) [°C] or [K]
+  lmtd = 0.0                                                                                                            # Log-mean temperature difference (LMTD) [°C] or [K] (approximative)
   cold_fl_tr_heat = 0.0                                                                                                 # Cold fluid transferred heat (thermal power) [kW]
   hot_fl_tr_heat = 0.0                                                                                                  # Hot fluid transferred heat (thermal power) [kW]
   heat_loss = 0.0                                                                                                       # Heat loss (thermal power) [kW]
   glob_htc = 0.0                                                                                                        # Global heat transfer coefficient (global HTC) [kW/(m^2*K)]
+  cpt_min = 0.0                                                                                                         # C-point-min min[mass-flow-rate*Cp] [kJ/(K*s)] (approximative)
+  cpt_max = 0.0                                                                                                         # C-point-max max[mass-flow-rate*Cp] [kJ/(K*s)] (approximative)
+  ntu = 0.0                                                                                                             # Number of transfer units (NTU) (approximative)
+  epsilon = 0.0                                                                                                         # Effectiveness (epsilon) (approximative)
+  re_int = 0.0                                                                                                          # Reynolds number inside steel pipes
   def __init__(self):                                                                                                   # Constructor
     return                                                                                                              # Return nothing
   def print_info(self, dbg_flg):                                                                                        # Info printing method with debug flag
@@ -80,11 +85,16 @@ class Meas_vars:                                                                
       print("- Average hot fluid temperature: "+str(self.avg_hot_fl_temp)+" [°C]")                                      # Print dbg fbk
       print("- Cold fluid delta temperature: "+str(self.cold_fl_delta_temp)+" [°C]")                                    # Print dbg fbk
       print("- Hot fluid delta temperature: "+str(self.hot_fl_delta_temp)+" [°C]")                                      # Print dbg fbk
-      print("- Log-mean temperature difference (LMTD): "+str(self.lmtd)+" [°C]")                                        # Print dbg fbk
+      print("- Log-mean temperature difference (LMTD): "+str(self.lmtd)+" [°C] (approximative)")                        # Print dbg fbk
       print("- Cold fluid transferred heat (thermal power): "+str(self.cold_fl_tr_heat)+" [kW]")                        # Print dbg fbk
       print("- Hot fluid transferred heat (thermal power): "+str(self.hot_fl_tr_heat)+" [kW]")                          # Print dbg fbk
       print("- Heat losses (thermal power): "+str(self.heat_loss)+" [kW]")                                              # Print dbg fbk
-      print("- Global heat transfer coefficient (global HTC): "+str(self.glob_htc)+" [kW/(m^2*K)]")                     # Print dbg fbk
+      print("- Global heat transfer coefficient (global HTC): "+str(self.glob_htc)+" [kW/(m^2*K)] (approximative)")     # Print dbg fbk
+      print("- C-point-min min[mass-flow-rate*Cp]: "+str(self.cpt_min)+" [kJ/(K*s)] (approximative)")                   # Print dbg fbk
+      print("- C-point-max max[mass-flow-rate*Cp]: "+str(self.cpt_max)+" [kJ/(K*s)] (approximative)")                   # Print dbg fbk
+      print("- Number of transfer units (NTU): "+str(self.ntu)+" (approximative)")                                      # Print dbg fbk
+      print("- Effectiveness (epsilon): "+str(self.epsilon)+" (approximative)")                                         # Print dbg fbk
+      print("- Reynolds number inside steel pipes: "+str(self.re_int))                                                  # Print dbg fbk
     return                                                                                                              # Return nothing
 
 ##########

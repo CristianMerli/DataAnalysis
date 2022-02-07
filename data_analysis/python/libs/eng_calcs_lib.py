@@ -87,9 +87,30 @@ def therm_pow(mass_flow_rate_kg_s, cp_kj_kg_c, delta_temp):                     
 
 # Function definition to calculate global heat transfer coefficient (global HTC)
 def glob_htc_coeff(thermal_pow_kw, surf_m2, lmtd):                                                                      # glob_htc_coeff(Thermal power [kW], Surface [m^2], Log-mean temperature difference [°C] or [K])
-  return thermal_pow_kw/(surf_m2*lmtd)                                                                                  # Return global heat transfer coefficient (global HTC) [kW/(m^2*K)]
+  return abs(thermal_pow_kw/(surf_m2*lmtd))                                                                             # Return positive global heat transfer coefficient (global HTC) [kW/(m^2*K)]
 
-## LAST ##
+# Function to calculate C-point-min (min[mass-flow-rate*Cp]) and C-point-max (max[mass-flow-rate*Cp])
+def cptmin_cptmax(mass_flow_rate_cold, cp_cold, mass_flow_rate_hot, cp_hot):                                            # cptmin_cptmax(Mass flow rate cold fluid [kg/s], Specific heat at const-pressure cold fluid [kJ/(kg*k)], Mass flow rate hot fluid [kg/s], Specific heat at const-pressure hot fluid [kJ/(kg*k)])
+  cpt_cold = mass_flow_rate_cold*cp_cold                                                                                # Calculate cold fluid C-point [kJ/(K*s)] --> [kg/s]*[kJ/(kg*K)]=[kJ/(K*s)]
+  cpt_hot = mass_flow_rate_hot*cp_hot                                                                                   # Calculate hot fluid C-point [kJ/(K*s)] --> [kg/s]*[kJ/(kg*K)]=[kJ/(K*s)]
+  if (cpt_cold < cpt_hot):                                                                                              # If cold fluid C-point is less than hot fluid C-point
+    return cpt_cold, cpt_hot                                                                                            # Return (cold C-point, hot C-point) --> (Cptmin, Cptmax)
+  else:                                                                                                                 # Else if cold fluid C-point is greater than hot fluid C-point
+    return cpt_hot, cpt_cold                                                                                            # Return (hot C-point, cold C-point) --> (Cptmin, Cptmax)
+
+# Function definition to calculate the number of transfer units (NTU)
+def ntu(glob_htc_coeff, surf_m2, cpt_min):                                                                              # ntu(Global heat transfer coefficient [kW/(m^2*K)], Surface [m^2], C-point-min [kJ/(K*s)])
+  return (glob_htc_coeff*surf_m2)/cpt_min                                                                               # Return calculated NTU
+
+# Function definition to calculate effectiveness
+def effectiveness(meas_typ, ntu, cpts_ratio):                                                                           # effectiveness(Measure type: Cocurrent/countercurrent/undefined, Number of tranfer units, C-points-ratio --> Cptmin/Cptmax)
+  if (meas_typ == da.Meas_typ.ccurr):                                                                                   # In case of cocurrent measure type
+    return (1-mt.exp(-ntu*(1+cpts_ratio)))/(1+cpts_ratio)                                                               # Return calculated effectiveness (epsilon)
+  elif (meas_typ == da.Meas_typ.cntcurr):                                                                               # Else in case of countercurrent measure type
+    return (1-mt.exp(-ntu*(1-cpts_ratio)))/(1-cpts_ratio*mt.exp(-ntu*(1-cpts_ratio)))                                   # Return calculated effectiveness (epsilon)
+  else:                                                                                                                 # Else in case of undefined measure type
+    return -1                                                                                                           # Return calculated effectiveness (epsilon)
+
 # Function definition to print measures calcs results
 def print_measures_calcs_res(measures, dbg_flg):                                                                        # print_measures_calcs_res(Measures list, Debug flag)
   if (dbg_flg):                                                                                                         # If dbg flg is ena
@@ -97,3 +118,11 @@ def print_measures_calcs_res(measures, dbg_flg):                                
       print("\n--> "+meas.name+" calculations results:")                                                                # Print dbg fbk
       meas.print_info(dbg_flg)                                                                                          # Print measures calcs results (if debug flag is enabled) by callin' the print-info method of the class
     return                                                                                                              # Return nothing
+
+# Function definition to calculate dynamic viscosity from kinematic viscosity and density vs temp
+def dyn_vis(f_ni, f_rho, temp):                                                                                         # dyn_vis(Ni vs temp: kinematic viscosity [m^2/s], Rho vs temp: density [kg/m^3], Temperature [°C])
+  return f_ni(temp)*f_rho(temp)                                                                                         # Return dynamic viscosity [kg/(m*s)] --> [m^2/s]*][kg/m^3]=[kg/(m*s)]=[Pa*S]=[Pl]
+
+# Function definition to calculate Reynolds number for fluid in cylindrical pipe
+def re_cyl_pipe(pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis):                                                     # re_cyl_pipe(Pipe mass flow rate [kg/s], Pipe internal diameter [m], Mu: fluid dynamic viscosity [kg/(m*S)])
+  return (4*pipe_mass_flow_rate)/(mt.pi*pipe_int_diam*fluid_dyn_vis)                                                    # Return calculated Reynolds number for fluid in cylindrical pipe [adimensional] --> [kg/s]/([m]*[kg/(m*s)])=[adimensional]

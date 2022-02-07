@@ -19,7 +19,7 @@
 - C-point-max max[mass-flow-rate*Cp]: 0.6450464737654941 [kJ/(K*s)] (approximative)
 - Number of transfer units (NTU): 0.37425973770778026 (approximative)
 - Effectiveness (epsilon): 0.2646927626813373 (approximative)
-- Reynolds number inside steel pipes: 8475.401387388405
+- Reynolds number inside steel pipes: 0.0
 
 --> Countercurrent measure 1 calculations results:
 - Cold fluid mass flow rate: 0.1484311273183292 [kg/s]
@@ -41,7 +41,7 @@
 - C-point-max max[mass-flow-rate*Cp]: 0.651714967310756 [kJ/(K*s)] (approximative)
 - Number of transfer units (NTU): 0.4083212708074647 (approximative)
 - Effectiveness (epsilon): 0.29193265384647005 (approximative)
-- Reynolds number inside steel pipes: 8567.621656763613
+- Reynolds number inside steel pipes: 0.0
 
 --> Countercurrent measure 2 calculations results:
 - Cold fluid mass flow rate: 0.047238881518364424 [kg/s]
@@ -63,7 +63,7 @@
 - C-point-max max[mass-flow-rate*Cp]: 0.6585372902123762 [kJ/(K*s)] (approximative)
 - Number of transfer units (NTU): 0.9770895704007575 (approximative)
 - Effectiveness (epsilon): 0.5837758864709931 (approximative)
-- Reynolds number inside steel pipes: 8892.231994103524
+- Reynolds number inside steel pipes: 0.0
 
 --> Cocurrent measure 2 calculations results:
 - Cold fluid mass flow rate: 0.04607886236181829 [kg/s]
@@ -85,4 +85,4 @@
 - C-point-max max[mass-flow-rate*Cp]: 0.6637758774279902 [kJ/(K*s)] (approximative)
 - Number of transfer units (NTU): 0.9330936031127647 (approximative)
 - Effectiveness (epsilon): 0.542529860632475 (approximative)
-- Reynolds number inside steel pipes: 9013.494439085682
+- Reynolds number inside steel pipes: 0.0
