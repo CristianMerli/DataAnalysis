@@ -1,9 +1,13 @@
 
---> Heat-exchanger effective length: 0.68 [m]
+--> Heat-exchanger effective length: 0.7 [m]
 --> Heat-exchanger glass pipe internal-diameter: 0.05 [m]
+--> Number of heat-exchanger diaphragms in glass pipe: 13
+--> Heat-exchanger glass pipe diaphragms pace: 0.05 [m]
 --> Heat-exchanger steel pipes internal-diameter: 0.008 [m]
 --> Heat-exchanger steel pipes external-diameter: 0.01 [m]
 --> Number of heat-exchanger steel pipes: 5
+--> Heat-exchanger steel pipes pace: 0.015 [m]
 --> Heat-exchanger steel pipes thickness: 0.002 [m]
---> Heat-exchanger steel pipes internal-surface: 0.08545132017764238 [m^2]
---> Heat-exchanger steel pipes external-surface: 0.10681415022205297 [m^2]
+--> Heat-exchanger interspace between steel pipes: 0.005 [m]
+--> Heat-exchanger steel pipes internal-surface: 0.0879645943005142 [m^2]
+--> Heat-exchanger steel pipes external-surface: 0.10995574287564275 [m^2]

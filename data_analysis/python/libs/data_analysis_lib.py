@@ -7,6 +7,7 @@ import pandas as pd                                                             
 import enum as en                                                                                                       # Enum lib
 # Project personal libraries import
 import libs.plotting_lib as pl                                                                                          # Plotting lib
+import libs.output_lib as out                                                                                           # Output lib
 
 ########
 # VARS #
@@ -71,31 +72,45 @@ class Meas_vars:                                                                
   ntu = 0.0                                                                                                             # Number of transfer units (NTU) (approximative)
   epsilon = 0.0                                                                                                         # Effectiveness (epsilon) (approximative)
   re_int = 0.0                                                                                                          # Reynolds number inside steel pipes
+  nu_int = 0.0                                                                                                          # Nusselt number inside steel pipes
+  pr_int = 0.0                                                                                                          # Prandtl number inside steel pipes
+  h_int = 0.0                                                                                                           # Heat transfer coefficient (h) inside steel pipes
+  re_ext = 0.0                                                                                                          # Reynolds number inside glass pipe
+  nu_ext = 0.0                                                                                                          # Nusselt number inside glass pipe
+  pr_ext = 0.0                                                                                                          # Prandtl number inside glass pipe
+  h_ext = 0.0                                                                                                           # Heat transfer coefficient (h) inside glass pipe
   def __init__(self):                                                                                                   # Constructor
     return                                                                                                              # Return nothing
-  def print_info(self, dbg_flg):                                                                                        # Info printing method with debug flag
-    if (dbg_flg):                                                                                                       # If dbg flg is ena
-      print("- Cold fluid mass flow rate: "+str(self.f1)+" [kg/s]")                                                     # Print dbg fbk
-      print("- Hot fluid mass flow rate: "+str(self.f2)+" [kg/s]")                                                      # Print dbg fbk
-      print("- Cold fluid inlet temperature: "+str(self.t1)+" [°C]")                                                    # Print dbg fbk
-      print("- Hot fluid inlet temperature: "+str(self.t2)+" [°C]")                                                     # Print dbg fbk
-      print("- Cold fluid outlet temperature: "+str(self.t3)+" [°C]")                                                   # Print dbg fbk
-      print("- Hot fluid outlet temperature: "+str(self.t4)+" [°C]")                                                    # Print dbg fbk
-      print("- Average cold fluid temperature: "+str(self.avg_cold_fl_temp)+" [°C]")                                    # Print dbg fbk
-      print("- Average hot fluid temperature: "+str(self.avg_hot_fl_temp)+" [°C]")                                      # Print dbg fbk
-      print("- Cold fluid delta temperature: "+str(self.cold_fl_delta_temp)+" [°C]")                                    # Print dbg fbk
-      print("- Hot fluid delta temperature: "+str(self.hot_fl_delta_temp)+" [°C]")                                      # Print dbg fbk
-      print("- Log-mean temperature difference (LMTD): "+str(self.lmtd)+" [°C] (approximative)")                        # Print dbg fbk
-      print("- Cold fluid transferred heat (thermal power): "+str(self.cold_fl_tr_heat)+" [kW]")                        # Print dbg fbk
-      print("- Hot fluid transferred heat (thermal power): "+str(self.hot_fl_tr_heat)+" [kW]")                          # Print dbg fbk
-      print("- Heat losses (thermal power): "+str(self.heat_loss)+" [kW]")                                              # Print dbg fbk
-      print("- Global heat transfer coefficient (global HTC): "+str(self.glob_htc)+" [kW/(m^2*K)] (approximative)")     # Print dbg fbk
-      print("- C-point-min min[mass-flow-rate*Cp]: "+str(self.cpt_min)+" [kJ/(K*s)] (approximative)")                   # Print dbg fbk
-      print("- C-point-max max[mass-flow-rate*Cp]: "+str(self.cpt_max)+" [kJ/(K*s)] (approximative)")                   # Print dbg fbk
-      print("- Number of transfer units (NTU): "+str(self.ntu)+" (approximative)")                                      # Print dbg fbk
-      print("- Effectiveness (epsilon): "+str(self.epsilon)+" (approximative)")                                         # Print dbg fbk
-      print("- Reynolds number inside steel pipes: "+str(self.re_int))                                                  # Print dbg fbk
-    return                                                                                                              # Return nothing
+  def get_info(self):                                                                                                   # Measure class method to get measure info
+    dbg_str = ("\n--> "+self.name+" calculations results:"\
+    +"\n- Cold fluid mass flow rate: "+str(self.f1)+" [kg/s]"\
+    +"\n- Hot fluid mass flow rate: "+str(self.f2)+" [kg/s]"\
+    +"\n- Cold fluid inlet temperature: "+str(self.t1)+" [°C]"\
+    +"\n- Hot fluid inlet temperature: "+str(self.t2)+" [°C]"\
+    +"\n- Cold fluid outlet temperature: "+str(self.t3)+" [°C]"\
+    +"\n- Hot fluid outlet temperature: "+str(self.t4)+" [°C]"\
+    +"\n- Average cold fluid temperature: "+str(self.avg_cold_fl_temp)+" [°C]"\
+    +"\n- Average hot fluid temperature: "+str(self.avg_hot_fl_temp)+" [°C]"\
+    +"\n- Cold fluid delta temperature: "+str(self.cold_fl_delta_temp)+" [°C]"\
+    +"\n- Hot fluid delta temperature: "+str(self.hot_fl_delta_temp)+" [°C]"\
+    +"\n- Log-mean temperature difference (LMTD): "+str(self.lmtd)+" [°C] (approximative)"\
+    +"\n- Cold fluid transferred heat (thermal power): "+str(self.cold_fl_tr_heat)+" [kW]"\
+    +"\n- Hot fluid transferred heat (thermal power): "+str(self.hot_fl_tr_heat)+" [kW]"\
+    +"\n- Heat losses (thermal power): "+str(self.heat_loss)+" [kW]"\
+    +"\n- Global heat transfer coefficient (global HTC): "+str(self.glob_htc)+" [kW/(m^2*K)] (approximative)"\
+    +"\n- C-point-min min[mass-flow-rate*Cp]: "+str(self.cpt_min)+" [kJ/(K*s)] (approximative)"\
+    +"\n- C-point-max max[mass-flow-rate*Cp]: "+str(self.cpt_max)+" [kJ/(K*s)] (approximative)"\
+    +"\n- Number of transfer units (NTU): "+str(self.ntu)+" (approximative)"\
+    +"\n- Effectiveness (epsilon): "+str(self.epsilon)+" (approximative)"\
+    +"\n- Reynolds number inside steel pipes: "+str(self.re_int)\
+    +"\n- Nusselt number inside steel pipes: "+str(self.nu_int)\
+    +"\n- Prandtl number inside steel pipes: "+str(self.pr_int)\
+    +"\n- Heat transfer coefficient (h) inside steel pipes: "+str(self.h_int)+" [W/(m^2*K)]"\
+    +"\n- Reynolds number inside glass pipe: "+str(self.re_ext)\
+    +"\n- Nusselt number inside glass pipe: "+str(self.nu_ext)\
+    +"\n- Prandtl number inside glass pipe: "+str(self.pr_ext)\
+    +"\n- Heat transfer coefficient (h) inside glass pipe: "+str(self.h_ext)+" [W/(m^2*K)]\n")                          # Dbg fbk
+    return dbg_str                                                                                                      # Return dbg fbk
 
 ##########
 # FUNCTS #
@@ -115,11 +130,12 @@ def load_dataset_data():                                                        
   return pd.read_csv(csv_data_filepath, sep=csv_sep_chr, encoding="utf8")                                               # Return DataFrame var containing measure dataset
 
 # Data intervals detection: extract data in different operating conditions
-def find_plt_measures(he_data, plt_flg, dbg_flg):                                                                       # find_plt_measures(Heat-exchanger DataFrame, Plotting flag, Debug flag)
+# and save delimiting idxs
+def find_plt_save_measures(he_data, plt_flg, dbg_flg):                                                                  # find_plt_save_measures(Heat-exchanger DataFrame, Plotting flag, Debug flag)
   he_measures_data = list()                                                                                             # New heat-exchanger measures data list declaration and following definition
   delim_idxs = list()                                                                                                   # New delimiter-indexes list (list containing dataframe row idxs: configurations start/end idxs)
-  old_oper_str = ""                                                                                                     # Operation string in previous dataframe row
-  oper_str = ""                                                                                                         # Operation string in current dataframe row
+  old_oper_str = str()                                                                                                  # Operation string in previous dataframe row
+  oper_str = str()                                                                                                      # Operation string in current dataframe row
   rows_scroll_index = 0                                                                                                 # Index to trace current row in dataframe rows scrolling cycle
   for rows_scroll_index, row in he_data.iterrows():                                                                     # Cycle to scroll rows in dataframe, tracing row index
     old_oper_str = oper_str                                                                                             # Update previous dataframe row string
@@ -142,7 +158,9 @@ def find_plt_measures(he_data, plt_flg, dbg_flg):                               
   if (plt_flg):                                                                                                         # If plotting flag is ena
     pl.plot_data_flt(he_data, pl.plt_title, None, delim_idxs, None, pl.Plt_mode.complete)                               # Function call to graphically plot data filtering operations (complete plottin' mode)
   if (dbg_flg):                                                                                                         # If dbg flg is ena
-    print("\n--> Measures-delimiting indexes: ", delim_idxs)                                                            # Print dbg fbk
+    dbg_str = ("\n--> Measures-delimiting indexes: "+str(delim_idxs)+'\n')                                              # Dbg fbk
+    print(dbg_str)                                                                                                      # Print dbg fbk
+    out.save_output(out.Output_typ.delim_idxs, dbg_str)                                                                 # Save dbg output
   return he_measures_data, delim_idxs                                                                                   # Return heat-exchanger measures data list and measures delimiters indexes list
 
 # Function definition to find min value index in vals list (non-zero idx)
@@ -153,16 +171,18 @@ def find_min_idx(vals):                                                         
       min_idx = i                                                                                                       # Min val idx upd oper
   return min_idx                                                                                                        # Return min val idx in vals list (non-zero idx)
 
-# Function definition to find and plot optimal steady-conditions data windows, by calulating
-# mean standard-deviations in each window, avoiding the first transitory data-window
-def find_plt_stdy_cond_win(dbs, win_span, plt_flg, dbg_flg):                                                            # find_plt_stdy_cond_win(Measures-datablocks to split, Data-windows span [samples], Plotting flag, Debug flag)
+# Function definition to find and plot optimal steady-conditions data windows, by calulating mean
+# standard-deviations in each window, avoiding the first transitory data-window and saving std-devs output
+def find_plt_save_stdy_cond_win(dbs, win_span, plt_flg, dbg_flg):                                                       # find_plt_save_stdy_cond_win(Measures-datablocks to split, Data-windows span [samples], Plotting flag, Debug flag)
   sc_windows = list()                                                                                                   # New steady-conditions data-windows list declaration and following definition
   idx = 0                                                                                                               # Measure index
+  if (dbg_flg):                                                                                                         # If dbg flg is ena
+    dbg_str = str()                                                                                                     # Dbg fbk
   for db in dbs:                                                                                                        # Measures-data datablocks scrollin' cycle
     if (dbg_flg):                                                                                                       # If dbg flg is ena
-      print("\n-----------------------------------------------------------------------")                                # Print dbg fbk
-      print("--> NEW 'find_stdy_cond()' FUNCTION CALL FOR", meas_str+str(idx+1))                                        # Print dbg fbk
-      print("-----------------------------------------------------------------------\n")                                # Print dbg fbk
+      dbg_str += ("\n-----------------------------------------------------------------------"\
+      +"\n--> NEW 'find_stdy_cond()' FUNCTION CALL FOR "+str(meas_str+str(idx+1))\
+      +"\n-----------------------------------------------------------------------\n")                                   # Dbg fbk
     win_list_size = len(db) // win_span                                                                                 # Data-windows list size (zero-idx)
     max_win_idx = db.index[-1]-db.index[0]                                                                              # Max data-windows dataframe-idx
     windows = list()                                                                                                    # Data-windows list
@@ -181,26 +201,31 @@ def find_plt_stdy_cond_win(dbs, win_span, plt_flg, dbg_flg):                    
       t4_stddev = windows[-1][t4_col].std()                                                                             # Calc t4 data standard-deviation
       win_stddevs.append((f1_stddev+f2_stddev+t1_stddev+t2_stddev+t3_stddev+t4_stddev) / 6)                             # Calc the data mean standard deviations, to look for the best data window (steady cond)
       if (dbg_flg):                                                                                                     # If dbg flg is ena
-        print("f1_stddev: ", f1_stddev, "\nf2_stddev: ", f2_stddev, "\nt1_stddev: ", t1_stddev)                         # Print dbg fbk
-        print("t2_stddev: ", t2_stddev, "\nt3_stddev: ", t3_stddev, "\nt4_stddev: ", t4_stddev)                         # Print dbg fbk
-        print("mean_stddev: ", win_stddevs[-1], '\n')                                                                   # Print dbg fbk
+        dbg_str += ("\nf1_stddev: "+str(f1_stddev)+"\nf2_stddev: "+str(f2_stddev)+"\nt1_stddev: "+str(t1_stddev)\
+        +"\nt2_stddev: "+str(t2_stddev)+"\nt3_stddev: "+str(t3_stddev)+"\nt4_stddev: "+str(t4_stddev)\
+        +"\nmean_stddev: "+str(win_stddevs[-1])+'\n')                                                                   # Dbg fbk
     min_stddevs_win_idx = find_min_idx(win_stddevs)                                                                     # Function call to find data-window with min standard deviations avg in data-windows list by-index (non-zero idx)
     sc_windows.append(db[win_start_idxs[min_stddevs_win_idx]:win_end_idxs[min_stddevs_win_idx]])                        # Add optimal steady-conditions data window for each heat-exchanger data measure
     if (plt_flg):                                                                                                       # If plotting flag is ena
       pl.plot_data_flt(db, meas_str+str(idx+1), win_start_idxs,
                        win_end_idxs, min_stddevs_win_idx, pl.Plt_mode.detailed)                                         # Function call to graphically plot data filtering operations (detailed plottin' mode)
     if (dbg_flg):                                                                                                       # If dbg flg is ena
-      print("min_stddevs_datablocks_idx: ", min_stddevs_win_idx)                                                        # Print dbg fbk
+      dbg_str += ("\nmin_stddevs_datablocks_idx: "+str(min_stddevs_win_idx)+'\n')                                       # Dbg fbk
     idx += 1                                                                                                            # Measure index upd
+  if (dbg_flg):                                                                                                         # If dbg flg is ena
+    print(dbg_str)                                                                                                      # Print dbg fbk
+    out.save_output(out.Output_typ.std_devs, dbg_str)                                                                   # Save dbg output
   return sc_windows                                                                                                     # Return steady-conditions data-windows
 
-# Function definition to determine measured variables values (temperatures and volume flow rates)
-# and define measure-vars data-structures list
-def def_meas_vars(sc_windows, dbg_flg):                                                                                 # def_meas_vars(Steady-conditions data-windows, Debug flag)
+# Function definition to determine and save measured variables values
+# (temperatures and volume flow rates) and define measure-vars data-structures list
+def def_save_meas_vars(sc_windows, dbg_flg):                                                                            # def_save_meas_vars(Steady-conditions data-windows, Debug flag)
   measures = list()                                                                                                     # New measures list declaration and following definition
   ccurr_meas_counter = 0                                                                                                # Cocurrent-measures counter
   cntcurr_meas_counter = 0                                                                                              # Countercurrent-measures counter
   undef_meas_counter = 0                                                                                                # Undefined-measures counter
+  if (dbg_flg):                                                                                                         # If dbg flg is ena
+    dbg_str = str()                                                                                                     # Dbg fbk
   for sc_win in sc_windows:                                                                                             # Steady-conditions data-windows scrollin' cycle
     measure = Meas_vars()                                                                                               # Define new measure-values data-structure
     if (sc_win[conf_col].iloc[0] == cocurrent_flow_lbl):                                                                # Cocurrent measure detectin' cond
@@ -226,11 +251,10 @@ def def_meas_vars(sc_windows, dbg_flg):                                         
     measure.t4 = sc_win[t4_col].mean()                                                                                  # Calc mean T4 var value in optimal steady-conditions data-window and populate measure data-structure
     measures.append(measure)                                                                                            # Add measure data-structure in measures list
     if (dbg_flg):                                                                                                       # If dbg flg is ena
-      print("\n--> "+measure.name+" mean vals:")                                                                        # Print dbg fbk
-      print("F1: "+str(measure.f1)+" [l/h]")                                                                            # Print dbg fbk
-      print("F2: "+str(measure.f2)+" [l/h]")                                                                            # Print dbg fbk
-      print("T1: "+str(measure.t1)+" [°C]")                                                                             # Print dbg fbk
-      print("T2: "+str(measure.t2)+" [°C]")                                                                             # Print dbg fbk
-      print("T3: "+str(measure.t3)+" [°C]")                                                                             # Print dbg fbk
-      print("T4: "+str(measure.t4)+" [°C]")                                                                             # Print dbg fbk
+      dbg_str += ("\n--> "+str(measure.name)+" mean vals:"+"\nF1: "+str(measure.f1)+" [l/h]"\
+      +"\nF2: "+str(measure.f2)+" [l/h]"+"\nT1: "+str(measure.t1)+" [°C]"+"\nT2: "+str(measure.t2)+" [°C]"\
+      +"\nT3: "+str(measure.t3)+" [°C]"+"\nT4: "+str(measure.t4)+" [°C]\n")                                             # Dbg fbk  
+  if (dbg_flg):                                                                                                         # If dbg flg is ena
+    print(dbg_str)                                                                                                      # Print dbg fbk
+    out.save_output(out.Output_typ.measures, dbg_str)                                                                   # Save dbg output
   return measures                                                                                                       # Return measure-vars data-structures list

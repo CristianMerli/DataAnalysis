@@ -14,12 +14,19 @@
 - Cold fluid transferred heat (thermal power): 5.700996970190151 [kW]
 - Hot fluid transferred heat (thermal power): -6.023372300191799 [kW]
 - Heat losses (thermal power): -0.3223753300016474 [kW]
-- Global heat transfer coefficient (global HTC): 2.1962233736173937 [kW/(m^2*K)] (approximative)
+- Global heat transfer coefficient (global HTC): 2.1334741343711827 [kW/(m^2*K)] (approximative)
 - C-point-min min[mass-flow-rate*Cp]: 0.6268046218049694 [kJ/(K*s)] (approximative)
 - C-point-max max[mass-flow-rate*Cp]: 0.6450464737654941 [kJ/(K*s)] (approximative)
 - Number of transfer units (NTU): 0.37425973770778026 (approximative)
 - Effectiveness (epsilon): 0.2646927626813373 (approximative)
 - Reynolds number inside steel pipes: 0.0
+- Nusselt number inside steel pipes: 0.0
+- Prandtl number inside steel pipes: 0.0
+- Heat transfer coefficient (h) inside steel pipes: 0.0 [W/(m^2*K)]
+- Reynolds number inside glass pipe: 0.0
+- Nusselt number inside glass pipe: 0.0
+- Prandtl number inside glass pipe: 0.0
+- Heat transfer coefficient (h) inside glass pipe: 0.0 [W/(m^2*K)]
 
 --> Countercurrent measure 1 calculations results:
 - Cold fluid mass flow rate: 0.1484311273183292 [kg/s]
@@ -36,12 +43,19 @@
 - Cold fluid transferred heat (thermal power): 5.8408079497386165 [kW]
 - Hot fluid transferred heat (thermal power): -6.407806384147749 [kW]
 - Heat losses (thermal power): -0.5669984344091326 [kW]
-- Global heat transfer coefficient (global HTC): 2.3733352564090313 [kW/(m^2*K)] (approximative)
+- Global heat transfer coefficient (global HTC): 2.305525677654488 [kW/(m^2*K)] (approximative)
 - C-point-min min[mass-flow-rate*Cp]: 0.620848843127999 [kJ/(K*s)] (approximative)
 - C-point-max max[mass-flow-rate*Cp]: 0.651714967310756 [kJ/(K*s)] (approximative)
 - Number of transfer units (NTU): 0.4083212708074647 (approximative)
 - Effectiveness (epsilon): 0.29193265384647005 (approximative)
 - Reynolds number inside steel pipes: 0.0
+- Nusselt number inside steel pipes: 0.0
+- Prandtl number inside steel pipes: 0.0
+- Heat transfer coefficient (h) inside steel pipes: 0.0 [W/(m^2*K)]
+- Reynolds number inside glass pipe: 0.0
+- Nusselt number inside glass pipe: 0.0
+- Prandtl number inside glass pipe: 0.0
+- Heat transfer coefficient (h) inside glass pipe: 0.0 [W/(m^2*K)]
 
 --> Countercurrent measure 2 calculations results:
 - Cold fluid mass flow rate: 0.047238881518364424 [kg/s]
@@ -58,12 +72,19 @@
 - Cold fluid transferred heat (thermal power): 3.590001337624525 [kW]
 - Hot fluid transferred heat (thermal power): -4.139565406275072 [kW]
 - Heat losses (thermal power): -0.5495640686505476 [kW]
-- Global heat transfer coefficient (global HTC): 1.8064014878653825 [kW/(m^2*K)] (approximative)
+- Global heat transfer coefficient (global HTC): 1.7547900167835147 [kW/(m^2*K)] (approximative)
 - C-point-min min[mass-flow-rate*Cp]: 0.197473441259898 [kJ/(K*s)] (approximative)
 - C-point-max max[mass-flow-rate*Cp]: 0.6585372902123762 [kJ/(K*s)] (approximative)
 - Number of transfer units (NTU): 0.9770895704007575 (approximative)
 - Effectiveness (epsilon): 0.5837758864709931 (approximative)
 - Reynolds number inside steel pipes: 0.0
+- Nusselt number inside steel pipes: 0.0
+- Prandtl number inside steel pipes: 0.0
+- Heat transfer coefficient (h) inside steel pipes: 0.0 [W/(m^2*K)]
+- Reynolds number inside glass pipe: 0.0
+- Nusselt number inside glass pipe: 0.0
+- Prandtl number inside glass pipe: 0.0
+- Heat transfer coefficient (h) inside glass pipe: 0.0 [W/(m^2*K)]
 
 --> Cocurrent measure 2 calculations results:
 - Cold fluid mass flow rate: 0.04607886236181829 [kg/s]
@@ -80,9 +101,16 @@
 - Cold fluid transferred heat (thermal power): 3.4343948410650307 [kW]
 - Hot fluid transferred heat (thermal power): -3.9639220342493915 [kW]
 - Heat losses (thermal power): -0.5295271931843608 [kW]
-- Global heat transfer coefficient (global HTC): 1.6827187770355927 [kW/(m^2*K)] (approximative)
+- Global heat transfer coefficient (global HTC): 1.634641097691719 [kW/(m^2*K)] (approximative)
 - C-point-min min[mass-flow-rate*Cp]: 0.1926260941369112 [kJ/(K*s)] (approximative)
 - C-point-max max[mass-flow-rate*Cp]: 0.6637758774279902 [kJ/(K*s)] (approximative)
 - Number of transfer units (NTU): 0.9330936031127647 (approximative)
 - Effectiveness (epsilon): 0.542529860632475 (approximative)
 - Reynolds number inside steel pipes: 0.0
+- Nusselt number inside steel pipes: 0.0
+- Prandtl number inside steel pipes: 0.0
+- Heat transfer coefficient (h) inside steel pipes: 0.0 [W/(m^2*K)]
+- Reynolds number inside glass pipe: 0.0
+- Nusselt number inside glass pipe: 0.0
+- Prandtl number inside glass pipe: 0.0
+- Heat transfer coefficient (h) inside glass pipe: 0.0 [W/(m^2*K)]

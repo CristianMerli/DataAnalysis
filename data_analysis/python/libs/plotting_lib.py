@@ -57,7 +57,7 @@ plt_t2_lbl = "T2 - Hot-in fluid temperature [°C]"                              
 plt_t3_lbl = "T3 - Cold-out fluid temperature [°C]"                                                                     # Cold-out fluid temp (T3) lbl
 plt_t4_lbl = "T4 - Hot-out fluid temperature [°C]"                                                                      # Hot-out fluid temp (T4) lbl
 sel_interval_lbl = "SELECTED INTERVAL"                                                                                  # Selected interval lbl
-# Thermophysics-variables plotting label-vars
+# Thermophysical-variables plotting label-vars
 plt_temp_lbl = "Temperature - T [°C]"                                                                                   # X-axis lbl: temperature
 plt_rho_lbl = "density - ρ [$\mathregular{kg/m^3}$]"                                                                    # Y-axis lbl: thermophysic variable
 plt_cp_lbl = "specific heat at constant pressure - Cp [kJ/(kg*K)]"                                                      # Y-axis lbl: thermophysic variable
@@ -95,7 +95,7 @@ class Plt_mode(en.Enum):                                                        
 ##########
 
 # Function definition to customize plotting style
-def set_plt_style():                                                                                                    # set_plt_style()
+def set_plt_style(init_flg):                                                                                            # set_plt_style(Initialization flag)
   plt.style.use(plt_style);                                                                                             # Set defined plotting style
   sns.set(rc={"figure.figsize":(plt_size_x, plt_size_y)})                                                               # Plottin' size
   for param in ["figure.facecolor", "axes.facecolor", "savefig.facecolor"]:                                             # Chg bkg col
@@ -103,13 +103,14 @@ def set_plt_style():                                                            
   for param in ['text.color', 'axes.labelcolor', 'xtick.color', 'ytick.color']:                                         # Chg bkg txt
       plt.rcParams[param] = text_col;                                                                                   # Set col
   plt.grid(color=grid_col);                                                                                             # Set grid col
-  leg = plt.legend();                                                                                                   # Mod legend
-  plt.setp(leg.get_texts(), color=leg_txt_col);                                                                         # Set legend txt col
+  if (not init_flg):                                                                                                    # If initialization flag ain't set
+    leg = plt.legend();                                                                                                 # Mod legend
+    plt.setp(leg.get_texts(), color=leg_txt_col);                                                                       # Set legend txt col
   return                                                                                                                # Return nothing
 
 # Function to initialize personalized plotting style
 def init_plt_style():                                                                                                   # init_plt_style()
-  set_plt_style();                                                                                                      # Function call to set personalized plotting style
+  set_plt_style(True);                                                                                                  # Function call to set personalized plotting style with init flg
   plt.cla();                                                                                                            # Clear graph plotted axes
   plt.clf();                                                                                                            # Clear graph plotted to set personalized plotting style
   plt.close();                                                                                                          # Close plotted graph
@@ -159,11 +160,11 @@ def plot_data_flt(db, call_str, start_idxs_dbs, end_idxs_dbs, min_stddevs_dbs_id
     idx += 1                                                                                                            # Upd detailed plotting mode list scrolling index
   if (mode == Plt_mode.detailed):                                                                                       # In case of detailed plottin' mode selected
     plt.axvline(db[da.time_col].values[e_idx-1]+1, linewidth=dbs_w, color=dbs_c)                                        # Plot last datablock-extra line
-  set_plt_style()                                                                                                       # Function call to set personalized plotting style  
+  set_plt_style(False)                                                                                                  # Function call to set personalized plotting style without init flg
   plt.figure()                                                                                                          # Plot figure
   return                                                                                                                # Return nothing
   
-# Function definition to graphically plot thermophysics variables interpolation/fitting
+# Function definition to graphically plot thermophysical variables interpolation/fitting
 def plot_tp_vars(x_arr, y_arr, f_intp_fit, intp_fit_pts, mat_typ, x_lbl, y_lbl, y_intp_fit_lbl, res, tb_y_pos_offs):    # plot_tp_vars(X-array, Y-array, Interpolation/fitting function, Number of interpolation/fitting points to plot, Material type: Air at atm-pressure/water/AISI-316-stainless-steel, X-label, Y-label, Y_interp_fitting-label, Poly-approximation result: discarded/accepted, Textbox Y-pos-offset)
   plt.title(materials[mat_typ.value]+y_lbl+plt_title_sep+materials[mat_typ.value]+y_intp_fit_lbl)                       # Plot title
   plt.xlabel(x_lbl)                                                                                                     # X-axis lbl
@@ -178,6 +179,6 @@ def plot_tp_vars(x_arr, y_arr, f_intp_fit, intp_fit_pts, mat_typ, x_lbl, y_lbl, 
   plt.text((left+right)/2, (bottom+top)/2+tb_y_pos_offs, poly_approx_res[res.value],
           fontsize=poly_approx_txt_size, ha="center", va="center",
           bbox = dict(facecolor = poly_approx_res_col[res.value], alpha = ploy_approx_box_alpha))                       # Plot poly-approximation result txt and box
-  set_plt_style()                                                                                                       # Function call to set personalized plotting style
+  set_plt_style(False)                                                                                                  # Function call to set personalized plotting style without init flg
   plt.figure()                                                                                                          # Plot figure
   return                                                                                                                # Return nothing

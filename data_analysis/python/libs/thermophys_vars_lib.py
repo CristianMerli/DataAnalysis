@@ -16,9 +16,9 @@ import libs.eng_calcs_lib as ec                                                 
 ########
 
 # Table files vars: (.csv) table files
-csv_air_atmp_filepath = "../thermophys_vars/air_atmp_thermo_vars.csv"                                                   # Air at atm-pressure thermophysics vars data filepath (.csv table file)
-csv_water_filepath = "../thermophys_vars/water_thermo_vars.csv"                                                         # Water thermophysics vars data filepath (.csv table file)
-csv_aisi_316_filepath = "../thermophys_vars/aisi_316_thermo_vars.csv"                                                   # AISI-316 stainless-steel thermophysics vars data filepath (.csv table file)
+csv_air_atmp_filepath = "../thermophys_vars/air_atmp_thermo_vars.csv"                                                   # Air at atm-pressure thermophysical vars data filepath (.csv table file)
+csv_water_filepath = "../thermophys_vars/water_thermo_vars.csv"                                                         # Water thermophysical vars data filepath (.csv table file)
+csv_aisi_316_filepath = "../thermophys_vars/aisi_316_thermo_vars.csv"                                                   # AISI-316 stainless-steel thermophysical vars data filepath (.csv table file)
 # Table files structure vars
 csv_sep_chr = ';'                                                                                                       # Sep chr in (.csv) table files
 # Table files columns vars
@@ -30,25 +30,25 @@ lambda_col = "Lambda(W/m*K)"                                                    
 ni_col = "Ni(m2/s)"                                                                                                     # Ni col in table files (Kinematic viscosity [m^2/s])
 beta_col = "Beta(1/K)"                                                                                                  # Beta col in table files (Thermodynamic beta (Coldness) [1/K])
 pr_col = "Pr(-)"                                                                                                        # Pr col in table files (Prandtl number [adimensional])
-# Air atmp-pressure thermophysics variables vs temp interpolation vars
-air_atmp_intp_typ = "cubic"                                                                                             # Air thermophysics variables at atm pressure interpolation type
-air_atmp_intp_fit_pts = 1000                                                                                            # Air thermophysics variables at atm pressure number of interpolation/fitting plotting points
-# Water atmp-pressure thermophysics variables vs temp interpolation vars
-water_intp_typ = "cubic"                                                                                                # Water thermophysics variables interpolation type
-water_intp_fit_pts = 1000                                                                                               # Water thermophysics variables number of interpolation/fitting plotting points
-# AISI-316 stainless-steel thermophysics variables vs temp interpolation vars
-aisi_316_intp_typ = "cubic"                                                                                             # AISI-316 stainless-steel thermophysics variables interpolation type
-aisi_316_intp_fit_pts = 1000                                                                                            # AISI-316 stainless-steel thermophysics variables number of interpolation/fitting plotting points
+# Air atmp-pressure thermophysical variables vs temp interpolation vars
+air_atmp_intp_typ = "cubic"                                                                                             # Air thermophysical variables at atm pressure interpolation type
+air_atmp_intp_fit_pts = 1000                                                                                            # Air thermophysical variables at atm pressure number of interpolation/fitting plotting points
+# Water atmp-pressure thermophysical variables vs temp interpolation vars
+water_intp_typ = "cubic"                                                                                                # Water thermophysical variables interpolation type
+water_intp_fit_pts = 1000                                                                                               # Water thermophysical variables number of interpolation/fitting plotting points
+# AISI-316 stainless-steel thermophysical variables vs temp interpolation vars
+aisi_316_intp_typ = "cubic"                                                                                             # AISI-316 stainless-steel thermophysical variables interpolation type
+aisi_316_intp_fit_pts = 1000                                                                                            # AISI-316 stainless-steel thermophysical variables number of interpolation/fitting plotting points
 
 ########
 # DEFS #
 ########
 
-# Thermophysics-variables polynomial approximation discarded/accepted result enum definition to plot graph text-box
+# Thermophysical-variables polynomial approximation discarded/accepted result enum definition to plot graph text-box
 class Poly_approx_res(en.Enum):                                                                                         # Poly approx result enum class
   disc = 0                                                                                                              # Poly approx discarded
   acc = 1                                                                                                               # Poly approx accepted
-# Thermophysics-variables material type text plotting enum definition
+# Thermophysical-variables material type text plotting enum definition
 class Mat_type(en.Enum):                                                                                                # Material type text enum class
   air_atmp = 0                                                                                                          # Air at atmospheric pressure
   water = 1                                                                                                             # Water
@@ -58,15 +58,15 @@ class Mat_type(en.Enum):                                                        
 # FUNCTS #
 ##########
 
-# Function definition load thermophysics vars data from (.csv) files and return DataFrames vars
+# Function definition load thermophysical vars data from (.csv) files and return DataFrames vars
 def load_thermophys_vars_data():                                                                                        # load_thermophys_vars_data()
   air_atmp = pd.read_csv(csv_air_atmp_filepath, sep=csv_sep_chr, encoding="utf8")                                       # Import data from (.csv) table file and create a new panda DataFrame variable: 'air_atmp'
   water = pd.read_csv(csv_water_filepath, sep=csv_sep_chr, encoding="utf8")                                             # Import data from (.csv) table file and create a new panda DataFrame variable: 'water'
   aisi_316 = pd.read_csv(csv_aisi_316_filepath, sep=csv_sep_chr, encoding="utf8")                                       # Import data from (.csv) table file and create a new panda DataFrame variable: 'aisi_316'
-  return air_atmp, water, aisi_316                                                                                      # Return 'air_atmp', 'water' and 'aisi_316' DataFrames vars containing the respective thermophysics variables
+  return air_atmp, water, aisi_316                                                                                      # Return 'air_atmp', 'water' and 'aisi_316' DataFrames vars containing the respective thermophysical variables
 
 # Function definition to apply polynomial approximation and plot
-# air's thermophysics variables vs temperature (at atmospheric pressure)
+# air's thermophysical variables vs temperature (at atmospheric pressure)
 def poly_approx_plot_air_atmp_thermophys_vars(air_atmp, plt_flg):                                                       # poly_approx_plot_thermophys_vars_air_atmp(Air at atm-pressure DataFrame var, Plotting flag)
   air_atmp_temp = np.array(air_atmp[temp_col])                                                                          # Extract air interpolation/fitting temperatures array (at atm pressure) from DataFrame
   air_atmp_rho = np.array(air_atmp[rho_col])                                                                            # Extract air density array from DataFrame (thermophysic variable at atm pressure vs temp)
@@ -135,9 +135,9 @@ def poly_approx_plot_air_atmp_thermophys_vars(air_atmp, plt_flg):               
   if (plt_flg):                                                                                                         # If plotting flag is ena
     pl.plot_tp_vars(x, y, f_air_atmp_pr, air_atmp_intp_fit_pts, Mat_type.air_atmp, pl.plt_temp_lbl,
                     pl.plt_pr_lbl, pl.plt_fit_pr_lbl, Poly_approx_res.acc, 1.6*1e-2)                                    # Function call to plot air Prandtl number and curve-fitting (thermophysic variable at atm pressure vs temp)
-  return f_air_atmp_rho, f_air_atmp_cp, f_air_atmp_lambda, f_air_atmp_ni, f_air_atmp_beta, f_air_atmp_pr                # Return air's thermophysics vars poly-approx functions (at atm-pressure)
+  return f_air_atmp_rho, f_air_atmp_cp, f_air_atmp_lambda, f_air_atmp_ni, f_air_atmp_beta, f_air_atmp_pr                # Return air's thermophysical vars poly-approx functions (at atm-pressure)
 
-# Function definition to apply polynomial approximation and plot water's thermophysics variables vs temperature
+# Function definition to apply polynomial approximation and plot water's thermophysical variables vs temperature
 def poly_approx_plot_water_thermophys_vars(water, plt_flg):                                                             # poly_approx_plot_water_thermophys_vars(Water DataFrame var, Plotting flag)
   water_temp = np.array(water[temp_col])                                                                                # Extract water interpolation/fitting temperatures array from DataFrame
   water_rho = np.array(water[rho_col])                                                                                  # Extract water density array from DataFrame (thermophysic variable at atm pressure vs temp)
@@ -206,10 +206,10 @@ def poly_approx_plot_water_thermophys_vars(water, plt_flg):                     
   if (plt_flg):                                                                                                         # If plotting flag is ena
     pl.plot_tp_vars(x, y, f_water_pr, water_intp_fit_pts, Mat_type.water, pl.plt_temp_lbl,
                     pl.plt_pr_lbl, pl.plt_intp_pr_lbl, Poly_approx_res.acc, 2.75)                                       # Function call to plot water Prandtl number and interpolation (thermophysic variable at atm pressure vs temp)    
-  return f_water_rho, f_water_cp, f_water_lambda, f_water_ni, f_water_beta, f_water_pr                                  # Return water's thermophysics vars poly-approx functions
+  return f_water_rho, f_water_cp, f_water_lambda, f_water_ni, f_water_beta, f_water_pr                                  # Return water's thermophysical vars poly-approx functions
 
 # Function definition to apply polynomial approximation and plot AISI-316-stainless-steel's
-# thermophysics variables vs temperature
+# thermophysical variables vs temperature
 def poly_approx_plot_aisi_316_thermophys_vars(aisi_316, plt_flg):                                                       # poly_approx_plot_aisi_316_thermophys_vars(AISI-316 DataFrame var, Plotting flag)
   aisi_316_temp = ec.conv_temp_k_c(np.array(aisi_316[temp_col_k]))                                                      # Extract AISI-316 interpolation/fitting temperatures array from DataFrame and convert it from [K] into [°C]
   aisi_316_lambda = np.array(aisi_316[lambda_col])                                                                      # Extract AISI-316 thermal conductivity array from DataFrame (thermophysic variable vs temp)
@@ -223,4 +223,4 @@ def poly_approx_plot_aisi_316_thermophys_vars(aisi_316, plt_flg):               
   if (plt_flg):                                                                                                         # If plotting flag is ena
     pl.plot_tp_vars(x, y, f_aisi_316_lambda, aisi_316_intp_fit_pts, Mat_type.aisi_316, pl.plt_temp_lbl,
                     pl.plt_lambda_lbl, pl.plt_fit_lambda_lbl, Poly_approx_res.acc, -2.45)                               # Function call to plot AISI-316 thermal conductivity and curve-fitting (thermophysic variable at atm pressure vs temp)
-  return f_aisi_316_lambda                                                                                              # Return AISI-316-stainless-steel's thermophysics vars poly-approx functions
+  return f_aisi_316_lambda                                                                                              # Return AISI-316-stainless-steel's thermophysical vars poly-approx functions
