@@ -24,8 +24,8 @@
 ### Lab documentation direct link:
 * To directly consult lab-documentation and thermophysical-variables datasets sources [click here](https://github.com/CristianMerli/DataAnalysis/tree/master/lab_doc).
 ---
-## Git https path:
+## Git HTTPS path:
 ### `https://github.com/CristianMerli/DataAnalysis.git`
-## Git ssh path:
+## Git SSH path:
 ### `git@github.com:CristianMerli/DataAnalysis.git`
 ---
