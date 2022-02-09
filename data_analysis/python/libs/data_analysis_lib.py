@@ -66,19 +66,22 @@ class Meas_vars:                                                                
   cold_fl_tr_heat = 0.0                                                                                                 # Cold fluid transferred heat (thermal power) [kW]
   hot_fl_tr_heat = 0.0                                                                                                  # Hot fluid transferred heat (thermal power) [kW]
   heat_loss = 0.0                                                                                                       # Heat loss (thermal power) [kW]
-  glob_htc = 0.0                                                                                                        # Global heat transfer coefficient (global HTC) [kW/(m^2*K)]
+  ext_approx_glob_htc = 0.0                                                                                             # External approximative global heat transfer coefficient (global HTC) [kW/(m^2*K)]
   cpt_min = 0.0                                                                                                         # C-point-min min[mass-flow-rate*Cp] [kJ/(K*s)] (approximative)
   cpt_max = 0.0                                                                                                         # C-point-max max[mass-flow-rate*Cp] [kJ/(K*s)] (approximative)
   ntu = 0.0                                                                                                             # Number of transfer units (NTU) (approximative)
   epsilon = 0.0                                                                                                         # Effectiveness (epsilon) (approximative)
-  re_int = 0.0                                                                                                          # Reynolds number inside steel pipes
-  nu_int = 0.0                                                                                                          # Nusselt number inside steel pipes
-  pr_int = 0.0                                                                                                          # Prandtl number inside steel pipes
-  h_int = 0.0                                                                                                           # Heat transfer coefficient (h) inside steel pipes
-  re_ext = 0.0                                                                                                          # Reynolds number inside glass pipe
-  nu_ext = 0.0                                                                                                          # Nusselt number inside glass pipe
-  pr_ext = 0.0                                                                                                          # Prandtl number inside glass pipe
-  h_ext = 0.0                                                                                                           # Heat transfer coefficient (h) inside glass pipe
+  int_re = 0.0                                                                                                          # Reynolds number inside steel pipes
+  int_nu = 0.0                                                                                                          # Nusselt number inside steel pipes
+  int_pr = 0.0                                                                                                          # Prandtl number inside steel pipes
+  int_h = 0.0                                                                                                           # Heat transfer coefficient (h) inside steel pipes [W/(m^2*K)]
+  int_conv_r = 0.0                                                                                                      # Absolute convective resistance inside steel pipes [K/W]
+  ext_re = 0.0                                                                                                          # Reynolds number inside glass pipe
+  ext_nu = 0.0                                                                                                          # Nusselt number inside glass pipe
+  ext_pr = 0.0                                                                                                          # Prandtl number inside glass pipe
+  ext_h = 0.0                                                                                                           # Heat transfer coefficient (h) inside glass pipe [W/(m^2*K)]
+  ext_conv_r = 0.0                                                                                                      # Absolute convective resistance inside glass pipe [K/W]
+  cond_r = 0.0                                                                                                          # Steel pipes absolute conductive resistance [K/W]
   def __init__(self):                                                                                                   # Constructor
     return                                                                                                              # Return nothing
   def get_info(self):                                                                                                   # Measure class method to get measure info
@@ -97,19 +100,23 @@ class Meas_vars:                                                                
     +"\n- Cold fluid transferred heat (thermal power): "+str(self.cold_fl_tr_heat)+" [kW]"\
     +"\n- Hot fluid transferred heat (thermal power): "+str(self.hot_fl_tr_heat)+" [kW]"\
     +"\n- Heat losses (thermal power): "+str(self.heat_loss)+" [kW]"\
-    +"\n- Global heat transfer coefficient (global HTC): "+str(self.glob_htc)+" [kW/(m^2*K)] (approximative)"\
+    +"\n- External approximative global heat transfer coefficient (global HTC): "\
+      +str(self.ext_approx_glob_htc)+" [kW/(m^2*K)] (approximative)"\
     +"\n- C-point-min min[mass-flow-rate*Cp]: "+str(self.cpt_min)+" [kJ/(K*s)] (approximative)"\
     +"\n- C-point-max max[mass-flow-rate*Cp]: "+str(self.cpt_max)+" [kJ/(K*s)] (approximative)"\
     +"\n- Number of transfer units (NTU): "+str(self.ntu)+" (approximative)"\
     +"\n- Effectiveness (epsilon): "+str(self.epsilon)+" (approximative)"\
-    +"\n- Reynolds number inside steel pipes: "+str(self.re_int)\
-    +"\n- Nusselt number inside steel pipes: "+str(self.nu_int)\
-    +"\n- Prandtl number inside steel pipes: "+str(self.pr_int)\
-    +"\n- Heat transfer coefficient (h) inside steel pipes: "+str(self.h_int)+" [W/(m^2*K)]"\
-    +"\n- Reynolds number inside glass pipe: "+str(self.re_ext)\
-    +"\n- Nusselt number inside glass pipe: "+str(self.nu_ext)\
-    +"\n- Prandtl number inside glass pipe: "+str(self.pr_ext)\
-    +"\n- Heat transfer coefficient (h) inside glass pipe: "+str(self.h_ext)+" [W/(m^2*K)]\n")                          # Dbg fbk
+    +"\n- Reynolds number inside steel pipes: "+str(self.int_re)\
+    +"\n- Nusselt number inside steel pipes: "+str(self.int_nu)\
+    +"\n- Prandtl number inside steel pipes: "+str(self.int_pr)\
+    +"\n- Heat transfer coefficient (h) inside steel pipes: "+str(self.int_h)+" [W/(m^2*K)]"\
+    +"\n- Absolute convective resistance inside steel pipes: "+str(self.int_conv_r)+" [K/W]"\
+    +"\n- Reynolds number inside glass pipe: "+str(self.ext_re)\
+    +"\n- Nusselt number inside glass pipe: "+str(self.ext_nu)\
+    +"\n- Prandtl number inside glass pipe: "+str(self.ext_pr)\
+    +"\n- Heat transfer coefficient (h) inside glass pipe: "+str(self.ext_h)+" [W/(m^2*K)]"\
+    +"\n- Absolute convective resistance inside glass pipe: "+str(self.int_conv_r)+" [K/W]"\
+    +"\n- Steel pipes absolute conductive resistance: "+str(self.cond_r)+" [K/W]\n")                                    # Dbg fbk
     return dbg_str                                                                                                      # Return dbg fbk
 
 ##########

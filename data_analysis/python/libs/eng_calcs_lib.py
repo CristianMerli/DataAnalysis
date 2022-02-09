@@ -4,7 +4,8 @@
 
 # Libraries import
 import math as mt                                                                                                       # Math lib
-import enum as en                                                                                                       # Enum lib
+import enum as en
+from tkinter import E                                                                                                       # Enum lib
 # Project personal libraries import
 import libs.data_analysis_lib as da                                                                                     # Data analysis lib
 import libs.output_lib as out                                                                                           # Output lib
@@ -124,8 +125,8 @@ def therm_pow_kw(mass_flow_rate_kg_s, cp_kj_kg_c, delta_temp):                  
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
-# Function definition to calculate global heat transfer coefficient (global HTC)
-def glob_htc_coeff_kw_m2_k(thermal_pow_kw, surf_m2, lmtd):                                                              # glob_htc_coeff_kw_m2_k(Thermal power [kW], Surface [m^2], Log-mean temperature difference [°C] or [K])
+# Function definition to calculate global heat transfer coefficient (global HTC) [kW/(m^2*K)]
+def glob_htc_kw_m2_k(thermal_pow_kw, surf_m2, lmtd):                                                                    # glob_htc_kw_m2_k(Thermal power [kW], Surface [m^2], Log-mean temperature difference [°C] or [K])
   if (thermal_pow_kw != 0 and surf_m2 > 0 and lmtd != 0):                                                               # Check in-vals consistency, if ok
     return abs(thermal_pow_kw)/(surf_m2*lmtd)                                                                           # Return positive global heat transfer coefficient (global HTC) [kW/(m^2*K)]
   else:                                                                                                                 # Else if in-vals consistency ain't ok
@@ -152,14 +153,18 @@ def ntu(glob_htc_coeff, surf_m2, cpt_min):                                      
 
 # Function definition to calculate effectiveness
 def effectiveness(meas_typ, ntu, cpts_ratio):                                                                           # effectiveness(Measure type: Cocurrent/countercurrent/undefined, Number of tranfer units, C-points-ratio --> Cptmin/Cptmax)
-  epsilon = -1                                                                                                          # Set err val in case of wrong enum val
-  if (meas_typ == da.Meas_typ.ccurr):                                                                                   # In case of cocurrent measure type
-    epsilon = (1-mt.exp(-ntu*(1+cpts_ratio)))/(1+cpts_ratio)                                                            # Calc effectiveness (epsilon)
-  elif (meas_typ == da.Meas_typ.cntcurr):                                                                               # Else in case of countercurrent measure type
-    epsilon = (1-mt.exp(-ntu*(1-cpts_ratio)))/(1-cpts_ratio*mt.exp(-ntu*(1-cpts_ratio)))                                # Calc effectiveness (epsilon)
-  if (epsilon < 1 and epsilon > 0):                                                                                     # Check effectiveness val consistency, if ok
-    return epsilon                                                                                                      # Return calc effectiveness (epsilon)
-  else:                                                                                                                 # Else if effectiveness val consistency ain't ok
+  if (meas_typ != None and ntu > 0 and cpts_ratio > 0):                                                                 # Check in-vals consistency, if ok
+    if (meas_typ == da.Meas_typ.ccurr):                                                                                 # In case of cocurrent measure type
+      epsilon = (1-mt.exp(-ntu*(1+cpts_ratio)))/(1+cpts_ratio)                                                          # Calc effectiveness (epsilon)
+    elif (meas_typ == da.Meas_typ.cntcurr):                                                                             # Else in case of countercurrent measure type
+      epsilon = (1-mt.exp(-ntu*(1-cpts_ratio)))/(1-cpts_ratio*mt.exp(-ntu*(1-cpts_ratio)))                              # Calc effectiveness (epsilon)
+    else:                                                                                                               # Else in case of undefined measure type
+      return -1                                                                                                         # Return err val
+    if (epsilon < 1 and epsilon > 0):                                                                                   # Check effectiveness val consistency, if ok
+      return epsilon                                                                                                    # Return calc effectiveness (epsilon)
+    else:                                                                                                               # Else if effectiveness val consistency ain't ok
+      return -1                                                                                                         # Return err val
+  else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
 # Function definition to print and save measures calcs results
@@ -187,35 +192,26 @@ def re_cyl_pipe(pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis):             
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
-# Function definition to calculate wetted perimeter [m]
-def wetted_perim_m(heat_exch):                                                                                          # --wetted_perim_m()
-  return                                                                                                                # Return ---
+# Function definition to calculate heat-exchanger shell wetted perimeter [m] (3 sections contribution)
+def wetted_perim_shell_m(he):                                                                                           # wetted_perim_shell_m(Heat-exchanger)
+  if (he != None):                                                                                                      # Check in-vals consistency, if ok
+    return 2*he.steel_pipes_num*he.glass_pipe_diaph_pace_m*he.glass_pipe_diaph_num                                      # Return calculated heat-exchanger shell wetted perimeter [m]
+  else:                                                                                                                 # Else if in-vals consistency ain't ok
+    return -1                                                                                                           # Return err val
 
-# Function definition to calculate flux surface [m^2]
-def flux_surf_m2(heat_exch):                                                                                            # ---flux_surf_m2()
-  return                                                                                                                # Return ---
-
-# Function definition to calculate equivalent hydraulic diameter [m]
-def eq_hyd_diam_m(heat_exch):                                                                                           # ---eq_hyd_diam_m()
-  return                                                                                                                # Return ---
-
-# Function definition to calculate heat-exchange surface [m^2]
-def heat_exch_surf_m2(heat_exch):                                                                                       # ---heat_exch_surf_m2()
-  return                                                                                                                # Return ---
-
-# Function definition to calculate Reynolds number for fluid in glass pipe shell side
-def re_shell(pipe_mass_flow_rate, fluid_dyn_vis, heat_exch):                                                            # re_shell(Pipe mass flow rate [kg/s], Mu: fluid dynamic viscosity [kg/(m*S)], Heat-exchanger)
-  if (pipe_mass_flow_rate > 0 and fluid_dyn_vis > 0 and heat_exch != None):                                             # Check in-vals consistency, if ok
-    return ()/()                                                                                                        # ---
+# Function definition to calculate Reynolds number for fluid in external pipe shell side (3 sections contribution)
+def re_shell(pipe_mass_flow_rate, fluid_dyn_vis, he):                                                                   # re_shell(Pipe mass flow rate [kg/s], Mu: fluid dynamic viscosity [kg/(m*S)], Heat-exchanger)
+  if (pipe_mass_flow_rate > 0 and fluid_dyn_vis > 0 and he != None):                                                    # Check in-vals consistency, if ok
+    return (4*pipe_mass_flow_rate)/(wetted_perim_shell_m(he)*fluid_dyn_vis)                                             # Return calculated Reynolds number for fluid in external pipe shell side
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
 # Function definition to calculate Reynolds number
-def re(side, pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis, heat_exch):                                             # re(Heat-exchanger side, Pipe mass flow rate [kg/s], Pipe internal diameter [m], Mu: fluid dynamic viscosity [kg/(m*S)], Heat-exchanger)
+def re(side, pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis, he):                                                    # re(Heat-exchanger side, Pipe mass flow rate [kg/s], Pipe internal diameter [m], Mu: fluid dynamic viscosity [kg/(m*S)], Heat-exchanger)
   if (side == He_side.tube):                                                                                            # In case of tube side
     return re_cyl_pipe(pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis)                                               # Return tube side calculated Reynolds number
   elif (side == He_side.shell):                                                                                         # Else in case of shell side
-    return re_shell(pipe_mass_flow_rate, fluid_dyn_vis, heat_exch)                                                      # Return shell side calculated Reynolds number
+    return re_shell(pipe_mass_flow_rate, fluid_dyn_vis, he)                                                             # Return shell side calculated Reynolds number
   else:                                                                                                                 # Else in case of unknown side enum val
     return -1                                                                                                           # Return err val
 
@@ -224,7 +220,10 @@ def re(side, pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis, heat_exch):     
 def nu_lam_flow_cyl_pipe(re, pr, fluid_dyn_vis, fluid_dyn_vis_s, pipe_int_diam, pipe_len_m):                            # ---nu_lam_flow_cyl_pipe(Reynolds number, Prandtl number, Mu: fluid dynamic viscosity [kg/(m*S)], Mu-s: fluid dynamic viscosity at surface temperature [kg/(m*S)], Pipe internal diameter [m], Pipe length [m])
   if (re > 0 and re < re_trans and pr > 0.48 and pr < 1.67*1e4 and\
       (fluid_dyn_vis/fluid_dyn_vis_s) > 4.4*1e-3 and (fluid_dyn_vis/fluid_dyn_vis_s) < 9.75 and pipe_int_diam > 0):     # If Reynolds number, Prandtl number, Fluid-dyn-viscosity/Fluid-dyn-viscosity-surf-temp ratio are in formula range and in-vals consistency is ok
-    return 1.86*mt.pow((pipe_int_diam*re*pr)/pipe_len_m, 1/3)*mt.pow(fluid_dyn_vis/fluid_dyn_vis_s, 0.14)               # Return calculated Nusselt number for fluid in laminar flow inside cylindrical pipe
+    nu = 1.86*mt.pow((pipe_int_diam*re*pr)/pipe_len_m, 1/3)*mt.pow(fluid_dyn_vis/fluid_dyn_vis_s, 0.14)                 # Return calculated Nusselt number for fluid in laminar flow inside cylindrical pipe
+    if (nu < 3.66):                                                                                                     # If calculated Nusselt number is less than the formula law change point
+      nu = 3.66                                                                                                         # Apply formula law change
+    return nu                                                                                                           # Return Nusselt number for fluid in laminar flow inside cylindrical pipe
   else:                                                                                                                 # Else if Reynolds number, Prandtl number, Fluid-dyn-viscosity/Fluid-dyn-viscosity-surf-temp ratio ain't in formula range or in-vals consistency not ok
     return -1                                                                                                           # Return err val
 
@@ -273,9 +272,23 @@ def h_from_nu_w_m2_k(nu, eq_hyd_diam, therm_cond):                              
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
-# Rcon, Rconv .... ---
-#
+# Function definition to calculate absolute convective resistance [K/W]
+def abs_conv_res(h_w_m2_k, surf_m2):                                                                                    # abs_conv_res(Heat transfer coefficient [W/(m^2*K)], Surface [m^2])
+  if (h_w_m2_k > 0 and surf_m2 > 0):                                                                                    # Check in-vals consistency, if ok
+    return 1/(h_w_m2_k*surf_m2)                                                                                         # Return calculated absolute convective resistance [K/W]
+  else:                                                                                                                 # Else if in-vals consistency ain't ok
+    return -1                                                                                                           # Return err val
 
-# Function definition to calculate overall heat transfer coefficient - EQUATION 5.143
-def overall_htc():                                                                                                      # ---overall_htc()
-  return                                                                                                                # Return ---
+# Function definition to calculate absolute conductive resistance [K/W]
+def abs_cond_res(pipe_int_diam, pipe_ext_diam, pipe_len, pipes_num, therm_cond):                                        # abs_cond_res(Pipe internal diameter [m], Pipe external diameter [m], Pipe length [m], Number of pipes, Thermal conductivity lambda [W/(m*K)])
+  if (pipe_int_diam > 0 and pipe_ext_diam > 0 and pipe_len > 0 and pipes_num > 0 and therm_cond > 0):                   # Check in-vals consistency, if ok
+    return  (mt.log(pipe_ext_diam/pipe_int_diam, mt.e))/(2*mt.pi*therm_cond*pipe_len*pipes_num)                         # Return calculated absolute conductive resistance [K/W]
+  else:                                                                                                                 # Else if in-vals consistency ain't ok
+    return -1                                                                                                           # Return err val
+
+# Function definition to calculate overall heat transfer coefficient [kW/(m^2*K)] - EQUATION 5.143
+def overall_htc_kw_m2_k(surf_m2, abs_int_conv_res_k_w, abs_cond_res_k_w, abs_ext_conv_res_k_w):                         # overall_htc_kw_m2_k(Surface [m^2], Absolute internal convective resistance [K/W], Absolute conductive resistance [K/W], Absolute external convective resistance [K/W])
+  if (surf_m2 > 0 and abs_int_conv_res_k_w > 0 and abs_cond_res_k_w > 0 and abs_ext_conv_res_k_w > 0):                  # Check in-vals consistency, if ok
+    return ((1/surf_m2)/(abs_int_conv_res_k_w+abs_cond_res_k_w+abs_ext_conv_res_k_w))*1*1e-3                            # Return calculated overall heat transfer coefficient [kW/(m^2*K)]
+  else:                                                                                                                 # Else if in-vals consistency ain't ok
+    return -1                                                                                                           # Return err val
