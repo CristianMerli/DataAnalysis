@@ -14,7 +14,7 @@
 - Cold fluid transferred heat (thermal power): 5.700996970190151 [kW]
 - Hot fluid transferred heat (thermal power): -6.023372300191799 [kW]
 - Heat losses (thermal power): -0.3223753300016474 [kW]
-- External approximative global heat transfer coefficient (global HTC): 2.1334741343711827 [kW/(m^2*K)] (approximative)
+- External approximative global heat transfer coefficient (global HTC): 2.1962233736173937 [kW/(m^2*K)] (approximative)
 - C-point-min min[mass-flow-rate*Cp]: 0.6268046218049694 [kJ/(K*s)] (approximative)
 - C-point-max max[mass-flow-rate*Cp]: 0.6450464737654941 [kJ/(K*s)] (approximative)
 - Number of transfer units (NTU): 0.37425973770778026 (approximative)
@@ -26,7 +26,7 @@
 - Prandtl number inside steel pipes: 3.7995426103677032
 - Nusselt number inside steel pipes: 53.97159256833558
 - Heat transfer coefficient (h) inside steel pipes: 4303.853037344468 [W/(m^2*K)]
-- Absolute convective resistance inside steel pipes: 0.002641402975939903 [K/W]
+- Absolute convective resistance inside steel pipes: 0.002719091298761664 [K/W]
 - Heat-exchange surface approximated temperature for inlet secion external heat transfer coefficient (h) calculation: 33.24766666666666 [°C]
 - Fluid thermal conductivity inside glass pipe inlet secion: 0.5881647581365058 [W/(m*K)]
 - Fluid dynamic viscosity inside glass pipe inlet secion: 0.001128539601891879 [kg/(m*s)]
@@ -42,11 +42,11 @@
 - Nusselt number inside glass pipe outlet secion: 35.51712904713836
 - Heat transfer coefficient (h) inside glass pipe outlet secion: 42.965473921932606 [W/(m^2*K)]
 - Average heat transfer coefficient (h) inside glass pipe: 42.2262966103911 [W/(m^2*K)]
-- Absolute convective resistance inside glass pipe: 0.21537688376019534 [K/W]
+- Absolute convective resistance inside glass pipe: 0.22171149798843634 [K/W]
 - Steel pipes thermal conductivity: 13.564382968134643 [W/(m*K)]
-- Steel pipes absolute conductive resistance: 0.0007480599174252721 [K/W]
+- Steel pipes absolute conductive resistance: 0.0007700616797024858 [K/W]
 - Overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.04157206222894026 [kW/(m^2*K)]
-- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 0.11736913237312448 [kW]
+- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 0.11401572859103523 [kW]
 
 --> Countercurrent measure 1 calculations results:
 - Cold fluid mass flow rate: 0.1484311273183292 [kg/s]
@@ -63,7 +63,7 @@
 - Cold fluid transferred heat (thermal power): 5.8408079497386165 [kW]
 - Hot fluid transferred heat (thermal power): -6.407806384147749 [kW]
 - Heat losses (thermal power): -0.5669984344091326 [kW]
-- External approximative global heat transfer coefficient (global HTC): 2.305525677654488 [kW/(m^2*K)] (approximative)
+- External approximative global heat transfer coefficient (global HTC): 2.3733352564090313 [kW/(m^2*K)] (approximative)
 - C-point-min min[mass-flow-rate*Cp]: 0.620848843127999 [kJ/(K*s)] (approximative)
 - C-point-max max[mass-flow-rate*Cp]: 0.651714967310756 [kJ/(K*s)] (approximative)
 - Number of transfer units (NTU): 0.4083212708074647 (approximative)
@@ -75,7 +75,7 @@
 - Prandtl number inside steel pipes: 3.7972687047165685
 - Nusselt number inside steel pipes: 54.50095166557847
 - Heat transfer coefficient (h) inside steel pipes: 4346.326634247176 [W/(m^2*K)]
-- Absolute convective resistance inside steel pipes: 0.002615590400241225 [K/W]
+- Absolute convective resistance inside steel pipes: 0.002692519529660084 [K/W]
 - Heat-exchange surface approximated temperature for inlet secion external heat transfer coefficient (h) calculation: 38.17000000000003 [°C]
 - Fluid thermal conductivity inside glass pipe inlet secion: 0.5884719886265394 [W/(m*K)]
 - Fluid dynamic viscosity inside glass pipe inlet secion: 0.0011238912875541204 [kg/(m*s)]
@@ -91,11 +91,11 @@
 - Nusselt number inside glass pipe outlet secion: 34.8706841751864
 - Heat transfer coefficient (h) inside glass pipe outlet secion: 42.24031558278513 [W/(m^2*K)]
 - Average heat transfer coefficient (h) inside glass pipe: 42.05252014954674 [W/(m^2*K)]
-- Absolute convective resistance inside glass pipe: 0.21626690016050704 [K/W]
+- Absolute convective resistance inside glass pipe: 0.2226276913416984 [K/W]
 - Steel pipes thermal conductivity: 13.567474146810277 [W/(m*K)]
-- Steel pipes absolute conductive resistance: 0.0007478894813632741 [K/W]
+- Steel pipes absolute conductive resistance: 0.000769886230815135 [K/W]
 - Overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.04140851632153966 [kW/(m^2*K)]
-- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 0.11508774671865195 [kW]
+- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 0.11179952538383334 [kW]
 
 --> Countercurrent measure 2 calculations results:
 - Cold fluid mass flow rate: 0.047238881518364424 [kg/s]
@@ -112,7 +112,7 @@
 - Cold fluid transferred heat (thermal power): 3.590001337624525 [kW]
 - Hot fluid transferred heat (thermal power): -4.139565406275072 [kW]
 - Heat losses (thermal power): -0.5495640686505476 [kW]
-- External approximative global heat transfer coefficient (global HTC): 1.7547900167835147 [kW/(m^2*K)] (approximative)
+- External approximative global heat transfer coefficient (global HTC): 1.8064014878653825 [kW/(m^2*K)] (approximative)
 - C-point-min min[mass-flow-rate*Cp]: 0.197473441259898 [kJ/(K*s)] (approximative)
 - C-point-max max[mass-flow-rate*Cp]: 0.6585372902123762 [kJ/(K*s)] (approximative)
 - Number of transfer units (NTU): 0.9770895704007575 (approximative)
@@ -124,7 +124,7 @@
 - Prandtl number inside steel pipes: 3.6857547945937545
 - Nusselt number inside steel pipes: 55.74297420696788
 - Heat transfer coefficient (h) inside steel pipes: 4458.6098929079935 [W/(m^2*K)]
-- Absolute convective resistance inside steel pipes: 0.002549720763624623 [K/W]
+- Absolute convective resistance inside steel pipes: 0.0026247125507900524 [K/W]
 - Heat-exchange surface approximated temperature for inlet secion external heat transfer coefficient (h) calculation: 42.404944444444446 [°C]
 - Fluid thermal conductivity inside glass pipe inlet secion: 0.5883177983640793 [W/(m*K)]
 - Fluid dynamic viscosity inside glass pipe inlet secion: 0.0011262210363119825 [kg/(m*s)]
@@ -140,11 +140,11 @@
 - Nusselt number inside glass pipe outlet secion: 18.803501233759913
 - Heat transfer coefficient (h) inside glass pipe outlet secion: 23.30973766385361 [W/(m^2*K)]
 - Average heat transfer coefficient (h) inside glass pipe: 22.927663357778318 [W/(m^2*K)]
-- Absolute convective resistance inside glass pipe: 0.39666354284612954 [K/W]
+- Absolute convective resistance inside glass pipe: 0.4083301176357216 [K/W]
 - Steel pipes thermal conductivity: 13.619701395103526 [W/(m*K)]
-- Steel pipes absolute conductive resistance: 0.0007450215616853058 [K/W]
-- Overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.02273879180370375 [kW/(m^2*K)]
-- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 0.05364101404203264 [kW]
+- Steel pipes absolute conductive resistance: 0.0007669339605584029 [K/W]
+- Overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.022738791803703747 [kW/(m^2*K)]
+- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 0.052108413640831706 [kW]
 
 --> Cocurrent measure 2 calculations results:
 - Cold fluid mass flow rate: 0.04607886236181829 [kg/s]
@@ -161,7 +161,7 @@
 - Cold fluid transferred heat (thermal power): 3.4343948410650307 [kW]
 - Hot fluid transferred heat (thermal power): -3.9639220342493915 [kW]
 - Heat losses (thermal power): -0.5295271931843608 [kW]
-- External approximative global heat transfer coefficient (global HTC): 1.634641097691719 [kW/(m^2*K)] (approximative)
+- External approximative global heat transfer coefficient (global HTC): 1.6827187770355927 [kW/(m^2*K)] (approximative)
 - C-point-min min[mass-flow-rate*Cp]: 0.1926260941369112 [kJ/(K*s)] (approximative)
 - C-point-max max[mass-flow-rate*Cp]: 0.6637758774279902 [kJ/(K*s)] (approximative)
 - Number of transfer units (NTU): 0.9330936031127647 (approximative)
@@ -173,7 +173,7 @@
 - Prandtl number inside steel pipes: 3.662787401285023
 - Nusselt number inside steel pipes: 56.30037282062228
 - Heat transfer coefficient (h) inside steel pipes: 4505.982669098273 [W/(m^2*K)]
-- Absolute convective resistance inside steel pipes: 0.0025229147681397205 [K/W]
+- Absolute convective resistance inside steel pipes: 0.002597118143673241 [K/W]
 - Heat-exchange surface approximated temperature for inlet secion external heat transfer coefficient (h) calculation: 33.441500000000005 [°C]
 - Fluid thermal conductivity inside glass pipe inlet secion: 0.5884737058340325 [W/(m*K)]
 - Fluid dynamic viscosity inside glass pipe inlet secion: 0.0011238653764147405 [kg/(m*s)]
@@ -189,8 +189,8 @@
 - Nusselt number inside glass pipe outlet secion: 19.02982848999794
 - Heat transfer coefficient (h) inside glass pipe outlet secion: 23.574547738013237 [W/(m^2*K)]
 - Average heat transfer coefficient (h) inside glass pipe: 22.64461413794141 [W/(m^2*K)]
-- Absolute convective resistance inside glass pipe: 0.4016216889932181 [K/W]
+- Absolute convective resistance inside glass pipe: 0.41343409161066563 [K/W]
 - Steel pipes thermal conductivity: 13.62179018869104 [W/(m*K)]
-- Steel pipes absolute conductive resistance: 0.0007449073185323096 [K/W]
+- Steel pipes absolute conductive resistance: 0.0007668163573126716 [K/W]
 - Overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.022461851759072254 [kW/(m^2*K)]
-- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 0.05446885511661207 [kW]
+- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 0.05291260211328031 [kW]

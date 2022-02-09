@@ -14,7 +14,7 @@ import libs.output_lib as out                                                   
 ########
 
 # Heat-exchanger physical properties called by heat-exchanger class constructor
-_eff_len_m = 0.7                                                                                                        # Heat-exchamher effective length [m]
+_eff_len_m = 0.68                                                                                                       # Heat-exchamher effective length [m]
 _glass_pipe_id_m = 5*1e-2                                                                                               # Heat-exchamher glass pipe internal-diameter [m]
 _glass_pipe_diaph_num  = 13                                                                                             # Number of heat-exchanger diaphragms in glass pipe
 _glass_pipe_diaph_pace_m = 5*1e-2                                                                                       # Heat-exchanger glass pipe diaphragms pace [m]
@@ -311,7 +311,8 @@ def overall_htc_kw_m2_k(surf_m2, abs_int_conv_res_k_w, abs_cond_res_k_w, abs_ext
     return -1                                                                                                           # Return err val
 
 # Function definition to calculate transferred heat (thermal power) [kW]
-def therm_pow_kw(ova_htc_kw_m2_k, surf_m2, lmtd):                                                                       # glob_htc_kw_m2_k(Overall heat transfer coefficient [kW/(m^2*K)], Surface [m^2], Log-mean temperature difference [°C] or [K])
+# using overall heat transfer coefficient
+def therm_pow_kw_overall_htc(ova_htc_kw_m2_k, surf_m2, lmtd):                                                           # therm_pow_kw_overall_htc(Overall heat transfer coefficient [kW/(m^2*K)], Surface [m^2], Log-mean temperature difference [°C] or [K])
   if (ova_htc_kw_m2_k > 0 and surf_m2 > 0 and lmtd != 0):                                                               # Check in-vals consistency, if ok
     return ova_htc_kw_m2_k*surf_m2*lmtd                                                                                 # Return thermal power [kW]
   else:                                                                                                                 # Else if in-vals consistency ain't ok
