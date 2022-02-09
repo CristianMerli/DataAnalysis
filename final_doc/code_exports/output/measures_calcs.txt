@@ -19,17 +19,34 @@
 - C-point-max max[mass-flow-rate*Cp]: 0.6450464737654941 [kJ/(K*s)] (approximative)
 - Number of transfer units (NTU): 0.37425973770778026 (approximative)
 - Effectiveness (epsilon): 0.2646927626813373 (approximative)
+- Heat-exchange surface approximated temperature for internal heat transfer coefficient and steel thermal conductivity calculation (h) calculation: 33.187027777777764 [°C]
+- Fluid thermal conductivity inside steel pipes: 0.6379434561832044 [W/(m*K)]
+- Fluid dynamic viscosity inside steel pipes: 0.0005794974834445339 [kg/(m*s)]
 - Reynolds number inside steel pipes: 8475.401387388405
-- Nusselt number inside steel pipes: 0.0
-- Prandtl number inside steel pipes: 0.0
-- Heat transfer coefficient (h) inside steel pipes: 0.0 [W/(m^2*K)]
-- Absolute convective resistance inside steel pipes: 0.0 [K/W]
-- Reynolds number inside glass pipe: 91.56363579940232
-- Nusselt number inside glass pipe: 0.0
-- Prandtl number inside glass pipe: 0.0
-- Heat transfer coefficient (h) inside glass pipe: 0.0 [W/(m^2*K)]
-- Absolute convective resistance inside glass pipe: 0.0 [K/W]
-- Steel pipes absolute conductive resistance: 0.0 [K/W]
+- Prandtl number inside steel pipes: 3.7995426103677032
+- Nusselt number inside steel pipes: 53.97159256833558
+- Heat transfer coefficient (h) inside steel pipes: 4303.853037344468 [W/(m^2*K)]
+- Absolute convective resistance inside steel pipes: 0.002641402975939903 [K/W]
+- Heat-exchange surface approximated temperature for inlet secion external heat transfer coefficient (h) calculation: 33.24766666666666 [°C]
+- Fluid thermal conductivity inside glass pipe inlet secion: 0.5881647581365058 [W/(m*K)]
+- Fluid dynamic viscosity inside glass pipe inlet secion: 0.001128539601891879 [kg/(m*s)]
+- Reynolds number inside glass pipe inlet secion: 1062.2364254062172
+- Prandtl number inside glass pipe inlet secion: 8.021869136956349
+- Nusselt number inside glass pipe inlet secion: 35.268280464723915
+- Heat transfer coefficient (h) inside glass pipe inlet secion: 41.48711929884959 [W/(m^2*K)]
+- Heat-exchange surface approximated temperature for outlet secion external heat transfer coefficient (h) calculation: 33.12638888888887 [°C]
+- Fluid thermal conductivity inside glass pipe outlet secion: 0.604855672102731 [W/(m*K)]
+- Fluid dynamic viscosity inside glass pipe outlet secion: 0.0009043762560486229 [kg/(m*s)]
+- Prandtl number inside glass pipe outlet secion: 6.246013862925899
+- Reynolds number inside glass pipe outlet secion: 1325.5278039702691
+- Nusselt number inside glass pipe outlet secion: 35.51712904713836
+- Heat transfer coefficient (h) inside glass pipe outlet secion: 42.965473921932606 [W/(m^2*K)]
+- Average heat transfer coefficient (h) inside glass pipe: 42.2262966103911 [W/(m^2*K)]
+- Absolute convective resistance inside glass pipe: 0.21537688376019534 [K/W]
+- Steel pipes thermal conductivity: 13.564382968134643 [W/(m*K)]
+- Steel pipes absolute conductive resistance: 0.0007480599174252721 [K/W]
+- Overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.04157206222894026 [kW/(m^2*K)]
+- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 0.11736913237312448 [kW]
 
 --> Countercurrent measure 1 calculations results:
 - Cold fluid mass flow rate: 0.1484311273183292 [kg/s]
@@ -51,17 +68,34 @@
 - C-point-max max[mass-flow-rate*Cp]: 0.651714967310756 [kJ/(K*s)] (approximative)
 - Number of transfer units (NTU): 0.4083212708074647 (approximative)
 - Effectiveness (epsilon): 0.29193265384647005 (approximative)
+- Heat-exchange surface approximated temperature for internal heat transfer coefficient and steel thermal conductivity calculation (h) calculation: 33.36 [°C]
+- Fluid thermal conductivity inside steel pipes: 0.6379817601595701 [W/(m*K)]
+- Fluid dynamic viscosity inside steel pipes: 0.0005791849433784018 [kg/(m*s)]
 - Reynolds number inside steel pipes: 8567.621656763613
-- Nusselt number inside steel pipes: 0.0
-- Prandtl number inside steel pipes: 0.0
-- Heat transfer coefficient (h) inside steel pipes: 0.0 [W/(m^2*K)]
-- Absolute convective resistance inside steel pipes: 0.0 [K/W]
-- Reynolds number inside glass pipe: 91.39269489968606
-- Nusselt number inside glass pipe: 0.0
-- Prandtl number inside glass pipe: 0.0
-- Heat transfer coefficient (h) inside glass pipe: 0.0 [W/(m^2*K)]
-- Absolute convective resistance inside glass pipe: 0.0 [K/W]
-- Steel pipes absolute conductive resistance: 0.0 [K/W]
+- Prandtl number inside steel pipes: 3.7972687047165685
+- Nusselt number inside steel pipes: 54.50095166557847
+- Heat transfer coefficient (h) inside steel pipes: 4346.326634247176 [W/(m^2*K)]
+- Absolute convective resistance inside steel pipes: 0.002615590400241225 [K/W]
+- Heat-exchange surface approximated temperature for inlet secion external heat transfer coefficient (h) calculation: 38.17000000000003 [°C]
+- Fluid thermal conductivity inside glass pipe inlet secion: 0.5884719886265394 [W/(m*K)]
+- Fluid dynamic viscosity inside glass pipe inlet secion: 0.0011238912875541204 [kg/(m*s)]
+- Reynolds number inside glass pipe inlet secion: 1056.5514936331888
+- Prandtl number inside glass pipe inlet secion: 7.984088094885344
+- Nusselt number inside glass pipe inlet secion: 35.57070304571189
+- Heat transfer coefficient (h) inside glass pipe inlet secion: 41.86472471630835 [W/(m^2*K)]
+- Heat-exchange surface approximated temperature for outlet secion external heat transfer coefficient (h) calculation: 28.54999999999996 [°C]
+- Fluid thermal conductivity inside glass pipe outlet secion: 0.6056708748611661 [W/(m*K)]
+- Fluid dynamic viscosity inside glass pipe outlet secion: 0.0008946319339297714 [kg/(m*s)]
+- Prandtl number inside glass pipe outlet secion: 6.170905319628549
+- Reynolds number inside glass pipe outlet secion: 1327.3045299541568
+- Nusselt number inside glass pipe outlet secion: 34.8706841751864
+- Heat transfer coefficient (h) inside glass pipe outlet secion: 42.24031558278513 [W/(m^2*K)]
+- Average heat transfer coefficient (h) inside glass pipe: 42.05252014954674 [W/(m^2*K)]
+- Absolute convective resistance inside glass pipe: 0.21626690016050704 [K/W]
+- Steel pipes thermal conductivity: 13.567474146810277 [W/(m*K)]
+- Steel pipes absolute conductive resistance: 0.0007478894813632741 [K/W]
+- Overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.04140851632153966 [kW/(m^2*K)]
+- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 0.11508774671865195 [kW]
 
 --> Countercurrent measure 2 calculations results:
 - Cold fluid mass flow rate: 0.047238881518364424 [kg/s]
@@ -83,17 +117,34 @@
 - C-point-max max[mass-flow-rate*Cp]: 0.6585372902123762 [kJ/(K*s)] (approximative)
 - Number of transfer units (NTU): 0.9770895704007575 (approximative)
 - Effectiveness (epsilon): 0.5837758864709931 (approximative)
+- Heat-exchange surface approximated temperature for internal heat transfer coefficient and steel thermal conductivity calculation (h) calculation: 36.28852777777775 [°C]
+- Fluid thermal conductivity inside steel pipes: 0.6398811626166394 [W/(m*K)]
+- Fluid dynamic viscosity inside steel pipes: 0.0005638171855193989 [kg/(m*s)]
 - Reynolds number inside steel pipes: 8892.231994103524
-- Nusselt number inside steel pipes: 0.0
-- Prandtl number inside steel pipes: 0.0
-- Heat transfer coefficient (h) inside steel pipes: 0.0 [W/(m^2*K)]
-- Absolute convective resistance inside steel pipes: 0.0 [K/W]
-- Reynolds number inside glass pipe: 32.1983513720283
-- Nusselt number inside glass pipe: 0.0
-- Prandtl number inside glass pipe: 0.0
-- Heat transfer coefficient (h) inside glass pipe: 0.0 [W/(m^2*K)]
-- Absolute convective resistance inside glass pipe: 0.0 [K/W]
-- Steel pipes absolute conductive resistance: 0.0 [K/W]
+- Prandtl number inside steel pipes: 3.6857547945937545
+- Nusselt number inside steel pipes: 55.74297420696788
+- Heat transfer coefficient (h) inside steel pipes: 4458.6098929079935 [W/(m^2*K)]
+- Absolute convective resistance inside steel pipes: 0.002549720763624623 [K/W]
+- Heat-exchange surface approximated temperature for inlet secion external heat transfer coefficient (h) calculation: 42.404944444444446 [°C]
+- Fluid thermal conductivity inside glass pipe inlet secion: 0.5883177983640793 [W/(m*K)]
+- Fluid dynamic viscosity inside glass pipe inlet secion: 0.0011262210363119825 [kg/(m*s)]
+- Reynolds number inside glass pipe inlet secion: 335.5567335027363
+- Prandtl number inside glass pipe inlet secion: 8.003019278333086
+- Nusselt number inside glass pipe inlet secion: 19.161063216508992
+- Heat transfer coefficient (h) inside glass pipe inlet secion: 22.545589051703026 [W/(m^2*K)]
+- Heat-exchange surface approximated temperature for outlet secion external heat transfer coefficient (h) calculation: 30.172111111111057 [°C]
+- Fluid thermal conductivity inside glass pipe outlet secion: 0.6198243979691179 [W/(m*K)]
+- Fluid dynamic viscosity inside glass pipe outlet secion: 0.0007411608789473272 [kg/(m*s)]
+- Prandtl number inside glass pipe outlet secion: 5.002483016263581
+- Reynolds number inside glass pipe outlet secion: 509.89071722682326
+- Nusselt number inside glass pipe outlet secion: 18.803501233759913
+- Heat transfer coefficient (h) inside glass pipe outlet secion: 23.30973766385361 [W/(m^2*K)]
+- Average heat transfer coefficient (h) inside glass pipe: 22.927663357778318 [W/(m^2*K)]
+- Absolute convective resistance inside glass pipe: 0.39666354284612954 [K/W]
+- Steel pipes thermal conductivity: 13.619701395103526 [W/(m*K)]
+- Steel pipes absolute conductive resistance: 0.0007450215616853058 [K/W]
+- Overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.02273879180370375 [kW/(m^2*K)]
+- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 0.05364101404203264 [kW]
 
 --> Cocurrent measure 2 calculations results:
 - Cold fluid mass flow rate: 0.04607886236181829 [kg/s]
@@ -115,14 +166,31 @@
 - C-point-max max[mass-flow-rate*Cp]: 0.6637758774279902 [kJ/(K*s)] (approximative)
 - Number of transfer units (NTU): 0.9330936031127647 (approximative)
 - Effectiveness (epsilon): 0.542529860632475 (approximative)
+- Heat-exchange surface approximated temperature for internal heat transfer coefficient and steel thermal conductivity calculation (h) calculation: 36.405888888888896 [°C]
+- Fluid thermal conductivity inside steel pipes: 0.6402774892386184 [W/(m*K)]
+- Fluid dynamic viscosity inside steel pipes: 0.0005606420170115358 [kg/(m*s)]
 - Reynolds number inside steel pipes: 9013.494439085682
-- Nusselt number inside steel pipes: 0.0
-- Prandtl number inside steel pipes: 0.0
-- Heat transfer coefficient (h) inside steel pipes: 0.0 [W/(m^2*K)]
-- Absolute convective resistance inside steel pipes: 0.0 [K/W]
-- Reynolds number inside glass pipe: 31.339358306786192
-- Nusselt number inside glass pipe: 0.0
-- Prandtl number inside glass pipe: 0.0
-- Heat transfer coefficient (h) inside glass pipe: 0.0 [W/(m^2*K)]
-- Absolute convective resistance inside glass pipe: 0.0 [K/W]
-- Steel pipes absolute conductive resistance: 0.0 [K/W]
+- Prandtl number inside steel pipes: 3.662787401285023
+- Nusselt number inside steel pipes: 56.30037282062228
+- Heat transfer coefficient (h) inside steel pipes: 4505.982669098273 [W/(m^2*K)]
+- Absolute convective resistance inside steel pipes: 0.0025229147681397205 [K/W]
+- Heat-exchange surface approximated temperature for inlet secion external heat transfer coefficient (h) calculation: 33.441500000000005 [°C]
+- Fluid thermal conductivity inside glass pipe inlet secion: 0.5884737058340325 [W/(m*K)]
+- Fluid dynamic viscosity inside glass pipe inlet secion: 0.0011238653764147405 [kg/(m*s)]
+- Reynolds number inside glass pipe inlet secion: 328.002718680169
+- Prandtl number inside glass pipe inlet secion: 7.983877599133027
+- Nusselt number inside glass pipe inlet secion: 18.450000673431777
+- Heat transfer coefficient (h) inside glass pipe inlet secion: 21.714680537869587 [W/(m^2*K)]
+- Heat-exchange surface approximated temperature for outlet secion external heat transfer coefficient (h) calculation: 39.37027777777779 [°C]
+- Fluid thermal conductivity inside glass pipe outlet secion: 0.6194104100939217 [W/(m*K)]
+- Fluid dynamic viscosity inside glass pipe outlet secion: 0.0007452530416777982 [kg/(m*s)]
+- Prandtl number inside glass pipe outlet secion: 5.033416080671006
+- Reynolds number inside glass pipe outlet secion: 494.6385700951218
+- Nusselt number inside glass pipe outlet secion: 19.02982848999794
+- Heat transfer coefficient (h) inside glass pipe outlet secion: 23.574547738013237 [W/(m^2*K)]
+- Average heat transfer coefficient (h) inside glass pipe: 22.64461413794141 [W/(m^2*K)]
+- Absolute convective resistance inside glass pipe: 0.4016216889932181 [K/W]
+- Steel pipes thermal conductivity: 13.62179018869104 [W/(m*K)]
+- Steel pipes absolute conductive resistance: 0.0007449073185323096 [K/W]
+- Overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.022461851759072254 [kW/(m^2*K)]
+- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 0.05446885511661207 [kW]

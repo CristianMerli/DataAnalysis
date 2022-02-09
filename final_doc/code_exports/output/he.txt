@@ -11,3 +11,4 @@
 --> Heat-exchanger interspace between steel pipes: 0.005 [m]
 --> Heat-exchanger steel pipes internal-surface: 0.0879645943005142 [m^2]
 --> Heat-exchanger steel pipes external-surface: 0.10995574287564275 [m^2]
+--> Environment temperature: 21.3 [°C]

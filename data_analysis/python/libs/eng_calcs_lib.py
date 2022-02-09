@@ -5,7 +5,6 @@
 # Libraries import
 import math as mt                                                                                                       # Math lib
 import enum as en
-from tkinter import E                                                                                                       # Enum lib
 # Project personal libraries import
 import libs.data_analysis_lib as da                                                                                     # Data analysis lib
 import libs.output_lib as out                                                                                           # Output lib
@@ -23,6 +22,7 @@ _steel_pipes_id_m = 8*1e-3                                                      
 _steel_pipes_ed_m = 1*1e-2                                                                                              # Heat-exchamher steel pipes external-diameter [m]
 _steel_pipes_num = 5                                                                                                    # Number of heat-exchamher steel pipes
 _steel_pipes_pace_m = 15*1e-3                                                                                           # Heat-exchanger steel pipes pace [m]
+_env_temp = 21.3                                                                                                        # Environment temperature [°C]
 # Rounding vars
 rnd_dec_places = 4                                                                                                      # Number of decimal places in rounding operations to avoid floating-point errors
 # Engineering calcs vars
@@ -50,6 +50,7 @@ class He:                                                                       
   steel_pipes_interspce = 0.0                                                                                           # Heat-exchanger interspace between steel pipes [m]
   steel_pipes_is_m2 = 0.0                                                                                               # Heat-exchanger steel pipes internal-surface [m^2]
   steel_pipes_es_m2 = 0.0                                                                                               # Heat-exchanger steel pipes external-surface [m^2]
+  env_temp = 0.0                                                                                                        # Environment temperature [°C]
   def __init__(self):                                                                                                   # Constructor
     self.eff_len_m = _eff_len_m                                                                                         # Heat-exchamher effective length [m] init
     self.glass_pipe_id_m = _glass_pipe_id_m                                                                             # Heat-exchamher glass pipe internal-diameter [m] init
@@ -63,6 +64,7 @@ class He:                                                                       
     self.steel_pipes_interspce = round(self.steel_pipes_pace_m-self.steel_pipes_ed_m, rnd_dec_places)                   # Heat-exchanger interspace between steel pipes [m] init and value to avoid floating-point errors
     self.steel_pipes_is_m2 = cyl_lat_surf(self.steel_pipes_num, self.steel_pipes_id_m, self.eff_len_m)                  # Heat-exchamher steel pipes internal-surface [m^2] init
     self.steel_pipes_es_m2 = cyl_lat_surf(self.steel_pipes_num, self.steel_pipes_ed_m, self.eff_len_m)                  # Heat-exchamher steel pipes external-surface [m^2] init
+    self.env_temp = _env_temp                                                                                           # Environment temperature [°C] init
     return                                                                                                              # Return nothing
   def print_info_save_out(self, dbg_flg):                                                                               # Info printing and output saving method with debug flag
     if (dbg_flg):                                                                                                       # If dbg flg is ena
@@ -77,7 +79,8 @@ class He:                                                                       
       +"\n--> Heat-exchanger steel pipes thickness: "+str(self.steel_pipes_thick_m)+" [m]"\
       +"\n--> Heat-exchanger interspace between steel pipes: "+str(self.steel_pipes_interspce)+" [m]"\
       +"\n--> Heat-exchanger steel pipes internal-surface: "+str(self.steel_pipes_is_m2)+" [m^2]"\
-      +"\n--> Heat-exchanger steel pipes external-surface: "+str(self.steel_pipes_es_m2)+" [m^2]\n")                    # Dbg fbk
+      +"\n--> Heat-exchanger steel pipes external-surface: "+str(self.steel_pipes_es_m2)+" [m^2]"\
+      +"\n--> Environment temperature: "+str(self.env_temp)+" [°C]\n")                                                  # Dbg fbk
       print(dbg_str)                                                                                                    # Print dbg fbk
       out.save_output(out.Output_typ.he, dbg_str)                                                                       # Save dbg output
     return                                                                                                              # Return nothing
@@ -177,6 +180,20 @@ def print_save_measures_calcs_res(measures, dbg_flg, out_typ):                  
     out.save_output(out_typ, dbg_str)                                                                                   # Save dbg output
     return                                                                                                              # Return nothing
 
+# Function definition to approximate measure heat-exchange surface temperature [°C]
+def approx_sruf_temp(meas):                                                                                             # approx_sruf_temp(Measure)
+  if (meas != None or meas.typ != da.Meas_typ.undef):                                                                   # If measure is defined and in-vals consistency is ok
+    int_approx_surf_temp = avg(meas.avg_cold_fl_temp, meas.avg_hot_fl_temp)                                             # Def heat-exchange surface approximated temperature [°C] for internal heat transfer coefficient (h) and steel thermal conductivity calculation
+    if (meas.typ == da.Meas_typ.ccurr):                                                                                 # In case of measure taken while heat-exchanger was in cocurrent config
+      ext_in_approx_surf_temp = avg(meas.t1, meas.t2)                                                                   # Def heat-exchange surface approximated temperature [°C] for inlet secion external heat transfer coefficient (h) calculation
+      ext_out_approx_surf_temp = avg(meas.t3, meas.t4)                                                                  # Def heat-exchange surface approximated temperature [°C] for outlet secion external heat transfer coefficient (h) calculation
+    else:                                                                                                               # Else in case of measure taken while heat-exchanger was in countercurrent config
+      ext_in_approx_surf_temp = avg(meas.t3, meas.t2)                                                                   # Def heat-exchange surface approximated temperature [°C] for inlet secion external heat transfer coefficient (h) calculation
+      ext_out_approx_surf_temp = avg(meas.t1, meas.t4)                                                                  # Def heat-exchange surface approximated temperature [°C] for outlet secion external heat transfer coefficient (h) calculation
+    return int_approx_surf_temp, ext_in_approx_surf_temp, ext_out_approx_surf_temp                                      # Return internal-approximated-surface-temp, external-inlet-section-approximated-surface-temp, external-outlet-section-approximated-surface-temp
+  else:                                                                                                                 # Else if measure is undefined or in-vals consistency ain't ok
+    return -1, -1, -1                                                                                                   # Return err vals
+
 # Function definition to calculate dynamic viscosity from kinematic viscosity and density vs temp
 def dyn_vis(f_ni, f_rho, temp):                                                                                         # dyn_vis(Ni vs temp: kinematic viscosity [m^2/s], Rho vs temp: density [kg/m^3], Temperature [°C])
   if (f_ni != None and f_rho != None and temp != None):                                                                 # Check in-vals consistency, if ok
@@ -186,7 +203,7 @@ def dyn_vis(f_ni, f_rho, temp):                                                 
 
 # Function definition to calculate Reynolds number for fluid in cylindrical pipe
 # tube side - EQUATIONS 5.144 and 5.144a 'RelazioniScambiatore'
-def re_cyl_pipe(pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis):                                                     # re_cyl_pipe(Pipe mass flow rate [kg/s], Pipe internal diameter [m], Mu: fluid dynamic viscosity [kg/(m*S)])
+def re_cyl_pipe(pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis):                                                     # re_cyl_pipe(Pipe mass flow rate [kg/s], Pipe internal diameter [m], Mu: fluid dynamic viscosity [kg/(m*s)])
   if (pipe_mass_flow_rate > 0 and pipe_int_diam > 0 and fluid_dyn_vis > 0):                                             # Check in-vals consistency, if ok
     return (4*pipe_mass_flow_rate)/(mt.pi*pipe_int_diam*fluid_dyn_vis)                                                  # Return calculated Reynolds number for fluid in cylindrical pipe [adimensional] --> [kg/s]/([m]*[kg/(m*s)])=[adimensional]
   else:                                                                                                                 # Else if in-vals consistency ain't ok
@@ -195,19 +212,19 @@ def re_cyl_pipe(pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis):             
 # Function definition to calculate heat-exchanger shell wetted perimeter [m] (3 sections contribution)
 def wetted_perim_shell_m(he):                                                                                           # wetted_perim_shell_m(Heat-exchanger)
   if (he != None):                                                                                                      # Check in-vals consistency, if ok
-    return 2*he.steel_pipes_num*he.glass_pipe_diaph_pace_m*he.glass_pipe_diaph_num                                      # Return calculated heat-exchanger shell wetted perimeter [m]
+    return 2*he.steel_pipes_num*he.glass_pipe_diaph_pace_m                                                              # Return calculated heat-exchanger shell wetted perimeter [m]
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
 # Function definition to calculate Reynolds number for fluid in external pipe shell side (3 sections contribution)
-def re_shell(pipe_mass_flow_rate, fluid_dyn_vis, he):                                                                   # re_shell(Pipe mass flow rate [kg/s], Mu: fluid dynamic viscosity [kg/(m*S)], Heat-exchanger)
+def re_shell(pipe_mass_flow_rate, fluid_dyn_vis, he):                                                                   # re_shell(Pipe mass flow rate [kg/s], Mu: fluid dynamic viscosity [kg/(m*s)], Heat-exchanger)
   if (pipe_mass_flow_rate > 0 and fluid_dyn_vis > 0 and he != None):                                                    # Check in-vals consistency, if ok
     return (4*pipe_mass_flow_rate)/(wetted_perim_shell_m(he)*fluid_dyn_vis)                                             # Return calculated Reynolds number for fluid in external pipe shell side
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
 # Function definition to calculate Reynolds number
-def re(side, pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis, he):                                                    # re(Heat-exchanger side, Pipe mass flow rate [kg/s], Pipe internal diameter [m], Mu: fluid dynamic viscosity [kg/(m*S)], Heat-exchanger)
+def re(side, pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis, he):                                                    # re(Heat-exchanger side, Pipe mass flow rate [kg/s], Pipe internal diameter [m], Mu: fluid dynamic viscosity [kg/(m*s)], Heat-exchanger)
   if (side == He_side.tube):                                                                                            # In case of tube side
     return re_cyl_pipe(pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis)                                               # Return tube side calculated Reynolds number
   elif (side == He_side.shell):                                                                                         # Else in case of shell side
@@ -217,7 +234,7 @@ def re(side, pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis, he):            
 
 # Function definition to calculate Nusselt number in laminar flow
 # tube side - EQUATION 5.145 'RelazioniScambiatore'
-def nu_lam_flow_cyl_pipe(re, pr, fluid_dyn_vis, fluid_dyn_vis_s, pipe_int_diam, pipe_len_m):                            # ---nu_lam_flow_cyl_pipe(Reynolds number, Prandtl number, Mu: fluid dynamic viscosity [kg/(m*S)], Mu-s: fluid dynamic viscosity at surface temperature [kg/(m*S)], Pipe internal diameter [m], Pipe length [m])
+def nu_lam_flow_cyl_pipe(re, pr, fluid_dyn_vis, fluid_dyn_vis_s, pipe_int_diam, pipe_len_m):                            # nu_lam_flow_cyl_pipe(Reynolds number, Prandtl number, Mu: fluid dynamic viscosity [kg/(m*s)], Mu-s: fluid dynamic viscosity at surface temperature [kg/(m*s)], Pipe internal diameter [m], Pipe length [m])
   if (re > 0 and re < re_trans and pr > 0.48 and pr < 1.67*1e4 and\
       (fluid_dyn_vis/fluid_dyn_vis_s) > 4.4*1e-3 and (fluid_dyn_vis/fluid_dyn_vis_s) < 9.75 and pipe_int_diam > 0):     # If Reynolds number, Prandtl number, Fluid-dyn-viscosity/Fluid-dyn-viscosity-surf-temp ratio are in formula range and in-vals consistency is ok
     nu = 1.86*mt.pow((pipe_int_diam*re*pr)/pipe_len_m, 1/3)*mt.pow(fluid_dyn_vis/fluid_dyn_vis_s, 0.14)                 # Return calculated Nusselt number for fluid in laminar flow inside cylindrical pipe
@@ -245,15 +262,15 @@ def nu_turb_flow_cyl_pipe(re, pr):                                              
     return -1                                                                                                           # Return err val
 
 # Function definition to calculate Nusselt number shell side - EQUATION 5.148
-# (last-one) 'RelazioniScambiatore'
-def nu_shell(re, pr, fluid_dyn_vis, fluid_dyn_vis_s):                                                                   # ---nu_shell(Reynolds number, Nusselt number, Mu: fluid dynamic viscosity [kg/(m*S)], Mu-s: fluid dynamic viscosity at surface temperature [kg/(m*S)])
-  if (re > 2*1e3 and re < 1*1e6 and pr > 0 and fluid_dyn_vis > 0 and fluid_dyn_vis_s > 0):                              # If Reynolds number is in formula range and in-vals consistency is ok
+# (last-one) 'RelazioniScambiatore', Removed formula range: re > 2*1e3, turbulent flow for diaphragms  
+def nu_shell(re, pr, fluid_dyn_vis, fluid_dyn_vis_s):                                                                   # nu_shell(Reynolds number, Nusselt number, Mu: fluid dynamic viscosity [kg/(m*s)], Mu-s: fluid dynamic viscosity at surface temperature [kg/(m*s)])
+  if (re < 1*1e6 and pr > 0 and fluid_dyn_vis > 0 and fluid_dyn_vis_s > 0):                                             # If Reynolds number is in formula range and in-vals consistency is ok
     return 0.36*mt.pow(re, 0.55)*mt.pow(pr, 1/3)*mt.pow((fluid_dyn_vis/fluid_dyn_vis_s), 0.14)                          # Return calculated Nusselt number for fluid in heat-exchanger shell
   else:                                                                                                                 # Else if Reynolds number ain't in formula range or in-vals consistency not ok
     return -1                                                                                                           # Return err val
 
 # Function definition to calculate Nusselt number
-def nu(side, re, pr, fluid_dyn_vis, fluid_dyn_vis_s, pipe_int_diam, pipe_len_m):                                        # ---nu(Heat-exchanger side, Reynolds number, Prandtl number, Mu: fluid dynamic viscosity [kg/(m*S)], Mu-s: fluid dynamic viscosity at surface temperature [kg/(m*S)], Pipe internal diameter [m], Pipe length [m])
+def nu(side, re, pr, fluid_dyn_vis, fluid_dyn_vis_s, pipe_int_diam, pipe_len_m):                                        # nu(Heat-exchanger side, Reynolds number, Prandtl number, Mu: fluid dynamic viscosity [kg/(m*s)], Mu-s: fluid dynamic viscosity at surface temperature [kg/(m*s)], Pipe internal diameter [m], Pipe length [m])
   if (side == He_side.tube):                                                                                            # In case of tube side
     if (re < re_trans):                                                                                                 # And in case of laminar fluid flow
       return nu_lam_flow_cyl_pipe(re, pr, fluid_dyn_vis, fluid_dyn_vis_s, pipe_int_diam, pipe_len_m)                    # Return tube side laminar fluid flow calculated Nusselt number
@@ -290,5 +307,12 @@ def abs_cond_res(pipe_int_diam, pipe_ext_diam, pipe_len, pipes_num, therm_cond):
 def overall_htc_kw_m2_k(surf_m2, abs_int_conv_res_k_w, abs_cond_res_k_w, abs_ext_conv_res_k_w):                         # overall_htc_kw_m2_k(Surface [m^2], Absolute internal convective resistance [K/W], Absolute conductive resistance [K/W], Absolute external convective resistance [K/W])
   if (surf_m2 > 0 and abs_int_conv_res_k_w > 0 and abs_cond_res_k_w > 0 and abs_ext_conv_res_k_w > 0):                  # Check in-vals consistency, if ok
     return ((1/surf_m2)/(abs_int_conv_res_k_w+abs_cond_res_k_w+abs_ext_conv_res_k_w))*1*1e-3                            # Return calculated overall heat transfer coefficient [kW/(m^2*K)]
+  else:                                                                                                                 # Else if in-vals consistency ain't ok
+    return -1                                                                                                           # Return err val
+
+# Function definition to calculate transferred heat (thermal power) [kW]
+def therm_pow_kw(ova_htc_kw_m2_k, surf_m2, lmtd):                                                                       # glob_htc_kw_m2_k(Overall heat transfer coefficient [kW/(m^2*K)], Surface [m^2], Log-mean temperature difference [°C] or [K])
+  if (ova_htc_kw_m2_k > 0 and surf_m2 > 0 and lmtd != 0):                                                               # Check in-vals consistency, if ok
+    return ova_htc_kw_m2_k*surf_m2*lmtd                                                                                 # Return thermal power [kW]
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
