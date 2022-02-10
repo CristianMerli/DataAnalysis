@@ -4,7 +4,7 @@
 
 # Libraries import
 import math as mt                                                                                                       # Math lib
-import enum as en
+import enum as en                                                                                                       # Enum lib
 # Project personal libraries import
 import libs.data_analysis_lib as da                                                                                     # Data analysis lib
 import libs.output_lib as out                                                                                           # Output lib
@@ -89,6 +89,17 @@ class He:                                                                       
 # FUNCTS #
 ##########
 
+# Function definition to calculate average between two values
+def avg(val1, val2):                                                                                                    # avg(Value1, Value2)
+  return (val1+val2)/2                                                                                                  # Return average value btwn Value1 and Value2
+
+# Function definition to calculate percentage between partial and total values specifying rounding
+def perc(partial, total, dec_cyph):                                                                                     # perc(Partial value, Total value, Number of decimal cyphers)
+  if (partial != None and total != 0 and dec_cyph >= 0):                                                                # Check in-vals consistency, if ok
+    return round(((100/total)*partial), dec_cyph)                                                                       # Return calculated percentage between partial and total values with specified rounding
+  else:                                                                                                                 # Else if in-vals consistency ain't ok
+    return -1                                                                                                           # Retur err val
+
 # Function definition to convert temperatures from [K] to [°C]
 def conv_temp_k_c(temp_array):                                                                                          # conv_temp_k_c(Temperatures array [K])
   conv_factor = -273.15                                                                                                 # Conversion factor from [K] to [°C]
@@ -102,17 +113,21 @@ def cyl_lat_surf(num_cyl, diam, len):                                           
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Retur err val
 
-# Function definition to convert volume flow rate [l/h] into mass flow rate [kg/s]
-def vol_flow_rate_to_mass_flow_rate(vol_flow_rate_l_h, density):                                                        # vol_flow_rate_to_mass_flow_rate(Volume flow rate value [l/h], density value)
-  conv_factor = (1*1e-3)/(3.6*1e3)                                                                                      # Conversion factor from [l/h] to [m^3/s]
-  if (vol_flow_rate_l_h > 0 and density > 0):                                                                           # Check in-vals consistency, if ok
-    return vol_flow_rate_l_h*conv_factor*density                                                                        # Return mass flow rate [kg/s] --> [m^3/s]*[kg/m^3]=[kg/s]
+# Function definition to calculate cylindrical basal surface
+def cyl_bas_surf(diam):                                                                                                 # cyl_bas_surf(Cylinder diameter)
+  if (diam > 0):                                                                                                        # Check in-vals consistency, if ok
+    return mt.pi*mt.pow(diam/2, 2)                                                                                      # Return cylindrical basal surface
   else:                                                                                                                 # Else if in-vals consistency ain't ok
-    return -1                                                                                                           # Return err val
+    return -1                                                                                                           # Retur err val
 
-# Function definition to calculate average between two values
-def avg(val1, val2):                                                                                                    # avg(Value1, Value2)
-  return (val1+val2)/2                                                                                                  # Return average value btwn Value1 and Value2
+# Function definition to convert volume flow rate [l/h] into [m^3/s] and mass flow rate [kg/s]
+def vol_flow_rate_mass_flow_rate(vol_flow_rate_l_h, density):                                                           # vol_flow_rate_mass_flow_rate(Volume flow rate value [l/h], density value)
+  if (vol_flow_rate_l_h > 0 and density > 0):                                                                           # Check in-vals consistency, if ok
+    conv_factor = (1*1e-3)/(3.6*1e3)                                                                                    # Conversion factor from [l/h] to [m^3/s]
+    vol_flow_rate_m3_s = vol_flow_rate_l_h*conv_factor                                                                  # Volume flow rate conversion from [l/h] to [m^3/s]
+    return vol_flow_rate_m3_s, vol_flow_rate_m3_s*density                                                               # Return volume flow rate [m^3/s] and mass flow rate [kg/s] --> [m^3/s]*[kg/m^3]=[kg/s]
+  else:                                                                                                                 # Else if in-vals consistency ain't ok
+    return -1, -1                                                                                                       # Return err vals
 
 # Function definition to calculate log-mean temperature difference (LMTD)
 def lmtd(delta1, delta2):                                                                                               # lmtd(DeltaTemperature1, DeltaTemperature2)
@@ -181,16 +196,17 @@ def print_save_measures_calcs_res(measures, dbg_flg, out_typ):                  
     return                                                                                                              # Return nothing
 
 # Function definition to approximate measure heat-exchange surface temperature [°C]
+# and shell inlet/outlet sections approximated fluid temperatures [°C]
 def approx_sruf_temp(meas):                                                                                             # approx_sruf_temp(Measure)
   if (meas != None or meas.typ != da.Meas_typ.undef):                                                                   # If measure is defined and in-vals consistency is ok
-    int_approx_surf_temp = avg(meas.avg_cold_fl_temp, meas.avg_hot_fl_temp)                                             # Def heat-exchange surface approximated temperature [°C] for internal heat transfer coefficient (h) and steel thermal conductivity calculation
+    approx_surf_temp = avg(meas.avg_cold_fl_temp, meas.avg_hot_fl_temp)                                                 # Def heat-exchange average surface approximated temperature [°C] for internal and external heat transfer coefficient (h) and steel thermal conductivity calculation
     if (meas.typ == da.Meas_typ.ccurr):                                                                                 # In case of measure taken while heat-exchanger was in cocurrent config
-      ext_in_approx_surf_temp = avg(meas.t1, meas.t2)                                                                   # Def heat-exchange surface approximated temperature [°C] for inlet secion external heat transfer coefficient (h) calculation
-      ext_out_approx_surf_temp = avg(meas.t3, meas.t4)                                                                  # Def heat-exchange surface approximated temperature [°C] for outlet secion external heat transfer coefficient (h) calculation
+      inlet_sect_temp = meas.t1                                                                                         # Def shell inlet section cold fluid temperature (bottom section)
+      outlet_sect_temp = meas.t3                                                                                        # Def shell outlet section cold fluid temperature (top section)
     else:                                                                                                               # Else in case of measure taken while heat-exchanger was in countercurrent config
-      ext_in_approx_surf_temp = avg(meas.t3, meas.t2)                                                                   # Def heat-exchange surface approximated temperature [°C] for inlet secion external heat transfer coefficient (h) calculation
-      ext_out_approx_surf_temp = avg(meas.t1, meas.t4)                                                                  # Def heat-exchange surface approximated temperature [°C] for outlet secion external heat transfer coefficient (h) calculation
-    return int_approx_surf_temp, ext_in_approx_surf_temp, ext_out_approx_surf_temp                                      # Return internal-approximated-surface-temp, external-inlet-section-approximated-surface-temp, external-outlet-section-approximated-surface-temp
+      inlet_sect_temp = meas.t3                                                                                         # Def shell inlet section cold fluid temperature (bottom section)
+      outlet_sect_temp = meas.t1                                                                                        # Def shell outlet section cold fluid temperature (top section)
+    return approx_surf_temp, inlet_sect_temp, outlet_sect_temp                                                          # Return approximated-heat-exch-surface-temp, shell-inlet-sect-fluid-temp, shell-outlet-sect-fluid-temp
   else:                                                                                                                 # Else if measure is undefined or in-vals consistency ain't ok
     return -1, -1, -1                                                                                                   # Return err vals
 
@@ -209,17 +225,40 @@ def re_cyl_pipe(pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis):             
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
-# Function definition to calculate heat-exchanger shell wetted perimeter [m] (3 sections contribution)
-def wetted_perim_shell_m(he):                                                                                           # wetted_perim_shell_m(Heat-exchanger)
+# Function definition to calculate heat-exchanger shell section flow surface [m^2] (3 sections contribution)
+def shell_sect_flow_surf_m2(he):                                                                                        # shell_sect_flow_surf_m2(Heat-exchanger)
   if (he != None):                                                                                                      # Check in-vals consistency, if ok
-    return 2*he.steel_pipes_num*he.glass_pipe_diaph_pace_m                                                              # Return calculated heat-exchanger shell wetted perimeter [m]
+    return 8*he.steel_pipes_interspce*he.glass_pipe_diaph_pace_m                                                        # Return calculated heat-exchanger shell flow surface [m^2] (3 sections contribution)
+  else:                                                                                                                 # Else if in-vals consistency ain't ok
+    return -1                                                                                                           # Return err val
+
+# Function definition to calculate heat-exchanger shell section wetted perimeter [m] (3 sections contribution)
+def shell_sect_wetted_perim_m(he):                                                                                      # shell_sect_wetted_perim_m(Heat-exchanger)
+  if (he != None):                                                                                                      # Check in-vals consistency, if ok
+    return 2*he.steel_pipes_num*he.glass_pipe_diaph_pace_m                                                              # Return calculated heat-exchanger shell wetted perimeter [m] (3 sections contribution)
+  else:                                                                                                                 # Else if in-vals consistency ain't ok
+    return -1                                                                                                           # Return err val
+
+# Function definition to calculate heat-exchanger shell section
+# equivalent hydraulic diameter [m] (3 sections contribution)
+def shell_eq_hyd_diam_m(he):                                                                                            # shell_eq_hyd_diam_m(Heat-exchanger)
+  if (he != None):                                                                                                      # Check in-vals consistency, if ok
+    return (4*shell_sect_flow_surf_m2(he))/shell_sect_wetted_perim_m(he)                                                # Return calculated heat-exchanger shell section equivalent hydraulic diameter [m] (3 sections contribution)
+  else:                                                                                                                 # Else if in-vals consistency ain't ok
+    return -1                                                                                                           # Return err val
+
+# Function definition to calculate Reynolds number from EQUATIONS 5.144 and 5.144a 'RelazioniScambiatore' using
+# volume flow rate to calculate fluid velocity, pipe equivalent diameter and fluid kinematic viscosity (alternative)
+def re_aternative(pipe_vol_flow_rate, fluid_in_surf_m2, pipe_equiv_diam, fluid_kin_vis):                                # re_aternative(Pipe volume flow rate [m^3/s], fluid inlet surface [m^2], Pipe equivalent diameter [m], kinematic viscosity [m^2/s])
+  if (pipe_vol_flow_rate > 0 and pipe_equiv_diam > 0 and fluid_kin_vis > 0):                                            # Check in-vals consistency, if ok
+    return ((pipe_vol_flow_rate/fluid_in_surf_m2)*pipe_equiv_diam)/fluid_kin_vis                                        # Return calculated Reynolds number [adimensional] --> ([m^3/s]*[m])/([m^2]*[m^2/s])=[adimensional]
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
 # Function definition to calculate Reynolds number for fluid in external pipe shell side (3 sections contribution)
 def re_shell(pipe_mass_flow_rate, fluid_dyn_vis, he):                                                                   # re_shell(Pipe mass flow rate [kg/s], Mu: fluid dynamic viscosity [kg/(m*s)], Heat-exchanger)
   if (pipe_mass_flow_rate > 0 and fluid_dyn_vis > 0 and he != None):                                                    # Check in-vals consistency, if ok
-    return (4*pipe_mass_flow_rate)/(wetted_perim_shell_m(he)*fluid_dyn_vis)                                             # Return calculated Reynolds number for fluid in external pipe shell side
+    return (4*pipe_mass_flow_rate)/(shell_sect_wetted_perim_m(he)*fluid_dyn_vis)                                        # Return calculated Reynolds number for fluid in external pipe shell side
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
