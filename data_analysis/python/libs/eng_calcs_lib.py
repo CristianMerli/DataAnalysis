@@ -197,7 +197,7 @@ def print_save_measures_calcs_res(measures, dbg_flg, out_typ):                  
 
 # Function definition to approximate measure heat-exchange surface temperature [°C]
 # and shell inlet/outlet sections approximated fluid temperatures [°C]
-def approx_sruf_temp(meas):                                                                                             # approx_sruf_temp(Measure)
+def approx_sruf_temp(meas):                                                                                             # ---approx_sruf_temp(Measure)
   if (meas != None or meas.typ != da.Meas_typ.undef):                                                                   # If measure is defined and in-vals consistency is ok
     approx_surf_temp = avg(meas.avg_cold_fl_temp, meas.avg_hot_fl_temp)                                                 # Def heat-exchange average surface approximated temperature [°C] for internal and external heat transfer coefficient (h) and steel thermal conductivity calculation
     if (meas.typ == da.Meas_typ.ccurr):                                                                                 # In case of measure taken while heat-exchanger was in cocurrent config
@@ -212,7 +212,7 @@ def approx_sruf_temp(meas):                                                     
 
 # Function definition to calculate dynamic viscosity from kinematic viscosity and density vs temp
 def dyn_vis(f_ni, f_rho, temp):                                                                                         # dyn_vis(Ni vs temp: kinematic viscosity [m^2/s], Rho vs temp: density [kg/m^3], Temperature [°C])
-  if (f_ni != None and f_rho != None and temp != None):                                                                 # Check in-vals consistency, if ok
+  if (f_ni != None and f_rho != None and temp >= -273.15):                                                              # Check in-vals consistency, if ok
     return f_ni(temp)*f_rho(temp)                                                                                       # Return dynamic viscosity [kg/(m*s)] --> [m^2/s]*][kg/m^3]=[kg/(m*s)]=[Pa*S]=[Pl]
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
@@ -355,4 +355,26 @@ def therm_pow_kw_overall_htc(ova_htc_kw_m2_k, surf_m2, lmtd):                   
   if (ova_htc_kw_m2_k > 0 and surf_m2 > 0 and lmtd != 0):                                                               # Check in-vals consistency, if ok
     return ova_htc_kw_m2_k*surf_m2*lmtd                                                                                 # Return thermal power [kW]
   else:                                                                                                                 # Else if in-vals consistency ain't ok
+    return -1                                                                                                           # Return err val
+
+# Function definition to calculate Grashof adimensional number
+def shell_gr(pipe_ext_diam, beta, surf_temp, env_temp, fluid_kin_vis):                                                  # ---gr(Pipe external diameter [m], Beta: thermal expansion coefficient [1/K], Surface temperature [K], Environment temperature [K], Fluid kinematic viscosity [[m^2/s]])
+  if (pipe_ext_diam > 0 and beta != None and surf_temp >= -273.15 and env_temp >= -273.15 and fluid_kin_vis > 0):       # Check in-vals consistency, if ok
+    g = 9.81                                                                                                            # Gravity acceleration value [m/s^2]
+    return (g*mt.pow(pipe_ext_diam, 3)*beta*(surf_temp-env_temp))/mt.pow(fluid_kin_vis, 2)                              # Return calculated Grashof number [adimensional]  -->  ([m/s^2]*[m^3]*[1/K]*[K])/[m^2/s]=[adimensional]
+  else:                                                                                                                 # Else if in-vals consistency ain't ok
+    return -1                                                                                                           # Return err val
+
+# Function definition to calculate Rayleigh adimensional number
+def ra(gr, pr):                                                                                                         # ---ra(Grashof number, Prandtl number)
+  if (gr != 0 and pr != 0):                                                                                             # Check in-vals consistency, if ok
+    return gr*pr                                                                                                        # Return calculated Rayleigh number [adimensional]  -->  [adimensional]*[adimensional]=[adimensional]
+  else:                                                                                                                 # Else if in-vals consistency ain't ok
+    return -1                                                                                                           # Return err val
+
+# Function definition to calculate Nusselt adimensional number from Rayleigh adimensional number
+def nu_from_ra(ra):                                                                                                     # ---nu_from_ra(Rayleigh number)
+  if (ra > 0 and ra < 1*1e9):                                                                                           # If Rayleigh number is in formula range
+    return 0.59*mt.pow(ra, 1/4)                                                                                         # Return calculated Rayleigh number [adimensional]
+  else:                                                                                                                 # Else if Rayleigh number ain't in formula range
     return -1                                                                                                           # Return err val

@@ -28,7 +28,7 @@ rho_col = "Rho(kg/m3)"                                                          
 cp_col = "Cp(kJ/kg*K)"                                                                                                  # Cp col in table files (Specific heat at constant pressure [kJ/(kg*K)])
 lambda_col = "Lambda(W/m*K)"                                                                                            # Lambda col in table files (Thermal conductivity [W/(m*K)])
 ni_col = "Ni(m2/s)"                                                                                                     # Ni col in table files (Kinematic viscosity [m^2/s])
-beta_col = "Beta(1/K)"                                                                                                  # Beta col in table files (Thermodynamic beta (Coldness) [1/K])
+beta_col = "Beta(1/K)"                                                                                                  # Beta col in table files (Thermal expansion coefficient [1/K])
 pr_col = "Pr(-)"                                                                                                        # Pr col in table files (Prandtl number [adimensional])
 # Air atmp-pressure thermophysical variables vs temp interpolation vars
 air_atmp_intp_typ = "cubic"                                                                                             # Air thermophysical variables at atm pressure interpolation type
@@ -73,7 +73,7 @@ def poly_approx_plot_air_atmp_thermophys_vars(air_atmp, plt_flg):               
   air_atmp_cp = np.array(air_atmp[cp_col])                                                                              # Extract air specific heat at constant pressure array from DataFrame (thermophysic variable at atm pressure vs temp)
   air_atmp_lambda = np.array(air_atmp[lambda_col])                                                                      # Extract air thermal conductivity array from DataFrame (thermophysic variable at atm pressure vs temp)
   air_atmp_ni = np.array(air_atmp[ni_col])                                                                              # Extract air kinematic viscosity array from DataFrame (thermophysic variable at atm pressure vs temp)
-  air_atmp_beta = np.array(air_atmp[beta_col])                                                                          # Extract air thermodynamic beta (Coldness) array from DataFrame (thermophysic variable at atm pressure vs temp)
+  air_atmp_beta = np.array(air_atmp[beta_col])                                                                          # Extract air thermal expansion coefficient array from DataFrame (thermophysic variable at atm pressure vs temp)
   air_atmp_pr = np.array(air_atmp[pr_col])                                                                              # Extract air Prandtl number array from DataFrame(thermophysic variable at atm pressure vs temp)
   # Poly-fitting discarded, bad approximation
   f_air_atmp_rho, x, y = pa.poly_approx(air_atmp_temp, air_atmp_rho, pa.Poly_approx_md.fit, 4)                          # Air density fitting function (thermophysic variable at atm pressure vs temp)
@@ -116,15 +116,15 @@ def poly_approx_plot_air_atmp_thermophys_vars(air_atmp, plt_flg):               
     pl.plot_tp_vars(x, y, f_air_atmp_ni, air_atmp_intp_fit_pts, Mat_type.air_atmp, pl.plt_temp_lbl,
                     pl.plt_ni_lbl, pl.plt_fit_ni_lbl, Poly_approx_res.acc, 1.38*1e-5)                                   # Function call to plot air kinematic viscosity and curve-fitting (thermophysic variable at atm pressure vs temp)
   # Poly-fitting discarded, bad approximation
-  f_air_atmp_beta, x, y = pa.poly_approx(air_atmp_temp, air_atmp_beta, pa.Poly_approx_md.fit, 4)                        # Air thermodynamic beta (Coldness) fitting function (thermophysic variable at atm pressure vs temp)
+  f_air_atmp_beta, x, y = pa.poly_approx(air_atmp_temp, air_atmp_beta, pa.Poly_approx_md.fit, 4)                        # Air thermal expansion coefficient fitting function (thermophysic variable at atm pressure vs temp)
   if (plt_flg):                                                                                                         # If plotting flag is ena
     pl.plot_tp_vars(x, y, f_air_atmp_beta, air_atmp_intp_fit_pts, Mat_type.air_atmp, pl.plt_temp_lbl,
-                    pl.plt_beta_lbl, pl.plt_fit_beta_lbl, Poly_approx_res.disc, 1.65*1e-3)                              # Function call to plot air thermodynamic beta (Coldness) and curve-fitting (thermophysic variable at atm pressure vs temp)
+                    pl.plt_beta_lbl, pl.plt_fit_beta_lbl, Poly_approx_res.disc, 1.65*1e-3)                              # Function call to plot air thermal expansion coefficient and curve-fitting (thermophysic variable at atm pressure vs temp)
   # Poly-interpolation accepted, good approximation
-  f_air_atmp_beta, x, y = pa.poly_approx(air_atmp_temp, air_atmp_beta, pa.Poly_approx_md.int, air_atmp_intp_typ)        # Air thermodynamic beta (Coldness) interpolation function (thermophysic variable at atm pressure vs temp)
+  f_air_atmp_beta, x, y = pa.poly_approx(air_atmp_temp, air_atmp_beta, pa.Poly_approx_md.int, air_atmp_intp_typ)        # Air thermal expansion coefficient interpolation function (thermophysic variable at atm pressure vs temp)
   if (plt_flg):                                                                                                         # If plotting flag is ena
     pl.plot_tp_vars(x, y, f_air_atmp_beta, air_atmp_intp_fit_pts, Mat_type.air_atmp, pl.plt_temp_lbl,
-                    pl.plt_beta_lbl, pl.plt_intp_beta_lbl, Poly_approx_res.acc, 1.65*1e-3)                              # Function call to plot air thermodynamic beta (Coldness) and interpolation (thermophysic variable at atm pressure vs temp)
+                    pl.plt_beta_lbl, pl.plt_intp_beta_lbl, Poly_approx_res.acc, 1.65*1e-3)                              # Function call to plot air thermal expansion coefficient and interpolation (thermophysic variable at atm pressure vs temp)
   # Poly-interpolation discarded, bad approximation
   f_air_atmp_pr, x, y = pa.poly_approx(air_atmp_temp, air_atmp_pr, pa.Poly_approx_md.int, air_atmp_intp_typ)            # Air Prandtl number interpolation function (thermophysic variable at atm pressure vs temp)
   if (plt_flg):                                                                                                         # If plotting flag is ena
@@ -144,7 +144,7 @@ def poly_approx_plot_water_thermophys_vars(water, plt_flg):                     
   water_cp = np.array(water[cp_col])                                                                                    # Extract water specific heat at constant pressure array from DataFrame (thermophysic variable vs temp)
   water_lambda = np.array(water[lambda_col])                                                                            # Extract water thermal conductivity array from DataFrame (thermophysic variable vs temp)
   water_ni = np.array(water[ni_col])                                                                                    # Extract water kinematic viscosity array from DataFrame (thermophysic variable vs temp)
-  water_beta = np.array(water[beta_col])                                                                                # Extract water thermodynamic beta (Coldness) array from DataFrame (thermophysic variable vs temp)
+  water_beta = np.array(water[beta_col])                                                                                # Extract water thermal expansion coefficient array from DataFrame (thermophysic variable vs temp)
   water_pr = np.array(water[pr_col])                                                                                    # Extract water Prandtl number array from DataFrame (thermophysic variable vs temp)
   # Poly-interpolation discarded, bad approximation
   f_water_rho, x, y = pa.poly_approx(water_temp, water_rho, pa.Poly_approx_md.int, water_intp_typ)                      # Water density interpolation function (thermophysic variable at atm pressure vs temp)
@@ -187,15 +187,15 @@ def poly_approx_plot_water_thermophys_vars(water, plt_flg):                     
     pl.plot_tp_vars(x, y, f_water_ni, water_intp_fit_pts, Mat_type.water, pl.plt_temp_lbl,
                     pl.plt_ni_lbl, pl.plt_intp_ni_lbl, Poly_approx_res.acc, 2.65*1e-7)                                  # Function call to plot water kinematic viscosity and interpolation (thermophysic variable at atm pressure vs temp)
   # Poly-interpolation discarded, bad approximation
-  f_water_beta, x, y = pa.poly_approx(water_temp, water_beta, pa.Poly_approx_md.int, water_intp_typ)                    # Water thermodynamic beta (Coldness) interpolation function (thermophysic variable at atm pressure vs temp)
+  f_water_beta, x, y = pa.poly_approx(water_temp, water_beta, pa.Poly_approx_md.int, water_intp_typ)                    # Water thermal expansion coefficient interpolation function (thermophysic variable at atm pressure vs temp)
   if (plt_flg):                                                                                                         # If plotting flag is ena
     pl.plot_tp_vars(x, y, f_water_beta, water_intp_fit_pts, Mat_type.water, pl.plt_temp_lbl,
-                    pl.plt_beta_lbl, pl.plt_intp_beta_lbl, Poly_approx_res.disc, -1.55*1e-4)                            # Function call to plot water thermodynamic beta (Coldness) and interpolation (thermophysic variable at atm pressure vs temp)
+                    pl.plt_beta_lbl, pl.plt_intp_beta_lbl, Poly_approx_res.disc, -1.55*1e-4)                            # Function call to plot water thermal expansion coefficient and interpolation (thermophysic variable at atm pressure vs temp)
   # Poly-fitting accepted, good approximation
-  f_water_beta, x, y = pa.poly_approx(water_temp, water_beta, pa.Poly_approx_md.fit, 2)                                 # Water thermodynamic beta (Coldness) fitting function (thermophysic variable at atm pressure vs temp)
+  f_water_beta, x, y = pa.poly_approx(water_temp, water_beta, pa.Poly_approx_md.fit, 2)                                 # Water thermal expansion coefficient fitting function (thermophysic variable at atm pressure vs temp)
   if (plt_flg):                                                                                                         # If plotting flag is ena
     pl.plot_tp_vars(x, y, f_water_beta, water_intp_fit_pts, Mat_type.water, pl.plt_temp_lbl,
-                    pl.plt_beta_lbl, pl.plt_fit_beta_lbl, Poly_approx_res.acc, -1.55*1e-4)                              # Function call to plot water thermodynamic beta (Coldness) and curve-fitting (thermophysic variable at atm pressure vs temp)
+                    pl.plt_beta_lbl, pl.plt_fit_beta_lbl, Poly_approx_res.acc, -1.55*1e-4)                              # Function call to plot water thermal expansion coefficient and curve-fitting (thermophysic variable at atm pressure vs temp)
   # Poly-fitting discarded, bad approximation
   f_water_pr, x, y = pa.poly_approx(water_temp, water_pr, pa.Poly_approx_md.fit, 4)                                     # Water Prandtl number fitting function (thermophysic variable at atm pressure vs temp)
   if (plt_flg):                                                                                                         # If plotting flag is ena
