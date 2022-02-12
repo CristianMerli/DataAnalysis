@@ -26,8 +26,8 @@ plt_t1_col = "#ff1100"                                                          
 plt_t2_col = "#0ac700"                                                                                                  # T2 data trend color (hex)
 plt_t3_col = "#f2ff00"                                                                                                  # T3 data trend color (hex)
 plt_t4_col = "#ff00f2"                                                                                                  # T4 data trend color (hex)
-tp_var_col = "#ff00e8"                                                                                                  # Thermophysic variable trend color (hex)
-tp_intp_var_col = "#ff7c00"                                                                                             # Thermophysic variable interpolated/fitted trend color (hex)
+tp_var_col = "#ff00e8"                                                                                                  # Thermophysical variable trend color (hex)
+tp_intp_var_col = "#ff7c00"                                                                                             # Thermophysical variable interpolated/fitted trend color (hex)
 dbs_c = "#0045c4"                                                                                                       # Datablocks lines color (hex)
 dbs_sel_c = "#4fbd37"                                                                                                   # Selected datablocks lines color (hex)
 dbs_sel_col = "#0cf700"                                                                                                 # Selected datablocks fill color (hex)
@@ -59,26 +59,26 @@ plt_t4_lbl = "T4 - Hot-out fluid temperature [°C]"                             
 sel_interval_lbl = "SELECTED INTERVAL"                                                                                  # Selected interval lbl
 # Thermophysical-variables plotting label-vars
 plt_temp_lbl = "Temperature - T [°C]"                                                                                   # X-axis lbl: temperature
-plt_rho_lbl = "density - ρ [$\mathregular{kg/m^3}$]"                                                                    # Y-axis lbl: thermophysic variable
-plt_cp_lbl = "specific heat at constant pressure - Cp [kJ/(kg*K)]"                                                      # Y-axis lbl: thermophysic variable
-plt_lambda_lbl = "thermal conductivity - λ [W/(m*K)]"                                                                   # Y-axis lbl: thermophysic variable
-plt_ni_lbl = "kinematic viscosity - ν [$\mathregular{m^2/s}$]"                                                          # Y-axis lbl: thermophysic variable
-plt_beta_lbl = "thermal expansion coefficient - β [1/K]"                                                                # Y-axis lbl: thermophysic variable
-plt_pr_lbl = "prandtl number - Pr"                                                                                      # Y-axis lbl: thermophysic variable
+plt_rho_lbl = "density - ρ [$\mathregular{kg/m^3}$]"                                                                    # Y-axis lbl: thermophysical variable
+plt_cp_lbl = "specific heat at constant pressure - Cp [kJ/(kg*K)]"                                                      # Y-axis lbl: thermophysical variable
+plt_lambda_lbl = "thermal conductivity - λ [W/(m*K)]"                                                                   # Y-axis lbl: thermophysical variable
+plt_ni_lbl = "kinematic viscosity - ν [$\mathregular{m^2/s}$]"                                                          # Y-axis lbl: thermophysical variable
+plt_beta_lbl = "thermal expansion coefficient - β [1/K]"                                                                # Y-axis lbl: thermophysical variable
+plt_pr_lbl = "prandtl number - Pr"                                                                                      # Y-axis lbl: thermophysical variable
 plt_title_sep = "  /  "                                                                                                 # Title separator in str concat
-plt_intp_rho_lbl = "interpolated density - ρ [$\mathregular{kg/m^3}$]"                                                  # Y-axis lbl: interpolated thermophysic variable
-plt_intp_cp_lbl = "interpolated specific heat at constant pressure - Cp [kJ/(kg*K)]"                                    # Y-axis lbl: interpolated thermophysic variable
-plt_intp_lambda_lbl = "interpolated thermal conductivity - λ [W/(m*K)]"                                                 # Y-axis lbl: interpolated thermophysic variable
-plt_intp_ni_lbl = "interpolated kinematic viscosity - ν [$\mathregular{m^2/s}$]"                                        # Y-axis lbl: interpolated thermophysic variable
-plt_intp_beta_lbl = "interpolated thermal expansion coefficient - β [1/K]"                                              # Y-axis lbl: interpolated thermophysic variable
-plt_intp_pr_lbl = "interpolated Prandtl number - Pr"                                                                    # Y-axis lbl: interpolated thermophysic variable
-plt_fit_rho_lbl = "fitted density - ρ [$\mathregular{kg/m^3}$]"                                                         # Y-axis lbl: poly-fitted thermophysic variable
-plt_fit_cp_lbl = "fitted specific heat at constant pressure - Cp [kJ/(kg*K)]"                                           # Y-axis lbl: poly-fitted thermophysic variable
-plt_fit_lambda_lbl = "fitted thermal conductivity - λ [W/(m*K)]"                                                        # Y-axis lbl: poly-fitted thermophysic variable
-plt_fit_ni_lbl = "fitted kinematic viscosity - ν [$\mathregular{m^2/s}$]"                                               # Y-axis lbl: poly-fitted thermophysic variable
-plt_fit_beta_lbl = "fitted thermal expansion coefficient - β [1/K]"                                                     # Y-axis lbl: poly-fitted thermophysic variable
-plt_fit_pr_lbl = "fitted Prandtl number - Pr"                                                                           # Y-axis lbl: poly-fitted thermophysic variable
-materials = ["Atm pressure air ", "Water ", "AISI-316 "]                                                                # Materials-lbls (Air-atmp/Water/AISI-316-stainless-steel)
+plt_intp_rho_lbl = "interpolated density - ρ [$\mathregular{kg/m^3}$]"                                                  # Y-axis lbl: interpolated thermophysical variable
+plt_intp_cp_lbl = "interpolated specific heat at constant pressure - Cp [kJ/(kg*K)]"                                    # Y-axis lbl: interpolated thermophysical variable
+plt_intp_lambda_lbl = "interpolated thermal conductivity - λ [W/(m*K)]"                                                 # Y-axis lbl: interpolated thermophysical variable
+plt_intp_ni_lbl = "interpolated kinematic viscosity - ν [$\mathregular{m^2/s}$]"                                        # Y-axis lbl: interpolated thermophysical variable
+plt_intp_beta_lbl = "interpolated thermal expansion coefficient - β [1/K]"                                              # Y-axis lbl: interpolated thermophysical variable
+plt_intp_pr_lbl = "interpolated Prandtl number - Pr"                                                                    # Y-axis lbl: interpolated thermophysical variable
+plt_fit_rho_lbl = "fitted density - ρ [$\mathregular{kg/m^3}$]"                                                         # Y-axis lbl: poly-fitted thermophysical variable
+plt_fit_cp_lbl = "fitted specific heat at constant pressure - Cp [kJ/(kg*K)]"                                           # Y-axis lbl: poly-fitted thermophysical variable
+plt_fit_lambda_lbl = "fitted thermal conductivity - λ [W/(m*K)]"                                                        # Y-axis lbl: poly-fitted thermophysical variable
+plt_fit_ni_lbl = "fitted kinematic viscosity - ν [$\mathregular{m^2/s}$]"                                               # Y-axis lbl: poly-fitted thermophysical variable
+plt_fit_beta_lbl = "fitted thermal expansion coefficient - β [1/K]"                                                     # Y-axis lbl: poly-fitted thermophysical variable
+plt_fit_pr_lbl = "fitted Prandtl number - Pr"                                                                           # Y-axis lbl: poly-fitted thermophysical variable
+materials = ["Atm pressure air ", "Water ", "AISI-316 ", "Pyrex glass "]                                                # Materials-lbls (Air-atmp/Water/AISI-316-stainless-steel/Borosilicate (pyrex) glass)
 poly_approx_res = ["BAD APPROXIMATION - DISCARDED", "GOOD APPROXIMATION - ACCEPTED"]                                    # Poly-approximation result (Discarded/Accepted)
 
 ########
@@ -165,15 +165,15 @@ def plot_data_flt(db, call_str, start_idxs_dbs, end_idxs_dbs, min_stddevs_dbs_id
   return                                                                                                                # Return nothing
   
 # Function definition to graphically plot thermophysical variables interpolation/fitting
-def plot_tp_vars(x_arr, y_arr, f_intp_fit, intp_fit_pts, mat_typ, x_lbl, y_lbl, y_intp_fit_lbl, res, tb_y_pos_offs):    # plot_tp_vars(X-array, Y-array, Interpolation/fitting function, Number of interpolation/fitting points to plot, Material type: Air at atm-pressure/water/AISI-316-stainless-steel, X-label, Y-label, Y_interp_fitting-label, Poly-approximation result: discarded/accepted, Textbox Y-pos-offset)
+def plot_tp_vars(x_arr, y_arr, f_intp_fit, intp_fit_pts, mat_typ, x_lbl, y_lbl, y_intp_fit_lbl, res, tb_y_pos_offs):    # plot_tp_vars(X-array, Y-array, Interpolation/fitting function, Number of interpolation/fitting points to plot, Material type: Air at atm-pressure/water/AISI-316-stainless-steel/Borosilicate (pyrex) glass, X-label, Y-label, Y_interp_fitting-label, Poly-approximation result: discarded/accepted, Textbox Y-pos-offset)
   plt.title(materials[mat_typ.value]+y_lbl+plt_title_sep+materials[mat_typ.value]+y_intp_fit_lbl)                       # Plot title
   plt.xlabel(x_lbl)                                                                                                     # X-axis lbl
   plt.ylabel(materials[mat_typ.value]+y_lbl)                                                                            # Y-axis lbl
   sns.lineplot(x=x_arr, y=y_arr, label=materials[mat_typ.value]+y_lbl,
-              marker=plt_marker, linestyle=plt_line, color=tp_var_col)                                                  # Plot thermophysic variable data
+              marker=plt_marker, linestyle=plt_line, color=tp_var_col)                                                  # Plot thermophysical variable data
   x_inpt_fit_arr = np.linspace(x_arr[0], x_arr[-1], intp_fit_pts)                                                       # Generate interpolation/fitting X-array
   y_intp_fit_arr = f_intp_fit(x_inpt_fit_arr)                                                                           # Define interpolation/fitting Y-array
-  sns.lineplot(x=x_inpt_fit_arr, y=y_intp_fit_arr,label=materials[mat_typ.value]+y_intp_fit_lbl, color=tp_intp_var_col) # Plot thermophysic variable interpolated/fitted data
+  sns.lineplot(x=x_inpt_fit_arr, y=y_intp_fit_arr,label=materials[mat_typ.value]+y_intp_fit_lbl, color=tp_intp_var_col) # Plot thermophysical variable interpolated/fitted data
   left, right = plt.xlim()                                                                                              # Get X-axis limits to calc interval text-box pos
   bottom, top = plt.ylim()                                                                                              # Get Y-axis limits to calc interval text-box pos
   plt.text((left+right)/2, (bottom+top)/2+tb_y_pos_offs, poly_approx_res[res.value],
