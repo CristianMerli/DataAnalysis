@@ -81,8 +81,8 @@ class Meas_vars:                                                                
   int_pipes_cond_r = 0.0                                                                                                # Steel pipes absolute conductive resistance [K/W]
   int_therm_cond = 0.0                                                                                                  # Fluid thermal conductivity inside steel pipes [W/(m*K)]
   int_dyn_vis = 0.0                                                                                                     # Fluid dynamic viscosity inside steel pipes [kg/(m*s)]
-  int_re = 0.0                                                                                                          # Reynolds number inside steel pipes
   int_pr = 0.0                                                                                                          # Prandtl number inside steel pipes
+  int_re = 0.0                                                                                                          # Reynolds number inside steel pipes
   int_nu = 0.0                                                                                                          # Nusselt number inside steel pipes
   int_h = 0.0                                                                                                           # Heat transfer coefficient (h) inside steel pipes [W/(m^2*K)]
   int_fl_conv_r = 0.0                                                                                                   # Absolute fluid convective resistance inside steel pipes [K/W]
@@ -91,17 +91,25 @@ class Meas_vars:                                                                
   ext_in_sect_fl_temp = 0.0                                                                                             # Cold fluid temperature inside glass pipe inlet secion (bottom) [°C] 
   ext_in_sect_therm_cond = 0.0                                                                                          # Fluid thermal conductivity inside glass pipe inlet secion [W/(m*K)]
   ext_in_sect_dyn_vis = 0.0                                                                                             # Fluid dynamic viscosity inside glass pipe inlet secion [kg/(m*s)]
-  ext_in_sect_re = 0.0                                                                                                  # Reynolds number inside glass pipe inlet secion
   ext_in_sect_pr = 0.0                                                                                                  # Prandtl number inside glass pipe inlet secion
-  ext_in_sect_nu = 0.0                                                                                                  # Nusselt number inside glass pipe inlet secion
-  ext_in_sect_h = 0.0                                                                                                   # Heat transfer coefficient (h) inside glass pipe outlet secion [W/(m^2*K)]
+  ext_1pipe_in_sect_re = 0.0                                                                                            # ---Reynolds number inside glass pipe 1 pipe inlet secion
+  ext_1pipe_in_sect_nu = 0.0                                                                                            # ---Nusselt number inside glass pipe 1 pipe inlet secion
+  ext_1pipe_in_sect_h = 0.0                                                                                             # ---Heat transfer coefficient (h) inside glass pipe 1 pipe inlet secion [W/(m^2*K)]
+  ext_3pipes_in_sect_re = 0.0                                                                                           # ---Reynolds number inside glass pipe 3 pipes inlet secion
+  ext_3pipes_in_sect_nu = 0.0                                                                                           # ---Nusselt number inside glass pipe 3 pipes inlet secion
+  ext_3pipes_in_sect_h = 0.0                                                                                            # ---Heat transfer coefficient (h) inside glass pipe 3 pipes outlet secion [W/(m^2*K)]
+  ext_in_sect_tot_h = 0.0                                                                                               # ---Total heat transfer coefficient (h) inside glass pipe inlet section [W/(m^2*K)]
   ext_out_sect_fl_temp = 0.0                                                                                            # Cold fluid temperature inside glass pipe outlet secion (top) [°C]
   ext_out_sect_therm_cond = 0.0                                                                                         # Fluid thermal conductivity inside glass pipe outlet secion [W/(m*K)]
   ext_out_sect_dyn_vis = 0.0                                                                                            # Fluid dynamic viscosity inside glass pipe outlet secion [kg/(m*s)]
-  ext_out_sect_re = 0.0                                                                                                 # Reynolds number inside glass pipe outlet secion
   ext_out_sect_pr = 0.0                                                                                                 # Prandtl number inside glass pipe outlet secion
-  ext_out_sect_nu = 0.0                                                                                                 # Nusselt number inside glass pipe outlet secion
-  ext_out_sect_h = 0.0                                                                                                  # Heat transfer coefficient (h) inside glass pipe outlet secion [W/(m^2*K)]
+  ext_1pipe_out_sect_re = 0.0                                                                                           # ---Reynolds number inside glass pipe 1 pipe outlet secion
+  ext_1pipe_out_sect_nu = 0.0                                                                                           # ---Nusselt number inside glass pipe 1 pipe outlet secion
+  ext_1pipe_out_sect_h = 0.0                                                                                            # ---Heat transfer coefficient (h) inside glass pipe 3 pipes outlet secion [W/(m^2*K)]
+  ext_3pipes_out_sect_re = 0.0                                                                                          # ---Reynolds number inside glass pipe 3 pipes outlet secion
+  ext_3pipes_out_sect_nu = 0.0                                                                                          # ---Nusselt number inside glass pipe 3 pipes outlet secion
+  ext_3pipes_out_sect_h = 0.0                                                                                           # ---Heat transfer coefficient (h) inside glass pipe 3 pipes outlet secion [W/(m^2*K)]
+  ext_out_sect_tot_h = 0.0                                                                                              # ---Total heat transfer coefficient (h) inside glass pipe outlet section [W/(m^2*K)]
   ext_avg_h = 0.0                                                                                                       # Average heat transfer coefficient (h) inside glass pipe [W/(m^2*K)]
   ext_fl_conv_r = 0.0                                                                                                   # Absolute fluid convective resistance inside glass pipe [K/W]
   tot_therm_r = 0.0                                                                                                     # Total absolute thermal resistance [K/W]
@@ -119,7 +127,6 @@ class Meas_vars:                                                                
   ext_pipe_h = 0.0                                                                                                      # Heat transfer coefficient (h) outside glass pipe [W/(m^2*K)]
   ext_pipe_ext_conv_r = 0.0                                                                                             # Glass pipe absolute external convective resistance [K/W]
   # Total R / int/ext Overall HTC / Tr heat below ---
-  ext_pipe_tr_heat = 0.0                                                                                                # Glass pipe transferred heat (thermal power) [kW]
   def __init__(self):                                                                                                   # Constructor
     return                                                                                                              # Return nothing
   def get_info(self):                                                                                                   # Measure class method to get measure info
@@ -155,8 +162,8 @@ class Meas_vars:                                                                
     +"\n- Steel pipes absolute conductive resistance: "+str(self.int_pipes_cond_r)+" [K/W]"\
     +"\n- Fluid thermal conductivity inside steel pipes: "+str(self.int_therm_cond)+" [W/(m*K)]"\
     +"\n- Fluid dynamic viscosity inside steel pipes: "+str(self.int_dyn_vis)+" [kg/(m*s)]"\
-    +"\n- Reynolds number inside steel pipes: "+str(self.int_re)\
     +"\n- Prandtl number inside steel pipes: "+str(self.int_pr)\
+    +"\n- Reynolds number inside steel pipes: "+str(self.int_re)\
     +"\n- Nusselt number inside steel pipes: "+str(self.int_nu)\
     +"\n- Heat transfer coefficient (h) inside steel pipes: "+str(self.int_h)+" [W/(m^2*K)]"\
     +"\n- Absolute fluid convective resistance inside steel pipes: "+str(self.int_fl_conv_r)+" [K/W]"\
@@ -165,18 +172,32 @@ class Meas_vars:                                                                
     +"\n- Cold fluid temperature inside glass pipe inlet secion (bottom): "+str(self.ext_in_sect_fl_temp)+" [°C]"\
     +"\n- Fluid thermal conductivity inside glass pipe inlet secion: "+str(self.ext_in_sect_therm_cond)+" [W/(m*K)]"\
     +"\n- Fluid dynamic viscosity inside glass pipe inlet secion: "+str(self.ext_in_sect_dyn_vis)+" [kg/(m*s)]"\
-    +"\n- Reynolds number inside glass pipe inlet secion: "+str(self.ext_in_sect_re)\
     +"\n- Prandtl number inside glass pipe inlet secion: "+str(self.ext_in_sect_pr)\
-    +"\n- Nusselt number inside glass pipe inlet secion: "+str(self.ext_in_sect_nu)\
-    +"\n- Heat transfer coefficient (h) inside glass pipe inlet secion: "+str(self.ext_in_sect_h)+" [W/(m^2*K)]"\
+    +"\n- Reynolds number inside glass pipe 1 pipe inlet secion: "+str(self.ext_1pipe_in_sect_re)\
+    +"\n- Nusselt number inside glass pipe 1 pipe inlet secion: "+str(self.ext_1pipe_in_sect_nu)\
+    +"\n- Heat transfer coefficient (h) inside glass pipe 1 pipe inlet secion: "\
+      +str(self.ext_1pipe_in_sect_h)+" [W/(m^2*K)]"
+    +"\n- Reynolds number inside glass pipe 3 pipes inlet secion: "+str(self.ext_3pipes_in_sect_re)\
+    +"\n- Nusselt number inside glass pipe 3 pipes inlet secion: "+str(self.ext_3pipes_in_sect_nu)\
+    +"\n- Heat transfer coefficient (h) inside glass pipe 3 pipes outlet secion: "\
+      +str(self.ext_3pipes_in_sect_h)+" [W/(m^2*K)]"
+    +"\n- Total heat transfer coefficient (h) inside glass pipe inlet section: "\
+      +str(self.ext_in_sect_tot_h)+" [W/(m^2*K)]"
     +"\n- Cold fluid temperature inside glass pipe outlet secion (top): "+str(self.ext_out_sect_fl_temp)+" [°C]"\
     +"\n- Fluid thermal conductivity inside glass pipe outlet secion: "\
       +str(self.ext_out_sect_therm_cond)+" [W/(m*K)]"\
     +"\n- Fluid dynamic viscosity inside glass pipe outlet secion: "+str(self.ext_out_sect_dyn_vis)+" [kg/(m*s)]"\
     +"\n- Prandtl number inside glass pipe outlet secion: "+str(self.ext_out_sect_pr)\
-    +"\n- Reynolds number inside glass pipe outlet secion: "+str(self.ext_out_sect_re)\
-    +"\n- Nusselt number inside glass pipe outlet secion: "+str(self.ext_out_sect_nu)\
-    +"\n- Heat transfer coefficient (h) inside glass pipe outlet secion: "+str(self.ext_out_sect_h)+" [W/(m^2*K)]"\
+    +"\n- Reynolds number inside glass pipe 1 pipe outlet secion: "+str(self.ext_1pipe_out_sect_re)\
+    +"\n- Nusselt number inside glass pipe 1 pipe outlet secion: "+str(self.ext_1pipe_out_sect_nu)\
+    +"\n- Heat transfer coefficient (h) inside glass pipe 1 pipe outlet secion: "\
+      +str(self.ext_1pipe_out_sect_h)+" [W/(m^2*K)]"
+    +"\n- Reynolds number inside glass pipe 3 pipes outlet secion: "+str(self.ext_3pipes_out_sect_re)\
+    +"\n- Nusselt number inside glass pipe 3 pipes outlet secion: "+str(self.ext_3pipes_out_sect_nu)\
+    +"\n- Heat transfer coefficient (h) inside glass pipe 3 pipes outlet secion: "\
+      +str(self.ext_3pipes_out_sect_h)+" [W/(m^2*K)]"
+    +"\n- Total heat transfer coefficient (h) inside glass pipe outlet section: "\
+      +str(self.ext_out_sect_tot_h)+" [W/(m^2*K)]"
     +"\n- Average heat transfer coefficient (h) inside glass pipe: "+str(self.ext_avg_h)+" [W/(m^2*K)]"\
     +"\n- Absolute fluid convective resistance inside glass pipe: "+str(self.ext_fl_conv_r)+" [K/W]"\
     +"\n- Total absolute thermal resistance: "+str(self.tot_therm_r)+" [K/W]"\
@@ -197,8 +218,7 @@ class Meas_vars:                                                                
     +"\n- Glass pipe Rayleigh adimensional number: "+str(self.ext_pipe_ra)\
     +"\n- Glass pipe Nusselt adimensional number: "+str(self.ext_pipe_nu)\
     +"\n- Heat transfer coefficient (h) outside glass pipe: "+str(self.ext_pipe_h)+" [W/(m^2*K)]"\
-    +"\n- Glass pipe absolute external convective resistance: "+str(self.ext_pipe_ext_conv_r)+" [K/W]"\
-    +"\n- Glass pipe transferred heat (thermal power): "+str(self.ext_pipe_tr_heat)+" [kW]\n")                          # Dbg fbk
+    +"\n- Glass pipe absolute external convective resistance: "+str(self.ext_pipe_ext_conv_r)+" [K/W]\n")               # Dbg fbk
     return dbg_str                                                                                                      # Return dbg fbk
 
 ##########

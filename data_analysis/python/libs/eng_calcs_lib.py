@@ -38,6 +38,10 @@ zero_k = -273.15                                                                
 class He_side(en.Enum):                                                                                                 # Heat-exchanger side enum class
   tube = 1                                                                                                              # Tube side (Hot fluid in cylindrical steel pipes)
   shell = 2                                                                                                             # Shell side (Cold fluid in glass pipe)
+# Heat-exchanger section enum definition
+class He_sect(en.Enum):                                                                                                 # Heat-exchanger section enum class
+  one_pipe = 1                                                                                                          # 1-pipe heat-exchanger section (Hot fluid in cylindrical steel pipes)
+  three_pipes = 2                                                                                                       # 3-pipes heat-exchanger section (Cold fluid in glass pipe)
 # Heat-exchanger class
 class He:                                                                                                               # Heat-exchanger class (attributes, constructor, methods)
   eff_len_m = 0.0                                                                                                       # Heat-exchanger effective length [m]
@@ -249,25 +253,36 @@ def re_cyl_pipe(pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis):             
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
-# Function definition to calculate heat-exchanger shell section flow surface [m^2] (3 sections contribution)
+# ---Function definition to calculate heat-exchanger shell section flow surface [m^2]
 def shell_sect_flow_surf_m2(he):                                                                                        # shell_sect_flow_surf_m2(Heat-exchanger)
   if (he != None):                                                                                                      # Check in-vals consistency, if ok
-    return (6+(2*1.5))*he.steel_pipes_interspce*he.glass_pipe_diaph_pace_m                                              # Return calculated heat-exchanger shell flow surface [m^2] (3 sections contribution)
+    return (6+(2*1.5))*he.steel_pipes_interspce*he.glass_pipe_diaph_pace_m                                              # Return calculated heat-exchanger shell flow surface [m^2]
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
-# Function definition to calculate heat-exchanger shell section wetted perimeter [m] (3 sections contribution)
-def shell_sect_wetted_perim_m(he):                                                                                      # shell_sect_wetted_perim_m(Heat-exchanger)
+# ---Function definition to calculate heat-exchanger shell section wetted perimeter [m]
+def shell_sect_hyd_wetted_perim_m(he):                                                                                  # shell_sect_hyd_wetted_perim_m(Heat-exchanger)
   if (he != None):                                                                                                      # Check in-vals consistency, if ok
-    return 2*he.steel_pipes_num*he.glass_pipe_diaph_pace_m                                                              # Return calculated heat-exchanger shell wetted perimeter [m] (3 sections contribution)
+    return 2*he.steel_pipes_num*he.glass_pipe_diaph_pace_m                                                              # Return calculated heat-exchanger shell wetted perimeter [m]
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
-# Function definition to calculate heat-exchanger shell section
-# equivalent hydraulic diameter [m] (3 sections contribution)
-def shell_eq_hyd_diam_m(he):                                                                                            # shell_eq_hyd_diam_m(Heat-exchanger)
+# ---Function definition to calculate heat-exchanger shell section wetted perimeter [m]
+def shell_sect_therm_wetted_perim_m(he):                                                                                # shell_sect_therm_wetted_perim_m(Heat-exchanger)
   if (he != None):                                                                                                      # Check in-vals consistency, if ok
-    return (4*shell_sect_flow_surf_m2(he))/shell_sect_wetted_perim_m(he)                                                # Return calculated heat-exchanger shell section equivalent hydraulic diameter [m] (3 sections contribution)
+    return 2*he.steel_pipes_num*he.glass_pipe_diaph_pace_m                                                              # Return calculated heat-exchanger shell wetted perimeter [m]
+  else:                                                                                                                 # Else if in-vals consistency ain't ok
+    return -1                                                                                                           # Return err val
+
+# ---Function definition to calculate heat-exchanger shell section
+# equivalent hydraulic diameter [m]
+def shell_sect_eq_hyd_diam_m(sect, he):                                                                                 # shell_sect_eq_hyd_diam_m(Heat-exchanger)
+  if ((sect == He_sect.one_pipe or sect == He_sect.three_pipes) and he != None):                                        # Check in-vals consistency, if ok
+    if (sect == He_sect.one_pipe):                                                                                      # ---
+      #
+    else:                                                                                                               # ---
+      #
+    return (4*shell_sect_flow_surf_m2(he))/shell_sect_hyd_wetted_perim_m(he)                                            # Return calculated heat-exchanger shell section equivalent hydraulic diameter [m]
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
@@ -279,19 +294,23 @@ def re_aternative(pipe_vol_flow_rate, fluid_in_surf_m2, pipe_equiv_diam, fluid_k
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
-# Function definition to calculate Reynolds number for fluid in external pipe shell side (3 sections contribution)
-def re_shell(pipe_mass_flow_rate, fluid_dyn_vis, he):                                                                   # re_shell(Pipe mass flow rate [kg/s], Mu: fluid dynamic viscosity [kg/(m*s)], Heat-exchanger)
-  if (pipe_mass_flow_rate > 0 and fluid_dyn_vis > 0 and he != None):                                                    # Check in-vals consistency, if ok
-    return (shell_eq_hyd_diam_m(he)*pipe_mass_flow_rate)/(he.glass_pipe_ibs_m2*fluid_dyn_vis)                           # Return calculated Reynolds number for fluid in external pipe shell side
+# Function definition to calculate Reynolds number for fluid in external pipe
+# shell side section
+def re_shell_sect(sect, pipe_mass_flow_rate, fluid_dyn_vis, he):                                                        # re_shell_sect(Heat-exchanger section, Pipe mass flow rate [kg/s], Mu: fluid dynamic viscosity [kg/(m*s)], Heat-exchanger)
+  if ((sect == He_sect.one_pipe or sect == He_sect.three_pipes) and\
+    pipe_mass_flow_rate > 0 and fluid_dyn_vis > 0 and he != None):                                                      # Check in-vals consistency, if ok
+    shell_eq_hyd_diam = shell_sect_eq_hyd_diam_m(sect, he)                                                              # ---
+    shell_sect = he.glass_pipe_ibs_m2-(he.steel_pipes_num*cyl_bas_surf(he.steel_pipes_ed_m))                            # ---
+    return (shell_eq_hyd_diam*pipe_mass_flow_rate)/(shell_sect*fluid_dyn_vis)                                           # Return calculated Reynolds number for fluid in external pipe shell side
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
 # Function definition to calculate Reynolds number
-def re(side, pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis, he):                                                    # re(Heat-exchanger side, Pipe mass flow rate [kg/s], Pipe internal diameter [m], Mu: fluid dynamic viscosity [kg/(m*s)], Heat-exchanger)
+def re(side, sect, pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis, he):                                              # re(Heat-exchanger side, Heat-exchanger section, Pipe mass flow rate [kg/s], Pipe internal diameter [m], Mu: fluid dynamic viscosity [kg/(m*s)], Heat-exchanger)
   if (side == He_side.tube):                                                                                            # In case of tube side
     return re_cyl_pipe(pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis)                                               # Return tube side calculated Reynolds number
   elif (side == He_side.shell):                                                                                         # Else in case of shell side
-    return re_shell(pipe_mass_flow_rate, fluid_dyn_vis, he)                                                             # Return shell side calculated Reynolds number
+    return re_shell_sect(sect, pipe_mass_flow_rate, fluid_dyn_vis, he)                                                  # Return shell side section calculated Reynolds number
   else:                                                                                                                 # Else in case of unknown side enum val
     return -1                                                                                                           # Return err val
 

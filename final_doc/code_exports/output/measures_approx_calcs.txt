@@ -65,7 +65,6 @@
 - Glass pipe Nusselt adimensional number: 0.0
 - Heat transfer coefficient (h) outside glass pipe: 0.0 [W/(m^2*K)]
 - Glass pipe absolute external convective resistance: 0.0 [K/W]
-- Glass pipe transferred heat (thermal power): 0.0 [kW]
 
 --> Countercurrent measure 1 calculations results:
 - Cold fluid mass flow rate: 0.1484311273183292 [kg/s]
@@ -133,7 +132,6 @@
 - Glass pipe Nusselt adimensional number: 0.0
 - Heat transfer coefficient (h) outside glass pipe: 0.0 [W/(m^2*K)]
 - Glass pipe absolute external convective resistance: 0.0 [K/W]
-- Glass pipe transferred heat (thermal power): 0.0 [kW]
 
 --> Countercurrent measure 2 calculations results:
 - Cold fluid mass flow rate: 0.047238881518364424 [kg/s]
@@ -201,7 +199,6 @@
 - Glass pipe Nusselt adimensional number: 0.0
 - Heat transfer coefficient (h) outside glass pipe: 0.0 [W/(m^2*K)]
 - Glass pipe absolute external convective resistance: 0.0 [K/W]
-- Glass pipe transferred heat (thermal power): 0.0 [kW]
 
 --> Cocurrent measure 2 calculations results:
 - Cold fluid mass flow rate: 0.04607886236181829 [kg/s]
@@ -269,4 +266,3 @@
 - Glass pipe Nusselt adimensional number: 0.0
 - Heat transfer coefficient (h) outside glass pipe: 0.0 [W/(m^2*K)]
 - Glass pipe absolute external convective resistance: 0.0 [K/W]
-- Glass pipe transferred heat (thermal power): 0.0 [kW]
