@@ -47,7 +47,7 @@ ploy_approx_box_alpha = 0.7                                                     
 plt_line = "--"                                                                                                         # Plotting line type
 plt_marker = 'o'                                                                                                        # Plotting marker type
 # Data-acquisition plotting label-vars
-plt_title = "Experimental data from LabView data-acquisition on heat-exchanger with measure-windows"                    # Title lbl
+plt_da_title = "Experimental data from LabView data-acquisition on heat-exchanger with measure-windows"                 # Title lbl
 plt_time_lbl = "Time [s]"                                                                                               # X-axis lbl
 plt_temp_flow_lbl = "Temperatures [°C]   /   Volume flow rates [l/h]"                                                   # Y-axis lbl
 plt_f1_lbl = "F1 - Cold fluid volume flow rate [l/h]"                                                                   # Cold fluid vol flow rate (F1) lbl
@@ -80,6 +80,10 @@ plt_fit_beta_lbl = "fitted thermal expansion coefficient - β [1/K]"            
 plt_fit_pr_lbl = "fitted Prandtl number - Pr"                                                                           # Y-axis lbl: poly-fitted thermophysical variable
 materials = ["Atm pressure air ", "Water ", "AISI-316 ", "Pyrex glass "]                                                # Materials-lbls (Air-atmp/Water/AISI-316-stainless-steel/Borosilicate (pyrex) glass)
 poly_approx_res = ["BAD APPROXIMATION - DISCARDED", "GOOD APPROXIMATION - ACCEPTED"]                                    # Poly-approximation result (Discarded/Accepted)
+# Temperature trend in heat-exchanger section plotting label-vars
+plt_he_temp_trend_title = " temperature trend in heat-exchanger section"                                                # Title lbl
+plt_he_dist_lbl = "Distance - d [m]"                                                                                    # X-axis lbl
+plt_he_temp_lbl = "Temperature - T [°C]"                                                                                # Y-axis lbl
 
 ########
 # DEFS #
@@ -100,7 +104,7 @@ def set_plt_style(init_flg):                                                    
   sns.set(rc={"figure.figsize":(plt_size_x, plt_size_y)})                                                               # Plottin' size
   for param in ["figure.facecolor", "axes.facecolor", "savefig.facecolor"]:                                             # Chg bkg col
       plt.rcParams[param] = bkg_col;                                                                                    # Set col
-  for param in ['text.color', 'axes.labelcolor', 'xtick.color', 'ytick.color']:                                         # Chg bkg txt
+  for param in ["text.color", "axes.labelcolor", "xtick.color", "ytick.color"]:                                         # Chg bkg txt
       plt.rcParams[param] = text_col;                                                                                   # Set col
   plt.grid(color=grid_col);                                                                                             # Set grid col
   if (not init_flg):                                                                                                    # If initialization flag ain't set
@@ -181,4 +185,16 @@ def plot_tp_vars(x_arr, y_arr, f_intp_fit, intp_fit_pts, mat_typ, x_lbl, y_lbl, 
           bbox = dict(facecolor = poly_approx_res_col[res.value], alpha = ploy_approx_box_alpha))                       # Plot poly-approximation result txt and box
   set_plt_style(False)                                                                                                  # Function call to set personalized plotting style without init flg
   plt.figure()                                                                                                          # Plot figure
+  return                                                                                                                # Return nothing
+
+# Function definition to graphically plot temperature trend in heat-exchanger section
+def plot_temp_he_sect(meas_arr, he):                                                                                    # plot_temp_he_sect(Measures array, Heat exchanger)
+  for meas in meas_arr:                                                                                                 # Measures scrollin' cycle
+    plt.title(meas.name+plt_he_temp_trend_title)                                                                        # Plot title
+    plt.xlabel(plt_he_dist_lbl)                                                                                         # X-axis lbl
+    plt.xlabel(plt_he_temp_lbl)                                                                                         # Y-axis lbl
+    x_arr = []                                                                                                          # ---
+    y_arr = []                                                                                                          # ---
+    set_plt_style(False)                                                                                                # Function call to set personalized plotting style without init flg
+    plt.figure()                                                                                                        # Plot figure
   return                                                                                                                # Return nothing

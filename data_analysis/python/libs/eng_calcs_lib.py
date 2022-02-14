@@ -40,8 +40,9 @@ class He_side(en.Enum):                                                         
   shell = 2                                                                                                             # Shell side (Cold fluid in glass pipe)
 # Heat-exchanger section enum definition
 class He_sect(en.Enum):                                                                                                 # Heat-exchanger section enum class
-  one_pipe = 1                                                                                                          # 1-pipe heat-exchanger section (Hot fluid in cylindrical steel pipes)
-  three_pipes = 2                                                                                                       # 3-pipes heat-exchanger section (Cold fluid in glass pipe)
+  one_pipe = 1                                                                                                          # 1-pipe heat-exchanger section
+  three_pipes = 2                                                                                                       # 3-pipes heat-exchanger section
+  tot = 3                                                                                                               # Total heat-exchanger section
 # Heat-exchanger class
 class He:                                                                                                               # Heat-exchanger class (attributes, constructor, methods)
   eff_len_m = 0.0                                                                                                       # Heat-exchanger effective length [m]
@@ -72,6 +73,11 @@ class He:                                                                       
   glass_pipe_3pipes_sect_ehd_m = 0.0                                                                                    # Heat-exchanger glass pipe 3-pipes section equivalent hydraulic diameter [m]
   glass_pipe_3pipes_sect_wtp_m = 0.0                                                                                    # Heat-exchanger glass pipe 3-pipes section wetted thermal perimeter [m]
   glass_pipe_3pipes_sect_etd_m = 0.0                                                                                    # Heat-exchanger glass pipe 3-pipes section equivalent thermal diameter [m]
+  glass_pipe_ext_fs_m2 = 0.0                                                                                            # Heat-exchanger glass pipe external flow surface [m^2]
+  glass_pipe_ext_whp_m = 0.0                                                                                            # Heat-exchanger glass pipe external wetted hydraulic perimeter [m]
+  glass_pipe_ext_ehd_m = 0.0                                                                                            # Heat-exchanger glass pipe external equivalent hydraulic diameter [m]
+  glass_pipe_ext_wtp_m = 0.0                                                                                            # Heat-exchanger glass pipe external wetted thermal perimeter [m]
+  glass_pipe_ext_etd_m = 0.0                                                                                            # Heat-exchanger glass pipe external equivalent thermal diameter [m]
   env_temp = 0.0                                                                                                        # Environment temperature [°C]
   def __init__(self):                                                                                                   # Constructor
     self.eff_len_m = _eff_len_m                                                                                         # Heat-exchamher effective length [m] init
@@ -92,16 +98,21 @@ class He:                                                                       
     self.steel_pipes_ibs_m2 = cyl_bas_surf(self.steel_pipes_id_m)                                                       # Heat-exchanger steel pipes internal-basal surface [m^2] init
     self.steel_pipes_ils_m2 = cyl_lat_surf(self.steel_pipes_num, self.steel_pipes_id_m, self.eff_len_m)                 # Heat-exchanger steel pipes internal-lateral surface [m^2] init
     self.steel_pipes_els_m2 = cyl_lat_surf(self.steel_pipes_num, self.steel_pipes_ed_m, self.eff_len_m)                 # Heat-exchanger steel pipes external-lateral surface [m^2] init
-    self.glass_pipe_1pipe_sect_fs_m2 = 2*1.5*self.steel_pipes_interspce*self.glass_pipe_diaph_pace_m                    # Heat-exchanger glass pipe 1-pipe section flow surface [m^2] init
-    self.glass_pipe_1pipe_sect_whp_m = 4*(1.5*(self.steel_pipes_interspce)+self.glass_pipe_diaph_pace_m)                # Heat-exchanger glass pipe 1-pipe section wetted hydraulic perimeter [m] init
-    self.glass_pipe_1pipe_sect_ehd_m = (4*self.glass_pipe_1pipe_sect_fs_m2)/self.glass_pipe_1pipe_sect_whp_m            # Heat-exchanger glass pipe 1-pipe section equivalent hydraulic diameter [m] init
+    self.glass_pipe_1pipe_sect_fs_m2 = 2*((3*self.steel_pipes_interspce)*self.glass_pipe_diaph_pace_m)                  # Heat-exchanger glass pipe 1-pipe section flow surface [m^2] init
+    self.glass_pipe_1pipe_sect_whp_m = 4*((3*self.steel_pipes_interspce)+self.glass_pipe_diaph_pace_m)                  # Heat-exchanger glass pipe 1-pipe section wetted hydraulic perimeter [m] init
+    self.glass_pipe_1pipe_sect_ehd_m = eq_diam(self.glass_pipe_1pipe_sect_fs_m2, self.glass_pipe_1pipe_sect_whp_m)      # Heat-exchanger glass pipe 1-pipe section equivalent hydraulic diameter [m] init
     self.glass_pipe_1pipe_sect_wtp_m = 2*self.glass_pipe_diaph_pace_m                                                   # Heat-exchanger glass pipe 1-pipe section wetted thermal perimeter [m] init
-    self.glass_pipe_1pipe_sect_etd_m = (4*self.glass_pipe_1pipe_sect_fs_m2)/self.glass_pipe_1pipe_sect_wtp_m            # Heat-exchanger glass pipe 1-pipe section equivalent thermal diameter [m] init
+    self.glass_pipe_1pipe_sect_etd_m = eq_diam(self.glass_pipe_1pipe_sect_fs_m2, self.glass_pipe_1pipe_sect_wtp_m)      # Heat-exchanger glass pipe 1-pipe section equivalent thermal diameter [m] init
     self.glass_pipe_3pipes_sect_fs_m2 = 4*self.steel_pipes_interspce*self.glass_pipe_diaph_pace_m                       # Heat-exchanger glass pipe 3-pipes section flow surface [m^2] init
     self.glass_pipe_3pipes_sect_whp_m = 8*(self.steel_pipes_interspce+self.glass_pipe_diaph_pace_m)                     # Heat-exchanger glass pipe 3-pipes section wetted hydraulic perimeter [m] init
-    self.glass_pipe_3pipes_sect_ehd_m = (4*self.glass_pipe_3pipes_sect_fs_m2)/self.glass_pipe_3pipes_sect_whp_m         # Heat-exchanger glass pipe 3-pipes section equivalent hydraulic diameter [m] init
+    self.glass_pipe_3pipes_sect_ehd_m = eq_diam(self.glass_pipe_3pipes_sect_fs_m2, self.glass_pipe_3pipes_sect_whp_m)   # Heat-exchanger glass pipe 3-pipes section equivalent hydraulic diameter [m] init
     self.glass_pipe_3pipes_sect_wtp_m = 6*self.glass_pipe_diaph_pace_m                                                  # Heat-exchanger glass pipe 3-pipes section wetted thermal perimeter [m] init
-    self.glass_pipe_3pipes_sect_etd_m = (4*self.glass_pipe_3pipes_sect_fs_m2)/self.glass_pipe_3pipes_sect_wtp_m         # Heat-exchanger glass pipe 3-pipes section equivalent thermal diameter [m] init
+    self.glass_pipe_3pipes_sect_etd_m = eq_diam(self.glass_pipe_3pipes_sect_fs_m2, self.glass_pipe_3pipes_sect_wtp_m)   # Heat-exchanger glass pipe 3-pipes section equivalent thermal diameter [m] init
+    self.glass_pipe_ext_fs_m2 = self.glass_pipe_ibs_m2-(self.steel_pipes_num*cyl_bas_surf(self.steel_pipes_ed_m))       # Heat-exchanger glass pipe external flow surface [m^2] init
+    self.glass_pipe_ext_whp_m = mt.pi*(self.glass_pipe_id_m+self.steel_pipes_num*self.steel_pipes_ed_m)                 # Heat-exchanger glass pipe external wetted hydraulic perimeter [m] init
+    self.glass_pipe_ext_ehd_m = eq_diam(self.glass_pipe_ext_fs_m2, self.glass_pipe_ext_whp_m)                           # Heat-exchanger glass pipe external equivalent hydraulic diameter [m] init
+    self.glass_pipe_ext_wtp_m = mt.pi*self.glass_pipe_id_m                                                              # Heat-exchanger glass pipe external wetted thermal perimeter [m] init
+    self.glass_pipe_ext_etd_m = eq_diam(self.glass_pipe_ext_fs_m2, self.glass_pipe_ext_wtp_m)                           # Heat-exchanger glass pipe external equivalent thermal diameter [m] init
     self.env_temp = _env_temp                                                                                           # Environment temperature [°C] init
     return                                                                                                              # Return nothing
   def print_info_save_out(self, dbg_flg):                                                                               # Info printing and output saving method with debug flag
@@ -113,7 +124,7 @@ class He:                                                                       
       +"\n--> Supposed heat-exchanger glass pipe thickness: "+str(self.supp_glass_pipe_thick_m)+" [m]"\
       +"\n--> Supposed heat-exchanger glass pipe external-diameter: "+str(self.supp_glass_pipe_ed_m)+" [m]"\
       +"\n--> Supposed heat-exchanger glass pipe external-lateral surface: "\
-        +str(self.supp_glass_pipe_els_m2)+" [m^2]"
+        +str(self.supp_glass_pipe_els_m2)+" [m^2]"\
       +"\n--> Number of heat-exchanger diaphragms in glass pipe: "+str(self.glass_pipe_diaph_num)\
       +"\n--> Heat-exchanger glass pipe diaphragms pace: "+str(self.glass_pipe_diaph_pace_m)+" [m]"\
       +"\n--> Heat-exchanger steel pipes internal-diameter: "+str(self.steel_pipes_id_m)+" [m]"\
@@ -128,23 +139,33 @@ class He:                                                                       
       +"\n--> Heat-exchanger glass pipe 1-pipe section flow surface: "\
         +str(self.glass_pipe_1pipe_sect_fs_m2)+" [m^2]"\
       +"\n--> Heat-exchanger glass pipe 1-pipe section wetted hydraulic perimeter: "\
-        +str(self.glass_pipe_1pipe_sect_whp_m)+" [m]"
+        +str(self.glass_pipe_1pipe_sect_whp_m)+" [m]"\
       +"\n--> Heat-exchanger glass pipe 1-pipe section equivalent hydraulic diameter: "\
         +str(self.glass_pipe_1pipe_sect_ehd_m)+" [m]"\
       +"\n--> Heat-exchanger glass pipe 1-pipe section wetted thermal perimeter: "\
-        +str(self.glass_pipe_1pipe_sect_wtp_m)+" [m]"
+        +str(self.glass_pipe_1pipe_sect_wtp_m)+" [m]"\
       +"\n--> Heat-exchanger glass pipe 1-pipe section equivalent thermal diameter: "\
         +str(self.glass_pipe_1pipe_sect_etd_m)+" [m]"\
       +"\n--> Heat-exchanger glass pipe 3-pipes section flow surface: "\
         +str(self.glass_pipe_3pipes_sect_fs_m2)+" [m^2]"\
       +"\n--> Heat-exchanger glass pipe 3-pipes section wetted hydraulic perimeter: "\
-        +str(self.glass_pipe_3pipes_sect_whp_m)+" [m]"
+        +str(self.glass_pipe_3pipes_sect_whp_m)+" [m]"\
       +"\n--> Heat-exchanger glass pipe 3-pipes section equivalent hydraulic diameter: "\
         +str(self.glass_pipe_3pipes_sect_ehd_m)+" [m]"\
       +"\n--> Heat-exchanger glass pipe 3-pipes section wetted thermal perimeter: "\
-        +str(self.glass_pipe_3pipes_sect_wtp_m)+" [m]"
+        +str(self.glass_pipe_3pipes_sect_wtp_m)+" [m]"\
       +"\n--> Heat-exchanger glass pipe 3-pipes section equivalent thermal diameter: "\
         +str(self.glass_pipe_3pipes_sect_etd_m)+" [m]"\
+      +"\n--> Heat-exchanger glass pipe external flow surface: "\
+        +str(self.glass_pipe_ext_fs_m2)+" [m^2]"\
+      +"\n--> Heat-exchanger glass pipe external wetted hydraulic perimeter: "\
+        +str(self.glass_pipe_ext_whp_m)+" [m]"\
+      +"\n--> Heat-exchanger glass pipe external equivalent hydraulic diameter: "\
+        +str(self.glass_pipe_ext_ehd_m)+" [m]"\
+      +"\n--> Heat-exchanger glass pipe external wetted thermal perimeter: "\
+        +str(self.glass_pipe_ext_wtp_m)+" [m]"\
+      +"\n--> Heat-exchanger glass pipe external equivalent thermal diameter: "\
+        +str(self.glass_pipe_ext_etd_m)+" [m]"\
       +"\n--> Environment temperature: "+str(self.env_temp)+" [°C]\n")                                                  # Dbg fbk
       print(dbg_str)                                                                                                    # Print dbg fbk
       out.save_output(out.Output_typ.he, dbg_str)                                                                       # Save dbg output
@@ -296,24 +317,34 @@ def re_cyl_pipe(pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis):             
 
 # Function definition to calculate Reynolds number from EQUATIONS 5.144 and 5.144a 'RelazioniScambiatore' using
 # volume flow rate to calculate fluid velocity, pipe equivalent diameter and fluid kinematic viscosity (alternative)
-def re_aternative(pipe_vol_flow_rate, fluid_in_surf_m2, pipe_equiv_diam, fluid_kin_vis):                                # re_aternative(Pipe volume flow rate [m^3/s], fluid inlet surface [m^2], Pipe equivalent diameter [m], kinematic viscosity [m^2/s])
-  if (pipe_vol_flow_rate > 0 and pipe_equiv_diam > 0 and fluid_kin_vis > 0):                                            # Check in-vals consistency, if ok
-    return ((pipe_vol_flow_rate/fluid_in_surf_m2)*pipe_equiv_diam)/fluid_kin_vis                                        # Return calculated Reynolds number [adimensional] --> ([m^3/s]*[m])/([m^2]*[m^2/s])=[adimensional]
+def re_aternative(pipe_vol_flow_rate, fluid_flow_surf_m2, pipe_equiv_hyd_diam, fluid_kin_vis):                          # re_aternative(Pipe volume flow rate [m^3/s], fluid flow surface [m^2], Pipe equivalent hydraulic diameter [m], kinematic viscosity [m^2/s])
+  if (pipe_vol_flow_rate > 0 and pipe_equiv_hyd_diam > 0 and fluid_kin_vis > 0):                                        # Check in-vals consistency, if ok
+    return ((pipe_vol_flow_rate/fluid_flow_surf_m2)*pipe_equiv_hyd_diam)/fluid_kin_vis                                  # Return calculated Reynolds number [adimensional] --> ([m^3/s]*[m])/([m^2]*[m^2/s])=[adimensional]
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
-# ---Function definition to calculate Reynolds number for fluid inside
+# Function definition to calculate equivalent hydraulic/thermal diameter
+def eq_diam(flow_surf_m2, wetted_perim_m):                                                                              # eq_diam(Flow surface [m^2], Wetted hydraulic/thermal perimeter [m])
+  if (flow_surf_m2 > 0 and wetted_perim_m > 0):                                                                         # Check in-vals consistency, if ok
+    return (4*flow_surf_m2)/wetted_perim_m                                                                              # Return equivalent hydraulic/thermal diameter [m]
+  else:                                                                                                                 # Else if in-vals consistency ain't ok
+    return -1                                                                                                           # Return err val
+
+# Function definition to calculate Reynolds number for fluid inside
 # external pipe shell side section
 def re_shell_sect(sect, pipe_mass_flow_rate, fluid_dyn_vis, he):                                                        # re_shell_sect(Heat-exchanger section, Pipe mass flow rate [kg/s], Mu: fluid dynamic viscosity [kg/(m*s)], Heat-exchanger)
-  if ((sect == He_sect.one_pipe or sect == He_sect.three_pipes) and\
+  if ((sect == He_sect.one_pipe or sect == He_sect.three_pipes or sect == He_sect.tot) and\
     pipe_mass_flow_rate > 0 and fluid_dyn_vis > 0 and he != None):                                                      # Check in-vals consistency, if ok
     if (sect == He_sect.one_pipe):                                                                                      # In case of 1-pipe section
-      shell_sect_eq_hyd_diam = he.glass_pipe_1pipe_sect_ehd_m                                                           # Def shell section equivalent diameter
+      shell_sect_eq_hyd_diam = he.glass_pipe_1pipe_sect_ehd_m                                                           # Def shell section equivalent hydraulic diameter
       shell_sect_flow_surf = he.glass_pipe_1pipe_sect_fs_m2                                                             # Def shell section flow surface
-    else:                                                                                                               # Else in case of 3-pipes section
-      shell_sect_eq_hyd_diam = he.glass_pipe_3pipes_sect_ehd_m                                                          # Def shell section equivalent diameter
+    elif (sect == He_sect.three_pipes):                                                                                 # Else in case of 3-pipes section
+      shell_sect_eq_hyd_diam = he.glass_pipe_3pipes_sect_ehd_m                                                          # Def shell section equivalent hydraulic diameter
       shell_sect_flow_surf = he.glass_pipe_3pipes_sect_fs_m2                                                            # Def shell section flow surface
-    return (shell_sect_eq_hyd_diam*pipe_mass_flow_rate)/(shell_sect_flow_surf*fluid_dyn_vis)                            # Return calculated Reynolds number for fluid in external pipe shell side section
+    else:                                                                                                               # Else in case of total section
+      shell_sect_eq_hyd_diam = he.glass_pipe_ext_ehd_m                                                                  # Def shell section equivalent hydraulic diameter
+      shell_sect_flow_surf = he.glass_pipe_ext_fs_m2                                                                    # Def shell section flow surface
+    return (pipe_mass_flow_rate*shell_sect_eq_hyd_diam)/(shell_sect_flow_surf*fluid_dyn_vis)                            # Return calculated Reynolds number for fluid in external pipe shell side section
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
@@ -375,7 +406,7 @@ def nu(side, re, pr, fluid_dyn_vis, fluid_dyn_vis_s, pipe_int_diam, pipe_len_m):
   else:                                                                                                                 # Else in case of unknown side enum val
     return -1                                                                                                           # Return err val
 
-# ---Function definition to calculate heat transfer coefficient (h) from Nusselt number Nu=(h*eq_hyd_diam)/therm_cond
+# Function definition to calculate heat transfer coefficient (h) from Nusselt number Nu=(h*eq_hyd_diam)/therm_cond
 # -->  h=(Nu*therm_cond)/eq_hyd_diam [W/(m^2*K)] --> ([adim]*[W/(m*K)])/[m]=[W/(m^2*K)]
 def h_from_nu_w_m2_k(nu, eq_therm_diam, therm_cond):                                                                    # h_from_nu_w_m2_k(Nusselt number, Equivalent thermal diameter [m], Thermal conductivity lambda [W/(m*K)])
   if (nu > 0 and eq_therm_diam > 0 and therm_cond > 0):                                                                 # Check in-vals consistency, if ok
