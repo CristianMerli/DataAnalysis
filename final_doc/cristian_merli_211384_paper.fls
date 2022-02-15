@@ -127,6 +127,8 @@ INPUT /home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/t
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 OUTPUT /home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.toc
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+INPUT /home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.bbl
+INPUT /home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.bbl
 INPUT /home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.aux
 INPUT /home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.out
 INPUT /home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.out
