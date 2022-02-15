@@ -117,26 +117,31 @@ class Meas_vars:                                                                
   int_ova_htc = 0.0                                                                                                     # Internal overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances [kW/(m^2*k)]
   ext_ova_htc = 0.0                                                                                                     # External overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances [kW/(m^2*k)]
   recalc_tr_heat = 0.0                                                                                                  # Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power) [kW]
-  perc_heat_losses = 0.0                                                                                                # Percentage of thermal power lost [%]
-  perc_heat_calc_err = 0.0                                                                                              # Percentage of thermal power calc error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value) [%]
-  glass_pipe_avg_temp = 0.0                                                                                             # Glass pipe average temperature [°C] to calc glass thermophysical variables values
+  glass_pipe_avg_temp = 0.0                                                                                             # Glass pipe average temperature [°C] to apprrox glass surf temp and calc glass thermophysical variables values
   glass_pipe_therm_cond = 0.0                                                                                           # Glass pipe thermal conductivity [W/(m*K)]
   glass_pipe_cond_r = 0.0                                                                                               # Glass pipe absolute conductive resistance [K/W]
-  ext_pipe_int_therm_cond = 0.0                                                                                         # ---Fluid thermal conductivity inside glass pipe [W/(m*K)]
-  ext_pipe_int_dyn_vis = 0.0                                                                                            # ---Fluid dynamic viscosity inside glass pipe [kg/(m*s)]
-  ext_pipe_int_dyn_vis_s = 0.0                                                                                          # ---External fluid dynamic viscosity at glass pipe approximated internal surface temperature [kg/(m*s)]
-  ext_pipe_int_pr = 0.0                                                                                                 # ---Prandtl number inside glass pipe
-  ext_pipe_int_re = 0.0                                                                                                 # ---Reynolds number inside glass pipe
-  ext_pipe_int_nu = 0.0                                                                                                 # ---Nusselt number inside glass pipe
-  ext_pipe_int_h = 0.0                                                                                                  # ---Heat transfer coefficient (h) inside glass pipe [W/(m^2*K)]
-  ext_pipe_int_fl_conv_r = 0.0                                                                                          # ---Absolute fluid convective resistance inside glass pipe [K/W]
-  ext_pipe_int_surf_temp = 0.0                                                                                          # ---Glass pipe internal surface temperature [°C]
-  ext_pipe_ext_surf_temp = 0.0                                                                                          # ---Glass pipe external surface temperature [°C]
+  ext_pipe_int_therm_cond = 0.0                                                                                         # Fluid thermal conductivity inside glass pipe [W/(m*K)]
+  ext_pipe_int_dyn_vis = 0.0                                                                                            # Fluid dynamic viscosity inside glass pipe [kg/(m*s)]
+  ext_pipe_int_dyn_vis_s = 0.0                                                                                          # External fluid dynamic viscosity at glass pipe approximated internal surface temperature [kg/(m*s)]
+  ext_pipe_int_pr = 0.0                                                                                                 # Prandtl number inside glass pipe
+  ext_pipe_int_re = 0.0                                                                                                 # Reynolds number inside glass pipe
+  ext_pipe_int_nu = 0.0                                                                                                 # Nusselt number inside glass pipe
+  ext_pipe_int_h = 0.0                                                                                                  # Heat transfer coefficient (h) inside glass pipe [W/(m^2*K)]
+  ext_pipe_int_fl_conv_r = 0.0                                                                                          # Absolute fluid convective resistance inside glass pipe [K/W]
+  ext_pipe_air_therm_cond = 0.0                                                                                         # Air thermal conductivity outside glass pipe [W/(m*K)]
   ext_pipe_ext_gr = 0.0                                                                                                 # Glass pipe Grashof adimensional number
   ext_pipe_ext_ra = 0.0                                                                                                 # Glass pipe Rayleigh adimensional number
   ext_pipe_ext_nu = 0.0                                                                                                 # Glass pipe Nusselt adimensional number
   ext_pipe_ext_h = 0.0                                                                                                  # Heat transfer coefficient (h) outside glass pipe [W/(m^2*K)]
   ext_pipe_ext_conv_r = 0.0                                                                                             # Glass pipe absolute external convective resistance [K/W]
+  ext_pipe_tot_therm_r = 0.0                                                                                            # Glass pipe total absolute thermal resistance [K/W]
+  ext_pipe_int_ova_htc = 0.0                                                                                            # Glass pipe internal overall heat transfer coefficient [kW/(m^2*k)]
+  ext_pipe_ext_ova_htc = 0.0                                                                                            # Glass pipe external overall heat transfer coefficient [kW/(m^2*k)]
+  ext_pipe_heat_losses = 0.0                                                                                            # Thermal power lost through glass pipe [kW]
+  ext_pipe_int_surf_temp = 0.0                                                                                          # Glass pipe internal surface temperature [°C]
+  ext_pipe_ext_surf_temp = 0.0                                                                                          # Glass pipe external surface temperature [°C]
+  perc_heat_losses = 0.0                                                                                                # Percentage of thermal power lost [%]
+  perc_heat_calc_err = 0.0                                                                                              # Percentage of thermal power calc error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value) [%]
   def __init__(self):                                                                                                   # Constructor
     return                                                                                                              # Return nothing
   def get_info(self):                                                                                                   # Measure class method to get measure info
@@ -219,10 +224,7 @@ class Meas_vars:                                                                
       +str(self.ext_ova_htc)+" [kW/(m^2*K)]"\
     +"\n- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): "\
       +str(self.recalc_tr_heat)+" [kW]"\
-    +"\n- Percentage of thermal power lost: "+str(self.perc_heat_losses)+" [%]"\
-    +"\n- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead "\
-      +"of directly calculated global heat transfer coefficient (avg value): "+str(self.perc_heat_calc_err)+" [%]"\
-    +"\n- Glass pipe average temperature to calc glass thermophysical variables values: "\
+    +"\n- Glass pipe average temperature to apprrox glass surf temp and calc glass thermophysical variables values: "\
       +str(self.glass_pipe_avg_temp)+" [°C]"\
     +"\n- Glass pipe thermal conductivity: "+str(self.glass_pipe_therm_cond)+" [W/(m*K)]"\
     +"\n- Glass pipe absolute conductive resistance: "+str(self.glass_pipe_cond_r)+" [K/W]"\
@@ -235,13 +237,21 @@ class Meas_vars:                                                                
     +"\n- Nusselt number inside glass pipe: "+str(self.ext_pipe_int_nu)\
     +"\n- Heat transfer coefficient (h) inside glass pipe: "+str(self.ext_pipe_int_h)+" [W/(m^2*K)]"\
     +"\n- Absolute fluid convective resistance inside glass pipe: "+str(self.ext_pipe_int_fl_conv_r)+" [K/W]"\
-    +"\n- Glass pipe internal surface temperature: "+str(self.ext_pipe_int_surf_temp)+" [°C]"\
-    +"\n- Glass pipe external surface temperature: "+str(self.ext_pipe_ext_surf_temp)+" [°C]"\
+    +"\n- Air thermal conductivity outside glass pipe: "+str(self.ext_pipe_air_therm_cond)+" [W/(m*K)]"\
     +"\n- Glass pipe Grashof adimensional number: "+str(self.ext_pipe_ext_gr)\
     +"\n- Glass pipe Rayleigh adimensional number: "+str(self.ext_pipe_ext_ra)\
     +"\n- Glass pipe Nusselt adimensional number: "+str(self.ext_pipe_ext_nu)\
     +"\n- Heat transfer coefficient (h) outside glass pipe: "+str(self.ext_pipe_ext_h)+" [W/(m^2*K)]"\
-    +"\n- Glass pipe absolute external convective resistance: "+str(self.ext_pipe_ext_conv_r)+" [K/W]\n")               # Dbg fbk
+    +"\n- Glass pipe absolute external convective resistance: "+str(self.ext_pipe_ext_conv_r)+" [K/W]"\
+    +"\n- Glass pipe total absolute thermal resistance: "+str(self.ext_pipe_tot_therm_r)+" [K/W]"\
+    +"\n- Glass pipe internal overall heat transfer coefficient: "+str(self.ext_pipe_int_ova_htc)+" [kW/(m^2*k)]"\
+    +"\n- Glass pipe external overall heat transfer coefficient: "+str(self.ext_pipe_ext_ova_htc)+" [kW/(m^2*k)]"\
+    +"\n- Thermal power lost through glass pipe: "+str(self.ext_pipe_heat_losses)+" [kW]"\
+    +"\n- Glass pipe internal surface temperature: "+str(self.ext_pipe_int_surf_temp)+" [°C]"\
+    +"\n- Glass pipe external surface temperature: "+str(self.ext_pipe_ext_surf_temp)+" [°C]"\
+    +"\n- Percentage of thermal power lost: "+str(self.perc_heat_losses)+" [%]"\
+    +"\n- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead "\
+      +"of directly calculated global heat transfer coefficient (avg value): "+str(self.perc_heat_calc_err)+" [%]\n")   # Dbg fbk
     return dbg_str                                                                                                      # Return dbg fbk
 
 ##########

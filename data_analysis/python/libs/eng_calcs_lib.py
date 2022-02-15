@@ -382,7 +382,7 @@ def frict_fact_turb_flow_cyl_pipe(re):                                          
 def nu_turb_flow_cyl_pipe(re, pr):                                                                                      # nu_turb_flow_cyl_pipe(Reynolds number, Prandtl number)
   f = frict_fact_turb_flow_cyl_pipe(re)                                                                                 # Friction factor for fluid in turbulent flow inside cylindrical pipe
   if (re > 300 and re < 5*1e6 and pr >= 0.5 and pr <= 2*1e3):                                                           # If Reynolds and Prandtl numbers are in formula range
-    return ((f/2)*(re-1000)*pr)/(1+12.7*mt.pow(f/2, 1/2)*(mt.pow(pr, 2/3)-1))                                           # Return calculated Nusselt number for fluid in turbulent flow inside cylindrical pipe
+    return ((f/2)*(re-1000)*pr)/(1+12.7*mt.pow(f/2, 0.5)*(mt.pow(pr, 2/3)-1))                                           # Return calculated Nusselt number for fluid in turbulent flow inside cylindrical pipe
   else:                                                                                                                 # Else if Reynolds and Prandtl numbers ain't in formula range
     return -1                                                                                                           # Return err val
 
@@ -432,7 +432,7 @@ def abs_cond_res(pipe_int_diam, pipe_ext_diam, pipe_len, pipes_num, therm_cond):
 # using q=delta(T)/R <=> q=(Tm-Ts)/R  =>  Ts=Tm-R*q [°C]
 def calc_pipe_int_ext_surf_temp(therm_pow_kw, avg_int_fl_temp, int_fl_conv_r, pipe_cond_r):                             # calc_pipe_int_ext_surf_temp(Exchanged thermal power [kW], Average interal fluid temperature [°C], Internal fluid absolute convective resistance [K/W], Pipe absolute conductive resistance [K/W])
   if (therm_pow_kw != 0 and avg_int_fl_temp >= zero_k and int_fl_conv_r > 0 and pipe_cond_r > 0):                       # Check in-vals consistency, if ok
-    therm_pow_w = abs(therm_pow_kw)*1*1e3                                                                               # Thermal power conversion from [kW] into [W]
+    therm_pow_w = therm_pow_kw*1*1e3                                                                                    # Thermal power conversion from [kW] into [W]
     int_surf_temp = avg_int_fl_temp-(int_fl_conv_r*therm_pow_w)                                                         # Calculate pipe internal surface temperature [°C]  -->  con [K/W]=[°C/W]  -->  [°C]-([°C/W]*[W])=[°C]
     ext_surf_temp = int_surf_temp-(pipe_cond_r*therm_pow_w)                                                             # Calculate pipe external surface temperature [°C]  -->  con [K/W]=[°C/W]  -->  [°C]-([°C/W]*[W])=[°C]
     return int_surf_temp, ext_surf_temp                                                                                 # Return calculated pipe internal and external surface temperatures [°C]
@@ -455,10 +455,10 @@ def therm_pow_kw_overall_htc(ova_htc_kw_m2_k, surf_m2, lmtd):                   
     return -1                                                                                                           # Return err val
 
 # Function definition to calculate Grashof adimensional number
-def shell_gr(pipe_ext_diam, beta, surf_temp, env_temp, fluid_kin_vis):                                                  # gr(Pipe external diameter [m], Beta: thermal expansion coefficient [1/K], Surface temperature [K], Environment temperature [K], Fluid kinematic viscosity [[m^2/s]])
-  if (pipe_ext_diam > 0 and beta != None and surf_temp >= zero_k and env_temp >= zero_k and fluid_kin_vis > 0):         # Check in-vals consistency, if ok
+def shell_gr(pipe_len, beta, surf_temp, env_temp, fluid_kin_vis):                                                       # gr(Pipe length [m], Beta: thermal expansion coefficient [1/K], Surface temperature [K], Environment temperature [K], Fluid kinematic viscosity [[m^2/s]])
+  if (pipe_len > 0 and beta != None and surf_temp >= zero_k and env_temp >= zero_k and fluid_kin_vis > 0):              # Check in-vals consistency, if ok
     g = 9.81                                                                                                            # Gravity acceleration value [m/s^2]
-    return (g*mt.pow(pipe_ext_diam, 3)*beta*abs(surf_temp-env_temp))/mt.pow(fluid_kin_vis, 2)                           # Return calculated Grashof number [adimensional]  -->  ([m/s^2]*[m^3]*[1/K]*[K])/[m^2/s]=[adimensional]
+    return (g*mt.pow(pipe_len, 3)*beta*abs(surf_temp-env_temp))/mt.pow(fluid_kin_vis, 2)                                # Return calculated Grashof number [adimensional]  -->  ([m/s^2]*[m^3]*[1/K]*[K])/[m^2/s]=[adimensional]
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
@@ -469,9 +469,19 @@ def shell_ra(gr, pr):                                                           
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 
-# Function definition to calculate Nusselt adimensional number from Rayleigh adimensional number
-def shell_nu_from_ra(ra):                                                                                               # shell_nu_from_ra(Rayleigh number)
-  if (ra > 0 and ra < 1*1e9):                                                                                           # If Rayleigh number is in formula range
-    return 0.59*mt.pow(ra, 1/4)                                                                                         # Return calculated Rayleigh number [adimensional]
-  else:                                                                                                                 # Else if Rayleigh number ain't in formula range
+# Function definition to calculate f4-parameter from Prandtl adimensional number
+def f_f4(pr):                                                                                                           # f_f4(Prandtl number)
+  if (pr > 0):                                                                                                          # If Prandtl number is in formula range
+    return mt.pow((1+mt.pow(0.5/pr, 9/16)), (-16/9))                                                                    # Return calculated f4-parameter
+  else:                                                                                                                 # Else if Prandtl number ain't in formula range
+    return -1                                                                                                           # Return err val
+
+# Function definition to calculate Nusselt adimensional number from Rayleigh adimensional number, formula
+# from https://en.wikipedia.org/wiki/Natural_convection
+def shell_nu_from_ra(ra, pr):                                                                                           # shell_nu_from_ra(Rayleigh number, Prandtl number)
+  if (ra > 0 and ra < 1*1e9 and pr > 0):                                                                                # If Rayleigh and Prandtl numbers are in formula range
+    nu_0 = 0.68                                                                                                         # Geometrical parameter for vertical cylinder
+    f4 = f_f4(pr)                                                                                                       # f4-parameter
+    return mt.pow((mt.pow(nu_0, 0.5)+(mt.pow(ra, 1/6)*mt.pow(f4/300, 1/6))), 2)                                         # Return calculated Nusselt number [adimensional]
+  else:                                                                                                                 # Else if Rayleigh and Prandtl numbers ain't in formula range
     return -1                                                                                                           # Return err val

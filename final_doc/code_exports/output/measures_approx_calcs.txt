@@ -64,9 +64,7 @@
 - Internal overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.0 [kW/(m^2*K)]
 - External overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.0 [kW/(m^2*K)]
 - Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 0.0 [kW]
-- Percentage of thermal power lost: 0.0 [%]
-- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 0.0 [%]
-- Glass pipe average temperature to calc glass thermophysical variables values: 0.0 [°C]
+- Glass pipe average temperature to apprrox glass surf temp and calc glass thermophysical variables values: 0.0 [°C]
 - Glass pipe thermal conductivity: 0.0 [W/(m*K)]
 - Glass pipe absolute conductive resistance: 0.0 [K/W]
 - Fluid thermal conductivity inside glass pipe: 0.0 [W/(m*K)]
@@ -77,13 +75,20 @@
 - Nusselt number inside glass pipe: 0.0
 - Heat transfer coefficient (h) inside glass pipe: 0.0 [W/(m^2*K)]
 - Absolute fluid convective resistance inside glass pipe: 0.0 [K/W]
-- Glass pipe internal surface temperature: 0.0 [°C]
-- Glass pipe external surface temperature: 0.0 [°C]
+- Air thermal conductivity outside glass pipe: 0.0 [W/(m*K)]
 - Glass pipe Grashof adimensional number: 0.0
 - Glass pipe Rayleigh adimensional number: 0.0
 - Glass pipe Nusselt adimensional number: 0.0
 - Heat transfer coefficient (h) outside glass pipe: 0.0 [W/(m^2*K)]
 - Glass pipe absolute external convective resistance: 0.0 [K/W]
+- Glass pipe total absolute thermal resistance: 0.0 [K/W]
+- Glass pipe internal overall heat transfer coefficient: 0.0 [kW/(m^2*k)]
+- Glass pipe external overall heat transfer coefficient: 0.0 [kW/(m^2*k)]
+- Thermal power lost through glass pipe: 0.0 [kW]
+- Glass pipe internal surface temperature: 0.0 [°C]
+- Glass pipe external surface temperature: 0.0 [°C]
+- Percentage of thermal power lost: 0.0 [%]
+- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 0.0 [%]
 
 --> Countercurrent measure 1 calculations results:
 - Cold fluid mass flow rate: 0.1484311273183292 [kg/s]
@@ -150,9 +155,7 @@
 - Internal overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.0 [kW/(m^2*K)]
 - External overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.0 [kW/(m^2*K)]
 - Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 0.0 [kW]
-- Percentage of thermal power lost: 0.0 [%]
-- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 0.0 [%]
-- Glass pipe average temperature to calc glass thermophysical variables values: 0.0 [°C]
+- Glass pipe average temperature to apprrox glass surf temp and calc glass thermophysical variables values: 0.0 [°C]
 - Glass pipe thermal conductivity: 0.0 [W/(m*K)]
 - Glass pipe absolute conductive resistance: 0.0 [K/W]
 - Fluid thermal conductivity inside glass pipe: 0.0 [W/(m*K)]
@@ -163,13 +166,20 @@
 - Nusselt number inside glass pipe: 0.0
 - Heat transfer coefficient (h) inside glass pipe: 0.0 [W/(m^2*K)]
 - Absolute fluid convective resistance inside glass pipe: 0.0 [K/W]
-- Glass pipe internal surface temperature: 0.0 [°C]
-- Glass pipe external surface temperature: 0.0 [°C]
+- Air thermal conductivity outside glass pipe: 0.0 [W/(m*K)]
 - Glass pipe Grashof adimensional number: 0.0
 - Glass pipe Rayleigh adimensional number: 0.0
 - Glass pipe Nusselt adimensional number: 0.0
 - Heat transfer coefficient (h) outside glass pipe: 0.0 [W/(m^2*K)]
 - Glass pipe absolute external convective resistance: 0.0 [K/W]
+- Glass pipe total absolute thermal resistance: 0.0 [K/W]
+- Glass pipe internal overall heat transfer coefficient: 0.0 [kW/(m^2*k)]
+- Glass pipe external overall heat transfer coefficient: 0.0 [kW/(m^2*k)]
+- Thermal power lost through glass pipe: 0.0 [kW]
+- Glass pipe internal surface temperature: 0.0 [°C]
+- Glass pipe external surface temperature: 0.0 [°C]
+- Percentage of thermal power lost: 0.0 [%]
+- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 0.0 [%]
 
 --> Countercurrent measure 2 calculations results:
 - Cold fluid mass flow rate: 0.047238881518364424 [kg/s]
@@ -236,9 +246,7 @@
 - Internal overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.0 [kW/(m^2*K)]
 - External overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.0 [kW/(m^2*K)]
 - Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 0.0 [kW]
-- Percentage of thermal power lost: 0.0 [%]
-- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 0.0 [%]
-- Glass pipe average temperature to calc glass thermophysical variables values: 0.0 [°C]
+- Glass pipe average temperature to apprrox glass surf temp and calc glass thermophysical variables values: 0.0 [°C]
 - Glass pipe thermal conductivity: 0.0 [W/(m*K)]
 - Glass pipe absolute conductive resistance: 0.0 [K/W]
 - Fluid thermal conductivity inside glass pipe: 0.0 [W/(m*K)]
@@ -249,13 +257,20 @@
 - Nusselt number inside glass pipe: 0.0
 - Heat transfer coefficient (h) inside glass pipe: 0.0 [W/(m^2*K)]
 - Absolute fluid convective resistance inside glass pipe: 0.0 [K/W]
-- Glass pipe internal surface temperature: 0.0 [°C]
-- Glass pipe external surface temperature: 0.0 [°C]
+- Air thermal conductivity outside glass pipe: 0.0 [W/(m*K)]
 - Glass pipe Grashof adimensional number: 0.0
 - Glass pipe Rayleigh adimensional number: 0.0
 - Glass pipe Nusselt adimensional number: 0.0
 - Heat transfer coefficient (h) outside glass pipe: 0.0 [W/(m^2*K)]
 - Glass pipe absolute external convective resistance: 0.0 [K/W]
+- Glass pipe total absolute thermal resistance: 0.0 [K/W]
+- Glass pipe internal overall heat transfer coefficient: 0.0 [kW/(m^2*k)]
+- Glass pipe external overall heat transfer coefficient: 0.0 [kW/(m^2*k)]
+- Thermal power lost through glass pipe: 0.0 [kW]
+- Glass pipe internal surface temperature: 0.0 [°C]
+- Glass pipe external surface temperature: 0.0 [°C]
+- Percentage of thermal power lost: 0.0 [%]
+- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 0.0 [%]
 
 --> Cocurrent measure 2 calculations results:
 - Cold fluid mass flow rate: 0.04607886236181829 [kg/s]
@@ -322,9 +337,7 @@
 - Internal overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.0 [kW/(m^2*K)]
 - External overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.0 [kW/(m^2*K)]
 - Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 0.0 [kW]
-- Percentage of thermal power lost: 0.0 [%]
-- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 0.0 [%]
-- Glass pipe average temperature to calc glass thermophysical variables values: 0.0 [°C]
+- Glass pipe average temperature to apprrox glass surf temp and calc glass thermophysical variables values: 0.0 [°C]
 - Glass pipe thermal conductivity: 0.0 [W/(m*K)]
 - Glass pipe absolute conductive resistance: 0.0 [K/W]
 - Fluid thermal conductivity inside glass pipe: 0.0 [W/(m*K)]
@@ -335,10 +348,17 @@
 - Nusselt number inside glass pipe: 0.0
 - Heat transfer coefficient (h) inside glass pipe: 0.0 [W/(m^2*K)]
 - Absolute fluid convective resistance inside glass pipe: 0.0 [K/W]
-- Glass pipe internal surface temperature: 0.0 [°C]
-- Glass pipe external surface temperature: 0.0 [°C]
+- Air thermal conductivity outside glass pipe: 0.0 [W/(m*K)]
 - Glass pipe Grashof adimensional number: 0.0
 - Glass pipe Rayleigh adimensional number: 0.0
 - Glass pipe Nusselt adimensional number: 0.0
 - Heat transfer coefficient (h) outside glass pipe: 0.0 [W/(m^2*K)]
 - Glass pipe absolute external convective resistance: 0.0 [K/W]
+- Glass pipe total absolute thermal resistance: 0.0 [K/W]
+- Glass pipe internal overall heat transfer coefficient: 0.0 [kW/(m^2*k)]
+- Glass pipe external overall heat transfer coefficient: 0.0 [kW/(m^2*k)]
+- Thermal power lost through glass pipe: 0.0 [kW]
+- Glass pipe internal surface temperature: 0.0 [°C]
+- Glass pipe external surface temperature: 0.0 [°C]
+- Percentage of thermal power lost: 0.0 [%]
+- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 0.0 [%]
