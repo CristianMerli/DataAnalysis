@@ -4,7 +4,7 @@
 * Technical physics data-analysis project at UniTn.
 * Measures taken with group number 5, 26th november 2021.
 ---
-## In order to examine the source the code without installing python, visit uploaded GitHub repository [here](https://github.com/CristianMerli/DataAnalysis.git), or use one of the links reported below:
+## In order to examine the source code without installing python, visit uploaded GitHub repository [here](https://github.com/CristianMerli/DataAnalysis.git), or use one of the links reported below:
 ### Documentation direct link (PDF):
 * To directly consult lab-project paper PDF file [click here](https://github.com/CristianMerli/DataAnalysis/blob/master/final_doc/cristian_merli_211384_paper.pdf).
 ### Main code direct link:
