@@ -2,23 +2,39 @@
 %         PACKAGES INCLUSION         %                                                                                      % PACKAGES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass{article}                                                                                                     % Document specs
+\documentclass[a4paper,10pt]{article}                                                                                       % Document specs
 \usepackage[legalpaper, margin=2cm]{geometry}                                                                               % Document margin
 \usepackage[utf8]{inputenc}                                                                                                 % Encoding specs
 \usepackage{tocloft}                                                                                                        % Package import for table of contents with dots
+\usepackage{abstract}                                                                                                       % Package import for abstract
 \usepackage{hyperref}                                                                                                       % Package import for external references
 \usepackage{graphicx}                                                                                                       % Package import to manage images labels and captions
 \usepackage{cite}                                                                                                           % Package import for bibliographies (citations)
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}                                                                     % Package import for colors
+\usepackage{amsmath}                                                                                                        % Package import command for formulas (math)
+\usepackage{amssymb}                                                                                                        % Package import command for formulas (symbols)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           PREAMBLE START           %                                                                                      % PREAMBLE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\hypersetup{
+  colorlinks=true,
+  linkcolor=darkgray,
+  filecolor=magenta,
+  urlcolor=blue,
+  citecolor=gray,
+  pdftitle={DataAnalysis},
+  pdfpagemode=FullScreen}                                                                                                   % External references definition: dark-grey links and blue URLs (\href call)
 \setlength{\parindent}{0em}                                                                                                 % Remove indentation at paragraph's start
-\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue}                                                                % External references definition: black links and blue URLs (\href call)
+\renewcommand{\abstractname}{Sommario}                                                                                      % Abstract title
 \renewcommand{\contentsname}{Indice}                                                                                        % Change table of contents title
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}                                                                       % Configure table of contents to display dots
+%\renewcommand{\}{}
+\renewcommand{\tablename}{Tab.}                                                                                             % ---
+\renewcommand{\figurename}{Fig.}                                                                                            % ---
 \bibliographystyle{plain}                                                                                                   % Bibliography style (plain standard style)
+\renewcommand\refname{Riferimenti bibliografici}                                                                            % Bibliography title
 
 \title{Analisi dati e calcoli ingegneristici scambiatore di calore \\                                                       % Title definition (printed with \maketitle command)
 \large Laboratorio - Gruppo n.5 del 26/11/2021, fisica tecnica [140078] AA 2021/2022}                                       % Subtitle definition (printed with \maketitle command)
@@ -33,50 +49,179 @@
 
 \maketitle                                                                                                                  % Plot previously defined title
 
-\vspace{1cm}                                                                                                                % Vertical-space command
+\vspace{4cm}                                                                                                                % Vertical-space command
+  \addcontentsline{toc}{section}{Sommario}                                                                                  % Add abstract inside table of contents
   \begin{abstract}                                                                                                          % Abstract creation and following abstract text
     \noindent \textit{Relazione sintetica con lo scopo di descrivere le scelte adottate, e discutere i risultati  ottenuti
     dall'analisi dati e dalle modellazioni ingegneristiche effettuate. Il sistema oggetto di modellazione, è costituito da
     uno scambiatore di calore a fascio tubiero, all'interno del quale scorre acqua in entrambi i circuiti di scambio. Sono
     state effettuate diverse prove, in particolare: due in configurazione equi-corrente e due in configurazione
-    contro-corrente, con diversi valori di portata volumetrica di fluido freddo.\newline
+    contro-corrente, con diversi valori di portata volumetrica di fluido freddo.\\
     Nei capitoli successivi, verranno elencate le richieste di progetto avanzate dal docente e verranno ripercorse le varie
     tappe, che hanno condotto alla realizzazione e comparazione di diversi modelli ingegneristici più o meno raffinati,
     mediante l'analisi assistita da calcolatore dei dati raccolti durante l'esperienza di laboratorio (effettuata in data
     26/11/2021 con il gruppo numero 5, presso i laboratori del dipartimanto di fisica dell'università di Trento).}
   \end{abstract}                                                                                                            % Abstract end
-\vspace{3.5cm}                                                                                                              % Vertical-space command
+\vspace{3cm}                                                                                                                % Vertical-space command
 
-\vspace{3.5cm}                                                                                                              % Vertical-space command
+\vspace{3cm}                                                                                                                % Vertical-space command
   \tableofcontents                                                                                                          % Plot table of contents
 \pagebreak                                                                                                                  % Go to new page
 
 \section{Richieste}                                                                                                         % Section creation: "Richieste"
 \label{sec:project_request}                                                                                                 % "project_request" reference-label definition and following section text
-  XSAHxsjhsavxsgavsxgh
+  Le richieste di progetto consistono principalmente nella realizzazione di un sistema di analisi dati "computerizzato",
+  per poter cogliere da esso, le informazioni necessarie ad effettuare i diversi calcoli inerenti il fenomeno di scambio
+  termico. Il tutto, con l'obiettivo di caratterizzare tale fenomeno sul manufatto oggetto di analisi sperimentale. In
+  aggiunta, è stato richiesto di cogliere le analogie e tutto ciò in cui i risultati teorici attesi, differiscono da
+  quelli sperimentali ottenuti, con particolare attenzione in riferimento alla non adiabaticità del sistema e alle varie
+  approssimazioni effettuate in fase di modellazione, per lo studio del trasferimento di calore all'interno e all'esterno
+  della macchina termica.
 
 \section{Introduzione}                                                                                                      % Section creation: "Introduzione"
 \label{sec:introduction}                                                                                                    % "introduction" reference-label definition and following section text
-  XSAHxsjhsavxsgavsxgh
+  Per rispondere alle richieste di progetto, come riportato anche nell'abstract di questo documento, è stata
+  realizzata una parte di calcolo assistito con alcuni commenti per motivare e descrivere i vari passaggi effettuati.
+  Questo elaborato ha quindi come unico scopo, quello di illustrare i passaggi cruciali, le scelte salienti adottate e
+  discutere i risultati ottenuti nella parte tecnica. Per maggior trasparenza, è stato reso accessibile online l'intero
+  codice sorgente realizzato, senza la necessità di effettuare alcuna installazione e/o configurazione dell'ambiente di
+  sviluppo per poterlo consultare. Il seguente link, consente un accesso diretto alla repository di GitHub caricata
+  personalmente, per poter approfondire tutto ciò che è stato realizzato:
+  \href{https://github.com/CristianMerli/DataAnalysis.git}{https://github.com/CristianMerli/DataAnalysis.git}.
 
 \section{Linguaggio di programmazione}                                                                                      % Section creation: "Linguaggio di programmazione"
 \label{sec:progr_lang}                                                                                                      % "progr_lang" reference-label definition and following section text
-  XSAHxsjhsavxsgavsxgh
+  Il passo preliminare per poter portare a compimento le richieste avanzate da parte del docente
+  \textbf{[}Capitolo \ref{sec:project_request}\textbf{]}, è stato quello di individuare un software di "data science", per
+  la realizzazione della parte di analisi dati e calcolo ingegneristico. La scelta più ovvia in ambito accademico, sarebbe
+  stata quella di utilizzare il software MatLab, ma si è optato per un programma di tipo open-source, riutilizzabile anche
+  in futuro essendo libero da licenze. É stato quindi scelto un linguaggio denominato python, dotato di numerosi pacchetti
+  dedicati al "data science", tra cui pandas e numpy. L'ambiente di sviluppo utilizzato (IDE) è Visual Studio Code,
+  installato su una macchina linux con un ambiente virtuale python dedicato allo sviluppo di tale progetto
+  (conda environment). Un esempio di configurazione simile per analisi dati, può essere trovato al seguente link:
+  \href{https://code.visualstudio.com/docs/datascience/data-science-tutorial}{vedi esempio}. Infine, è stato utilizzato il
+  sistema di gestione del codice "git", unitamente al servizio di hosting fornito da GitHub, con l'intento di pubblicare
+  online e rendere facilmente accessibili tutti i contenuti realizzati. Il codice che compone la parte tecnica di questo
+  progetto, è composto da uno script python principale di tipo JupyterNotebook e da un pacchetto (libreria) appositamente
+  sviluppato, denominato "libs". Esso contiene diversi script in linguaggio nativo python, con compiti specifici tra cui:
+  caricamento dati misure, esecuzione analisi dati, formule di calcolo ingegneristico, stampaggio a video di grafici,
+  approssimazione polinomiale delle proprietà delle variabili termofisiche e molto altro.\vspace{2mm}\\
+  "One of the really big growth areas for Python is in the sciences, where data analysis is a huge component."
+  \textit{(by Bernard, Joey)}
+  \cite{Bernard2016}
 
 \section{Analisi dati}                                                                                                      % Section creation: "Analisi dati"
 \label{sec:data_analysis}                                                                                                   % "data_analysis" reference-label definition and following section text
-  XSAHxsjhsavxsgavsxgh
+  L'analisi dei dati, è stata 
 
 \section{Calcoli ingegneristici}                                                                                            % Section creation: "Calcoli ingegneristici"
 \label{sec:engineering_calcs}                                                                                               % "engineering_calcs" reference-label definition and following section text
   XSAHxsjhsavxsgavsxgh
 
-\section{Conclusioni}                                                                                                       % Section creation: "conclusioni"
+\section{Conclusioni}                                                                                                       % Section creation: "Conclusioni"
 \label{sec:conclusions}                                                                                                     % "conclusions" reference-label definition and following section text
   XSAHxsjhsavxsgavsxgh
 
-\cite{} %%% TMP empty cit
+\section{Formule}                                                                                                           % Section creation: "Formule"
+\label{sec:formulas}                                                                                                        % "formulas" reference-label definition and following section text
+\begin{equation}                                                                                                            % Equation-start
+  \sum_{i=0}^{\infty} a_i x^i                                                                                               % Formula
+  \label{eqn:equation1}                                                                                                     % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
 
+\section{Tabelle}                                                                                                           % Section creation: "Tabelle"
+\label{sec:tables}                                                                                                          % "tables" reference-label definition and following section text
+\begin{table}[ht!]                                                                                                          % Table-start
+  \centering                                                                                                                % Center table
+  \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
+    \hline
+    Dati        & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 1 \\
+    \hline\hline
+    F1 [l/h]    & 539.92          & 534.83            & 170.21            & 166.03          \\
+    F2 [l/h]    & 562.52          & 568.41            & 574.23            & 578.83          \\
+    T1 [°C]     & 15.25           & 15.41             & 15.33             & 15.41           \\
+    T2 [°C]     & 51.24           & 51.52             & 51.30             & 51.47           \\
+    T3 [°C]     & 24.35           & 24.82             & 33.51             & 33.24           \\
+    T4 [°C]     & 41.90           & 41.69             & 45.01             & 45.50           \\
+    \hline
+  \end{tabular}                                                                                                             % End tabular definition
+  \caption{Valori delle variabili misurate ottenuti dall'analisi dei dati sperimentali}                                     % Table caption
+  \label{tab:measures_data}                                                                                                 % Reference-label to table
+\end{table}                                                                                                                 % Table-end
+\begin{table}[ht!]                                                                                                          % Table-start
+  \centering                                                                                                                % Center table
+  \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
+    \hline
+    Dati/misure                                           & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 1 \\
+    \hline\hline
+    Q\textsubscript{fl.freddo} [kW]                           & 5.70            & 5.84              & 3.59              & 3.43            \\
+    Q\textsubscript{fl.caldo} [kW]                            & -6.02           & -6.41             & -4.14             & -3.96           \\
+    $\Delta$Q\textsubscript{fl.caldo,fl.freddo} [kW]          & -0.32           & -0.56             & -0.55             & -0.53           \\
+    $\bar{Q}$ [kW]                                            & 5.86            & 6.12              & 3.86              & 3.70            \\
+    $\Delta$T\textsubscript{m.l.} [°C]                        & 25.68           & 25.28             & 21.45             & 22.05           \\
+    U\textsubscript{int} [$\frac{kW}{m^{2}K}$]                & 2.6718          & 2.8354            & 2.1081            & 1.9629          \\
+    U\textsubscript{ext} [$\frac{kW}{m^{2}K}$]                & 2.1374          & 2.2683            & 1.6865            & 1.5703          \\
+    NTU                                                       & 0.3642          & 0.3902            & 0.9122            & 0.8708          \\
+    $\varepsilon$                                             & 0.26            & 0.28              & 0.56              & 0.52            \\
+    Re\textsubscript{int}                                     & 8475            & 8567              & 8892              & 9013            \\
+    h\textsubscript{int} [$\frac{W}{m^{2}K}$]                 & 4303.85         & 4346.33           & 4458.61           & 4505.98         \\
+    $\lambda$\textsubscript{AISI-316} [$\frac{W}{mK}$]        & 13.5644         & 13.5675           & 13.6197           & 13.6218         \\
+    $\bar{h}$\textsubscript{ext} [$\frac{W}{m^{2}K}$]         & 2650.21         & 2633.57           & 1466.46           & 1450.12         \\
+    U\textsubscript{int,adim} [$\frac{kW}{m^{2}K}$]           & 1.6666          & 1.6677            & 1.1971            & 1.1917          \\
+    U\textsubscript{ext,adim} [$\frac{kW}{m^{2}K}$]           & 1.3333          & 1.3341            & 0.9577            & 0.9533          \\
+    Q\textsubscript{adim} [kW]                                & 3.66            & 3.60              & 2.19              & 2.24            \\
+    Q\textsubscript{perso} [\%]                               & 5.4             & 8.8               & 13.3              & 13.4            \\
+    $\Delta$Calc(Q) [\%]                                      & 37.6            & 41.2              & 43.2              & 39.3            \\
+    Gr\textsubscript{ext}                                     & 338032689       & 26692070          & 70486373          & 68353765        \\
+    Ra\textsubscript{ext}                                     & 24114245        & 19041327          & 50282878          & 48761539        \\
+    $\lambda$\textsubscript{pyrex} [$\frac{W}{mK}$]           & 1.1318          & 1.1320            & 1.1343            & 1.1342          \\
+    Q\textsubscript{perso,vetro} [W]                          & 3.14            & 2.32              & -7.79             & -7.49           \\
+    \hline
+  \end{tabular}                                                                                                             % End tabular definition
+  \caption{Valori rilevati ottenuti mediante i calcoli ingegneristici effettuati}                                           % Table caption
+  \label{tab:measures_calcs}                                                                                                % Reference-label to table
+\end{table}                                                                                                                 % Table-end
+
+\section{Immagini e grafici}                                                                                                % Section creation: "Immagini e grafici"
+\label{sec:imgs_graphs}                                                                                                     % "imgs_graphs" reference-label definition and following section text
+\begin{figure}[ht!]                                                                                                         % Figure-start
+  \centering                                                                                                                % Center image
+  \includegraphics[width=0.9\textwidth]{../final_doc/code_exports/imgs/measures.png}                                        % Size: 100% width of the text
+  \caption{\textit{Dati sperimentali analizzati dallo scambiatore di calore e rilevamento delle diverse misure}}            % Image caption
+  \label{fig:measures}                                                                                                      % Reference-label to image
+\end{figure}                                                                                                                % Figure-end
+\begin{figure}[ht!]                                                                                                         % Figure-start
+  \centering                                                                                                                % Center image
+  \includegraphics[width=0.9\textwidth]{../final_doc/code_exports/imgs/measure3.png}                                        % Size: 100% width of the text
+  \caption{\textit{Scelta del miglior intervallo dati durante la terza misura (ricerca condizioni stazionarie)}}            % Image caption
+  \label{fig:measure1}                                                                                                      % Reference-label to image
+\end{figure}                                                                                                                % Figure-end
+\begin{figure}[ht!]                                                                                                         % Figure-start
+  \centering                                                                                                                % Center image
+  \includegraphics[width=0.9\textwidth]{../final_doc/code_exports/imgs/water_fitted_pr.png}                                 % Size: 100% width of the text
+  \caption{\textit{Fitting polinomiale numero di Prandlt acqua (scartato per approssimazione insoddisfacente)}}             % Image caption
+  \label{fig:water_fitted_pr}                                                                                               % Reference-label to image
+\end{figure}                                                                                                                % Figure-end
+\begin{figure}[ht!]                                                                                                         % Figure-start
+  \centering                                                                                                                % Center image
+  \includegraphics[width=0.9\textwidth]{../final_doc/code_exports/imgs/water_intp_pr.png}                                   % Size: 100% width of the text
+  \caption{\textit{Interpolazione polinomiale numero di Prandlt acqua (accettata, buona approssimazione)}}                  % Image caption
+  \label{fig:water_intp_pr}                                                                                                 % Reference-label to image
+\end{figure}                                                                                                                % Figure-end
+\begin{figure}[ht!]                                                                                                         % Figure-start
+  \centering                                                                                                                % Center image
+  \includegraphics[width=0.9\textwidth]{../final_doc/code_exports/imgs/temp_trend.png}                                      % Size: 100% width of the text
+  \caption{\textit{Alcune temperature nella parte superiore dello scambiatore durante la seconda misura in equi-corrente}}  % Image caption
+  \label{fig:temp_trend}                                                                                                    % Reference-label to image
+\end{figure}                                                                                                                % Figure-end
+\begin{figure}[ht!]                                                                                                         % Figure-start
+  \centering                                                                                                                % Center image
+  \includegraphics[width=0.75\textwidth]{../final_doc/code_exports/imgs/heat_exchanger.png}                                 % Size: 100% width of the text
+  \caption{\textit{Dimensioni scambiatore di calore utilizzate per calcolo dei diametri equivaleti (creata da autocad)}}    % Image caption
+  \label{fig:he}                                                                                                            % Reference-label to image
+\end{figure}                                                                                                                % Figure-end
+
+\addcontentsline{toc}{section}{Riferimenti bibliografici}                                                                   % Add bibliography inside table of contents
 \bibliography{biblio/references}                                                                                            % Bibliography inclusion (biblio/references.bib)
 
 \end{document}                                                                                                              % End document code

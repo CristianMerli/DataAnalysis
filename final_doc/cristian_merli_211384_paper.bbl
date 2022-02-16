@@ -1,3 +1,8 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{Bernard2016}
+Joey Bernard.
+\newblock {\em Python Data Analysis with pandas}, pages 37--48.
+\newblock Apress, Berkeley, CA, 2016.
 
 \end{thebibliography}

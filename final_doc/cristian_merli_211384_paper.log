@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.1.31)  15 FEB 2022 23:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.1.31)  16 FEB 2022 19:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -84,6 +84,13 @@ Package tocloft Info: The document has section divisions on input line 51.
 \cftbeforetabskip=\skip77
 \cfttabindent=\skip78
 \cfttabnumwidth=\skip79
+) (/usr/share/texlive/texmf-dist/tex/latex/abstract/abstract.sty
+Package: abstract 2009/06/08 v1.2a configurable abstracts
+\abstitleskip=\skip80
+\absleftindent=\skip81
+\absrightindent=\skip82
+\absparindent=\skip83
+\absparsep=\skip84
 ) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
  (/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
@@ -179,7 +186,7 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
 )
-\Hy@SectionHShift=\skip80
+\Hy@SectionHShift=\skip85
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
@@ -199,31 +206,130 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
+) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 18.
+Package xcolor Info: Package option `usenames' ignored on input line 216.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+ (/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
+ (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
+\col@sep=\dimen149
+\ar@mcellbox=\box45
+\extrarowheight=\dimen150
+\NC@list=\toks18
+\extratabsurround=\skip86
+\backup@length=\skip87
+\ar@cellbox=\box46
+)
+\everycr=\toks19
+\minrowclearance=\skip88
+)
+\rownum=\count191
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/svgnam.def
+File: svgnam.def 2016/05/11 v2.12 Predefined colors according to SVG 1.1 (UK)
+)) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip89
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+ (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks20
+\ex@=\dimen151
+)) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen152
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count192
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count193
+\leftroot@=\count194
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count195
+\DOTSCASE@=\count196
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box47
+\strutbox@=\box48
+\big@size=\dimen153
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count197
+\c@MaxMatrixCols=\count198
+\dotsspace@=\muskip17
+\c@parentequation=\count199
+\dspbrk@lvl=\count266
+\tag@help=\toks21
+\row@=\count267
+\column@=\count268
+\maxfields@=\count269
+\andhelp@=\toks22
+\eqnshift@=\dimen154
+\alignsep@=\dimen155
+\tagshift@=\dimen156
+\tagwidth@=\dimen157
+\totwidth@=\dimen158
+\lineht@=\dimen159
+\@envbody=\toks23
+\multlinegap=\skip90
+\multlinetaggap=\skip91
+\mathdisplay@stack=\toks24
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
+) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+Package hyperref Info: Option `colorlinks' set `true' on input line 28.
  (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count191
-\l__pdf_internal_box=\box45
+\l__kernel_color_stack_int=\count270
+\l__pdf_internal_box=\box49
 ) (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.aux)
 \openout1 = `cristian_merli_211384_paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -246,7 +352,7 @@ LaTeX Font Info:    ... okay on input line 32.
 * \headsep=25.0pt
 * \topskip=10.0pt
 * \footskip=30.0pt
-* \marginparwidth=65.0pt
+* \marginparwidth=57.0pt
 * \marginparsep=11.0pt
 * \columnsep=10.0pt
 * \skip\footins=9.0pt plus 4.0pt minus 2.0pt
@@ -259,95 +365,112 @@ LaTeX Font Info:    ... okay on input line 32.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box46
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2019/11/23 v1.2a Standard LaTeX Color (DPC)
- (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package color Info: Driver file: pdftex.def on input line 147.
-)
-Package hyperref Info: Link coloring ON on input line 32.
- (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+\AtBeginShipoutBox=\box50
+Package hyperref Info: Link coloring ON on input line 48.
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count192
+\c@section@level=\count271
 )
-LaTeX Info: Redefining \ref on input line 32.
-LaTeX Info: Redefining \pageref on input line 32.
-LaTeX Info: Redefining \nameref on input line 32.
+LaTeX Info: Redefining \ref on input line 48.
+LaTeX Info: Redefining \pageref on input line 48.
+LaTeX Info: Redefining \nameref on input line 48.
  (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.out) (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.out)
 \@outlinefile=\write3
 \openout3 = `cristian_merli_211384_paper.out'.
 
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count193
-\scratchdimen=\dimen149
-\scratchbox=\box47
-\nofMPsegments=\count194
-\nofMParguments=\count195
-\everyMPshowfont=\toks18
-\MPscratchCnt=\count196
-\MPscratchDim=\dimen150
-\MPnumerator=\count197
-\makeMPintoPDFobject=\count198
-\everyMPtoPDFconversion=\toks19
+\scratchcounter=\count272
+\scratchdimen=\dimen160
+\scratchbox=\box51
+\nofMPsegments=\count273
+\nofMParguments=\count274
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count275
+\MPscratchDim=\dimen161
+\MPnumerator=\count276
+\makeMPintoPDFobject=\count277
+\everyMPtoPDFconversion=\toks26
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 35.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 35.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 35.
- (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 1.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 1.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 51.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
+LaTeX Font Info:    Trying to load font information for U+msb on input line 51.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.toc)
 \tf@toc=\write4
 \openout4 = `cristian_merli_211384_paper.toc'.
 
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.bbl
-
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
-
-)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 82.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+<../final_doc/code_exports/imgs/measures.png, id=74, 1524.69624pt x 830.10126pt>
+File: ../final_doc/code_exports/imgs/measures.png Graphic file (type png)
+<use ../final_doc/code_exports/imgs/measures.png>
+Package pdftex.def Info: ../final_doc/code_exports/imgs/measures.png  used on input line 189.
+(pdftex.def)             Requested size: 450.43253pt x 245.2324pt.
  [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 82.
+<../final_doc/code_exports/imgs/measure3.png, id=90, 1517.67pt x 830.10126pt>
+File: ../final_doc/code_exports/imgs/measure3.png Graphic file (type png)
+<use ../final_doc/code_exports/imgs/measure3.png>
+Package pdftex.def Info: ../final_doc/code_exports/imgs/measure3.png  used on input line 195.
+(pdftex.def)             Requested size: 450.43253pt x 246.35971pt.
+<../final_doc/code_exports/imgs/water_fitted_pr.png, id=91, 1510.64375pt x 830.10126pt>
+File: ../final_doc/code_exports/imgs/water_fitted_pr.png Graphic file (type png)
+<use ../final_doc/code_exports/imgs/water_fitted_pr.png>
+Package pdftex.def Info: ../final_doc/code_exports/imgs/water_fitted_pr.png  used on input line 201.
+(pdftex.def)             Requested size: 450.43253pt x 247.51234pt.
+<../final_doc/code_exports/imgs/water_intp_pr.png, id=92, 1510.64375pt x 830.10126pt>
+File: ../final_doc/code_exports/imgs/water_intp_pr.png Graphic file (type png)
+<use ../final_doc/code_exports/imgs/water_intp_pr.png>
+Package pdftex.def Info: ../final_doc/code_exports/imgs/water_intp_pr.png  used on input line 207.
+(pdftex.def)             Requested size: 450.43253pt x 247.51234pt.
+<../final_doc/code_exports/imgs/temp_trend.png, id=93, 1526.70375pt x 830.10126pt>
+File: ../final_doc/code_exports/imgs/temp_trend.png Graphic file (type png)
+<use ../final_doc/code_exports/imgs/temp_trend.png>
+Package pdftex.def Info: ../final_doc/code_exports/imgs/temp_trend.png  used on input line 213.
+(pdftex.def)             Requested size: 450.43253pt x 244.90308pt.
+<../final_doc/code_exports/imgs/heat_exchanger.png, id=94, 580.41844pt x 453.19313pt>
+File: ../final_doc/code_exports/imgs/heat_exchanger.png Graphic file (type png)
+<use ../final_doc/code_exports/imgs/heat_exchanger.png>
+Package pdftex.def Info: ../final_doc/code_exports/imgs/heat_exchanger.png  used on input line 219.
+(pdftex.def)             Requested size: 375.36299pt x 293.08528pt.
+ (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 227.
+ [3 <../final_doc/code_exports/imgs/measures.png>] [4 <../final_doc/code_exports/imgs/measure3.png> <../final_doc/code_exports/imgs/water_fitted_pr.png> <../final_doc/code_exports/imgs/water_intp_pr.png>] [5 <../final_doc/code_exports/imgs/temp_trend.png> <../final_doc/code_exports/imgs/heat_exchanger.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 227.
  (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 82.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 82.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 227.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 227.
 Package rerunfilecheck Info: File `cristian_merli_211384_paper.out' has not changed.
-(rerunfilecheck)             Checksum: 090BACFE026176BBADD4A68FA800324D;304.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 82.
+(rerunfilecheck)             Checksum: B27259524BBE64FD2D0FBA13506B316C;545.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 227.
  ) 
 Here is how much of TeX's memory you used:
- 6078 strings out of 483154
- 95222 string characters out of 5965023
- 353724 words of memory out of 5000000
- 20995 multiletter control sequences out of 15000+600000
- 537238 words of font info for 40 fonts, out of 8000000 for 9000
+ 8009 strings out of 483154
+ 119102 string characters out of 5965023
+ 404616 words of memory out of 5000000
+ 22845 multiletter control sequences out of 15000+600000
+ 541527 words of font info for 59 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 34i,6n,34p,489b,306s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on /home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.pdf (2 pages, 90007 bytes).
+ 34i,13n,39p,504b,340s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/cristian/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
+Output written on /home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.pdf (5 pages, 617198 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
- 10 named destinations out of 1000 (max. 500000)
- 49 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 178 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
+ 119 words of extra memory for PDF output out of 10000 (max. 10000000)
 
