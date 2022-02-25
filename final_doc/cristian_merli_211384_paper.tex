@@ -149,7 +149,7 @@
   I(s_j) = \frac{1}{N}\sum_{j=1}^{m}{s_j}                                                                                   % Formula
   \qquad\text{e}\qquad                                                                                                      % Conjunction txt
   s_j = \sqrt[2]{\frac{1}{n-1}\sum_{i=1}^{n}(x_i-\overline{x})^2}                                                           % Formula
-  \label{eqn:stat_eq}                                                                                                       % Reference-label to equation
+  \label{eqn:stat}                                                                                                          % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 \subsection{Formule calcoli ingegneristici}                                                                                 % Subsection creation: "Formule calcoli ingegneristici"
 \label{subsec:ec_formulas}                                                                                                  % "ec_formulas" reference-label definition and following subsection text
@@ -159,13 +159,13 @@
   Q_c = \dot{m}_c\mathcal{C}_{p,c}(T)\Delta{T_c}                                                                            % Formula
   \qquad\text{e}\qquad                                                                                                      % Conjunction txt
   Q_f = \dot{m}_f\mathcal{C}_{p,f}(T)\Delta{T_f}                                                                            % Formula
-  \label{eqn:heat_tr_eq}                                                                                                    % Reference-label to equation
+  \label{eqn:heat_tr}                                                                                                       % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 \begin{equation}                                                                                                            % Equation-start
   \bar{Q} = \frac{|Q_c|+|Q_f|}{2}                                                                                           % Formula
   \qquad\text{e}\qquad                                                                                                      % Conjunction txt
   \Delta{Q_{c-f}} = Q_c+Q_f                                                                                                 % Formula
-  \label{eqn:heat_tr_eq2}                                                                                                   % Reference-label to equation
+  \label{eqn:heat_tr2}                                                                                                      % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 \subsubsection{Metodo epsilon-NTU}                                                                                          % Subsubsection creation: "Metodo epsilon-NTU"
 \label{subsubsec:ecf_epsilon_nut}                                                                                           % "epsilon_ntu" reference-label definition and following subsubsection text
@@ -185,7 +185,7 @@
   U_e = \frac{\bar{Q}}{A_e\Delta{T_{m.l.}}}                                                                                 % Formula
   \qquad\text{da}\qquad                                                                                                     % Conjunction txt
   \bar{Q} = U_iA_i\Delta{T_{m.l.}} = U_eA_e\Delta{T_{m.l.}}                                                                 % Formula
-  \label{eqn:ghtc_eq2}                                                                                                      % Reference-label to equation
+  \label{eqn:ghtc}                                                                                                          % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 \begin{equation}                                                                                                            % Equation-start
   \mathcal{\dot{C}}_{min} = min\{\dot{m}_c\mathcal{C}_{p,c}(T),\space\dot{m}_f\mathcal{C}_{p,f}(T)\}                        % Formula
@@ -214,7 +214,7 @@
 \label{subsubsec:adim_num}                                                                                                  % "adim_num" reference-label definition and following subsubsection text
 \begin{equation}                                                                                                            % Equation-start
   R_{cond} = \frac{\log_e{(\frac{d_e}{d_i})}}{2\pi\lambda_c(T)LN_t}                                                         % Formula
-  \label{eqn:condr}                                                                                                         % Reference-label to equation
+  \label{eqn:cond_r}                                                                                                        % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 \begin{equation}                                                                                                            % Equation-start
   \mu(T) = \nu(T)\rho(T)                                                                                                    % Formula
@@ -246,6 +246,44 @@
 \begin{equation}                                                                                                            % Equation-start
   Nu_s = \frac{}{}                                                                                % Formula
   \label{eqn:nu_shell}                                                                                                      % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  h = \frac{}{}                                                                                   % Formula
+  \label{eqn:h}                                                                                                             % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  h_{s,tot} = \frac{}{}                                                                           % Formula
+  \qquad\text{ed}\qquad                                                                                                     % Conjunction txt
+  \bar{h}_{s} = \frac{}{}                                                                         % Formula
+  \label{eqn:h_s}                                                                                                           % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  R_{conv} =                                                                                      % Formula
+  \label{eqn:conv_r}                                                                                                        % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  T_s =                                                                                           % Formula
+  \label{eqn:surf_temp}                                                                                                     % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  R_{tot} =                                                                                       % Formula
+  \label{eqn:tot_r}                                                                                                         % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  U_{i,adim} =                                                                                    % Formula
+  \qquad\text{ed}\qquad                                                                                                     % Conjunction txt
+  U_{e,adim} =                                                                                    % Formula
+  \label{eqn:ohtc}                                                                                                          % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  Q_{adim} =                                                                                      % Formula
+  \label{eqn:recalc_heat_tr}                                                                                                % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\subsubsection{Convezione naturale esterna}                                                                                 % Subsubsection creation: "Convezione naturale esterna"
+\label{subsubsec:ext_air_conv}                                                                                              % "ext_air_conv" reference-label definition and following subsubsection text
+\begin{equation}                                                                                                            % Equation-start
+  Q_{adim} =                                                                                      % Formula
+  \label{eqn:recalc_heat_tr}                                                                                                % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 
 \section{Tabelle}                                                                                                           % Section creation: "Tabelle"

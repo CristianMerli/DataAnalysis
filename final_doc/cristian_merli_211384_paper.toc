@@ -12,6 +12,7 @@
 \contentsline {subsubsection}{\numberline {7.2.1}Trasferimento di calore}{2}{subsubsection.7.2.1}%
 \contentsline {subsubsection}{\numberline {7.2.2}Metodo epsilon-NTU}{3}{subsubsection.7.2.2}%
 \contentsline {subsubsection}{\numberline {7.2.3}Metodo numeri adimensionali}{3}{subsubsection.7.2.3}%
+\contentsline {subsubsection}{\numberline {7.2.4}Convezione naturale esterna}{3}{subsubsection.7.2.4}%
 \contentsline {section}{\numberline {8}Tabelle}{3}{section.8}%
 \contentsline {section}{\numberline {9}Immagini e grafici}{3}{section.9}%
 \contentsline {section}{Riferimenti bibliografici}{3}{figure.6}%
