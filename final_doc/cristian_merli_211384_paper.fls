@@ -105,6 +105,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/chngcntr/chngcntr.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/chngcntr/chngcntr.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 INPUT /home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.aux

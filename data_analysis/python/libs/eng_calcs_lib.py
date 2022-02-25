@@ -319,7 +319,7 @@ def re_cyl_pipe(pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis):             
 # volume flow rate to calculate fluid velocity, pipe equivalent diameter and fluid kinematic viscosity (alternative)
 def re_aternative(pipe_vol_flow_rate, fluid_flow_surf_m2, pipe_equiv_hyd_diam, fluid_kin_vis):                          # re_aternative(Pipe volume flow rate [m^3/s], fluid flow surface [m^2], Pipe equivalent hydraulic diameter [m], kinematic viscosity [m^2/s])
   if (pipe_vol_flow_rate > 0 and pipe_equiv_hyd_diam > 0 and fluid_kin_vis > 0):                                        # Check in-vals consistency, if ok
-    return ((pipe_vol_flow_rate/fluid_flow_surf_m2)*pipe_equiv_hyd_diam)/fluid_kin_vis                                  # Return calculated Reynolds number [adimensional] --> ([m^3/s]*[m])/([m^2]*[m^2/s])=[adimensional]
+    return (pipe_vol_flow_rate*pipe_equiv_hyd_diam)/(fluid_flow_surf_m2*fluid_kin_vis)                                  # Return calculated Reynolds number [adimensional] --> ([m^3/s]*[m])/([m^2]*[m^2/s])=[adimensional]
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.1.31)  18 FEB 2022 10:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.1.31)  25 FEB 2022 22:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -305,8 +305,12 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-))
-Package hyperref Info: Option `colorlinks' set `true' on input line 28.
+)) (/usr/share/texlive/texmf-dist/tex/latex/chngcntr/chngcntr.sty
+Package: chngcntr 2018/04/09 v1.1a change counter resetting
+Package chngcntr Info: \counterwithout already defined.
+(chngcntr)             Quitting chngcntr on input line 21.
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 29.
  (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count270
@@ -314,22 +318,22 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 ) (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.aux)
 \openout1 = `cristian_merli_211384_paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -366,7 +370,7 @@ LaTeX Font Info:    ... okay on input line 57.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box50
-Package hyperref Info: Link coloring ON on input line 57.
+Package hyperref Info: Link coloring ON on input line 61.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -376,9 +380,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count271
 )
-LaTeX Info: Redefining \ref on input line 57.
-LaTeX Info: Redefining \pageref on input line 57.
-LaTeX Info: Redefining \nameref on input line 57.
+LaTeX Info: Redefining \ref on input line 61.
+LaTeX Info: Redefining \pageref on input line 61.
+LaTeX Info: Redefining \nameref on input line 61.
  (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.out) (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.out)
 \@outlinefile=\write3
 \openout3 = `cristian_merli_211384_paper.out'.
@@ -402,11 +406,11 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 60.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 60.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.toc)
@@ -415,61 +419,61 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<../final_doc/code_exports/imgs/measures.png, id=85, 1524.69624pt x 830.10126pt>
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+<../final_doc/code_exports/imgs/measures.png, id=123, 1524.69624pt x 830.10126pt>
 File: ../final_doc/code_exports/imgs/measures.png Graphic file (type png)
 <use ../final_doc/code_exports/imgs/measures.png>
-Package pdftex.def Info: ../final_doc/code_exports/imgs/measures.png  used on input line 232.
+Package pdftex.def Info: ../final_doc/code_exports/imgs/measures.png  used on input line 330.
 (pdftex.def)             Requested size: 450.43253pt x 245.2324pt.
-<../final_doc/code_exports/imgs/measure3.png, id=87, 1517.67pt x 830.10126pt>
+<../final_doc/code_exports/imgs/measure3.png, id=125, 1517.67pt x 830.10126pt>
 File: ../final_doc/code_exports/imgs/measure3.png Graphic file (type png)
 <use ../final_doc/code_exports/imgs/measure3.png>
-Package pdftex.def Info: ../final_doc/code_exports/imgs/measure3.png  used on input line 238.
+Package pdftex.def Info: ../final_doc/code_exports/imgs/measure3.png  used on input line 336.
 (pdftex.def)             Requested size: 450.43253pt x 246.35971pt.
-<../final_doc/code_exports/imgs/water_fitted_pr.png, id=88, 1510.64375pt x 830.10126pt>
+<../final_doc/code_exports/imgs/water_fitted_pr.png, id=126, 1510.64375pt x 830.10126pt>
 File: ../final_doc/code_exports/imgs/water_fitted_pr.png Graphic file (type png)
 <use ../final_doc/code_exports/imgs/water_fitted_pr.png>
-Package pdftex.def Info: ../final_doc/code_exports/imgs/water_fitted_pr.png  used on input line 244.
+Package pdftex.def Info: ../final_doc/code_exports/imgs/water_fitted_pr.png  used on input line 342.
 (pdftex.def)             Requested size: 450.43253pt x 247.51234pt.
-<../final_doc/code_exports/imgs/water_intp_pr.png, id=89, 1510.64375pt x 830.10126pt>
+<../final_doc/code_exports/imgs/water_intp_pr.png, id=127, 1510.64375pt x 830.10126pt>
 File: ../final_doc/code_exports/imgs/water_intp_pr.png Graphic file (type png)
 <use ../final_doc/code_exports/imgs/water_intp_pr.png>
-Package pdftex.def Info: ../final_doc/code_exports/imgs/water_intp_pr.png  used on input line 250.
+Package pdftex.def Info: ../final_doc/code_exports/imgs/water_intp_pr.png  used on input line 348.
 (pdftex.def)             Requested size: 450.43253pt x 247.51234pt.
-<../final_doc/code_exports/imgs/temp_trend.png, id=90, 1526.70375pt x 830.10126pt>
+<../final_doc/code_exports/imgs/temp_trend.png, id=128, 1526.70375pt x 830.10126pt>
 File: ../final_doc/code_exports/imgs/temp_trend.png Graphic file (type png)
 <use ../final_doc/code_exports/imgs/temp_trend.png>
-Package pdftex.def Info: ../final_doc/code_exports/imgs/temp_trend.png  used on input line 256.
+Package pdftex.def Info: ../final_doc/code_exports/imgs/temp_trend.png  used on input line 354.
 (pdftex.def)             Requested size: 450.43253pt x 244.90308pt.
-<../final_doc/code_exports/imgs/heat_exchanger.png, id=91, 580.41844pt x 453.19313pt>
+<../final_doc/code_exports/imgs/heat_exchanger.png, id=129, 580.41844pt x 453.19313pt>
 File: ../final_doc/code_exports/imgs/heat_exchanger.png Graphic file (type png)
 <use ../final_doc/code_exports/imgs/heat_exchanger.png>
-Package pdftex.def Info: ../final_doc/code_exports/imgs/heat_exchanger.png  used on input line 262.
+Package pdftex.def Info: ../final_doc/code_exports/imgs/heat_exchanger.png  used on input line 360.
 (pdftex.def)             Requested size: 375.36299pt x 293.08528pt.
  (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 270.
- [2] [3 <../final_doc/code_exports/imgs/measures.png>] [4 <../final_doc/code_exports/imgs/measure3.png> <../final_doc/code_exports/imgs/water_fitted_pr.png> <../final_doc/code_exports/imgs/water_intp_pr.png>] [5 <../final_doc/code_exports/imgs/temp_trend.png> <../final_doc/code_exports/imgs/heat_exchanger.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 270.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 368.
+ [3] [4 <../final_doc/code_exports/imgs/measures.png> <../final_doc/code_exports/imgs/measure3.png>] [5 <../final_doc/code_exports/imgs/water_fitted_pr.png> <../final_doc/code_exports/imgs/water_intp_pr.png> <../final_doc/code_exports/imgs/temp_trend.png>] [6 <../final_doc/code_exports/imgs/heat_exchanger.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 368.
  (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 270.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 270.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 368.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 368.
 Package rerunfilecheck Info: File `cristian_merli_211384_paper.out' has not changed.
-(rerunfilecheck)             Checksum: 95234E2DEEE72DB3F23EC25EA9DFBAE9;695.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 270.
+(rerunfilecheck)             Checksum: 6184D9A6E9CDE6D48EE9BB7F79B19343;1060.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 368.
  ) 
 Here is how much of TeX's memory you used:
- 8024 strings out of 483154
- 119321 string characters out of 5965023
- 410101 words of memory out of 5000000
- 22854 multiletter control sequences out of 15000+600000
+ 8077 strings out of 483154
+ 120286 string characters out of 5965023
+ 412595 words of memory out of 5000000
+ 22882 multiletter control sequences out of 15000+600000
  542193 words of font info for 61 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 34i,15n,39p,504b,317s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,15n,39p,504b,337s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/cristian/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on /home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.pdf (5 pages, 639533 bytes).
+Output written on /home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.pdf (6 pages, 657336 bytes).
 PDF statistics:
- 205 PDF objects out of 1000 (max. 8388607)
- 166 compressed objects within 2 object streams
- 31 named destinations out of 1000 (max. 500000)
- 135 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 251 PDF objects out of 1000 (max. 8388607)
+ 210 compressed objects within 3 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 167 words of extra memory for PDF output out of 10000 (max. 10000000)
 

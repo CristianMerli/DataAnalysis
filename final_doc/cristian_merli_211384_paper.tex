@@ -11,8 +11,9 @@
 \usepackage{graphicx}                                                                                                       % Package import to manage images labels and captions
 \usepackage{cite}                                                                                                           % Package import for bibliographies (citations)
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}                                                                     % Package import for colors
-\usepackage{amsmath}                                                                                                        % Package import command for formulas (math)
-\usepackage{amssymb}                                                                                                        % Package import command for formulas (symbols)
+\usepackage{amsmath}                                                                                                        % Package import for formulas (math)
+\usepackage{amssymb}                                                                                                        % Package import for formulas (symbols)
+\usepackage{chngcntr}                                                                                                       % Package import for formulas (enumeration)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           PREAMBLE START           %                                                                                      % PREAMBLE
@@ -39,7 +40,10 @@
 \setlength{\cftsecnumwidth}{5mm}                                                                                            % ToC-sec distance from number
 \setlength{\cftsubsecnumwidth}{8mm}                                                                                         % ToC-subsec distance from number
 \setlength{\cftsubsubsecnumwidth}{11mm}                                                                                     % ToC-subsubsec distance from number
-\renewcommand{\theequation}{{Eq.} \thesubsection.\arabic{equation}}                                                         % Change equations enumeration
+\renewcommand{\theequation}{{Eq.} \thesubsubsection.\arabic{equation}}                                                      % Change equations enumeration
+\counterwithin*{equation}{section}                                                                                          % Restart equations enumeration at new section
+\counterwithin*{equation}{subsection}                                                                                       % Restart equations enumeration at new subsection
+\counterwithin*{equation}{subsubsection}                                                                                    % Restart equations enumeration at new subsubsection
 \renewcommand{\tablename}{Tab.}                                                                                             % Change tables enumeration
 \renewcommand{\figurename}{Fig.}                                                                                            % Change figures enumeration
 \bibliographystyle{plain}                                                                                                   % Bibliography style (plain standard style)
@@ -71,9 +75,9 @@
     mediante l'analisi assistita da calcolatore dei dati raccolti durante l'esperienza di laboratorio (effettuata in data
     26/11/2021 con il gruppo numero 5, presso i laboratori del dipartimanto di fisica dell'università di Trento).}
   \end{abstract}                                                                                                            % Abstract end
-\vspace{3cm}                                                                                                                % Vertical-space command
+\vspace{2.5cm}                                                                                                              % Vertical-space command
 
-\vspace{3cm}                                                                                                                % Vertical-space command
+\vspace{2.5cm}                                                                                                              % Vertical-space command
   \tableofcontents                                                                                                          % Plot table of contents
 \pagebreak                                                                                                                  % Go to new page
 
@@ -137,17 +141,111 @@
 \label{sec:formulas}                                                                                                        % "formulas" reference-label definition and following section text
 \subsection{Formule analisi dati}                                                                                           % Subsection creation: "Formule analisi dati"
 \label{subsec:da_formulas}                                                                                                  % "da_formulas" reference-label definition and following subsection text
+\subsubsection{Scelta miglior intervallo dati con condizioni stazionarie}                                                   % Subsubsection creation: "Scelta miglior intervallo dati con condizioni stazionarie"
+\label{subsubsec:daf_interv}                                                                                                % "daf_interv" reference-label definition and following subsubsection text
 \begin{equation}                                                                                                            % Equation-start
-  I_{condiz.staz.} = \min_{\forall I_M \in M} \frac{1}{N}\sum_{j=1}^{m}{s_j}                                                % Formula
-  \qquad\text{con}\qquad                                                                                                    % Conj
+  I_{condiz.staz.} = I(s_j) : \{I(s_j) = \min_{\forall I_M \in M} s_j\}                                                     % Formula
+  \qquad\text{con}\qquad                                                                                                    % Conjunction txt
+  I(s_j) = \frac{1}{N}\sum_{j=1}^{m}{s_j}                                                                                   % Formula
+  \qquad\text{e}\qquad                                                                                                      % Conjunction txt
   s_j = \sqrt[2]{\frac{1}{n-1}\sum_{i=1}^{n}(x_i-\overline{x})^2}                                                           % Formula
-  \label{eqn:equation1}                                                                                                     % Reference-label to equation
+  \label{eqn:stat_eq}                                                                                                       % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 \subsection{Formule calcoli ingegneristici}                                                                                 % Subsection creation: "Formule calcoli ingegneristici"
 \label{subsec:ec_formulas}                                                                                                  % "ec_formulas" reference-label definition and following subsection text
+\subsubsection{Trasferimento di calore}                                                                                     % Subsubsection creation: "Trasferimento di calore"
+\label{subsubsec:ecf_heat_tr}                                                                                               % "ecf_heat_tr" reference-label definition and following subsubsection text
 \begin{equation}                                                                                                            % Equation-start
-  q=\dot{m}\mathcal{C\textsubscript{p}}\Delta{T_{m.l.}}                                                                     % Formula
-  \label{eqn:equation2}                                                                                                     % Reference-label to equation
+  Q_c = \dot{m}_c\mathcal{C}_{p,c}(T)\Delta{T_c}                                                                            % Formula
+  \qquad\text{e}\qquad                                                                                                      % Conjunction txt
+  Q_f = \dot{m}_f\mathcal{C}_{p,f}(T)\Delta{T_f}                                                                            % Formula
+  \label{eqn:heat_tr_eq}                                                                                                    % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  \bar{Q} = \frac{|Q_c|+|Q_f|}{2}                                                                                           % Formula
+  \qquad\text{e}\qquad                                                                                                      % Conjunction txt
+  \Delta{Q_{c-f}} = Q_c+Q_f                                                                                                 % Formula
+  \label{eqn:heat_tr_eq2}                                                                                                   % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\subsubsection{Metodo epsilon-NTU}                                                                                          % Subsubsection creation: "Metodo epsilon-NTU"
+\label{subsubsec:ecf_epsilon_nut}                                                                                           % "epsilon_ntu" reference-label definition and following subsubsection text
+\begin{equation}                                                                                                            % Equation-start
+  \Delta{T_{m.l.}} = \frac{\Delta_{1}-\Delta_{2}}{\log_e{(\frac{\Delta_{1}}{\Delta_{2}})}}                                  % Formula
+  \label{eqn:deltatml}                                                                                                      % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  A_i = \pi d_iLN_t                                                                                                         % Formula
+  \qquad\text{ed}\qquad                                                                                                     % Conjunction txt
+  A_e = \pi d_eLN_t                                                                                                         % Formula
+  \label{eqn:surf}                                                                                                          % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  U_i = \frac{\bar{Q}}{A_i\Delta{T_{m.l.}}}                                                                                 % Formula
+  \qquad\text{e}\qquad                                                                                                      % Conjunction txt
+  U_e = \frac{\bar{Q}}{A_e\Delta{T_{m.l.}}}                                                                                 % Formula
+  \qquad\text{da}\qquad                                                                                                     % Conjunction txt
+  \bar{Q} = U_iA_i\Delta{T_{m.l.}} = U_eA_e\Delta{T_{m.l.}}                                                                 % Formula
+  \label{eqn:ghtc_eq2}                                                                                                      % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  \mathcal{\dot{C}}_{min} = min\{\dot{m}_c\mathcal{C}_{p,c}(T),\space\dot{m}_f\mathcal{C}_{p,f}(T)\}                        % Formula
+  \qquad\text{e}\qquad                                                                                                      % Conjunction txt
+  \mathcal{\dot{C}}_{max} = max\{\dot{m}_c\mathcal{C}_{p,c}(T),\space\dot{m}_f\mathcal{C}_{p,f}(T)\}                        % Formula
+  \label{eqn:cpt}                                                                                                           % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  \mathcal{\dot{C}}_{ratio} = \frac{\mathcal{\dot{C}}_{min}}{\mathcal{\dot{C}}_{max}}                                       % Formula
+  \label{eqn:cpt_r}                                                                                                         % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  NTU = \frac{U_eA_e}{\mathcal{\dot{C}}_{min}}                                                                              % Formula
+  \qquad\text{equivalente a}\qquad                                                                                          % Conjunction txt
+  NTU = \frac{U_iA_i}{\mathcal{\dot{C}}_{min}}                                                                              % Formula
+  \label{eqn:ntu}                                                                                                           % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  \varepsilon_{ec} = \frac{1-exp{[-NTU(1+\mathcal{\dot{C}}_{ratio})]}}{1+\mathcal{\dot{C}}_{ratio}}                         % Formula
+  \qquad\text{ed}\qquad                                                                                                     % Conjunction txt
+  \varepsilon_{cc} = \frac{1-exp{[-NTU(1-\mathcal{\dot{C}}_{ratio})}]}                                                      % Formula pt.1
+  {1-\mathcal{\dot{C}}_{ratio}exp{[-NTU(1-\mathcal{\dot{C}}_{ratio})]}}                                                     % Formula pt.2
+  \label{eqn:epsilon}                                                                                                       % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\subsubsection{Metodo numeri adimensionali}                                                                                 % Subsubsection creation: "Metodo numeri adimensionali"
+\label{subsubsec:adim_num}                                                                                                  % "adim_num" reference-label definition and following subsubsection text
+\begin{equation}                                                                                                            % Equation-start
+  R_{cond} = \frac{\log_e{(\frac{d_e}{d_i})}}{2\pi\lambda_c(T)LN_t}                                                         % Formula
+  \label{eqn:condr}                                                                                                         % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  \mu(T) = \nu(T)\rho(T)                                                                                                    % Formula
+  \label{eqn:din_vis}                                                                                                       % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  Re_t = \frac{4\dot{m}}{\pi d\mu(T)}                                                                                       % Formula
+  \label{eqn:re_pipe}                                                                                                       % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  Re_s = \frac{\dot{m}d_{idr.eq.}}{A_f\mu(T)}                                                                               % Formula
+  \label{eqn:re_shell}                                                                                                      % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  Re_{alt} = \frac{\dot{V}d_{idr.eq.}}{A_f\nu(T)}                                                                           % Formula
+  \label{eqn:re_alt}                                                                                                        % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{equation}                                                                                                            % Equation-start
+  Nu_{t,lam} = \frac{}{}                                                                          % Formula
+  \label{eqn:nu_pipe_l}                                                                                                     % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  Nu_{t,turb} = \frac{}{}                                                                         % Formula
+  \qquad\text{con}\qquad                                                                                                    % Conjunction txt
+  k_{attr} = \frac{}{}                                                                            % Formula
+  \label{eqn:nu_pipe_t}                                                                                                     % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  Nu_s = \frac{}{}                                                                                % Formula
+  \label{eqn:nu_shell}                                                                                                      % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 
 \section{Tabelle}                                                                                                           % Section creation: "Tabelle"
@@ -175,9 +273,9 @@
     \hline
     Dati/misure                                         & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 1 \\
     \hline\hline
-    Q\textsubscript{fl.freddo} [kW]                     & 5.70            & 5.84              & 3.59              & 3.43            \\
     Q\textsubscript{fl.caldo} [kW]                      & -6.02           & -6.41             & -4.14             & -3.96           \\
-    $\Delta{Q\textsubscript{fl.caldo,fl.freddo}}$ [kW]  & -0.32           & -0.56             & -0.55             & -0.53           \\
+    Q\textsubscript{fl.freddo} [kW]                     & 5.70            & 5.84              & 3.59              & 3.43            \\
+    $\Delta{Q\textsubscript{fl.caldo-fl.freddo}}$ [kW]  & -0.32           & -0.56             & -0.55             & -0.53           \\
     $\bar{Q}$ [kW]                                      & 5.86            & 6.12              & 3.86              & 3.70            \\
     $\Delta{T\textsubscript{m.l.}}$ [°C]                & 25.68           & 25.28             & 21.45             & 22.05           \\
     U\textsubscript{int} [$\frac{kW}{m^{2}K}$]          & 2.6718          & 2.8354            & 2.1081            & 1.9629          \\
