@@ -88,6 +88,7 @@
 - Glass pipe internal surface temperature: 0.0 [°C]
 - Glass pipe external surface temperature: 0.0 [°C]
 - Percentage of thermal power lost: 0.0 [%]
+- Percentage of thermal power lost through glass pipe: 0.0 [%]
 - Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 0.0 [%]
 
 --> Countercurrent measure 1 calculations results:
@@ -179,6 +180,7 @@
 - Glass pipe internal surface temperature: 0.0 [°C]
 - Glass pipe external surface temperature: 0.0 [°C]
 - Percentage of thermal power lost: 0.0 [%]
+- Percentage of thermal power lost through glass pipe: 0.0 [%]
 - Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 0.0 [%]
 
 --> Countercurrent measure 2 calculations results:
@@ -270,6 +272,7 @@
 - Glass pipe internal surface temperature: 0.0 [°C]
 - Glass pipe external surface temperature: 0.0 [°C]
 - Percentage of thermal power lost: 0.0 [%]
+- Percentage of thermal power lost through glass pipe: 0.0 [%]
 - Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 0.0 [%]
 
 --> Cocurrent measure 2 calculations results:
@@ -361,4 +364,5 @@
 - Glass pipe internal surface temperature: 0.0 [°C]
 - Glass pipe external surface temperature: 0.0 [°C]
 - Percentage of thermal power lost: 0.0 [%]
+- Percentage of thermal power lost through glass pipe: 0.0 [%]
 - Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 0.0 [%]

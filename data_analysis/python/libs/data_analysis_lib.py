@@ -141,6 +141,7 @@ class Meas_vars:                                                                
   ext_pipe_int_surf_temp = 0.0                                                                                          # Glass pipe internal surface temperature [°C]
   ext_pipe_ext_surf_temp = 0.0                                                                                          # Glass pipe external surface temperature [°C]
   perc_heat_losses = 0.0                                                                                                # Percentage of thermal power lost [%]
+  perc_heat_losses_glass = 0.0                                                                                          # Percentage of thermal power lost through glass pipe [%]
   perc_heat_calc_err = 0.0                                                                                              # Percentage of thermal power calc error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value) [%]
   def __init__(self):                                                                                                   # Constructor
     return                                                                                                              # Return nothing
@@ -250,6 +251,7 @@ class Meas_vars:                                                                
     +"\n- Glass pipe internal surface temperature: "+str(self.ext_pipe_int_surf_temp)+" [°C]"\
     +"\n- Glass pipe external surface temperature: "+str(self.ext_pipe_ext_surf_temp)+" [°C]"\
     +"\n- Percentage of thermal power lost: "+str(self.perc_heat_losses)+" [%]"\
+    +"\n- Percentage of thermal power lost through glass pipe: "+str(self.perc_heat_losses_glass)+" [%]"\
     +"\n- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead "\
       +"of directly calculated global heat transfer coefficient (avg value): "+str(self.perc_heat_calc_err)+" [%]\n")   # Dbg fbk
     return dbg_str                                                                                                      # Return dbg fbk
