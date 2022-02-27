@@ -63,7 +63,7 @@
 - Total absolute thermal resistance: 0.0070217277562529806 [K/W]
 - Internal overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 1.6666224825607838 [kW/(m^2*K)]
 - External overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 1.3332979860486271 [kW/(m^2*K)]
-- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 3.656709173365665 [kW]
+- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 3.812428260194825 [kW]
 - Glass pipe average temperature to apprrox glass surf temp and calc glass thermophysical variables values: 20.551055555555568 [°C]
 - Glass pipe thermal conductivity: 1.1318086384920636 [W/(m*K)]
 - Glass pipe absolute conductive resistance: 0.008110613399237498 [K/W]
@@ -88,7 +88,7 @@
 - Glass pipe internal surface temperature: 19.757202044811393 [°C]
 - Glass pipe external surface temperature: 19.731710870831424 [°C]
 - Percentage of thermal power lost: 5.4 [%]
-- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 37.6 [%]
+- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 35.0 [%]
 
 --> Countercurrent measure 1 calculations results:
 - Cold fluid mass flow rate: 0.1484311273183292 [kg/s]
@@ -154,7 +154,7 @@
 - Total absolute thermal resistance: 0.007017292958621893 [K/W]
 - Internal overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 1.6676757567337674 [kW/(m^2*K)]
 - External overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 1.334140605387014 [kW/(m^2*K)]
-- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 3.602067877036708 [kW]
+- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 3.7743266116620853 [kW]
 - Glass pipe average temperature to apprrox glass surf temp and calc glass thermophysical variables values: 20.708611111111104 [°C]
 - Glass pipe thermal conductivity: 1.1319785734126984 [W/(m*K)]
 - Glass pipe absolute conductive resistance: 0.008109395817494635 [K/W]
@@ -179,7 +179,7 @@
 - Glass pipe internal surface temperature: 20.083885671428487 [°C]
 - Glass pipe external surface temperature: 20.06503193627213 [°C]
 - Percentage of thermal power lost: 8.8 [%]
-- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 41.2 [%]
+- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 38.4 [%]
 
 --> Countercurrent measure 2 calculations results:
 - Cold fluid mass flow rate: 0.047238881518364424 [kg/s]
@@ -245,7 +245,7 @@
 - Total absolute thermal resistance: 0.009775747583129869 [K/W]
 - Internal overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 1.1971022415909731 [kW/(m^2*K)]
 - External overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.9576817932727786 [kW/(m^2*K)]
-- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 2.194631951026662 [kW]
+- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 2.4274642502768176 [kW]
 - Glass pipe average temperature to apprrox glass surf temp and calc glass thermophysical variables values: 22.86169444444444 [°C]
 - Glass pipe thermal conductivity: 1.1343008275793651 [W/(m*K)]
 - Glass pipe absolute conductive resistance: 0.008092793450848642 [K/W]
@@ -270,7 +270,7 @@
 - Glass pipe internal surface temperature: 24.628441070649558 [°C]
 - Glass pipe external surface temperature: 24.691499593906165 [°C]
 - Percentage of thermal power lost: 13.3 [%]
-- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 43.2 [%]
+- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 37.2 [%]
 
 --> Cocurrent measure 2 calculations results:
 - Cold fluid mass flow rate: 0.04607886236181829 [kg/s]
@@ -336,7 +336,7 @@
 - Total absolute thermal resistance: 0.009820001503647363 [K/W]
 - Internal overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 1.1917074901308022 [kW/(m^2*K)]
 - External overall heat transfer coefficient calculated using adimensional numbers and cond/conv resistances: 0.9533659921046418 [kW/(m^2*K)]
-- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 2.2458110733542296 [kW]
+- Recalculated transferred heat using adimensional numbers and cond/conv resistances (thermal power): 2.4596737577920607 [kW]
 - Glass pipe average temperature to apprrox glass surf temp and calc glass thermophysical variables values: 22.814444444444447 [°C]
 - Glass pipe thermal conductivity: 1.134249865079365 [W/(m*K)]
 - Glass pipe absolute conductive resistance: 0.008093157064721506 [K/W]
@@ -361,4 +361,4 @@
 - Glass pipe internal surface temperature: 24.528719716641902 [°C]
 - Glass pipe external surface temperature: 24.589313501447442 [°C]
 - Percentage of thermal power lost: 13.4 [%]
-- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 39.3 [%]
+- Percentage of thermal power error using overall heat transfer coefficient from adimensional numbers instead of directly calculated global heat transfer coefficient (avg value): 33.5 [%]

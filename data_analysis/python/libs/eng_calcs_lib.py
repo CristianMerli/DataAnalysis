@@ -448,9 +448,9 @@ def overall_htc_kw_m2_k(surf_m2, abs_int_conv_res_k_w, abs_cond_res_k_w, abs_ext
 
 # Function definition to calculate transferred heat (thermal power) [kW]
 # using overall heat transfer coefficient
-def therm_pow_kw_overall_htc(ova_htc_kw_m2_k, surf_m2, lmtd):                                                           # therm_pow_kw_overall_htc(Overall heat transfer coefficient [kW/(m^2*K)], Surface [m^2], Log-mean temperature difference [°C] or [K])
-  if (ova_htc_kw_m2_k > 0 and surf_m2 > 0 and lmtd != 0):                                                               # Check in-vals consistency, if ok
-    return ova_htc_kw_m2_k*surf_m2*lmtd                                                                                 # Return thermal power [kW]
+def therm_pow_kw_overall_htc(ova_htc_kw_m2_k, surf_m2, delta_temp):                                                     # therm_pow_kw_overall_htc(Overall heat transfer coefficient [kW/(m^2*K)], Surface [m^2], Delta temperature [°C] or [K])
+  if (ova_htc_kw_m2_k > 0 and surf_m2 > 0 and delta_temp != 0):                                                         # Check in-vals consistency, if ok
+    return ova_htc_kw_m2_k*surf_m2*delta_temp                                                                           # Return thermal power [kW]
   else:                                                                                                                 # Else if in-vals consistency ain't ok
     return -1                                                                                                           # Return err val
 

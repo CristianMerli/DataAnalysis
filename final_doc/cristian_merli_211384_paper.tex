@@ -49,7 +49,7 @@
 \bibliographystyle{plain}                                                                                                   % Bibliography style (plain standard style)
 \renewcommand\refname{Riferimenti bibliografici}                                                                            % Bibliography title
 
-\title{Analisi dati e calcoli ingegneristici scambiatore di calore \\                                                       % Title definition (printed with \maketitle command)
+\title{Analisi dati e calcoli ingegneristici scambiatore di calore\\                                                        % Title definition (printed with \maketitle command)
 \large Laboratorio - Gruppo n.5 del 26/11/2021, fisica tecnica [140078] AA 2021/2022}                                       % Subtitle definition (printed with \maketitle command)
 \author{Cristian Merli, matr. 211384}                                                                                       % Authors definition (printed with \maketitle command)
 \date{07/02/2022}                                                                                                           % Date definition (printed with \maketitle command)
@@ -170,7 +170,7 @@
 \subsubsection{Metodo epsilon-NTU}                                                                                          % Subsubsection creation: "Metodo epsilon-NTU"
 \label{subsubsec:ecf_epsilon_nut}                                                                                           % "epsilon_ntu" reference-label definition and following subsubsection text
 \begin{equation}                                                                                                            % Equation-start
-  \Delta{T_{m.l.}} = \frac{\Delta_{1}-\Delta_{2}}{\log_e{(\frac{\Delta_{1}}{\Delta_{2}})}}                                  % Formula
+  \Delta{T_{m.l.}} = \frac{\Delta_{1}-\Delta_{2}}{\log_e{\left(\frac{\Delta_{1}}{\Delta_{2}}\right)}}                       % Formula
   \label{eqn:deltatml}                                                                                                      % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 \begin{equation}                                                                                                            % Equation-start
@@ -188,9 +188,9 @@
   \label{eqn:ghtc}                                                                                                          % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 \begin{equation}                                                                                                            % Equation-start
-  \mathcal{\dot{C}}_{min} = min\{\dot{m}_c\mathcal{C}_{p,c}(T),\space\dot{m}_f\mathcal{C}_{p,f}(T)\}                        % Formula
+  \mathcal{\dot{C}}_{min} = min\{\space\dot{m}_c\mathcal{C}_{p,c}(T),\space\dot{m}_f\mathcal{C}_{p,f}(T)\space\}            % Formula
   \qquad\text{e}\qquad                                                                                                      % Conjunction txt
-  \mathcal{\dot{C}}_{max} = max\{\dot{m}_c\mathcal{C}_{p,c}(T),\space\dot{m}_f\mathcal{C}_{p,f}(T)\}                        % Formula
+  \mathcal{\dot{C}}_{max} = max\{\space\dot{m}_c\mathcal{C}_{p,c}(T),\space\dot{m}_f\mathcal{C}_{p,f}(T)\space\}            % Formula
   \label{eqn:cpt}                                                                                                           % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 \begin{equation}                                                                                                            % Equation-start
@@ -213,7 +213,7 @@
 \subsubsection{Metodo numeri adimensionali}                                                                                 % Subsubsection creation: "Metodo numeri adimensionali"
 \label{subsubsec:adim_num}                                                                                                  % "adim_num" reference-label definition and following subsubsection text
 \begin{equation}                                                                                                            % Equation-start
-  R_{cond} = \frac{\log_e{(\frac{d_e}{d_i})}}{2\pi\lambda_c(T)LN_t}                                                         % Formula
+  R_{cond} = \frac{\log_e{\left(\frac{d_e}{d_i}\right)}}{2\pi\lambda_c(T)LN_t}                                              % Formula
   \label{eqn:cond_r}                                                                                                        % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 \begin{equation}                                                                                                            % Equation-start
@@ -234,56 +234,88 @@
 \end{equation}                                                                                                              % Equation-end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}                                                                                                            % Equation-start
-  Nu_{t,lam} = \frac{}{}                                                                          % Formula
+  \begin{aligned}                                                                                                           % Multi-line equation start
+  Nu_{t,lam} = \begin{cases}1.86\left(\frac{d_iRePr(T)}{L}\right)^{1/3}                                                     % Formula pt.1 case 1
+  \left(\frac{\mu(T)}{\mu(T_{sup})}\right)^{0.14}&Nu_{t,lam}\ge3.66\\                                                       % Formula pt.2 case 1
+  3.66&Nu_{t,lam}<3.66\end{cases}                                                                                           % Formula case 2
+  \\\text{Se}\qquad                                                                                                         % Conjunction txt
+  0<Re<2300\qquad0.48<Pr(T)<16700\qquad0.0044<\left(\frac{\mu(T)}{\mu(T_{sup})}\right)<9.75                                 % Formula range-values
   \label{eqn:nu_pipe_l}                                                                                                     % Reference-label to equation
+  \end{aligned}                                                                                                             % Multi-line equation end
 \end{equation}                                                                                                              % Equation-end
 \begin{equation}                                                                                                            % Equation-start
-  Nu_{t,turb} = \frac{}{}                                                                         % Formula
+  \begin{aligned}                                                                                                           % Multi-line equation start
+  Nu_{t,turb} = \frac{(k_{attr}(Re)/2)(Re-1000)Pr(T)}{1+12.7(k_{attr}(Re)/2)^{1/2}(Pr(T)^{2/3}-1)}                          % Formula
   \qquad\text{con}\qquad                                                                                                    % Conjunction txt
-  k_{attr} = \frac{}{}                                                                            % Formula
+  k_{attr}(Re) = \left(1.58\log_e{(Re)}-3.28\right)^{-2}                                                                    % Formula
+  \\\text{Se}\qquad                                                                                                         % Conjunction txt
+  300<Re<5*10^6\qquad0.5\le Pr(T)\le2000\qquad\qquad\qquad\qquad\qquad                                                      % Formula range-values
   \label{eqn:nu_pipe_t}                                                                                                     % Reference-label to equation
+  \end{aligned}                                                                                                             % Multi-line equation end
 \end{equation}                                                                                                              % Equation-end
 \begin{equation}                                                                                                            % Equation-start
-  Nu_s = \frac{}{}                                                                                % Formula
+  \begin{aligned}                                                                                                           % Multi-line equation start
+  Nu_s = 0.36Re^{0.55}Pr(T)^{1/3}\left(\frac{\mu(T)}{\mu(T_{sup})}\right)^{0.14}                                            % Formula
+  \\\text{Se}\qquad                                                                                                         % Conjunction txt
+  2000<Re<1*10^6\qquad\qquad                                                                                                % Formula range-values
   \label{eqn:nu_shell}                                                                                                      % Reference-label to equation
+  \end{aligned}                                                                                                             % Multi-line equation end
 \end{equation}                                                                                                              % Equation-end
 \begin{equation}                                                                                                            % Equation-start
-  h = \frac{}{}                                                                                   % Formula
+  h = \frac{Nu\lambda_c(T)}{d_{term.eq.}}                                                                                   % Formula
   \label{eqn:h}                                                                                                             % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 \begin{equation}                                                                                                            % Equation-start
-  h_{s,tot} = \frac{}{}                                                                           % Formula
+  h_{ss,tot} = h_{ss,1}+h_{ss,3}+h_{ss,1}                                                                                   % Formula
   \qquad\text{ed}\qquad                                                                                                     % Conjunction txt
-  \bar{h}_{s} = \frac{}{}                                                                         % Formula
+  \bar{h}_{s} = \frac{h_{ss,tot,in}+h_{ss,tot,out}}{2}                                                                      % Formula
   \label{eqn:h_s}                                                                                                           % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 \begin{equation}                                                                                                            % Equation-start
-  R_{conv} =                                                                                      % Formula
+  R_{conv} = \frac{1}{hA}                                                                                                   % Formula
   \label{eqn:conv_r}                                                                                                        % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 \begin{equation}                                                                                                            % Equation-start
-  T_s =                                                                                           % Formula
+  T_{sup} = \bar{T}-(R_{conv,i}+R_{cond})Q                                                                                  % Formula
+  \qquad\text{da}\qquad                                                                                                     % Conjunction txt
+  Q = \frac{\Delta{T}}{R} = \frac{\bar{T}-T_{sup}}{R_{conv,i}+R_{cond}}                                                     % Formula
   \label{eqn:surf_temp}                                                                                                     % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 \begin{equation}                                                                                                            % Equation-start
-  R_{tot} =                                                                                       % Formula
+  R_{tot} = R_{conv,i}+R_{cond}+R_{conv,e}                                                                                  % Formula
   \label{eqn:tot_r}                                                                                                         % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 \begin{equation}                                                                                                            % Equation-start
-  U_{i,adim} =                                                                                    % Formula
+  U_{i,adim} = \frac{1/A_i}{R_{tot}}                                                                                        % Formula
   \qquad\text{ed}\qquad                                                                                                     % Conjunction txt
-  U_{e,adim} =                                                                                    % Formula
+  U_{e,adim} = \frac{1/A_e}{R_{tot}}                                                                                        % Formula
   \label{eqn:ohtc}                                                                                                          % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 \begin{equation}                                                                                                            % Equation-start
-  Q_{adim} =                                                                                      % Formula
+  Q_{adim} = ?                                                                                    % Formula
   \label{eqn:recalc_heat_tr}                                                                                                % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
 \subsubsection{Convezione naturale esterna}                                                                                 % Subsubsection creation: "Convezione naturale esterna"
 \label{subsubsec:ext_air_conv}                                                                                              % "ext_air_conv" reference-label definition and following subsubsection text
 \begin{equation}                                                                                                            % Equation-start
-  Q_{adim} =                                                                                      % Formula
-  \label{eqn:recalc_heat_tr}                                                                                                % Reference-label to equation
+  Gr = \frac{gL^3\beta(T)|T_{sup}-T_{amb}|}{\nu^2}                                                                          % Formula
+  \label{eqn:gr}                                                                                                            % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  Ra = GrPr(T)                                                                                                              % Formula
+  \label{eqn:ra}                                                                                                            % Reference-label to equation
+\end{equation}                                                                                                              % Equation-end
+\begin{equation}                                                                                                            % Equation-start
+  \begin{aligned}                                                                                                           % Multi-line equation start
+  Nu_{adim} = \left[Nu_0^{1/2}+Ra^{1/6}\left(\frac{f_4(Pr(T))}{300}\right)^{1/6}\right]^{2}                                 % Formula
+  \qquad\text{con}\qquad                                                                                                    % Conjunction txt
+  f_4(Pr(T)) = \left[1+\left(\frac{0.5}{Pr(T)}\right)^{9/16}\right]^{-16/9}                                                 % Formula
+  \\\text{e}\qquad                                                                                                          % Conjunction txt
+  Nu_0 = 0.68                                                                                                               % Formula range-values
+  \qquad\text{se}\qquad                                                                                                     % Conjunction txt
+  Ra<1*10^9\qquad\qquad\qquad\qquad\qquad                                                                                   % Formula range-values
+  \label{eqn:nu_ra}                                                                                                         % Reference-label to equation
+  \end{aligned}                                                                                                             % Multi-line equation end
 \end{equation}                                                                                                              % Equation-end
 
 \section{Tabelle}                                                                                                           % Section creation: "Tabelle"
