@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.1.31)  27 FEB 2022 14:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.1.31)  27 FEB 2022 23:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -202,6 +202,13 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen147
 \Gin@req@width=\dimen148
+) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count191
+\float@exts=\toks18
+\float@box=\box45
+\@float@everytoks=\toks19
+\@floatcapt=\box46
 ) (/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
@@ -218,17 +225,17 @@ Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
  (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \col@sep=\dimen149
-\ar@mcellbox=\box45
+\ar@mcellbox=\box47
 \extrarowheight=\dimen150
-\NC@list=\toks18
+\NC@list=\toks20
 \extratabsurround=\skip86
 \backup@length=\skip87
-\ar@cellbox=\box46
+\ar@cellbox=\box48
 )
-\everycr=\toks19
+\everycr=\toks21
 \minrowclearance=\skip88
 )
-\rownum=\count191
+\rownum=\count192
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
 Package xcolor Info: Model `RGB' extended on input line 1364.
@@ -251,7 +258,7 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2000/06/29 v2.01 AMS text
  (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks20
+\@emptytoks=\toks22
 \ex@=\dimen151
 )) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
@@ -259,41 +266,41 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count192
+\inf@bad=\count193
 LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count193
-\leftroot@=\count194
+\uproot@=\count194
+\leftroot@=\count195
 LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count195
-\DOTSCASE@=\count196
+\classnum@=\count196
+\DOTSCASE@=\count197
 LaTeX Info: Redefining \ldots on input line 486.
 LaTeX Info: Redefining \dots on input line 489.
 LaTeX Info: Redefining \cdots on input line 610.
-\Mathstrutbox@=\box47
-\strutbox@=\box48
+\Mathstrutbox@=\box49
+\strutbox@=\box50
 \big@size=\dimen153
 LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count197
-\c@MaxMatrixCols=\count198
+\macc@depth=\count198
+\c@MaxMatrixCols=\count199
 \dotsspace@=\muskip17
-\c@parentequation=\count199
-\dspbrk@lvl=\count266
-\tag@help=\toks21
-\row@=\count267
-\column@=\count268
-\maxfields@=\count269
-\andhelp@=\toks22
+\c@parentequation=\count266
+\dspbrk@lvl=\count267
+\tag@help=\toks23
+\row@=\count268
+\column@=\count269
+\maxfields@=\count270
+\andhelp@=\toks24
 \eqnshift@=\dimen154
 \alignsep@=\dimen155
 \tagshift@=\dimen156
 \tagwidth@=\dimen157
 \totwidth@=\dimen158
 \lineht@=\dimen159
-\@envbody=\toks23
+\@envbody=\toks25
 \multlinegap=\skip90
 \multlinetaggap=\skip91
-\mathdisplay@stack=\toks24
+\mathdisplay@stack=\toks26
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
@@ -310,30 +317,30 @@ Package: chngcntr 2018/04/09 v1.1a change counter resetting
 Package chngcntr Info: \counterwithout already defined.
 (chngcntr)             Quitting chngcntr on input line 21.
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 29.
+Package hyperref Info: Option `colorlinks' set `true' on input line 30.
  (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count270
-\l__pdf_internal_box=\box49
+\l__kernel_color_stack_int=\count271
+\l__pdf_internal_box=\box51
 ) (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.aux)
 \openout1 = `cristian_merli_211384_paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -369,8 +376,8 @@ LaTeX Font Info:    ... okay on input line 61.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box50
-Package hyperref Info: Link coloring ON on input line 61.
+\AtBeginShipoutBox=\box52
+Package hyperref Info: Link coloring ON on input line 62.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -378,39 +385,39 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count271
+\c@section@level=\count272
 )
-LaTeX Info: Redefining \ref on input line 61.
-LaTeX Info: Redefining \pageref on input line 61.
-LaTeX Info: Redefining \nameref on input line 61.
+LaTeX Info: Redefining \ref on input line 62.
+LaTeX Info: Redefining \pageref on input line 62.
+LaTeX Info: Redefining \nameref on input line 62.
  (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.out) (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.out)
 \@outlinefile=\write3
 \openout3 = `cristian_merli_211384_paper.out'.
 
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count272
+\scratchcounter=\count273
 \scratchdimen=\dimen160
-\scratchbox=\box51
-\nofMPsegments=\count273
-\nofMParguments=\count274
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count275
+\scratchbox=\box53
+\nofMPsegments=\count274
+\nofMParguments=\count275
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count276
 \MPscratchDim=\dimen161
-\MPnumerator=\count276
-\makeMPintoPDFobject=\count277
-\everyMPtoPDFconversion=\toks26
+\MPnumerator=\count277
+\makeMPintoPDFobject=\count278
+\everyMPtoPDFconversion=\toks28
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 65.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.toc)
@@ -419,61 +426,122 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-<../final_doc/code_exports/imgs/measures.png, id=155, 1524.69624pt x 830.10126pt>
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.443 \end{table}
+                                                                            ...pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.443 \end{table}
+                                                                            ...pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.443 \end{table}
+                                                                            ...]
+<../final_doc/code_exports/imgs/measures.png, id=166, 1524.69624pt x 830.10126pt>
 File: ../final_doc/code_exports/imgs/measures.png Graphic file (type png)
 <use ../final_doc/code_exports/imgs/measures.png>
-Package pdftex.def Info: ../final_doc/code_exports/imgs/measures.png  used on input line 402.
+Package pdftex.def Info: ../final_doc/code_exports/imgs/measures.png  used on input line 464.
 (pdftex.def)             Requested size: 450.43253pt x 245.2324pt.
-<../final_doc/code_exports/imgs/measure3.png, id=157, 1517.67pt x 830.10126pt>
+<../final_doc/code_exports/imgs/measure3.png, id=168, 1517.67pt x 830.10126pt>
 File: ../final_doc/code_exports/imgs/measure3.png Graphic file (type png)
 <use ../final_doc/code_exports/imgs/measure3.png>
-Package pdftex.def Info: ../final_doc/code_exports/imgs/measure3.png  used on input line 408.
+Package pdftex.def Info: ../final_doc/code_exports/imgs/measure3.png  used on input line 470.
 (pdftex.def)             Requested size: 450.43253pt x 246.35971pt.
-<../final_doc/code_exports/imgs/water_fitted_pr.png, id=158, 1510.64375pt x 830.10126pt>
+<../final_doc/code_exports/imgs/water_fitted_pr.png, id=169, 1510.64375pt x 830.10126pt>
 File: ../final_doc/code_exports/imgs/water_fitted_pr.png Graphic file (type png)
 <use ../final_doc/code_exports/imgs/water_fitted_pr.png>
-Package pdftex.def Info: ../final_doc/code_exports/imgs/water_fitted_pr.png  used on input line 414.
+Package pdftex.def Info: ../final_doc/code_exports/imgs/water_fitted_pr.png  used on input line 476.
 (pdftex.def)             Requested size: 450.43253pt x 247.51234pt.
-<../final_doc/code_exports/imgs/water_intp_pr.png, id=159, 1510.64375pt x 830.10126pt>
+ [5pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.479 \end{figure}
+                                                                            ...pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.479 \end{figure}
+                                                                            ...pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.479 \end{figure}
+                                                                            ...pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.479 \end{figure}
+                                                                            ... <../final_doc/code_exports/imgs/measures.png>]
+<../final_doc/code_exports/imgs/water_intp_pr.png, id=179, 1510.64375pt x 830.10126pt>
 File: ../final_doc/code_exports/imgs/water_intp_pr.png Graphic file (type png)
 <use ../final_doc/code_exports/imgs/water_intp_pr.png>
-Package pdftex.def Info: ../final_doc/code_exports/imgs/water_intp_pr.png  used on input line 420.
+Package pdftex.def Info: ../final_doc/code_exports/imgs/water_intp_pr.png  used on input line 482.
 (pdftex.def)             Requested size: 450.43253pt x 247.51234pt.
-<../final_doc/code_exports/imgs/temp_trend.png, id=160, 1526.70375pt x 830.10126pt>
+<../final_doc/code_exports/imgs/temp_trend.png, id=180, 1526.70375pt x 830.10126pt>
 File: ../final_doc/code_exports/imgs/temp_trend.png Graphic file (type png)
 <use ../final_doc/code_exports/imgs/temp_trend.png>
-Package pdftex.def Info: ../final_doc/code_exports/imgs/temp_trend.png  used on input line 426.
+Package pdftex.def Info: ../final_doc/code_exports/imgs/temp_trend.png  used on input line 488.
 (pdftex.def)             Requested size: 450.43253pt x 244.90308pt.
-<../final_doc/code_exports/imgs/heat_exchanger.png, id=161, 580.41844pt x 453.19313pt>
+<../final_doc/code_exports/imgs/heat_exchanger.png, id=181, 580.41844pt x 453.19313pt>
 File: ../final_doc/code_exports/imgs/heat_exchanger.png Graphic file (type png)
 <use ../final_doc/code_exports/imgs/heat_exchanger.png>
-Package pdftex.def Info: ../final_doc/code_exports/imgs/heat_exchanger.png  used on input line 432.
+Package pdftex.def Info: ../final_doc/code_exports/imgs/heat_exchanger.png  used on input line 494.
 (pdftex.def)             Requested size: 375.36299pt x 293.08528pt.
- (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 440.
- [4] [5 <../final_doc/code_exports/imgs/measures.png> <../final_doc/code_exports/imgs/measure3.png> <../final_doc/code_exports/imgs/water_fitted_pr.png>] [6 <../final_doc/code_exports/imgs/water_intp_pr.png> <../final_doc/code_exports/imgs/temp_trend.png> <../final_doc/code_exports/imgs/heat_exchanger.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 440.
+ [6pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.497 \end{figure}
+                                                                            ...pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.497 \end{figure}
+                                                                            ...pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.497 \end{figure}
+                                                                            ... <../final_doc/code_exports/imgs/measure3.png> <../final_doc/code_exports/imgs/water_fitted_pr.png> <../final_doc/code_exports/imgs/water_intp_pr.png>] (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 502.
+ [7pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.502 \end{document}
+                                                                            ...pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.502 \end{document}
+                                                                            ... <../final_doc/code_exports/imgs/temp_trend.png> <../final_doc/code_exports/imgs/heat_exchanger.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 502.
  (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 440.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 440.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 502.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 502.
 Package rerunfilecheck Info: File `cristian_merli_211384_paper.out' has not changed.
 (rerunfilecheck)             Checksum: 7C6903867245B062901CF60ED3A58CCA;1147.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 440.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 502.
  ) 
 Here is how much of TeX's memory you used:
- 8100 strings out of 483154
- 120615 string characters out of 5965023
- 408360 words of memory out of 5000000
- 22894 multiletter control sequences out of 15000+600000
+ 8165 strings out of 483154
+ 121446 string characters out of 5965023
+ 409912 words of memory out of 5000000
+ 22952 multiletter control sequences out of 15000+600000
  542193 words of font info for 61 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 34i,16n,39p,504b,344s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,16n,39p,504b,346s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/cristian/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on /home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.pdf (6 pages, 667618 bytes).
+Output written on /home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.pdf (7 pages, 669280 bytes).
 PDF statistics:
- 268 PDF objects out of 1000 (max. 8388607)
- 227 compressed objects within 3 object streams
- 63 named destinations out of 1000 (max. 500000)
+ 276 PDF objects out of 1000 (max. 8388607)
+ 234 compressed objects within 3 object streams
+ 66 named destinations out of 1000 (max. 500000)
  175 words of extra memory for PDF output out of 10000 (max. 10000000)
 

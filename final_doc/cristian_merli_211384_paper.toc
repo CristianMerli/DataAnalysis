@@ -14,5 +14,5 @@
 \contentsline {subsubsection}{\numberline {7.2.3}Metodo numeri adimensionali}{3}{subsubsection.7.2.3}%
 \contentsline {subsubsection}{\numberline {7.2.4}Convezione naturale esterna}{4}{subsubsection.7.2.4}%
 \contentsline {section}{\numberline {8}Tabelle}{4}{section.8}%
-\contentsline {section}{\numberline {9}Immagini e grafici}{4}{section.9}%
-\contentsline {section}{Riferimenti bibliografici}{4}{figure.6}%
+\contentsline {section}{\numberline {9}Immagini e grafici}{5}{section.9}%
+\contentsline {section}{Riferimenti bibliografici}{7}{figure.6}%

@@ -9,6 +9,7 @@
 \usepackage{abstract}                                                                                                       % Package import for abstract
 \usepackage{hyperref}                                                                                                       % Package import for external references
 \usepackage{graphicx}                                                                                                       % Package import to manage images labels and captions
+\usepackage{float}                                                                                                          % ---
 \usepackage{cite}                                                                                                           % Package import for bibliographies (citations)
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}                                                                     % Package import for colors
 \usepackage{amsmath}                                                                                                        % Package import for formulas (math)
@@ -143,42 +144,52 @@
 \label{subsec:da_formulas}                                                                                                  % "da_formulas" reference-label definition and following subsection text
 \subsubsection{Scelta miglior intervallo dati con condizioni stazionarie}                                                   % Subsubsection creation: "Scelta miglior intervallo dati con condizioni stazionarie"
 \label{subsubsec:daf_interv}                                                                                                % "daf_interv" reference-label definition and following subsubsection text
+\vspace{1mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
-  I_{condiz.staz.} = I(s_j) : \{I(s_j) = \min_{\forall I_M \in M} s_j\}                                                     % Formula
-  \qquad\text{con}\qquad                                                                                                    % Conjunction txt
+  \begin{aligned}                                                                                                           % Multi-line equation start
+  I_{condiz.staz.} = I(s_j) : \{I(s_j) = \min_{\forall I_M \in M} s_j\}\qquad\qquad                                         % Formula
+  \\\text{con}\qquad                                                                                                        % Conjunction txt
   I(s_j) = \frac{1}{N}\sum_{j=1}^{m}{s_j}                                                                                   % Formula
   \qquad\text{e}\qquad                                                                                                      % Conjunction txt
   s_j = \sqrt[2]{\frac{1}{n-1}\sum_{i=1}^{n}(x_i-\overline{x})^2}                                                           % Formula
   \label{eqn:stat}                                                                                                          % Reference-label to equation
+  \end{aligned}                                                                                                             % Multi-line equation end
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \subsection{Formule calcoli ingegneristici}                                                                                 % Subsection creation: "Formule calcoli ingegneristici"
 \label{subsec:ec_formulas}                                                                                                  % "ec_formulas" reference-label definition and following subsection text
 \subsubsection{Trasferimento di calore}                                                                                     % Subsubsection creation: "Trasferimento di calore"
 \label{subsubsec:ecf_heat_tr}                                                                                               % "ecf_heat_tr" reference-label definition and following subsubsection text
+\vspace{1mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   Q_c = \dot{m}_c\mathcal{C}_{p,c}(T)\Delta{T_c}                                                                            % Formula
   \qquad\text{e}\qquad                                                                                                      % Conjunction txt
   Q_f = \dot{m}_f\mathcal{C}_{p,f}(T)\Delta{T_f}                                                                            % Formula
   \label{eqn:heat_tr}                                                                                                       % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   \bar{Q} = \frac{|Q_c|+|Q_f|}{2}                                                                                           % Formula
   \qquad\text{e}\qquad                                                                                                      % Conjunction txt
   \Delta{Q_{c-f}} = Q_c+Q_f                                                                                                 % Formula
   \label{eqn:heat_tr2}                                                                                                      % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \subsubsection{Metodo epsilon-NTU}                                                                                          % Subsubsection creation: "Metodo epsilon-NTU"
 \label{subsubsec:ecf_epsilon_nut}                                                                                           % "epsilon_ntu" reference-label definition and following subsubsection text
+\vspace{1mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   \Delta{T_{m.l.}} = \frac{\Delta_{1}-\Delta_{2}}{\log_e{\left(\frac{\Delta_{1}}{\Delta_{2}}\right)}}                       % Formula
   \label{eqn:deltatml}                                                                                                      % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   A_i = \pi d_iLN_t                                                                                                         % Formula
   \qquad\text{ed}\qquad                                                                                                     % Conjunction txt
   A_e = \pi d_eLN_t                                                                                                         % Formula
   \label{eqn:surf}                                                                                                          % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   U_i = \frac{\bar{Q}}{A_i\Delta{T_{m.l.}}}                                                                                 % Formula
   \qquad\text{e}\qquad                                                                                                      % Conjunction txt
@@ -187,22 +198,26 @@
   \bar{Q} = U_iA_i\Delta{T_{m.l.}} = U_eA_e\Delta{T_{m.l.}}                                                                 % Formula
   \label{eqn:ghtc}                                                                                                          % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   \mathcal{\dot{C}}_{min} = min\{\space\dot{m}_c\mathcal{C}_{p,c}(T),\space\dot{m}_f\mathcal{C}_{p,f}(T)\space\}            % Formula
   \qquad\text{e}\qquad                                                                                                      % Conjunction txt
   \mathcal{\dot{C}}_{max} = max\{\space\dot{m}_c\mathcal{C}_{p,c}(T),\space\dot{m}_f\mathcal{C}_{p,f}(T)\space\}            % Formula
   \label{eqn:cpt}                                                                                                           % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   \mathcal{\dot{C}}_{ratio} = \frac{\mathcal{\dot{C}}_{min}}{\mathcal{\dot{C}}_{max}}                                       % Formula
   \label{eqn:cpt_r}                                                                                                         % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   NTU = \frac{U_eA_e}{\mathcal{\dot{C}}_{min}}                                                                              % Formula
   \qquad\text{equivalente a}\qquad                                                                                          % Conjunction txt
   NTU = \frac{U_iA_i}{\mathcal{\dot{C}}_{min}}                                                                              % Formula
   \label{eqn:ntu}                                                                                                           % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   \varepsilon_{ec} = \frac{1-exp{[-NTU(1+\mathcal{\dot{C}}_{ratio})]}}{1+\mathcal{\dot{C}}_{ratio}}                         % Formula
   \qquad\text{ed}\qquad                                                                                                     % Conjunction txt
@@ -210,135 +225,156 @@
   {1-\mathcal{\dot{C}}_{ratio}exp{[-NTU(1-\mathcal{\dot{C}}_{ratio})]}}                                                     % Formula pt.2
   \label{eqn:epsilon}                                                                                                       % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \subsubsection{Metodo numeri adimensionali}                                                                                 % Subsubsection creation: "Metodo numeri adimensionali"
 \label{subsubsec:adim_num}                                                                                                  % "adim_num" reference-label definition and following subsubsection text
+\vspace{1mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   R_{cond} = \frac{\log_e{\left(\frac{d_e}{d_i}\right)}}{2\pi\lambda_c(T)LN_t}                                              % Formula
   \label{eqn:cond_r}                                                                                                        % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   \mu(T) = \nu(T)\rho(T)                                                                                                    % Formula
   \label{eqn:din_vis}                                                                                                       % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   Re_t = \frac{4\dot{m}}{\pi d\mu(T)}                                                                                       % Formula
   \label{eqn:re_pipe}                                                                                                       % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   Re_s = \frac{\dot{m}d_{idr.eq.}}{A_f\mu(T)}                                                                               % Formula
   \label{eqn:re_shell}                                                                                                      % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   Re_{alt} = \frac{\dot{V}d_{idr.eq.}}{A_f\nu(T)}                                                                           % Formula
   \label{eqn:re_alt}                                                                                                        % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   \begin{aligned}                                                                                                           % Multi-line equation start
   Nu_{t,lam} = \begin{cases}1.86\left(\frac{d_iRePr(T)}{L}\right)^{1/3}                                                     % Formula pt.1 case 1
-  \left(\frac{\mu(T)}{\mu(T_{sup})}\right)^{0.14}&Nu_{t,lam}\ge3.66\\                                                       % Formula pt.2 case 1
-  3.66&Nu_{t,lam}<3.66\end{cases}                                                                                           % Formula case 2
-  \\\text{Se}\qquad                                                                                                         % Conjunction txt
+  \left(\frac{\mu(T)}{\mu(T_{sup})}\right)^{0.14}&\text{Se}\qquad Nu_{t,lam}\ge3.66\qquad\qquad\\                           % Formula pt.2 case 1
+  3.66&\text{Se}\qquad Nu_{t,lam}<3.66\end{cases}                                                                           % Formula case 2
+  \\\Leftrightarrow\qquad                                                                                                   % Conjunction txt
   0<Re<2300\qquad0.48<Pr(T)<16700\qquad0.0044<\left(\frac{\mu(T)}{\mu(T_{sup})}\right)<9.75                                 % Formula range-values
   \label{eqn:nu_pipe_l}                                                                                                     % Reference-label to equation
   \end{aligned}                                                                                                             % Multi-line equation end
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   \begin{aligned}                                                                                                           % Multi-line equation start
   Nu_{t,turb} = \frac{(k_{attr}(Re)/2)(Re-1000)Pr(T)}{1+12.7(k_{attr}(Re)/2)^{1/2}(Pr(T)^{2/3}-1)}                          % Formula
-  \qquad\text{con}\qquad                                                                                                    % Conjunction txt
+  \\\text{con}\qquad\qquad                                                                                                  % Conjunction txt
   k_{attr}(Re) = \left(1.58\log_e{(Re)}-3.28\right)^{-2}                                                                    % Formula
-  \\\text{Se}\qquad                                                                                                         % Conjunction txt
-  300<Re<5*10^6\qquad0.5\le Pr(T)\le2000\qquad\qquad\qquad\qquad\qquad                                                      % Formula range-values
+  \\\Leftrightarrow\qquad                                                                                                   % Conjunction txt
+  300<Re<5*10^6\qquad0.5\le Pr(T)\le2000                                                                                    % Formula range-values
   \label{eqn:nu_pipe_t}                                                                                                     % Reference-label to equation
   \end{aligned}                                                                                                             % Multi-line equation end
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   \begin{aligned}                                                                                                           % Multi-line equation start
   Nu_s = 0.36Re^{0.55}Pr(T)^{1/3}\left(\frac{\mu(T)}{\mu(T_{sup})}\right)^{0.14}                                            % Formula
-  \\\text{Se}\qquad                                                                                                         % Conjunction txt
+  \\\Leftrightarrow\qquad                                                                                                   % Conjunction txt
   2000<Re<1*10^6\qquad\qquad                                                                                                % Formula range-values
   \label{eqn:nu_shell}                                                                                                      % Reference-label to equation
   \end{aligned}                                                                                                             % Multi-line equation end
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   h = \frac{Nu\lambda_c(T)}{d_{term.eq.}}                                                                                   % Formula
   \label{eqn:h}                                                                                                             % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   h_{ss,tot} = h_{ss,1}+h_{ss,3}+h_{ss,1}                                                                                   % Formula
   \qquad\text{ed}\qquad                                                                                                     % Conjunction txt
   \bar{h}_{s} = \frac{h_{ss,tot,in}+h_{ss,tot,out}}{2}                                                                      % Formula
   \label{eqn:h_s}                                                                                                           % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   R_{conv} = \frac{1}{hA}                                                                                                   % Formula
   \label{eqn:conv_r}                                                                                                        % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   T_{sup} = \bar{T}-(R_{conv,i}+R_{cond})Q                                                                                  % Formula
   \qquad\text{da}\qquad                                                                                                     % Conjunction txt
   Q = \frac{\Delta{T}}{R} = \frac{\bar{T}-T_{sup}}{R_{conv,i}+R_{cond}}                                                     % Formula
   \label{eqn:surf_temp}                                                                                                     % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   R_{tot} = R_{conv,i}+R_{cond}+R_{conv,e}                                                                                  % Formula
   \label{eqn:tot_r}                                                                                                         % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   U_{i,adim} = \frac{1/A_i}{R_{tot}}                                                                                        % Formula
   \qquad\text{ed}\qquad                                                                                                     % Conjunction txt
   U_{e,adim} = \frac{1/A_e}{R_{tot}}                                                                                        % Formula
   \label{eqn:ohtc}                                                                                                          % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   Q_{adim} = U_eA_e\Delta{\bar{T}_{fl}}                                                                                     % Formula
   \qquad\text{equivalente a}\qquad                                                                                          % Conjunction txt
   Q_{adim} = U_iA_i\Delta{\bar{T}_{fl}}                                                                                     % Formula
   \label{eqn:recalc_heat_tr}                                                                                                % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \subsubsection{Convezione naturale esterna}                                                                                 % Subsubsection creation: "Convezione naturale esterna"
 \label{subsubsec:ext_air_conv}                                                                                              % "ext_air_conv" reference-label definition and following subsubsection text
+\vspace{1mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   Gr = \frac{gL^3\beta(T)|T_{sup}-T_{amb}|}{\nu^2}                                                                          % Formula
   \label{eqn:gr}                                                                                                            % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   Ra = GrPr(T)                                                                                                              % Formula
   \label{eqn:ra}                                                                                                            % Reference-label to equation
 \end{equation}                                                                                                              % Equation-end
+\vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   \begin{aligned}                                                                                                           % Multi-line equation start
   Nu_{adim} = \left[Nu_0^{1/2}+Ra^{1/6}\left(\frac{f_4(Pr(T))}{300}\right)^{1/6}\right]^{2}                                 % Formula
-  \qquad\text{con}\qquad                                                                                                    % Conjunction txt
+  \\\text{con}\qquad                                                                                                        % Conjunction txt
   f_4(Pr(T)) = \left[1+\left(\frac{0.5}{Pr(T)}\right)^{9/16}\right]^{-16/9}                                                 % Formula
   \\\text{e}\qquad                                                                                                          % Conjunction txt
   Nu_0 = 0.68                                                                                                               % Formula range-values
-  \qquad\text{se}\qquad                                                                                                     % Conjunction txt
-  Ra<1*10^9\qquad\qquad\qquad\qquad\qquad                                                                                   % Formula range-values
+  \qquad\Leftrightarrow\qquad                                                                                               % Conjunction txt
+  Ra<1*10^9\qquad                                                                                                           % Formula range-values
   \label{eqn:nu_ra}                                                                                                         % Reference-label to equation
   \end{aligned}                                                                                                             % Multi-line equation end
 \end{equation}                                                                                                              % Equation-end
 
 \section{Tabelle}                                                                                                           % Section creation: "Tabelle"
 \label{sec:tables}                                                                                                          % "tables" reference-label definition and following section text
-\begin{table}[ht!]                                                                                                          % Table-start
+\begin{table}[H]                                                                                                            % Table-start
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
-    Dati        & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 1 \\
+    Dati      & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 1 \\
     \hline\hline
-    F1 [l/h]    & 539.92          & 534.83            & 170.21            & 166.03          \\
-    F2 [l/h]    & 562.52          & 568.41            & 574.23            & 578.83          \\
-    T1 [°C]     & 15.25           & 15.41             & 15.33             & 15.41           \\
-    T2 [°C]     & 51.24           & 51.52             & 51.30             & 51.47           \\
-    T3 [°C]     & 24.35           & 24.82             & 33.51             & 33.24           \\
-    T4 [°C]     & 41.90           & 41.69             & 45.01             & 45.50           \\
+    F1 [l/h]  & 539.92          & 534.83            & 170.21            & 166.03          \\
+    F2 [l/h]  & 562.52          & 568.41            & 574.23            & 578.83          \\
+    T1 [°C]   & 15.25           & 15.41             & 15.33             & 15.41           \\
+    T2 [°C]   & 51.24           & 51.52             & 51.30             & 51.47           \\
+    T3 [°C]   & 24.35           & 24.82             & 33.51             & 33.24           \\
+    T4 [°C]   & 41.90           & 41.69             & 45.01             & 45.50           \\
     \hline
   \end{tabular}                                                                                                             % End tabular definition
   \caption{Valori delle variabili misurate ottenuti dall'analisi dei dati sperimentali}                                     % Table caption
   \label{tab:measures_data}                                                                                                 % Reference-label to table
 \end{table}                                                                                                                 % Table-end
-\begin{table}[ht!]                                                                                                          % Table-start
+\vspace{3mm}                                                                                                                % Vert space
+\begin{table}[H]                                                                                                            % Table-start
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
@@ -348,17 +384,30 @@
     Q\textsubscript{fl.freddo} [kW]                     & 5.70            & 5.84              & 3.59              & 3.43            \\
     $\Delta{Q\textsubscript{fl.caldo-fl.freddo}}$ [kW]  & -0.32           & -0.56             & -0.55             & -0.53           \\
     $\bar{Q}$ [kW]                                      & 5.86            & 6.12              & 3.86              & 3.70            \\
-    $\Delta{T\textsubscript{m.l.}}$ [°C]                & 25.68           & 25.28             & 21.45             & 22.05           \\
-    U\textsubscript{int} [$\frac{kW}{m^{2}K}$]          & 2.6718          & 2.8354            & 2.1081            & 1.9629          \\
-    U\textsubscript{ext} [$\frac{kW}{m^{2}K}$]          & 2.1374          & 2.2683            & 1.6865            & 1.5703          \\
-    NTU                                                 & 0.3642          & 0.3902            & 0.9122            & 0.8708          \\
-    $\varepsilon$                                       & 0.26            & 0.28              & 0.56              & 0.52            \\
     \hline
   \end{tabular}                                                                                                             % End tabular definition
-  \caption{\textit{Valori rilevati ottenuti mediante i calcoli ingegneristici effettuati (metodo $\varepsilon$-NTU)}}       % Table caption
+  \caption{\textit{Valori rilevanti ottenuti mediante i calcoli ingegneristici effettuati (potenze termiche scambiate)}}    % Table caption
+  \label{tab:heat_tr_calcs}                                                                                                 % Reference-label to table
+\end{table}                                                                                                                 % Table-end
+\vspace{3mm}                                                                                                                % Vert space
+\begin{table}[H]                                                                                                            % Table-start
+  \centering                                                                                                                % Center table
+  \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
+    \hline
+    Dati/misure                                 & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 1 \\
+    \hline\hline
+    $\Delta{T\textsubscript{m.l.}}$ [°C]        & 25.68           & 25.28             & 21.45             & 22.05           \\
+    U\textsubscript{int} [$\frac{kW}{m^{2}K}$]  & 2.6718          & 2.8354            & 2.1081            & 1.9629          \\
+    U\textsubscript{ext} [$\frac{kW}{m^{2}K}$]  & 2.1374          & 2.2683            & 1.6865            & 1.5703          \\
+    NTU                                         & 0.3642          & 0.3902            & 0.9122            & 0.8708          \\
+    $\varepsilon$                               & 0.26            & 0.28              & 0.56              & 0.52            \\
+    \hline
+  \end{tabular}                                                                                                             % End tabular definition
+  \caption{\textit{Valori rilevanti ottenuti mediante i calcoli ingegneristici effettuati (metodo $\varepsilon$-NTU)}}      % Table caption
   \label{tab:eps_ntu_calcs}                                                                                                 % Reference-label to table
 \end{table}                                                                                                                 % Table-end
-\begin{table}[ht!]                                                                                                          % Table-start
+\vspace{3mm}                                                                                                                % Vert space
+\begin{table}[H]                                                                                                            % Table-start
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
@@ -371,15 +420,13 @@
     U\textsubscript{int,adim} [$\frac{kW}{m^{2}K}$]     & 1.6666          & 1.6677            & 1.1971            & 1.1917          \\
     U\textsubscript{ext,adim} [$\frac{kW}{m^{2}K}$]     & 1.3333          & 1.3341            & 0.9577            & 0.9533          \\
     Q\textsubscript{adim} [kW]                          & 3.81            & 3.77              & 2.43              & 2.46            \\
-    Q\textsubscript{perso} [\%]                         & 5.4             & 8.8               & 13.3              & 13.4            \\
-    $\Delta{Calc(Q)}$ [\%]                              & 35.0            & 38.4              & 37.2              & 33.5            \\
-    Q\textsubscript{perso,vetro} [\%]                   &              &                &               &             \\
     \hline
   \end{tabular}                                                                                                             % End tabular definition
-  \caption{\textit{Valori rilevati ottenuti mediante i calcoli ingegneristici effettuati (metodo numeri adimensionali)}}    % Table caption
+  \caption{\textit{Valori rilevanti ottenuti mediante i calcoli ingegneristici effettuati (metodo numeri adimensionali)}}   % Table caption
   \label{tab:adim_num_calcs}                                                                                                % Reference-label to table
 \end{table}                                                                                                                 % Table-end
-\begin{table}[ht!]                                                                                                          % Table-start
+\vspace{3mm}                                                                                                                % Vert space
+\begin{table}[H]                                                                                                            % Table-start
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
@@ -391,43 +438,58 @@
     Q\textsubscript{perso,vetro} [W]                & 3.14            & 2.32              & -7.79             & -7.49           \\
     \hline
   \end{tabular}                                                                                                             % End tabular definition
-  \caption{\textit{Valori rilevati ottenuti mediante i calcoli ingegneristici effettuati (analisi convezione naturale)}}    % Table caption
+  \caption{\textit{Valori rilevanti ottenuti mediante i calcoli ingegneristici effettuati (analisi convezione naturale)}}   % Table caption
   \label{tab:nat_conv_calcs}                                                                                                % Reference-label to table
+\end{table}                                                                                                                 % Table-end
+\vspace{3mm}                                                                                                                % Vert space
+\begin{table}[H]                                                                                                            % Table-start
+  \centering                                                                                                                % Center table
+  \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
+    \hline
+    Dati/misure                       & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 1 \\
+    \hline\hline
+    Q\textsubscript{perso} [\%]       & 5.4             & 8.8               & 13.3              & 13.4            \\
+    Q\textsubscript{perso,vetro} [\%] & 1.0             & 0.4               & 1.4               & 1.4             \\
+    $\Delta{Calc(Q)}$ [\%]            & 35.0            & 38.4              & 37.2              & 33.5            \\
+    \hline
+  \end{tabular}                                                                                                             % End tabular definition
+  \caption{\textit{Valori percentuali calcolati}}                                                                           % Table caption
+  \label{tab:perc_calcs}                                                                                                    % Reference-label to table
 \end{table}                                                                                                                 % Table-end
 
 \section{Immagini e grafici}                                                                                                % Section creation: "Immagini e grafici"
 \label{sec:imgs_graphs}                                                                                                     % "imgs_graphs" reference-label definition and following section text
-\begin{figure}[ht!]                                                                                                         % Figure-start
+\begin{figure}[H]                                                                                                           % Figure-start
   \centering                                                                                                                % Center image
   \includegraphics[width=0.9\textwidth]{../final_doc/code_exports/imgs/measures.png}                                        % Size: 100% width of the text
   \caption{\textit{Dati sperimentali analizzati dallo scambiatore di calore e rilevamento delle diverse misure}}            % Image caption
   \label{fig:measures}                                                                                                      % Reference-label to image
 \end{figure}                                                                                                                % Figure-end
-\begin{figure}[ht!]                                                                                                         % Figure-start
+\begin{figure}[H]                                                                                                           % Figure-start
   \centering                                                                                                                % Center image
   \includegraphics[width=0.9\textwidth]{../final_doc/code_exports/imgs/measure3.png}                                        % Size: 100% width of the text
   \caption{\textit{Scelta del miglior intervallo dati durante la terza misura (ricerca condizioni stazionarie)}}            % Image caption
   \label{fig:measure1}                                                                                                      % Reference-label to image
 \end{figure}                                                                                                                % Figure-end
-\begin{figure}[ht!]                                                                                                         % Figure-start
+\begin{figure}[H]                                                                                                           % Figure-start
   \centering                                                                                                                % Center image
   \includegraphics[width=0.9\textwidth]{../final_doc/code_exports/imgs/water_fitted_pr.png}                                 % Size: 100% width of the text
   \caption{\textit{Fitting polinomiale numero di Prandlt acqua (scartato per approssimazione insoddisfacente)}}             % Image caption
   \label{fig:water_fitted_pr}                                                                                               % Reference-label to image
 \end{figure}                                                                                                                % Figure-end
-\begin{figure}[ht!]                                                                                                         % Figure-start
+\begin{figure}[H]                                                                                                           % Figure-start
   \centering                                                                                                                % Center image
   \includegraphics[width=0.9\textwidth]{../final_doc/code_exports/imgs/water_intp_pr.png}                                   % Size: 100% width of the text
   \caption{\textit{Interpolazione polinomiale numero di Prandlt acqua (accettata, buona approssimazione)}}                  % Image caption
   \label{fig:water_intp_pr}                                                                                                 % Reference-label to image
 \end{figure}                                                                                                                % Figure-end
-\begin{figure}[ht!]                                                                                                         % Figure-start
+\begin{figure}[H]                                                                                                           % Figure-start
   \centering                                                                                                                % Center image
   \includegraphics[width=0.9\textwidth]{../final_doc/code_exports/imgs/temp_trend.png}                                      % Size: 100% width of the text
   \caption{\textit{Alcune temperature nella parte superiore dello scambiatore durante la seconda misura in equi-corrente}}  % Image caption
   \label{fig:temp_trend}                                                                                                    % Reference-label to image
 \end{figure}                                                                                                                % Figure-end
-\begin{figure}[ht!]                                                                                                         % Figure-start
+\begin{figure}[H]                                                                                                           % Figure-start
   \centering                                                                                                                % Center image
   \includegraphics[width=0.75\textwidth]{../final_doc/code_exports/imgs/heat_exchanger.png}                                 % Size: 100% width of the text
   \caption{\textit{Dimensioni scambiatore di calore utilizzate per calcolo dei diametri equivaleti (creata da autocad)}}    % Image caption
