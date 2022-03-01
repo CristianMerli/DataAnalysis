@@ -8,8 +8,8 @@
 \contentsline {section}{\numberline {7}Formule}{2}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Formule analisi dati}{2}{subsection.7.1}%
 \contentsline {subsubsection}{\numberline {7.1.1}Scelta miglior intervallo dati con condizioni stazionarie}{2}{subsubsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.2}Formule calcoli ingegneristici}{2}{subsection.7.2}%
-\contentsline {subsubsection}{\numberline {7.2.1}Trasferimento di calore}{2}{subsubsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2}Formule calcoli ingegneristici}{3}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Trasferimento di calore}{3}{subsubsection.7.2.1}%
 \contentsline {subsubsection}{\numberline {7.2.2}Metodo epsilon-NTU}{3}{subsubsection.7.2.2}%
 \contentsline {subsubsection}{\numberline {7.2.3}Metodo numeri adimensionali}{3}{subsubsection.7.2.3}%
 \contentsline {subsubsection}{\numberline {7.2.4}Convezione naturale esterna}{4}{subsubsection.7.2.4}%
