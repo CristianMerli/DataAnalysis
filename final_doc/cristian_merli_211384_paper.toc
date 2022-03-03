@@ -3,16 +3,24 @@
 \contentsline {section}{\numberline {2}Introduzione}{2}{section.2}%
 \contentsline {section}{\numberline {3}Linguaggio di programmazione}{2}{section.3}%
 \contentsline {section}{\numberline {4}Analisi dati}{2}{section.4}%
-\contentsline {section}{\numberline {5}Calcoli ingegneristici}{2}{section.5}%
-\contentsline {section}{\numberline {6}Conclusioni}{2}{section.6}%
-\contentsline {section}{\numberline {7}Formule}{2}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Formule analisi dati}{2}{subsection.7.1}%
-\contentsline {subsubsection}{\numberline {7.1.1}Scelta miglior intervallo dati con condizioni stazionarie}{2}{subsubsection.7.1.1}%
+\contentsline {subsection}{\numberline {4.1}Fase preliminare}{2}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Definizione valori e creazione strutture dati}{2}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Calcoli ingegneristici}{3}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Approssimazione polinomiale variabili termofisiche}{3}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Definizione dettagli scambiatore di calore e calcoli preliminari}{3}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Trasferimento di calore}{3}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Metodo epsilon-NTU}{3}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Metodo numeri adimensionali}{3}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Convezione naturale esterna}{3}{subsection.5.6}%
+\contentsline {section}{\numberline {6}Conclusioni}{3}{section.6}%
+\contentsline {section}{\numberline {7}Formule}{3}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Formule analisi dati}{3}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Scelta miglior intervallo dati con condizioni stazionarie}{3}{subsubsection.7.1.1}%
 \contentsline {subsection}{\numberline {7.2}Formule calcoli ingegneristici}{3}{subsection.7.2}%
 \contentsline {subsubsection}{\numberline {7.2.1}Trasferimento di calore}{3}{subsubsection.7.2.1}%
 \contentsline {subsubsection}{\numberline {7.2.2}Metodo epsilon-NTU}{3}{subsubsection.7.2.2}%
-\contentsline {subsubsection}{\numberline {7.2.3}Metodo numeri adimensionali}{3}{subsubsection.7.2.3}%
-\contentsline {subsubsection}{\numberline {7.2.4}Convezione naturale esterna}{4}{subsubsection.7.2.4}%
-\contentsline {section}{\numberline {8}Tabelle}{4}{section.8}%
-\contentsline {section}{\numberline {9}Immagini e grafici}{5}{section.9}%
-\contentsline {section}{Riferimenti bibliografici}{7}{figure.6}%
+\contentsline {subsubsection}{\numberline {7.2.3}Metodo numeri adimensionali}{4}{subsubsection.7.2.3}%
+\contentsline {subsubsection}{\numberline {7.2.4}Convezione naturale esterna}{5}{subsubsection.7.2.4}%
+\contentsline {section}{\numberline {8}Tabelle}{5}{section.8}%
+\contentsline {section}{\numberline {9}Immagini e grafici}{6}{section.9}%
+\contentsline {section}{Riferimenti bibliografici}{8}{figure.6}%

@@ -63,7 +63,7 @@
 
 \maketitle                                                                                                                  % Plot previously defined title
 
-\vspace{4cm}                                                                                                                % Vertical-space command
+\vspace{2cm}                                                                                                                % Vertical-space command
   \addcontentsline{toc}{section}{Sommario}                                                                                  % Add abstract inside table of contents
   \begin{abstract}                                                                                                          % Abstract creation and following abstract text
     \noindent \textit{Relazione sintetica con lo scopo di descrivere le scelte adottate, e discutere i risultati  ottenuti
@@ -76,9 +76,9 @@
     mediante l'analisi assistita da calcolatore dei dati raccolti durante l'esperienza di laboratorio (effettuata in data
     26/11/2021 con il gruppo numero 5, presso i laboratori del dipartimanto di fisica dell'università di Trento).}
   \end{abstract}                                                                                                            % Abstract end
-\vspace{2.5cm}                                                                                                              % Vertical-space command
+\vspace{1cm}                                                                                                                % Vertical-space command
 
-\vspace{2.5cm}                                                                                                              % Vertical-space command
+\vspace{1cm}                                                                                                                % Vertical-space command
   \tableofcontents                                                                                                          % Plot table of contents
 \pagebreak                                                                                                                  % Go to new page
 
@@ -87,7 +87,7 @@
   Le richieste di progetto consistono principalmente nella realizzazione di un sistema di analisi dati "computerizzato",
   per poter cogliere da esso, le informazioni necessarie ad effettuare i diversi calcoli inerenti il fenomeno di scambio
   termico. Il tutto, con l'obiettivo di caratterizzare tale fenomeno sul manufatto oggetto di analisi sperimentale. In
-  aggiunta, è stato richiesto di cogliere le analogie e tutto ciò in cui i risultati teorici attesi, differiscono da
+  aggiunta, è stato richiesto di identificare le analogie e tutto ciò in cui i risultati teorici attesi, differiscono da
   quelli sperimentali ottenuti, con particolare attenzione in riferimento alla non adiabaticità del sistema e alle varie
   approssimazioni effettuate in fase di modellazione, per lo studio del trasferimento di calore all'interno e all'esterno
   della macchina termica.
@@ -106,9 +106,10 @@
 \section{Linguaggio di programmazione}                                                                                      % Section creation: "Linguaggio di programmazione"
 \label{sec:progr_lang}                                                                                                      % "progr_lang" reference-label definition and following section text
   Il passo preliminare per poter portare a compimento le richieste avanzate da parte del docente
-  \textit{\textbf{[}Capitolo \ref{sec:project_request}, pagina~\pageref{sec:project_request}\textbf{]}}, è stato quello di
-  individuare un software di "data science", per la realizzazione della parte di analisi dati e calcolo ingegneristico. La
-  scelta più ovvia in ambito accademico, sarebbe stata quella di utilizzare il software MatLab, ma si è optato per un
+  \textit{\textbf{[}\hyperref[sec:project_request]{Capitolo }\ref{sec:project_request},
+  \hyperref[sec:project_request]{pagina }\pageref{sec:project_request}\textbf{]}}, è stato quello di
+  individuare un software di "data science", per la realizzazione della parte di analisi dati e calcolo ingegneristico.
+  La scelta più ovvia in ambito accademico, sarebbe stata quella di utilizzare il software MatLab, ma si è optato per un
   programma di tipo open-source, riutilizzabile anche in futuro essendo libero da licenze. É stato quindi scelto un
   linguaggio denominato python, dotato di numerosi pacchetti dedicati al "data science", tra cui pandas e numpy.
   L'ambiente di sviluppo utilizzato (IDE) è Visual Studio Code, installato su una macchina linux con un ambiente virtuale
@@ -128,20 +129,60 @@
 
 \section{Analisi dati}                                                                                                      % Section creation: "Analisi dati"
 \label{sec:data_analysis}                                                                                                   % "data_analysis" reference-label definition and following section text
-  Prima di procedere con l'analisi dati vera e propria, il file contenente le misure sperimentali è stato caricato e
-  rielaborato dal software, creando un file CSV appositamente formattato. Quest'ultimo, è stato a sua volta convertito in
-  un database utilizzato in seguito come sorgente dati da cui attingere, al fine di estrapolare informazioni per compiere
-  operazioni di filtraggio e di calcolo. Il programma quindi, identifica all'interno del database le diverse misure,
-  mostrandole graficamente \textit{\textbf{[}Immagine \ref{fig:measures}\textbf{]}}.
-  L'analisi effettuata sui dati sperimetali raccolti, ha avuto come scopo principale quello di ottenere valori numerici
-  delle diverse variabili misurate: temperature e portate volumetriche. Si è cercato di ricavare valori significativi, per
-  poter successivamente svolgere i calcoli ingegneristici richiesti. In particolare, essendo le equazioni utilizzate,
-  valide sotto condizioni di stazionarietà, sono stati scelti intervalli dati che soddisfassero al meglio tali requisiti.
-  Nello specifico, sfruttando l'equazione \textit{\textbf{[}\ref{eqn:stat}\textbf{]}}, sono stati identificati gli
-  intervalli dati da cui ricavare il valore medio delle variabili rilevate sperimentalmente. 
+\subsection{Fase preliminare}                                                                                               % Subsection creation: "Fase preliminare"
+\label{subsec:prelim_phase}                                                                                                 % "prelim_phase" reference-label definition and following subsection text  
+  Per prima cosa, dopo aver auto-inizializzato l'ambiente, il codice esegue delle operazioni preliminari prima di
+  procedere con l'analisi dati vera e propria. In sequenza, il file contenente le misure sperimentali, viene caricato e
+  rielaborato dal software, creando un file CSV appositamente formattato. Quest'ultimo, a sua volta convertito in un
+  database, viene utilizzato come sorgente dati da cui attingere, al fine di estrapolare informazioni per compiere
+  operazioni di filtraggio e di calcolo. Il programma, identifica quindi in maiera autonoma le diverse misure all'interno
+  del database, ripulendo anche dati corrispondenti ad "altre operazioni", per poi mostrare il tutto graficamente
+  evidenziando le finestre dati corrispondenti alle misure stesse
+  \textit{\textbf{[}\hyperref[fig:measures]{Fig. }\ref{fig:measures}\textbf{]}}.
+\subsection{Definizione valori e creazione strutture dati}                                                                  % Subsection creation: "Definizione valori e creazione strutture dati"
+\label{subsec:valsdef_datastruct}                                                                                           % "valsdef_datastruct" reference-label definition and following subsection text  
+  Conclusa questa fase preliminare, vengono automaticamente richiamate le istruzioni di analisi dati vera e propria. Tali
+  istruzioni hanno come scopo principale, quello di ottenere i valori numerici delle diverse variabili misurate, per ogni
+  misura: temperature e portate volumetriche. Il tutto, cercando di ricavare valori numerici significativi, per poter
+  successivamente svolgere i calcoli ingegneristici richiesti. In particolare essendo le equazioni utilizzate, valide
+  sotto condizioni di stazionarietà, il software sceglie intervalli dati che soddifino al meglio tali requisiti. Nello
+  specifico, ciò avviene mediante l'implementazione informatica dell'equazione
+  \textit{\textbf{[}\ref{eqn:stat}\textbf{]}}, utilizzata per identificare gli intervalli dati, da cui ricavare il valore
+  medio delle variabili rilevate sperimentalmente. Anche in questo caso, le operazioni vengono rappresentate graficamente,
+  come mostrato ad esempio per la prima misura
+  \textit{\textbf{[}\hyperref[fig:measure1]{Fig. }\ref{fig:measure1}\textbf{]}}, in cui viene evidenziato l'intervallo
+  selezionato. Vengono quindi creati in maniera autonoma, degli oggetti informatici di tipo "misura", i quali ne
+  conterranno tutte le informazioni. In fase di creazione della lista di oggetti "misura", ne viene auto-determinata la
+  tipologia (equi-corrente o contro-corrente) in base al testo di descrizione, e vengono popolate le variabili
+  corrispondenti ai valori delle misure, riportati anche nella tabella dedicata
+  \textit{\textbf{[}\hyperref[tab:measures_data]{Tab. }\ref{tab:measures_data}\textbf{]}}. Questi oggetti, hanno inoltre
+  lo scopo di contenere tutti i risultati dei calcoli ingegneristici raggruppati per misura, in modo da poter essere
+  facilmente richiamati nelle formule di calcolo e poter essere stampati a video o esportati su file, in maniera rapida
+  e ordinata.
 
 \section{Calcoli ingegneristici}                                                                                            % Section creation: "Calcoli ingegneristici"
 \label{sec:engineering_calcs}                                                                                               % "engineering_calcs" reference-label definition and following section text
+\subsection{Approssimazione polinomiale variabili termofisiche}                                                             % Subsection creation: "Approssimazione polinomiale variabili termofisiche"
+\label{subsec:thermovars_polyapprox}                                                                                        % "thermovars_polyapprox" reference-label definition and following subsection text  
+  Con l'obiettivo di avere risultati il più possibile precisi,
+  Import thermophysical variables data from (.csv) table files, creating 'DataFrames' variables --> Source: moodle-pdf
+  (original file name: Proprietà termofisiche aria e acqua.pdf), http://www.inductor-jmag.ru/files/content/a129160.pdf -
+  pdf page 28 / page 21 - Table 4 and https://nvlpubs.nist.gov/nistpubs/Legacy/RPT/nbsreport7836.pdf - pdf page 39 / page 16
+ 
+\subsection{Definizione dettagli scambiatore di calore e calcoli preliminari}                                               % Subsection creation: "Definizione dettagli scambiatore di calore e calcoli preliminari"
+\label{subsec:hedef_prelcalcs}                                                                                              % "hedef_prelcalcs" reference-label definition and following subsection text  
+  XSAHxsjhsavxsgavsxgh
+\subsection{Trasferimento di calore}                                                                                        % Subsection creation: "Trasferimento di calore"
+\label{subsec:heat_tr}                                                                                                      % "heat_tr" reference-label definition and following subsection text 
+  XSAHxsjhsavxsgavsxgh
+\subsection{Metodo epsilon-NTU}                                                                                             % Subsection creation: "Metodo epsilon-NTU"
+\label{subsec:espntu_meth}                                                                                                  % "espntu_meth" reference-label definition and following subsection text 
+  XSAHxsjhsavxsgavsxgh
+\subsection{Metodo numeri adimensionali}                                                                                    % Subsection creation: "Metodo numeri adimensionali"
+\label{subsec:adimnum_meth}                                                                                                 % "adimnum_meth" reference-label definition and following subsection text
+  XSAHxsjhsavxsgavsxgh
+\subsection{Convezione naturale esterna}                                                                                    % Subsection creation: "Convezione naturale esterna"
+\label{subsec:extnat_conv}                                                                                                  % "extnat_conv" reference-label definition and following subsection text 
   XSAHxsjhsavxsgavsxgh
 
 \section{Conclusioni}                                                                                                       % Section creation: "Conclusioni"
@@ -367,7 +408,6 @@
 \section{Tabelle}                                                                                                           % Section creation: "Tabelle"
 \label{sec:tables}                                                                                                          % "tables" reference-label definition and following section text
 \begin{table}[H]                                                                                                            % Table-start
-  \label{tab:measures_data}                                                                                                 % Reference-label to table
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
@@ -382,10 +422,10 @@
     \hline
   \end{tabular}                                                                                                             % End tabular definition
   \caption{Valori delle variabili misurate ottenuti dall'analisi dei dati sperimentali}                                     % Table caption
+  \label{tab:measures_data}                                                                                                 % Reference-label to table
 \end{table}                                                                                                                 % Table-end
 \vspace{3mm}                                                                                                                % Vert space
 \begin{table}[H]                                                                                                            % Table-start
-  \label{tab:heat_tr_calcs}                                                                                                 % Reference-label to table
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
@@ -398,10 +438,10 @@
     \hline
   \end{tabular}                                                                                                             % End tabular definition
   \caption{\textit{Valori rilevanti ottenuti mediante i calcoli ingegneristici effettuati (potenze termiche scambiate)}}    % Table caption
+  \label{tab:heat_tr_calcs}                                                                                                 % Reference-label to table
 \end{table}                                                                                                                 % Table-end
 \vspace{3mm}                                                                                                                % Vert space
 \begin{table}[H]                                                                                                            % Table-start
-  \label{tab:eps_ntu_calcs}                                                                                                 % Reference-label to table
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
@@ -415,10 +455,10 @@
     \hline
   \end{tabular}                                                                                                             % End tabular definition
   \caption{\textit{Valori rilevanti ottenuti mediante i calcoli ingegneristici effettuati (metodo $\varepsilon$-NTU)}}      % Table caption
+  \label{tab:eps_ntu_calcs}                                                                                                 % Reference-label to table
 \end{table}                                                                                                                 % Table-end
 \vspace{3mm}                                                                                                                % Vert space
 \begin{table}[H]                                                                                                            % Table-start
-  \label{tab:adim_num_calcs}                                                                                                % Reference-label to table
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
@@ -434,10 +474,10 @@
     \hline
   \end{tabular}                                                                                                             % End tabular definition
   \caption{\textit{Valori rilevanti ottenuti mediante i calcoli ingegneristici effettuati (metodo numeri adimensionali)}}   % Table caption
+  \label{tab:adim_num_calcs}                                                                                                % Reference-label to table
 \end{table}                                                                                                                 % Table-end
 \vspace{3mm}                                                                                                                % Vert space
 \begin{table}[H]                                                                                                            % Table-start
-  \label{tab:nat_conv_calcs}                                                                                                % Reference-label to table
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
@@ -450,10 +490,10 @@
     \hline
   \end{tabular}                                                                                                             % End tabular definition
   \caption{\textit{Valori rilevanti ottenuti mediante i calcoli ingegneristici effettuati (analisi convezione naturale)}}   % Table caption
+  \label{tab:nat_conv_calcs}                                                                                                % Reference-label to table
 \end{table}                                                                                                                 % Table-end
 \vspace{3mm}                                                                                                                % Vert space
 \begin{table}[H]                                                                                                            % Table-start
-  \label{tab:perc_calcs}                                                                                                    % Reference-label to table
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
@@ -465,6 +505,7 @@
     \hline
   \end{tabular}                                                                                                             % End tabular definition
   \caption{\textit{Valori percentuali calcolati}}                                                                           % Table caption
+  \label{tab:perc_calcs}                                                                                                    % Reference-label to table
 \end{table}                                                                                                                 % Table-end
 
 \section{Immagini e grafici}                                                                                                % Section creation: "Immagini e grafici"

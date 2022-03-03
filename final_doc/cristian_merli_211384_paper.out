@@ -3,16 +3,24 @@
 \BOOKMARK [1][-]{section.2}{Introduzione}{}% 3
 \BOOKMARK [1][-]{section.3}{Linguaggio di programmazione}{}% 4
 \BOOKMARK [1][-]{section.4}{Analisi dati}{}% 5
-\BOOKMARK [1][-]{section.5}{Calcoli ingegneristici}{}% 6
-\BOOKMARK [1][-]{section.6}{Conclusioni}{}% 7
-\BOOKMARK [1][-]{section.7}{Formule}{}% 8
-\BOOKMARK [2][-]{subsection.7.1}{Formule analisi dati}{section.7}% 9
-\BOOKMARK [3][-]{subsubsection.7.1.1}{Scelta miglior intervallo dati con condizioni stazionarie}{subsection.7.1}% 10
-\BOOKMARK [2][-]{subsection.7.2}{Formule calcoli ingegneristici}{section.7}% 11
-\BOOKMARK [3][-]{subsubsection.7.2.1}{Trasferimento di calore}{subsection.7.2}% 12
-\BOOKMARK [3][-]{subsubsection.7.2.2}{Metodo epsilon-NTU}{subsection.7.2}% 13
-\BOOKMARK [3][-]{subsubsection.7.2.3}{Metodo numeri adimensionali}{subsection.7.2}% 14
-\BOOKMARK [3][-]{subsubsection.7.2.4}{Convezione naturale esterna}{subsection.7.2}% 15
-\BOOKMARK [1][-]{section.8}{Tabelle}{}% 16
-\BOOKMARK [1][-]{section.9}{Immagini e grafici}{}% 17
-\BOOKMARK [1][-]{figure.6}{Riferimenti bibliografici}{}% 18
+\BOOKMARK [2][-]{subsection.4.1}{Fase preliminare}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.2}{Definizione valori e creazione strutture dati}{section.4}% 7
+\BOOKMARK [1][-]{section.5}{Calcoli ingegneristici}{}% 8
+\BOOKMARK [2][-]{subsection.5.1}{Approssimazione polinomiale variabili termofisiche}{section.5}% 9
+\BOOKMARK [2][-]{subsection.5.2}{Definizione dettagli scambiatore di calore e calcoli preliminari}{section.5}% 10
+\BOOKMARK [2][-]{subsection.5.3}{Trasferimento di calore}{section.5}% 11
+\BOOKMARK [2][-]{subsection.5.4}{Metodo epsilon-NTU}{section.5}% 12
+\BOOKMARK [2][-]{subsection.5.5}{Metodo numeri adimensionali}{section.5}% 13
+\BOOKMARK [2][-]{subsection.5.6}{Convezione naturale esterna}{section.5}% 14
+\BOOKMARK [1][-]{section.6}{Conclusioni}{}% 15
+\BOOKMARK [1][-]{section.7}{Formule}{}% 16
+\BOOKMARK [2][-]{subsection.7.1}{Formule analisi dati}{section.7}% 17
+\BOOKMARK [3][-]{subsubsection.7.1.1}{Scelta miglior intervallo dati con condizioni stazionarie}{subsection.7.1}% 18
+\BOOKMARK [2][-]{subsection.7.2}{Formule calcoli ingegneristici}{section.7}% 19
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Trasferimento di calore}{subsection.7.2}% 20
+\BOOKMARK [3][-]{subsubsection.7.2.2}{Metodo epsilon-NTU}{subsection.7.2}% 21
+\BOOKMARK [3][-]{subsubsection.7.2.3}{Metodo numeri adimensionali}{subsection.7.2}% 22
+\BOOKMARK [3][-]{subsubsection.7.2.4}{Convezione naturale esterna}{subsection.7.2}% 23
+\BOOKMARK [1][-]{section.8}{Tabelle}{}% 24
+\BOOKMARK [1][-]{section.9}{Immagini e grafici}{}% 25
+\BOOKMARK [1][-]{figure.6}{Riferimenti bibliografici}{}% 26
