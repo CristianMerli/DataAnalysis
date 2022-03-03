@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.1.31)  3 MAR 2022 22:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.1.31)  3 MAR 2022 23:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -430,104 +430,104 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.510 
+l.514 
       pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.510 
+l.514 
       pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.510 
+l.514 
       pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.510 
+l.514 
       pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.510 
+l.514 
       ]
 <../final_doc/code_exports/imgs/measures.png, id=224, 1524.69624pt x 830.10126pt>
 File: ../final_doc/code_exports/imgs/measures.png Graphic file (type png)
 <use ../final_doc/code_exports/imgs/measures.png>
-Package pdftex.def Info: ../final_doc/code_exports/imgs/measures.png  used on input line 515.
+Package pdftex.def Info: ../final_doc/code_exports/imgs/measures.png  used on input line 519.
 (pdftex.def)             Requested size: 450.43253pt x 245.2324pt.
 <../final_doc/code_exports/imgs/measure3.png, id=226, 1517.67pt x 830.10126pt>
 File: ../final_doc/code_exports/imgs/measure3.png Graphic file (type png)
 <use ../final_doc/code_exports/imgs/measure3.png>
-Package pdftex.def Info: ../final_doc/code_exports/imgs/measure3.png  used on input line 521.
+Package pdftex.def Info: ../final_doc/code_exports/imgs/measure3.png  used on input line 525.
 (pdftex.def)             Requested size: 450.43253pt x 246.35971pt.
 <../final_doc/code_exports/imgs/water_fitted_pr.png, id=227, 1510.64375pt x 830.10126pt>
 File: ../final_doc/code_exports/imgs/water_fitted_pr.png Graphic file (type png)
 <use ../final_doc/code_exports/imgs/water_fitted_pr.png>
-Package pdftex.def Info: ../final_doc/code_exports/imgs/water_fitted_pr.png  used on input line 527.
+Package pdftex.def Info: ../final_doc/code_exports/imgs/water_fitted_pr.png  used on input line 531.
 (pdftex.def)             Requested size: 450.43253pt x 247.51234pt.
 <../final_doc/code_exports/imgs/water_intp_pr.png, id=228, 1510.64375pt x 830.10126pt>
 File: ../final_doc/code_exports/imgs/water_intp_pr.png Graphic file (type png)
 <use ../final_doc/code_exports/imgs/water_intp_pr.png>
-Package pdftex.def Info: ../final_doc/code_exports/imgs/water_intp_pr.png  used on input line 533.
+Package pdftex.def Info: ../final_doc/code_exports/imgs/water_intp_pr.png  used on input line 537.
 (pdftex.def)             Requested size: 450.43253pt x 247.51234pt.
  [6pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.536 \end{figure}
+l.540 \end{figure}
                                                                             ...pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.536 \end{figure}
+l.540 \end{figure}
                                                                             ...pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.536 \end{figure}
+l.540 \end{figure}
                                                                             ... <../final_doc/code_exports/imgs/measures.png> <../final_doc/code_exports/imgs/measure3.png>]
 <../final_doc/code_exports/imgs/temp_trend.png, id=236, 1526.70375pt x 830.10126pt>
 File: ../final_doc/code_exports/imgs/temp_trend.png Graphic file (type png)
 <use ../final_doc/code_exports/imgs/temp_trend.png>
-Package pdftex.def Info: ../final_doc/code_exports/imgs/temp_trend.png  used on input line 539.
+Package pdftex.def Info: ../final_doc/code_exports/imgs/temp_trend.png  used on input line 543.
 (pdftex.def)             Requested size: 450.43253pt x 244.90308pt.
 <../final_doc/code_exports/imgs/heat_exchanger.png, id=237, 580.41844pt x 453.19313pt>
 File: ../final_doc/code_exports/imgs/heat_exchanger.png Graphic file (type png)
 <use ../final_doc/code_exports/imgs/heat_exchanger.png>
-Package pdftex.def Info: ../final_doc/code_exports/imgs/heat_exchanger.png  used on input line 545.
+Package pdftex.def Info: ../final_doc/code_exports/imgs/heat_exchanger.png  used on input line 549.
 (pdftex.def)             Requested size: 375.36299pt x 293.08528pt.
  [7pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.549 
+l.553 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.549 
+l.553 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.549 
+l.553 
        <../final_doc/code_exports/imgs/water_fitted_pr.png> <../final_doc/code_exports/imgs/water_intp_pr.png> <../final_doc/code_exports/imgs/temp_trend.png>] (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 553.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 557.
  [8pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.553 \end{document}
+l.557 \end{document}
                                                                             ... <../final_doc/code_exports/imgs/heat_exchanger.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 553.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 557.
  (/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 553.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 553.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 557.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 557.
 Package rerunfilecheck Info: File `cristian_merli_211384_paper.out' has not changed.
 (rerunfilecheck)             Checksum: 6D1DD44F138684A43A098F97C7D2C62A;1817.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 553.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 557.
  ) 
 Here is how much of TeX's memory you used:
  8190 strings out of 483154
@@ -538,7 +538,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  34i,16n,39p,504b,354s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/cristian/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on /home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.pdf (8 pages, 675246 bytes).
+Output written on /home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/FisicaTecnica/tech_phys_lab/final_doc/cristian_merli_211384_paper.pdf (8 pages, 676203 bytes).
 PDF statistics:
  333 PDF objects out of 1000 (max. 8388607)
  290 compressed objects within 3 object streams
