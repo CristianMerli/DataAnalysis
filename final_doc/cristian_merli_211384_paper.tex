@@ -63,7 +63,7 @@
 
 \maketitle                                                                                                                  % Plot previously defined title
 
-\vspace{2cm}                                                                                                                % Vertical-space command
+\vspace{2.5cm}                                                                                                              % Vertical-space command
   \addcontentsline{toc}{section}{Sommario}                                                                                  % Add abstract inside table of contents
   \begin{abstract}                                                                                                          % Abstract creation and following abstract text
     \noindent \textit{Relazione sintetica con lo scopo di descrivere le scelte adottate, e discutere i risultati  ottenuti
@@ -76,9 +76,9 @@
     mediante l'analisi assistita da calcolatore dei dati raccolti durante l'esperienza di laboratorio (effettuata in data
     26/11/2021 con il gruppo numero 5, presso i laboratori del dipartimanto di fisica dell'università di Trento).}
   \end{abstract}                                                                                                            % Abstract end
-\vspace{1cm}                                                                                                                % Vertical-space command
+\vspace{1.5cm}                                                                                                              % Vertical-space command
 
-\vspace{1cm}                                                                                                                % Vertical-space command
+\vspace{1.5cm}                                                                                                              % Vertical-space command
   \tableofcontents                                                                                                          % Plot table of contents
 \pagebreak                                                                                                                  % Go to new page
 
@@ -133,11 +133,13 @@
 \label{subsec:prelim_phase}                                                                                                 % "prelim_phase" reference-label definition and following subsection text  
   Per prima cosa, dopo aver auto-inizializzato l'ambiente, il codice esegue delle operazioni preliminari prima di
   procedere con l'analisi dati vera e propria. In sequenza, il file contenente le misure sperimentali, viene caricato e
-  rielaborato dal software, creando un file CSV appositamente formattato. Quest'ultimo, a sua volta convertito in un
-  database, viene utilizzato come sorgente dati da cui attingere, al fine di estrapolare informazioni per compiere
-  operazioni di filtraggio e di calcolo. Il programma, identifica quindi in maiera autonoma le diverse misure all'interno
-  del database, ripulendo anche dati corrispondenti ad "altre operazioni", per poi mostrare il tutto graficamente
-  evidenziando le finestre dati corrispondenti alle misure stesse
+  rielaborato dal software, creando un file CSV appositamente formattato
+  (\textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/data_analysis/dataset/scambiatore26112021_5.dat}{file-DAT}},
+  \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/data_analysis/dataset/scambiatore26112021_5.csv}{file-CSV}}).
+  Quest'ultimo, a sua volta convertito in un database, viene utilizzato come sorgente dati da cui attingere, al fine di
+  estrapolare informazioni per compiere operazioni di filtraggio e di calcolo. Il programma, identifica quindi in maiera
+  autonoma le diverse misure all'interno del database, ripulendo anche dati corrispondenti ad "altre operazioni", per poi
+  mostrare il tutto graficamente evidenziando le finestre dati corrispondenti alle misure stesse
   \textit{\textbf{[}\hyperref[fig:measures]{Fig. }\ref{fig:measures}\textbf{]}}.
 \subsection{Definizione valori e creazione strutture dati}                                                                  % Subsection creation: "Definizione valori e creazione strutture dati"
 \label{subsec:valsdef_datastruct}                                                                                           % "valsdef_datastruct" reference-label definition and following subsection text  
@@ -166,12 +168,32 @@
 \label{subsec:thermovars_polyapprox}                                                                                        % "thermovars_polyapprox" reference-label definition and following subsection text  
   Al fine di ottenere risultati il più possibile veritieri, anche le variabili termofisiche dei materiali/fluidi
   costituenti o interagenti con l'apparato di scambio termico, sono state approssimate polinomialmente in funzione della
-  temperatura. I dati di partenza utilizzati per approssimare l'andamento delle diverse proprietà in funzione della
-  temperatura, derivano da diverse fonti ufficiali ed affidabili.
-  Import thermophysical variables data from (.csv) table files, creating 'DataFrames' variables --> Source: moodle-pdf
-  (original file name: Proprietà termofisiche aria e acqua.pdf), http://www.inductor-jmag.ru/files/content/a129160.pdf -
-  pdf page 28 / page 21 - Table 4 and https://nvlpubs.nist.gov/nistpubs/Legacy/RPT/nbsreport7836.pdf -
-  pdf page 39 / page 16
+  temperatura. I dati di partenza utilizzati per approssimare l'andamento delle diverse proprietà con la temperatura,
+  derivano da diverse fonti ufficiali ed affidabili. Nel dettaglio, i dati riguardanti i fluidi: aria ed acqua, sono
+  stati forniti dal docente sottoforma di tabelle (pdf), poi trascritte in file CSV ed importate sottoforma di database.
+  Procedura analoga, anche per i materiali costituenti lo scambiatore: acciaio inox AISI-316 (tubi interni) e vetro
+  borosilicato (pyrex, tubo esterno), i cui dati sono però derivanti da fonti online. Di seguito, sono riportate nel
+  dettaglio, le fonti dati utilizzate:
+  \begin{itemize}                                                                                                           % List-start
+    \item \textbf{proprietà aria a pressione atmosferica:}
+      prima tabella all'interno del file pdf
+      (\textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/TabelleAriaAcqua.pdf}{file-PDF}},
+      \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/data_analysis/thermophys_vars/air_atmp_thermo_vars.csv}{file-CSV}}).
+    \item \textbf{proprietà acqua:}
+      seconda tabella all'interno del file pdf
+      (\textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/TabelleAriaAcqua.pdf}{file-PDF}},
+      \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/data_analysis/thermophys_vars/water_thermo_vars.csv}{file-CSV}}).
+    \item \textbf{proprietà AISI-316:}
+      fonte \textit{\href{http://www.inductor-jmag.ru/files/content/a129160.pdf}{http://www.inductor-jmag.ru/files/content/a129160.pdf}}
+      pagina 28 pdf, Table 4 (pagina 21 file)
+      (\textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/AISI316.pdf}{file-PDF}},
+      \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/data_analysis/thermophys_vars/aisi_316_thermo_vars.csv}{file-CSV}}).
+    \item \textbf{proprietà vetro pyrex:}
+      fonte \textit{\href{https://nvlpubs.nist.gov/nistpubs/Legacy/RPT/nbsreport7836.pdf}{https://nvlpubs.nist.gov/nistpubs/Legacy/RPT/nbsreport7836.pdf}}
+      pagina 39 pdf, Table 6 (pagina 16 file)
+      (\textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/Pyrex_glass.pdf}{file-PDF}},
+      \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/data_analysis/thermophys_vars/pyrex_glass_thermo_vars.csv}{file-CSV}}).
+  \end{itemize}                                                                                                             % List-end
  
 \subsection{Definizione dettagli scambiatore di calore e calcoli preliminari}                                               % Subsection creation: "Definizione dettagli scambiatore di calore e calcoli preliminari"
 \label{subsec:hedef_prelcalcs}                                                                                              % "hedef_prelcalcs" reference-label definition and following subsection text  
