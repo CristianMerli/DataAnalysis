@@ -133,14 +133,14 @@
 \label{subsec:prelim_phase}                                                                                                 % "prelim_phase" reference-label definition and following subsection text  
   Per prima cosa, dopo aver auto-inizializzato l'ambiente, il codice esegue delle operazioni preliminari prima di
   procedere con l'analisi dati vera e propria. In sequenza, il file contenente le misure sperimentali, viene caricato e
-  rielaborato dal software, creando un file CSV appositamente formattato
+  rielaborato dal software creando un file CSV appositamente formattato
   (\textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/data_analysis/dataset/scambiatore26112021_5.dat}{file-DAT}},
   \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/data_analysis/dataset/scambiatore26112021_5.csv}{file-CSV}}).
-  Quest'ultimo, a sua volta convertito in un database, viene utilizzato come sorgente dati da cui attingere, al fine di
-  estrapolare informazioni per compiere operazioni di filtraggio e di calcolo. Il programma, identifica quindi in maiera
-  autonoma le diverse misure all'interno del database, ripulendo anche dati corrispondenti ad "altre operazioni", per poi
-  mostrare il tutto graficamente evidenziando le finestre dati corrispondenti alle misure stesse
-  \textit{\textbf{[}\hyperref[fig:measures]{Fig. }\ref{fig:measures}\textbf{]}}.
+  Quest'ultimo, a sua volta convertito in un database, viene utilizzato come sorgente dati da cui attingere al fine di
+  estrapolare informazioni, per compiere operazioni di filtraggio e di calcolo. Il programma, identifica quindi in maiera
+  autonoma le diverse misure all'interno del database, ripulendo inoltre ulteriori eventuali dati intermedi corrispondenti
+  ad 'altre operazioni'. Il tutto viene poi mostrato graficamente, evidenziando le finestre dati corrispondenti alle
+  misure stesse \textit{\textbf{[}\hyperref[fig:measures]{Fig. }\ref{fig:measures}\textbf{]}}.
 \subsection{Definizione valori e creazione strutture dati}                                                                  % Subsection creation: "Definizione valori e creazione strutture dati"
 \label{subsec:valsdef_datastruct}                                                                                           % "valsdef_datastruct" reference-label definition and following subsection text  
   Conclusa questa fase preliminare, vengono automaticamente richiamate le istruzioni di analisi dati vera e propria. Tali
@@ -150,17 +150,19 @@
   sotto condizioni di stazionarietà, il software sceglie intervalli dati che soddifino al meglio tali requisiti. Nello
   specifico, ciò avviene mediante l'implementazione informatica dell'equazione
   \textit{\textbf{[}\ref{eqn:stat}\textbf{]}}, utilizzata per identificare gli intervalli dati, da cui ricavare il valore
-  medio delle variabili rilevate sperimentalmente. Anche in questo caso, le operazioni vengono rappresentate graficamente,
-  come mostrato ad esempio per la prima misura
-  \textit{\textbf{[}\hyperref[fig:measure1]{Fig. }\ref{fig:measure1}\textbf{]}}, in cui viene evidenziato l'intervallo
-  selezionato. Vengono quindi creati in maniera autonoma, degli oggetti informatici di tipo "misura", i quali ne
-  conterranno tutte le informazioni. In fase di creazione della lista di oggetti "misura", ne viene auto-determinata la
+  medio delle variabili rilevate sperimentalmente. Anche in questo caso le operazioni vengono rappresentate graficamente,
+  come mostrato ad esempio per la prima misura in
+  \textit{\textbf{[}\hyperref[fig:measure1]{Fig. }\ref{fig:measure1}\textbf{]}}, dove viene evidenziato l'intervallo
+  selezionato. Vengono quindi creati in maniera autonoma, degli oggetti informatici di tipo 'misura', i quali ne
+  conterranno tutte le informazioni. In fase di creazione della lista di oggetti 'misura', ne viene auto-determinata la
   tipologia (equi-corrente o contro-corrente) in base al testo di descrizione, e vengono popolate le variabili
-  corrispondenti ai valori delle misure, riportati anche nella tabella dedicata
+  corrispondenti ai valori delle misure, riportati anche nella tabella dedicata:
   \textit{\textbf{[}\hyperref[tab:measures_data]{Tab. }\ref{tab:measures_data}\textbf{]}}. Questi oggetti, hanno inoltre
   lo scopo di contenere tutti i risultati dei calcoli ingegneristici raggruppati per misura, in modo da poter essere
   facilmente richiamati nelle formule di calcolo e poter essere stampati a video o esportati su file, in maniera rapida
-  e ordinata.
+  e ordinata.\vspace{2mm}\\
+  \textit{Nota:} i file esportati dallo script principale di calcolo, possono essere consultati al seguente
+  \textit{\href{https://github.com/CristianMerli/DataAnalysis/tree/master/final_doc/code_exports/output}{link}}.
 
 \section{Calcoli ingegneristici}                                                                                            % Section creation: "Calcoli ingegneristici"
 \label{sec:engineering_calcs}                                                                                               % "engineering_calcs" reference-label definition and following section text
@@ -169,11 +171,11 @@
   Al fine di ottenere risultati il più possibile veritieri, anche le variabili termofisiche dei materiali/fluidi
   costituenti o interagenti con l'apparato di scambio termico, sono state approssimate polinomialmente in funzione della
   temperatura. I dati di partenza utilizzati per approssimare l'andamento delle diverse proprietà con la temperatura,
-  derivano da diverse fonti ufficiali ed affidabili. Nel dettaglio, i dati riguardanti i fluidi: aria ed acqua, sono
-  stati forniti dal docente sottoforma di tabelle (pdf), poi trascritte in file CSV ed importate sottoforma di database.
-  Procedura analoga, anche per i materiali costituenti lo scambiatore: acciaio inox AISI-316 (tubi interni) e vetro
-  borosilicato (pyrex, tubo esterno), i cui dati sono però derivanti da fonti online. Di seguito, sono riportate nel
-  dettaglio, le fonti dati utilizzate:
+  derivano da fonti ufficiali ed affidabili. Nel dettaglio, i dati riguardanti i fluidi: aria ed acqua, sono stati forniti
+  dal docente sottoforma di tabelle (pdf), poi trascritte in file CSV ed importate sottoforma di database. Procedura
+  analoga, anche per i materiali costituenti lo scambiatore: acciaio inox AISI-316 (tubi interni) e vetro borosilicato
+  (pyrex, tubo esterno), i cui dati sono però derivanti dalla rete. Di seguito, sono riportate nel dettaglio, le
+  fonti dati utilizzate:
   \begin{itemize}                                                                                                           % List-start
     \item \textbf{proprietà aria a pressione atmosferica:}
       prima tabella all'interno del file pdf
@@ -184,26 +186,60 @@
       (\textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/TabelleAriaAcqua.pdf}{file-PDF}},
       \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/data_analysis/thermophys_vars/water_thermo_vars.csv}{file-CSV}}).
     \item \textbf{proprietà AISI-316:}
-      fonte \textit{\href{http://www.inductor-jmag.ru/files/content/a129160.pdf}{http://www.inductor-jmag.ru/files/content/a129160.pdf}}
-      pagina 28 pdf, Table 4 (pagina 21 file)
+      \textit{\href{http://www.inductor-jmag.ru/files/content/a129160.pdf}{http://www.inductor-jmag.ru/files/content/a129160.pdf}}
+      pagina 28 pdf, tabella 4 (pagina 21 file)
       (\textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/AISI316.pdf}{file-PDF}},
       \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/data_analysis/thermophys_vars/aisi_316_thermo_vars.csv}{file-CSV}}).
     \item \textbf{proprietà vetro pyrex:}
-      fonte \textit{\href{https://nvlpubs.nist.gov/nistpubs/Legacy/RPT/nbsreport7836.pdf}{https://nvlpubs.nist.gov/nistpubs/Legacy/RPT/nbsreport7836.pdf}}
-      pagina 39 pdf, Table 6 (pagina 16 file)
+      \textit{\href{https://nvlpubs.nist.gov/nistpubs/Legacy/RPT/nbsreport7836.pdf}{https://nvlpubs.nist.gov/nistpubs/Legacy/RPT/nbsreport7836.pdf}}
+      pagina 39 pdf, tabella 6 (pagina 16 file)
       (\textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/Pyrex_glass.pdf}{file-PDF}},
       \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/data_analysis/thermophys_vars/pyrex_glass_thermo_vars.csv}{file-CSV}}).
+      \vspace{1.5mm}\\\textit{Nota:} in caso d'errore in fase di caricamento dell'anteprima file PDF, dovuto alle dimensioni eccessive
+      del file stesso, premere il pulante 'download', oppure usa il seguente
+      \textit{\href{https://github.com/CristianMerli/DataAnalysis/raw/master/lab_doc/Pyrex_glass.pdf}{link}}).
   \end{itemize}                                                                                                             % List-end
- 
+  Questi dati, sono quindi la base su cui uno script appositamente sviluppato, esegue operazioni di approssimazione
+  polinomiale mediante interpolazione o "curve-fitting". Dopo di che, caso per caso, viene scelto il metodo che meglio
+  definisce l'andamento del grafico. Anche queste operazioni vengono rappresentate mediante grafici, utilizzati per
+  scegliere il metodo d'apprissimazioni più affidabile per ogni trend. A titolo esemplificativo, al fine di approssimare
+  l'andamento del numero di Prandtl per l'acqua (in funzione della temperatura), si è scelto il metodo di interpolazione
+  contro quello di "curve-fitting". Dopo aver cercato di ottenere la miglior curva con entrambe i metodi per confronto
+  visivo, si è scelto il quello migliore per il caso in oggetto: com'è possibile notare dai trend in
+  \textit{\textbf{[}\hyperref[fig:water_fitted_pr]{Fig. }\ref{fig:water_fitted_pr}\textbf{]}} e
+  \textit{\textbf{[}\hyperref[fig:water_intp_pr]{Fig. }\ref{fig:water_intp_pr}\textbf{]}}.
 \subsection{Definizione dettagli scambiatore di calore e calcoli preliminari}                                               % Subsection creation: "Definizione dettagli scambiatore di calore e calcoli preliminari"
 \label{subsec:hedef_prelcalcs}                                                                                              % "hedef_prelcalcs" reference-label definition and following subsection text  
-  XSAHxsjhsavxsgavsxgh
+  I dati/dettagli essenziali riguardanti le geometrie dello scambiatore di calore, derivano dai file messi a disposizione
+  dal docente:
+  \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/DescrizioneScambiatore.pdf}{descrizione-scambiatore-PDF}}
+  e \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/RelazioniScambiatore.pdf}{relazioni-scambiatore-PDF}}
+  (prima pagina). Attraverso un'ulteriore script dedicato, si è creato un oggetto informatico di tipo 'he' (HeatExchanger),
+  popolato mediante preset dei parametri geometrici a disposizione. Al contempo, sono stati determinati anche i parametri
+  geometrici derivati: superfici, diametri equicalenti ecc. Proprio per calcolare aree di flusso e diametri equivalenti
+  termici ed idraulici, è stato realizzato uno schema della sezione orizzontale dello scambiatore:
+  \textit{\textbf{[}\hyperref[fig:he]{Fig. }\ref{fig:he}\textbf{]}}. Tali parametri, sono consultabili al seguente
+  \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/final_doc/code_exports/output/he.txt}{link}}.
+  Definito tutto ciò che riguarda l'apparato sottoposto a misurazioni, si è proceduto con l'esecuzione di calcoli
+  preliminari utili per poter procedere rapidamente, alla definizione analitica dei fenomeni di scambio termico coinvolti.
+  Sono state quindi definite temperature medie dei fluidi e differenze di temperatura in gioco.
 \subsection{Trasferimento di calore}                                                                                        % Subsection creation: "Trasferimento di calore"
 \label{subsec:heat_tr}                                                                                                      % "heat_tr" reference-label definition and following subsection text 
-  XSAHxsjhsavxsgavsxgh
+  Il primo step di calcoli ingegneristici veri è propri, è caratterizzato dal calcolo delle potenze termiche, utilizzando i
+  dati sperimentali raccolti. Sono state definite le potenze scambiate dal fluido caldo e fluido freddo, mediante le
+  due relazioni simmetriche riportate nell'equazione \textit{\textbf{[}\ref{eqn:heat_tr}\textbf{]}}. Si è proceduto quidi
+  al calcolo della potenza media scambiata e della potenza persa, che rappresenta la non-adiabaticità del
+  sistema reale oggetto di misurazioni \textit{\textbf{[}\ref{eqn:heat_tr2}\textbf{]}}. I risultati ottenuti, sono riporati
+  in \textit{\textbf{[}\hyperref[tab:heat_tr_calcs]{Tab. }\ref{tab:heat_tr_calcs}\textbf{]}}. Le potenze termiche sono
+  state prese con segno, per cui i valori negativi rappresentano perdita di calore, mentre quelli positivi acquisizione di
+  calore. Facilmente osservabile, è la diretta correlazione tra configurazione dello scambiatore (equi o contro-corrente) e
+  la potenza termica scambiata, a parità di portate volumetriche: nelle misure in contro-corrente, si nota una maggiore
+  quantità di calore trasferito. Sempre alla luce dei dati sopra ciatati, si denota una spiccata proporzionalità diretta,
+  tra portate volumetriche e potenze termiche scambiate (entrambe nettamente maggiori nelle prime due misure). Il fatto più
+  importante però, è la quantità di calore disperso, anche se in parte è casuato da errori di ....
 \subsection{Metodo epsilon-NTU}                                                                                             % Subsection creation: "Metodo epsilon-NTU"
 \label{subsec:espntu_meth}                                                                                                  % "espntu_meth" reference-label definition and following subsection text 
-  XSAHxsjhsavxsgavsxgh
+  Una volta ottenuto il valore di -
 \subsection{Metodo numeri adimensionali}                                                                                    % Subsection creation: "Metodo numeri adimensionali"
 \label{subsec:adimnum_meth}                                                                                                 % "adimnum_meth" reference-label definition and following subsection text
   XSAHxsjhsavxsgavsxgh
@@ -463,7 +499,7 @@
     $\bar{Q}$ [kW]                                      & 5.86            & 6.12              & 3.86              & 3.70            \\
     \hline
   \end{tabular}                                                                                                             % End tabular definition
-  \caption{\textit{Valori rilevanti ottenuti mediante i calcoli ingegneristici effettuati (potenze termiche scambiate)}}    % Table caption
+  \caption{\textit{Valori ottenuti mediante i calcoli ingegneristici effettuati (potenze termiche scambiate)}}              % Table caption
   \label{tab:heat_tr_calcs}                                                                                                 % Reference-label to table
 \end{table}                                                                                                                 % Table-end
 \vspace{3mm}                                                                                                                % Vert space
@@ -480,7 +516,7 @@
     $\varepsilon$                               & 0.26            & 0.28              & 0.56              & 0.52            \\
     \hline
   \end{tabular}                                                                                                             % End tabular definition
-  \caption{\textit{Valori rilevanti ottenuti mediante i calcoli ingegneristici effettuati (metodo $\varepsilon$-NTU)}}      % Table caption
+  \caption{\textit{Valori ottenuti mediante i calcoli ingegneristici effettuati (metodo $\varepsilon$-NTU)}}                % Table caption
   \label{tab:eps_ntu_calcs}                                                                                                 % Reference-label to table
 \end{table}                                                                                                                 % Table-end
 \vspace{3mm}                                                                                                                % Vert space
