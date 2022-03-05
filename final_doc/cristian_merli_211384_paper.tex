@@ -9,7 +9,8 @@
 \usepackage{abstract}                                                                                                       % Package import for abstract
 \usepackage{hyperref}                                                                                                       % Package import for external references
 \usepackage{graphicx}                                                                                                       % Package import to manage images labels and captions
-\usepackage{float}                                                                                                          % ---
+\usepackage{float}                                                                                                          % Package import to manage tables and images positioning
+\usepackage{url}                                                                                                            % Package import for links
 \usepackage{cite}                                                                                                           % Package import for bibliographies (citations)
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}                                                                     % Package import for colors
 \usepackage{amsmath}                                                                                                        % Package import for formulas (math)
@@ -101,7 +102,7 @@
   codice sorgente realizzato, senza la necessità di effettuare alcuna installazione e/o configurazione dell'ambiente di
   sviluppo per poterlo consultare. Il seguente link, consente un accesso diretto alla repository di GitHub caricata
   personalmente, per poter approfondire tutto ciò che è stato realizzato:
-  \textit{\href{https://github.com/CristianMerli/DataAnalysis.git}{https://github.com/CristianMerli/DataAnalysis.git}}.
+  \textit{\href{https://github.com/CristianMerli/DataAnalysis.git}{https://github.com/CristianMerli/DataAnalysis.git}} .
 
 \section{Linguaggio di programmazione}                                                                                      % Section creation: "Linguaggio di programmazione"
 \label{sec:progr_lang}                                                                                                      % "progr_lang" reference-label definition and following section text
@@ -190,13 +191,15 @@
       pagina 28 pdf, tabella 4 (pagina 21 file)
       (\textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/AISI316.pdf}{file-PDF}},
       \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/data_analysis/thermophys_vars/aisi_316_thermo_vars.csv}{file-CSV}}).
+      \vspace{1.5mm}\\\textit{Nota:} le temperature sono state convertite da [K] a [°C], all'interno dello script dedicato
+      all'approssimazione delle proprietà termofisiche.
     \item \textbf{proprietà vetro pyrex:}
       \textit{\href{https://nvlpubs.nist.gov/nistpubs/Legacy/RPT/nbsreport7836.pdf}{https://nvlpubs.nist.gov/nistpubs/Legacy/RPT/nbsreport7836.pdf}}
       pagina 39 pdf, tabella 6 (pagina 16 file)
       (\textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/Pyrex_glass.pdf}{file-PDF}},
       \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/data_analysis/thermophys_vars/pyrex_glass_thermo_vars.csv}{file-CSV}}).
-      \vspace{1.5mm}\\\textit{Nota:} in caso d'errore in fase di caricamento dell'anteprima file PDF, dovuto alle dimensioni eccessive
-      del file stesso, premere il pulante 'download', oppure usa il seguente
+      \vspace{1.5mm}\\\textit{Nota:} in caso d'errore in fase di caricamento dell'anteprima file PDF, dovuto alle
+      dimensioni eccessive del file stesso, premere il pulante 'download', oppure usa il seguente
       \textit{\href{https://github.com/CristianMerli/DataAnalysis/raw/master/lab_doc/Pyrex_glass.pdf}{link}}).
   \end{itemize}                                                                                                             % List-end
   Questi dati, sono quindi la base su cui uno script appositamente sviluppato, esegue operazioni di approssimazione
@@ -230,29 +233,79 @@
   due relazioni simmetriche riportate nell'equazione \textit{\textbf{[}\ref{eqn:heat_tr}\textbf{]}}. Si è proceduto quidi
   al calcolo della potenza media scambiata e della potenza persa, che rappresenta la non-adiabaticità del
   sistema reale oggetto di misurazioni \textit{\textbf{[}\ref{eqn:heat_tr2}\textbf{]}}. I risultati ottenuti, sono riporati
-  in \textit{\textbf{[}\hyperref[tab:heat_tr_calcs]{Tab. }\ref{tab:heat_tr_calcs}\textbf{]}}. Le potenze termiche sono
-  state prese con segno, per cui i valori negativi rappresentano perdita di calore, mentre quelli positivi acquisizione di
-  calore. Facilmente osservabile, è la diretta correlazione tra configurazione dello scambiatore (equi o contro-corrente) e
-  la potenza termica scambiata, a parità di portate volumetriche: nelle misure in contro-corrente, si nota una maggiore
-  quantità di calore trasferito. Sempre alla luce dei dati sopra ciatati, si denota una spiccata proporzionalità diretta,
-  tra portate volumetriche e potenze termiche scambiate (entrambe nettamente maggiori nelle prime due misure). Il fatto più
-  importante però, è la quantità di calore disperso, anche se in parte è casuato da errori di ....
+  all'interno della tabella dati \textit{\textbf{[}\hyperref[tab:heat_tr_calcs]{Tab. }\ref{tab:heat_tr_calcs}\textbf{]}}.
+  Le potenze termiche sono state prese con segno, per cui i valori negativi rappresentano perdita di calore, mentre quelli
+  positivi acquisizione di calore. Facilmente osservabile, è la diretta correlazione tra configurazione dello scambiatore
+  (equi o contro-corrente) e la potenza termica scambiata, a parità di portate volumetriche: nelle misure in
+  contro-corrente si nota una maggiore quantità di calore trasferito, dovuto alla presenza di maggiori gradienti di
+  temperatura. Sempre alla luce dei dati sopra ciatati, si denota una spiccata proporzionalità diretta, tra portate
+  volumetriche e potenze termiche scambiate (entrambe nettamente maggiori nelle prime due misure). Il fatto più importante
+  da notare è la quantità di calore disperso verso l'ambiente dalla macchina termica, anche se questo valore è influenzato
+  da errori di misura, riguardanti la portata volumetrica del fluido freddo. Infatti, a causa di malfunzionamenti della
+  componentistica elettronica, il valore della variabile F2 (com'è possibile notare anche dal grafico in
+  \textit{\textbf{[}\hyperref[fig:measures]{Fig. }\ref{fig:measures}\textbf{]}}), è disturbato dalla presenza
+  di rumore elettronico di fondo. Per cercare di limitare tale fenomeno, sono state adottate le strategie precedentemente
+  descritte al \textit{\textbf{[}\hyperref[sec:data_analysis]{Capitolo }\ref{sec:data_analysis},
+  \hyperref[sec:data_analysis]{pagina }\pageref{sec:data_analysis}\textbf{]}}. 
 \subsection{Metodo epsilon-NTU}                                                                                             % Subsection creation: "Metodo epsilon-NTU"
 \label{subsec:espntu_meth}                                                                                                  % "espntu_meth" reference-label definition and following subsection text 
-  Una volta ottenuto il valore di -
+  Una volta ottenuto il valor medio della potenza termica trasferita tra fluido caldo e freddo, questa viene utilizza allo
+  scopo di determinare il parametro NTU (Number of Transfer Units) e l'efficienza dello scambiatore (epsilon),
+  approssimando la configurazione dello scambiatore in equi/contro-corrente. L'approssimazione consiste nel trascurare la
+  presenza dei diaframmi orizzontali, che causano un moto del fluido esterno pressochè ortogonale ai tubi interni. Tale
+  fenomeno, oltre a creare un'imperfetta configurazione equi/contro-corrente, ha anche l'effetto di aumentare il numero
+  di Reynolds e quindi lo scambio termico per convezione. Per poter arrivare ad un valore di efficienza dello scambiatore,
+  si è prima calcolata la differenza di temperatura medio-logaritmica \textit{\textbf{[}\ref{eqn:deltatml}\textbf{]}}, le
+  aree di scambio termico \textit{\textbf{[}\ref{eqn:surf}\textbf{]}} ed i coefficienti globali di scambio
+  \textit{\textbf{[}\ref{eqn:ghtc}\textbf{]}}. Successivamente attraverso le equazioni
+  \textit{\textbf{[}\ref{eqn:cpt}\textbf{]}} e \textit{\textbf{[}\ref{eqn:cpt_r}\textbf{]}}, sono stati definiti i
+  parametri intermedi utili per arrivare alla definizione dei valori di NTU e dell'efficienza, mediante le relazioni
+  \textit{\textbf{[}\ref{eqn:ntu}\textbf{]}} e \textit{\textbf{[}\ref{eqn:epsilon}\textbf{]}}. I valori ricavati, sono
+  riportati nella tabella \textit{\textbf{[}\hyperref[tab:eps_ntu_calcs]{Tab. }\ref{tab:eps_ntu_calcs}\textbf{]}}.
+  Interssante notare, come per le misure in cofigurazione contro-corrente si presentino valori di U\textsubscript{i},
+  U\textsubscript{e}, NTU ed epsilon, leggermente maggiori rispetto alle misure in cofigurazione di tipo equi-corrente.
+  Mentre ancora più marcata, è la differenza tra misure caratterizzate da alte o basse portate volumetriche di fluido
+  freddo (prima e seconda misura circa 550 [l/h], mentre terza e quarta approssimativamente 170 [l/h]). In particolare, per
+  le prime due misure (alte portate di fluido freddo), si notano valori di scambio ed efficienza drammaticamente inferiori
+  rispetto a quelli delle ultime due (basse portate di fluido freddo).
 \subsection{Metodo numeri adimensionali}                                                                                    % Subsection creation: "Metodo numeri adimensionali"
 \label{subsec:adimnum_meth}                                                                                                 % "adimnum_meth" reference-label definition and following subsection text
-  XSAHxsjhsavxsgavsxgh
+  Un ulteriore metodo attraverso il quale è possibile ottenere informazioni sulla quantità di calore scambiato, è quello
+  che fa ricorso all'utilizzo dei numeri adimensionali. Procendendo quindi con un approccio più teorico, vengono
+  ricalcolati i valori delle potenze termiche scambiate per ogni misura, confrontandoli poi con quelli ottenuti mediante
+  l'approccio sperimentale, descritto poco sopra \textit{\textbf{[}\hyperref[subsec:heat_tr]{Capitolo }\ref{subsec:heat_tr},
+  \hyperref[subsec:heat_tr]{pagina }\pageref{subsec:heat_tr}\textbf{]}}. A tal fine, ..........
+  \textit{\textbf{[}\hyperref[tab:adim_num_calcs]{Tab. }\ref{tab:adim_num_calcs}\textbf{]}}
+  \textit{\textbf{[}\hyperref[fig:he]{Fig. }\ref{fig:he}\textbf{]}}
 \subsection{Convezione naturale esterna}                                                                                    % Subsection creation: "Convezione naturale esterna"
 \label{subsec:extnat_conv}                                                                                                  % "extnat_conv" reference-label definition and following subsection text 
-  XSAHxsjhsavxsgavsxgh
+  Per completezza, sono poi stati calcolati i numeri adimensionali ed i valori di resistenze/temperature, anche all'esterno
+  del tubo in vetro dello scambiatore di calore, a contatto con l'aria dell'ambiente circostante. Per descrivere tali
+  fenomeni, si è quindi fatto ricorso alle relazione desriventi la convezione naturale, attreverso i numeri adimensionali
+  di Grashof e Rayleigh. Così facendo, è stato inoltre possibile stimare la quantità di calore dispersa attraverso il vetro
+  borosilicato (pyrex), costituente la parete esterna della macchina termica in oggetto. Per prima cosa, una volta definite
+  ..........
+  \textit{\textbf{[}\hyperref[tab:nat_conv_calcs]{Tab. }\ref{tab:nat_conv_calcs}\textbf{]}}
+  \textit{\textbf{[}\hyperref[fig:temp_trend]{Fig. }\ref{fig:temp_trend}\textbf{]}}
 
 \section{Conclusioni}                                                                                                       % Section creation: "Conclusioni"
 \label{sec:conclusions}                                                                                                     % "conclusions" reference-label definition and following section text
-  XSAHxsjhsavxsgavsxgh
+  Per concludere, ..........
+  \textit{\textbf{[}\hyperref[tab:perc_calcs]{Tab. }\ref{tab:perc_calcs}\textbf{]}}
 
 \section{Formule}                                                                                                           % Section creation: "Formule"
 \label{sec:formulas}                                                                                                        % "formulas" reference-label definition and following section text
+  Le relazioni riportate in seguito, sono derivanti principalmente dagli appunti personali
+  \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/NoteAula.pdf}{note-aula-PDF}} e
+  \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/Note.pdf}{note-lab-PDF}},
+  oppure dalla documentazione fornita dal docente
+  \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/RelazioniScambiatore.pdf}{relazioni-scambiatore-PDF}},
+  (seconda pagina). Fatta eccezione per la formula riportata all'equazione \textit{\textbf{[}\ref{eqn:nu_ra}\textbf{]}},
+  proveniente dalla pagina web di
+  \textit{\href{https://en.wikipedia.org/}{Wikipedia}}, dedicata alla convezione naturale:
+  \textit{\href{https://en.wikipedia.org/wiki/Natural_convection}{https://en.wikipedia.org/wiki/Natural\_convection}}
+  (sezione 3.3 - Behavior); mentre l'equazione \textit{\textbf{[}\ref{eqn:stat}\textbf{]}} è stata ideata ed elaborata
+  personalmente.
 \subsection{Formule analisi dati}                                                                                           % Subsection creation: "Formule analisi dati"
 \label{subsec:da_formulas}                                                                                                  % "da_formulas" reference-label definition and following subsection text
 \subsubsection{Scelta miglior intervallo dati con condizioni stazionarie}                                                   % Subsubsection creation: "Scelta miglior intervallo dati con condizioni stazionarie"
@@ -469,6 +522,9 @@
 
 \section{Tabelle}                                                                                                           % Section creation: "Tabelle"
 \label{sec:tables}                                                                                                          % "tables" reference-label definition and following section text
+  Le seguenti tabelle, sono frutto dell'estrapolazione dei dati dallo script principale di calcolo, automaticamente
+  esportati all'interno di file nella segente
+  \textit{\href{https://github.com/CristianMerli/DataAnalysis/tree/master/final_doc/code_exports/output}{directory}}.
 \begin{table}[H]                                                                                                            % Table-start
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
@@ -571,6 +627,13 @@
 \end{table}                                                                                                                 % Table-end
 
 \section{Immagini e grafici}                                                                                                % Section creation: "Immagini e grafici"
+  Le figure ed i grafici sottostanti, sono stati manualmente esportati dallo script principale di calcolo e salvati in una
+  piccola raccolta, contenente alcune delle raffigurazioni principali generate dal codice e riportate all'interno della
+  seguente \textit{\href{https://github.com/CristianMerli/DataAnalysis/tree/master/final_doc/code_exports/imgs}{directory}},
+  come file di tipo immagine. Per quanto concerne lo schema riportato in figura
+  \textit{\textbf{[}\hyperref[fig:he]{Fig. }\ref{fig:he}\textbf{]}}, è stato invece personalmente realizzato mediante il
+  software Autocad, con lo scopo di ottenere misure per il calcolo di perimetri (bagnati e di scambio termico), aree di
+  flusso e diametri equivalenti termici/idraulici.
 \label{sec:imgs_graphs}                                                                                                     % "imgs_graphs" reference-label definition and following section text
 \begin{figure}[H]                                                                                                           % Figure-start
   \centering                                                                                                                % Center image
