@@ -308,11 +308,11 @@
   sovrapposizione degli effetti delle tre sotto-sezioni; per cui il coefficiente di tale scambio, sarà una sommatoria
   dei coefficienti delle sotto-sezioni costituenti: \textit{\textbf{[}\ref{eqn:h_s}\textbf{]}}. Per ogni sotto-sezione,
   in simmetria a quanto fatto per il fluido interno, dopo aver ricavato viscosità dinamiche, numeri di Prandtl e
-  conducibilità termiche del fluido esterno, sono stati definiti i numeri di Reynolds, secondo l'equazione
-  \textit{\textbf{[}\ref{eqn:re_shell}\textbf{]}}. Note le condizioni di moto laminare/turbolento del fluido, si è
-  proceduto determinando i numeri adimensionali di Nusselt seguendo la relazione
-  \textit{\textbf{[}\ref{eqn:nu_shell}\textbf{]}} ed i coefficienti di scambio convettivo
-  \textit{\textbf{[}\ref{eqn:h}\textbf{]}}, per applicare poi l'equazione sopra citata:
+  conducibilità termiche del fluido esterno, sono stati definiti i numeri di Reynolds (con diametri idraulici equivalenti),
+  secondo l'equazione \textit{\textbf{[}\ref{eqn:re_shell}\textbf{]}}. Note le condizioni di moto laminare/turbolento del
+  fluido, si è proceduto determinando i numeri adimensionali di Nusselt seguendo la relazione
+  \textit{\textbf{[}\ref{eqn:nu_shell}\textbf{]}} (con diametri idraulici equivalenti) ed i coefficienti di scambio
+  convettivo \textit{\textbf{[}\ref{eqn:h}\textbf{]}}; per poi applicare l'equazione sopra citata:
   \textit{\textbf{[}\ref{eqn:re_shell}\textbf{]}}. Per concludere lo studio del trasferimento di calore del fluido freddo,
   è stato utilizzato l'h medio ottenuto, per stimare il valore della resistenza convettiva esterna secondo la formula
   \textit{\textbf{[}\ref{eqn:conv_r}\textbf{]}} (con A=area-esterna tubazioni interne). Note tutte le resistenze termiche
@@ -328,15 +328,31 @@
   Per completezza, sono poi stati calcolati i numeri adimensionali ed i valori di resistenze/temperature, anche all'esterno
   del tubo in vetro dello scambiatore di calore, a contatto con l'aria dell'ambiente circostante. Per descrivere tali
   fenomeni, si è quindi fatto ricorso alle relazione desriventi la convezione naturale, attreverso i numeri adimensionali
-  di Grashof e Rayleigh. Così facendo, è stato inoltre possibile stimare la quantità di calore dispersa attraverso il vetro
-  borosilicato (pyrex), costituente la parete esterna della macchina termica in oggetto. Per prima cosa, una volta definite
+  di Grashof e Rayleigh. Così facendo, è stato inoltre possibile identificare la quantità di calore dispersa attraverso il
+  vetro borosilicato (pyrex), costituente la parete esterna della macchina termica in oggetto. Per prima cosa, è stata
+  fatta una stima della temperatura sulla superficie del vetro, calcolando la temperatura media tra la ambiente e fluido
+  esterno. Questo valore, è stato utilizzato poi per definire la conducibilità termica del vetro e quindi la resistenza
+  conduttiva dello stesso attraverso l'equazione \textit{\textbf{[}\ref{eqn:cond_r}\textbf{]}}. Successivamente, sono stati
+  determinati i valori di conducibilità termiche, viscosità dinamiche e numeri di Prandlt medi del fluido freddo (valori
+  intermedi tra quelli calcolati sulla sezione in ingresso e in uscita, al capitolo
+  \textit{\textbf{[}\hyperref[subsec:adimnum_meth]{Capitolo }\ref{subsec:adimnum_meth},
+  \hyperref[subsec:adimnum_meth]{pagina }\pageref{subsec:adimnum_meth}\textbf{]}}).
   ..........
+  \textit{\textbf{[}\ref{eqn:gr}\textbf{]}}
+  \textit{\textbf{[}\ref{eqn:ra}\textbf{]}}
+  \textit{\textbf{[}\ref{eqn:nu_ra}\textbf{]}}
   \textit{\textbf{[}\hyperref[tab:nat_conv_calcs]{Tab. }\ref{tab:nat_conv_calcs}\textbf{]}}
   \textit{\textbf{[}\hyperref[fig:temp_trend]{Fig. }\ref{fig:temp_trend}\textbf{]}}
 
 \section{Conclusioni}                                                                                                       % Section creation: "Conclusioni"
 \label{sec:conclusions}                                                                                                     % "conclusions" reference-label definition and following section text
-  Per concludere, ..........
+  Per concludere,
+  In aggiunta, è stata
+  predisposta anche una porzione di codice (abilitabile con un flag nella prima parte dello script in JupyterNotebook),
+  atta al calcolo del numero adimensionale di Reynolds in maniera alternativa:
+  \textit{\textbf{[}\ref{eqn:re_alt}\textbf{]}}. I risultati ottenuti, sono comparabili con quelli ricavati mediante
+  l'applicazione del metodo precedentemente descritto.
+  ..........
   \textit{\textbf{[}\hyperref[tab:perc_calcs]{Tab. }\ref{tab:perc_calcs}\textbf{]}}
 
 \section{Formule}                                                                                                           % Section creation: "Formule"
