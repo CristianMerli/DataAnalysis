@@ -14,13 +14,14 @@
 \contentsline {subsection}{\numberline {5.6}Convezione naturale esterna}{4}{subsection.5.6}%
 \contentsline {section}{\numberline {6}Conclusioni}{4}{section.6}%
 \contentsline {section}{\numberline {7}Formule}{4}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Formule analisi dati}{4}{subsection.7.1}%
-\contentsline {subsubsection}{\numberline {7.1.1}Scelta miglior intervallo dati con condizioni stazionarie}{4}{subsubsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.2}Formule calcoli ingegneristici}{4}{subsection.7.2}%
-\contentsline {subsubsection}{\numberline {7.2.1}Trasferimento di calore}{4}{subsubsection.7.2.1}%
-\contentsline {subsubsection}{\numberline {7.2.2}Metodo epsilon-NTU}{4}{subsubsection.7.2.2}%
-\contentsline {subsubsection}{\numberline {7.2.3}Metodo numeri adimensionali}{5}{subsubsection.7.2.3}%
-\contentsline {subsubsection}{\numberline {7.2.4}Convezione naturale esterna}{6}{subsubsection.7.2.4}%
+\contentsline {subsection}{\numberline {7.1}Formule analisi dati}{5}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Scelta miglior intervallo dati con condizioni stazionarie}{5}{subsubsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.2}Formule calcoli ingegneristici}{5}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Conversione portate volumetriche}{5}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2}Trasferimento di calore}{5}{subsubsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.3}Metodo epsilon-NTU}{5}{subsubsection.7.2.3}%
+\contentsline {subsubsection}{\numberline {7.2.4}Metodo numeri adimensionali}{5}{subsubsection.7.2.4}%
+\contentsline {subsubsection}{\numberline {7.2.5}Convezione naturale esterna}{6}{subsubsection.7.2.5}%
 \contentsline {section}{\numberline {8}Tabelle}{6}{section.8}%
 \contentsline {section}{\numberline {9}Immagini e grafici}{7}{section.9}%
-\contentsline {section}{Riferimenti bibliografici}{9}{figure.6}%
+\contentsline {section}{Riferimenti bibliografici}{10}{figure.6}%

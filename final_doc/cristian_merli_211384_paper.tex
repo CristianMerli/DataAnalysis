@@ -198,6 +198,8 @@
       pagina 39 pdf, tabella 6 (pagina 16 file)
       (\textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/Pyrex_glass.pdf}{file-PDF}},
       \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/data_analysis/thermophys_vars/pyrex_glass_thermo_vars.csv}{file-CSV}}).
+      \vspace{1.5mm}\\\textit{Nota:} i valori della conducibilià termica, sono stati convertiti da [W/(cm\*K)] a [W/(m\*K)],
+      all'interno dello script dedicato
       \vspace{1.5mm}\\\textit{Nota:} in caso d'errore in fase di caricamento dell'anteprima file PDF, dovuto alle
       dimensioni eccessive del file stesso, premere il pulante 'download', oppure usa il seguente
       \textit{\href{https://github.com/CristianMerli/DataAnalysis/raw/master/lab_doc/Pyrex_glass.pdf}{link}}).
@@ -224,8 +226,13 @@
   \textit{\textbf{[}\hyperref[fig:he]{Fig. }\ref{fig:he}\textbf{]}}. Tali parametri, sono consultabili al seguente
   \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/final_doc/code_exports/output/he.txt}{link}}.
   Definito tutto ciò che riguarda l'apparato sottoposto a misurazioni, si è proceduto con l'esecuzione di calcoli
-  preliminari utili per poter procedere rapidamente, alla definizione analitica dei fenomeni di scambio termico coinvolti.
-  Sono state quindi definite temperature medie dei fluidi e differenze di temperatura in gioco.
+  preliminari utili per poter procedere rapidamente, alla modellizzazione ingegneristica dei fenomeni di scambio termico
+  coinvolti. Sono state quindi definite temperature medie dei fluidi e differenze di temperatura in gioco. Dopo di che, le
+  portate volumetriche in [l/h] sono state trasformate in [m\textsuperscript{3}/s] e successivamente in portate di massa
+  [kg/s]. Il passaggio da portate volumetriche a portate di massa, è stato compiuto sfruttando i dati dei fluidi prima
+  dell'ingresso nello scambiatore di calore, in quanto il fluido si presenta in condizioni più stabili rispetto
+  all'uscita. In termini matematici, questa conversione è statata riportata nell'equazione
+  \textit{\textbf{[}\ref{eqn:conv}\textbf{]}}.
 \subsection{Trasferimento di calore}                                                                                        % Subsection creation: "Trasferimento di calore"
 \label{subsec:heat_tr}                                                                                                      % "heat_tr" reference-label definition and following subsection text 
   Il primo step di calcoli ingegneristici veri è propri, è caratterizzato dal calcolo delle potenze termiche, utilizzando i
@@ -274,9 +281,48 @@
   che fa ricorso all'utilizzo dei numeri adimensionali. Procendendo quindi con un approccio più teorico, vengono
   ricalcolati i valori delle potenze termiche scambiate per ogni misura, confrontandoli poi con quelli ottenuti mediante
   l'approccio sperimentale, descritto poco sopra \textit{\textbf{[}\hyperref[subsec:heat_tr]{Capitolo }\ref{subsec:heat_tr},
-  \hyperref[subsec:heat_tr]{pagina }\pageref{subsec:heat_tr}\textbf{]}}. A tal fine, ..........
-  \textit{\textbf{[}\hyperref[tab:adim_num_calcs]{Tab. }\ref{tab:adim_num_calcs}\textbf{]}}
-  \textit{\textbf{[}\hyperref[fig:he]{Fig. }\ref{fig:he}\textbf{]}}
+  \hyperref[subsec:heat_tr]{pagina }\pageref{subsec:heat_tr}\textbf{]}}. A tal fine, è stato necessario calcolare anche le
+  varie resistenze termiche di tipo conduttivo e convettivo. Si è iniziato determinando il valore della resistenza
+  conduttiva legata ai tubi interni in acciaio inox, attraverso la formula \textit{\textbf{[}\ref{eqn:cond_r}\textbf{]}}.
+  In quest'equazione, la conducibiltà termica, è stata valutata alla temperatura media tra i due fluidi. In maniera
+  analoga, per il calcolo della maggior parte delle variabili termofisiche dipendenti dalla temperatura, è stato fatto
+  ricorso alle temperature media del fluido. Con tale concetto, si è definito il valore della viscosità dinamica attraverso
+  la relazione \textit{\textbf{[}\ref{eqn:dyn_vis}\textbf{]}}, il numero di Prandtl e la conducibilità termica del fluido
+  caldo (interno). Noti tali valori, è stato possibile procedere alla stima del nunmero di Reynolds all'interno delle
+  tubazioni in acciaio: \textit{\textbf{[}\ref{eqn:re_pipe}\textbf{]}}. A seconda del valore ottenuto, il software decide
+  se applicare l'equazione per il calcolo del numero di Nusselt all'interno di una tubazione con fluido in moto laminare
+  o turbolento: rispettivamente \textit{\textbf{[}\ref{eqn:nu_pipe_l}\textbf{]}} e
+  \textit{\textbf{[}\ref{eqn:nu_pipe_t}\textbf{]}}. Attraverso Nusselt, si è definito il valore del coefficiente di scambio
+  convettivo relativo al fluido interno: \textit{\textbf{[}\ref{eqn:h}\textbf{]}}. Successivamente, è stato possibile
+  definire la resistenza convettiva interna \textit{\textbf{[}\ref{eqn:conv_r}\textbf{]}} (con A=area-interna tubazioni
+  interne) e le temperature sulle superfici interne/esterne delle tubazioni in acciaio
+  \textit{\textbf{[}\ref{eqn:surf_temp}\textbf{]}}. Cocncluso tutto ciò che riguarda il fluido interno, si è spostata
+  l'attenzione su quello esterno (fluido freddo). L'analisi di quanto avviene all'interno dello "shell" dello
+  scambiatore, risulta essere notevolmente più complessa e necessita quindi di una serie di osservazioni ed
+  approssimazioni, per poterla modellizzare ingegneristicamente. La tubazione esterna in vetro, essendo interrotta da
+  diaframmi che causano un moto del fluido pressochè orizzontale, si presta ad essere studiata per sezioni circolari.
+  Conoscedo solamente i valori di temperatura delle sezioni agli estremi: in ingresso (in basso) e in uscita (in alto),
+  le due sezioni vengono studiate separatamente, per poi calcolarne il coefficiente medio di scambio termico convettivo.
+  Ogni sezione trasversale, può essere vista come tre diverse sotto-sezioni di scambio, attraversate dal fluido: due
+  contenenti un tubo e una contenente tre tubi del fascio. Lo scambio termico convettivo nella sezione, sarà quindi una
+  sovrapposizione degli effetti delle tre sotto-sezioni; per cui il coefficiente di tale scambio, sarà una sommatoria
+  dei coefficienti delle sotto-sezioni costituenti: \textit{\textbf{[}\ref{eqn:h_s}\textbf{]}}. Per ogni sotto-sezione,
+  in simmetria a quanto fatto per il fluido interno, dopo aver ricavato viscosità dinamiche, numeri di Prandtl e
+  conducibilità termiche del fluido esterno, sono stati definiti i numeri di Reynolds, secondo l'equazione
+  \textit{\textbf{[}\ref{eqn:re_shell}\textbf{]}}. Note le condizioni di moto laminare/turbolento del fluido, si è
+  proceduto determinando i numeri adimensionali di Nusselt seguendo la relazione
+  \textit{\textbf{[}\ref{eqn:nu_shell}\textbf{]}} ed i coefficienti di scambio convettivo
+  \textit{\textbf{[}\ref{eqn:h}\textbf{]}}, per applicare poi l'equazione sopra citata:
+  \textit{\textbf{[}\ref{eqn:re_shell}\textbf{]}}. Per concludere lo studio del trasferimento di calore del fluido freddo,
+  è stato utilizzato l'h medio ottenuto, per stimare il valore della resistenza convettiva esterna secondo la formula
+  \textit{\textbf{[}\ref{eqn:conv_r}\textbf{]}} (con A=area-esterna tubazioni interne). Note tutte le resistenze termiche
+  all'interno dello scambiatore di calore, è possibile calcolare la resistenza termica totale mediante la relazione
+  \textit{\textbf{[}\ref{eqn:tot_r}\textbf{]}}, per poi ri-determinare il valore dei coefficienti globali di scambio,
+  questa volta attraverso i numeri adimensionali: \textit{\textbf{[}\ref{eqn:ohtc}\textbf{]}}. Infine, per chiudere anche
+  l'analisi teorica, è stato ricalcolato il valore della potenza termica scambiata sfruttando l'equazione
+  \textit{\textbf{[}\ref{eqn:recalc_heat_tr}\textbf{]}}, considerando lo scambiatore come adiabatico. I risultati dei
+  calcoli più significativi, sono stati riporati all'interno della tabella
+  \textit{\textbf{[}\hyperref[tab:adim_num_calcs]{Tab. }\ref{tab:adim_num_calcs}\textbf{]}}.
 \subsection{Convezione naturale esterna}                                                                                    % Subsection creation: "Convezione naturale esterna"
 \label{subsec:extnat_conv}                                                                                                  % "extnat_conv" reference-label definition and following subsection text 
   Per completezza, sono poi stati calcolati i numeri adimensionali ed i valori di resistenze/temperature, anche all'esterno
@@ -324,6 +370,15 @@
 \vspace{3mm}                                                                                                                % Vert space
 \subsection{Formule calcoli ingegneristici}                                                                                 % Subsection creation: "Formule calcoli ingegneristici"
 \label{subsec:ec_formulas}                                                                                                  % "ec_formulas" reference-label definition and following subsection text
+\subsubsection{Conversione portate volumetriche}                                                                            % Subsubsection creation: "Conversione portate volumetriche"
+\label{subsubsec:ecf_conv}                                                                                                  % "ecf_conv" reference-label definition and following subsubsection text
+\vspace{1mm}                                                                                                                % Vert space
+\begin{equation}                                                                                                            % Equation-start
+  \label{eqn:conv}                                                                                                          % Reference-label to equation
+  \dot{V}[m^3/s] = \dot{v}[l/h]\left(\frac{1*10^{-3}}{3.6*10^{3}}\right)                                                    % Formula
+  \qquad\text{e}\qquad                                                                                                      % Conjunction txt
+  \dot{m} = \dot{V}\rho(T_{in})                                                                                             % Formula
+\end{equation}                                                                                                              % Equation-end
 \subsubsection{Trasferimento di calore}                                                                                     % Subsubsection creation: "Trasferimento di calore"
 \label{subsubsec:ecf_heat_tr}                                                                                               % "ecf_heat_tr" reference-label definition and following subsubsection text
 \vspace{1mm}                                                                                                                % Vert space
@@ -401,7 +456,7 @@
 \end{equation}                                                                                                              % Equation-end
 \vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
-  \label{eqn:din_vis}                                                                                                       % Reference-label to equation
+  \label{eqn:dyn_vis}                                                                                                       % Reference-label to equation
   \mu(T) = \nu(T)\rho(T)                                                                                                    % Formula
 \end{equation}                                                                                                              % Equation-end
 \vspace{3mm}                                                                                                                % Vert space
@@ -453,12 +508,12 @@
 \vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   \label{eqn:h}                                                                                                             % Reference-label to equation
-  h = \frac{Nu\lambda_c(T)}{d_{term.eq.}}                                                                                   % Formula
+  h = \frac{Nu\lambda_f(T)}{d_{term.eq.}}                                                                                   % Formula
 \end{equation}                                                                                                              % Equation-end
 \vspace{3mm}                                                                                                                % Vert space
 \begin{equation}                                                                                                            % Equation-start
   \label{eqn:h_s}                                                                                                           % Reference-label to equation
-  h_{ss,tot} = h_{ss,1}+h_{ss,3}+h_{ss,1}                                                                                   % Formula
+  h_{ss,tot} = h_{sss,1}+h_{sss,3}+h_{sss,1}                                                                                % Formula
   \qquad\text{ed}\qquad                                                                                                     % Conjunction txt
   \bar{h}_{s} = \frac{h_{ss,tot,in}+h_{ss,tot,out}}{2}                                                                      % Formula
 \end{equation}                                                                                                              % Equation-end
