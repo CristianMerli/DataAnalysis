@@ -477,7 +477,7 @@ def f_f4(pr):                                                                   
     return -1                                                                                                           # Return err val
 
 # Function definition to calculate Nusselt adimensional number from Rayleigh adimensional number, formula
-# from https://en.wikipedia.org/wiki/Natural_convection
+# from https://en.wikipedia.org/wiki/Natural_convection#Behavior
 def shell_nu_from_ra(ra, pr):                                                                                           # shell_nu_from_ra(Rayleigh number, Prandtl number)
   if (ra > 0 and ra < 1*1e9 and pr > 0):                                                                                # If Rayleigh and Prandtl numbers are in formula range
     nu_0 = 0.68                                                                                                         # Geometrical parameter for vertical cylinder
