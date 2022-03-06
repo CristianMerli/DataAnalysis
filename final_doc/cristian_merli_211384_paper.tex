@@ -31,8 +31,10 @@
   pdfpagemode=FullScreen}                                                                                                   % External references definition: dark-grey links and blue URLs (\href call)
 \setlength{\parindent}{1cm}                                                                                                 % Remove indentation at paragraph's start
 \renewcommand{\abstractname}{Sommario}                                                                                      % Abstract title
-\renewcommand{\contentsname}{Indice}                                                                                        % Change table of contents (Toc) title
-\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}                                                                       % Configure table of contents (Toc) to display dots
+\renewcommand{\contentsname}{Indice}                                                                                        % Change table of contents (ToC) title
+\renewcommand{\listtablename}{Lista tabelle}                                                                                % Change list of tables (LoT) title
+\renewcommand{\listfigurename}{Lista immagini}                                                                              % Change list of images (LoF) title
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}                                                                       % Configure table of contents (ToC) to display dots
 \renewcommand{\cftsecfont}{\normalsize}                                                                                     % ToC-sec font
 \renewcommand{\cftsubsecfont}{\normalsize}                                                                                  % ToC-subsec font
 \renewcommand{\cftsubsubsecfont}{\normalsize}                                                                               % ToC-subsubsec font
@@ -53,7 +55,7 @@
 
 \title{Analisi dati e calcoli ingegneristici scambiatore di calore\\                                                        % Title definition (printed with \maketitle command)
 \large Laboratorio - Gruppo n.5 del 26/11/2021, fisica tecnica [140078] AA 2021/2022}                                       % Subtitle definition (printed with \maketitle command)
-\author{Cristian Merli, matr. 211384}                                                                                       % Authors definition (printed with \maketitle command)
+\author{Cristian Merli, mat. 211384}                                                                                        % Authors definition (printed with \maketitle command)
 \date{07/02/2022}                                                                                                           % Date definition (printed with \maketitle command)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -63,24 +65,26 @@
 \begin{document}                                                                                                            % Document-start
 
 \maketitle                                                                                                                  % Plot previously defined title
+\vspace{5cm}                                                                                                                % Vertical-space command
+\addcontentsline{toc}{section}{Sommario}                                                                                    % Add abstract inside table of contents
+\begin{abstract}                                                                                                            % Abstract creation and following abstract text
+  \noindent \textit{Relazione con lo scopo di descrivere le scelte adottate, e discutere i risultati  ottenuti dall'analisi
+  dati e dalle modellazioni ingegneristiche effettuate. Il sistema oggetto di modellazione, è costituito da uno scambiatore
+  di calore a fascio tubiero, all'interno del quale scorre acqua in entrambi i circuiti di scambio. Sono state effettuate
+  diverse prove, in particolare: due in configurazione equi-corrente e due in configurazione contro-corrente, con diversi
+  valori di portata volumetrica di fluido freddo.\\
+  Nei capitoli successivi, verranno elencate le richieste di progetto avanzate dal docente e verranno ripercorse le varie
+  tappe, che hanno condotto alla realizzazione e comparazione di diversi modelli ingegneristici più o meno raffinati,
+  mediante l'analisi assistita da calcolatore dei dati raccolti durante l'esperienza di laboratorio (effettuata in data
+  26/11/2021 con il gruppo numero 5, presso i laboratori del dipartimanto di fisica dell'università di Trento).}
+\end{abstract}                                                                                                              % Abstract end
+\pagebreak                                                                                                                  % Go to new page
 
-\vspace{2.5cm}                                                                                                              % Vertical-space command
-  \addcontentsline{toc}{section}{Sommario}                                                                                  % Add abstract inside table of contents
-  \begin{abstract}                                                                                                          % Abstract creation and following abstract text
-    \noindent \textit{Relazione sintetica con lo scopo di descrivere le scelte adottate, e discutere i risultati  ottenuti
-    dall'analisi dati e dalle modellazioni ingegneristiche effettuate. Il sistema oggetto di modellazione, è costituito da
-    uno scambiatore di calore a fascio tubiero, all'interno del quale scorre acqua in entrambi i circuiti di scambio. Sono
-    state effettuate diverse prove, in particolare: due in configurazione equi-corrente e due in configurazione
-    contro-corrente, con diversi valori di portata volumetrica di fluido freddo.\\
-    Nei capitoli successivi, verranno elencate le richieste di progetto avanzate dal docente e verranno ripercorse le varie
-    tappe, che hanno condotto alla realizzazione e comparazione di diversi modelli ingegneristici più o meno raffinati,
-    mediante l'analisi assistita da calcolatore dei dati raccolti durante l'esperienza di laboratorio (effettuata in data
-    26/11/2021 con il gruppo numero 5, presso i laboratori del dipartimanto di fisica dell'università di Trento).}
-  \end{abstract}                                                                                                            % Abstract end
+\tableofcontents                                                                                                            % Plot table of contents
 \vspace{1.5cm}                                                                                                              % Vertical-space command
-
+\listoftables                                                                                                               % Plot list of tables
 \vspace{1.5cm}                                                                                                              % Vertical-space command
-  \tableofcontents                                                                                                          % Plot table of contents
+\listoffigures                                                                                                              % Plot listo of figures
 \pagebreak                                                                                                                  % Go to new page
 
 \section{Richieste}                                                                                                         % Section creation: "Richieste"
@@ -254,6 +258,7 @@
   di rumore elettronico di fondo. Per cercare di limitare tale fenomeno, sono state adottate le strategie precedentemente
   descritte al \textit{\textbf{[}\hyperref[sec:data_analysis]{Capitolo }\ref{sec:data_analysis},
   \hyperref[sec:data_analysis]{pagina }\pageref{sec:data_analysis}\textbf{]}}. 
+  \clearpage                                                                                                                % New page
 \subsection{Metodo epsilon-NTU}                                                                                             % Subsection creation: "Metodo epsilon-NTU"
 \label{subsec:espntu_meth}                                                                                                  % "espntu_meth" reference-label definition and following subsection text 
   Una volta ottenuto il valor medio della potenza termica trasferita tra fluido caldo e freddo, questa viene utilizza allo
@@ -306,12 +311,12 @@
   Ogni sezione trasversale, può essere vista come tre diverse sotto-sezioni di scambio, attraversate dal fluido: due
   contenenti un tubo e una contenente tre tubi del fascio. Lo scambio termico convettivo nella sezione, sarà quindi una
   sovrapposizione degli effetti delle tre sotto-sezioni; per cui il coefficiente di tale scambio, sarà una sommatoria
-  dei coefficienti delle sotto-sezioni costituenti: \textit{\textbf{[}\ref{eqn:h_s}\textbf{]}}. Per ogni sotto-sezione,
+  di quelli relativi alle sotto-sezioni costituenti: \textit{\textbf{[}\ref{eqn:h_s}\textbf{]}}. Per ogni sotto-sezione,
   in simmetria a quanto fatto per il fluido interno, dopo aver ricavato viscosità dinamiche, numeri di Prandtl e
   conducibilità termiche del fluido esterno, sono stati definiti i numeri di Reynolds (con diametri idraulici equivalenti),
   secondo l'equazione \textit{\textbf{[}\ref{eqn:re_shell}\textbf{]}}. Note le condizioni di moto laminare/turbolento del
   fluido, si è proceduto determinando i numeri adimensionali di Nusselt seguendo la relazione
-  \textit{\textbf{[}\ref{eqn:nu_shell}\textbf{]}} (con diametri idraulici equivalenti) ed i coefficienti di scambio
+  \textit{\textbf{[}\ref{eqn:nu_shell}\textbf{]}} (con diametri termici equivalenti) ed i coefficienti di scambio
   convettivo \textit{\textbf{[}\ref{eqn:h}\textbf{]}}; per poi applicare l'equazione sopra citata:
   \textit{\textbf{[}\ref{eqn:re_shell}\textbf{]}}. Per concludere lo studio del trasferimento di calore del fluido freddo,
   è stato utilizzato l'h medio ottenuto, per stimare il valore della resistenza convettiva esterna secondo la formula
@@ -319,41 +324,65 @@
   all'interno dello scambiatore di calore, è possibile calcolare la resistenza termica totale mediante la relazione
   \textit{\textbf{[}\ref{eqn:tot_r}\textbf{]}}, per poi ri-determinare il valore dei coefficienti globali di scambio,
   questa volta attraverso i numeri adimensionali: \textit{\textbf{[}\ref{eqn:ohtc}\textbf{]}}. Infine, per chiudere anche
-  l'analisi teorica, è stato ricalcolato il valore della potenza termica scambiata sfruttando l'equazione
+  con l'analisi teorica, è stato ricalcolato il valore della potenza termica scambiata sfruttando l'equazione
   \textit{\textbf{[}\ref{eqn:recalc_heat_tr}\textbf{]}}, considerando lo scambiatore come adiabatico. I risultati dei
   calcoli più significativi, sono stati riporati all'interno della tabella
   \textit{\textbf{[}\hyperref[tab:adim_num_calcs]{Tab. }\ref{tab:adim_num_calcs}\textbf{]}}.
+\clearpage                                                                                                                  % New page
 \subsection{Convezione naturale esterna}                                                                                    % Subsection creation: "Convezione naturale esterna"
 \label{subsec:extnat_conv}                                                                                                  % "extnat_conv" reference-label definition and following subsection text 
   Per completezza, sono poi stati calcolati i numeri adimensionali ed i valori di resistenze/temperature, anche all'esterno
   del tubo in vetro dello scambiatore di calore, a contatto con l'aria dell'ambiente circostante. Per descrivere tali
-  fenomeni, si è quindi fatto ricorso alle relazione desriventi la convezione naturale, attreverso i numeri adimensionali
+  fenomeni, si è quindi fatto ricorso alle relazione descriventi la convezione naturale, attreverso i numeri adimensionali
   di Grashof e Rayleigh. Così facendo, è stato inoltre possibile identificare la quantità di calore dispersa attraverso il
   vetro borosilicato (pyrex), costituente la parete esterna della macchina termica in oggetto. Per prima cosa, è stata
-  fatta una stima della temperatura sulla superficie del vetro, calcolando la temperatura media tra la ambiente e fluido
+  fatta una stima della temperatura sulla superficie esterna, calcolando la temperatura media tra ambiente e fluido
   esterno. Questo valore, è stato utilizzato poi per definire la conducibilità termica del vetro e quindi la resistenza
-  conduttiva dello stesso attraverso l'equazione \textit{\textbf{[}\ref{eqn:cond_r}\textbf{]}}. Successivamente, sono stati
-  determinati i valori di conducibilità termiche, viscosità dinamiche e numeri di Prandlt medi del fluido freddo (valori
-  intermedi tra quelli calcolati sulla sezione in ingresso e in uscita, al capitolo
+  conduttiva dello stesso, attraverso l'equazione \textit{\textbf{[}\ref{eqn:cond_r}\textbf{]}}. Successivamente, sono
+  stati determinati i valori di conducibilità termiche, viscosità dinamiche e numeri di Prandlt medi del fluido freddo
+  (valori intermedi tra quelli calcolati sulla sezione in ingresso e in uscita, al capitolo
   \textit{\textbf{[}\hyperref[subsec:adimnum_meth]{Capitolo }\ref{subsec:adimnum_meth},
-  \hyperref[subsec:adimnum_meth]{pagina }\pageref{subsec:adimnum_meth}\textbf{]}}).
-  ..........
-  \textit{\textbf{[}\ref{eqn:gr}\textbf{]}}
-  \textit{\textbf{[}\ref{eqn:ra}\textbf{]}}
-  \textit{\textbf{[}\ref{eqn:nu_ra}\textbf{]}}
-  \textit{\textbf{[}\hyperref[tab:nat_conv_calcs]{Tab. }\ref{tab:nat_conv_calcs}\textbf{]}}
-  \textit{\textbf{[}\hyperref[fig:temp_trend]{Fig. }\ref{fig:temp_trend}\textbf{]}}
+  \hyperref[subsec:adimnum_meth]{pagina }\pageref{subsec:adimnum_meth}\textbf{]}}). Si sono calcolati inoltre, i numeri di
+  Reynolds del fluido freddo inerenti alle diverse misure \textit{\textbf{[}\ref{eqn:re_shell}\textbf{]}}, i numeri di
+  Nusselt \textit{\textbf{[}\ref{eqn:nu_shell}\textbf{]}} ed i coefficienti di scambio termico convettivo
+  \textit{\textbf{[}\ref{eqn:h}\textbf{]}}. Da qui, sono state definite le resistenze termiche convettive del fluido
+  esterno, attraverso la relazione \textit{\textbf{[}\ref{eqn:conv_r}\textbf{]}} (con A=area-interna tubo esterno).
+  Infine, per concludere anche l'analisi dello scambio verso l'ambiente, si è proceduto definendo quanto accade
+  all'esterno del tubo in vetro. Una volta determinato il valore della conducibilità termica dell'aria a temperatura
+  ambiente, sono stati calcolari i numeri adimensionali di Grashof \textit{\textbf{[}\ref{eqn:gr}\textbf{]}}, Rayleigh
+  \textit{\textbf{[}\ref{eqn:ra}\textbf{]}} e Nusselt \textit{\textbf{[}\ref{eqn:nu_ra}\textbf{]}}; dai cui poter
+  ricavare il valore del coefficiente di scambio h, attraverso l'equazione \textit{\textbf{[}\ref{eqn:h}\textbf{]}}.
+  Sono poi stati definiti i valori di resistenze convettive esterne \textit{\textbf{[}\ref{eqn:conv_r}\textbf{]}}, e
+  resistenze termiche totali tra fluido esterno ed ambiente \textit{\textbf{[}\ref{eqn:tot_r}\textbf{]}}. Da qui, è
+  stato possibile definire i valori dei coefficienti globali di scambio
+  \textit{\textbf{[}\ref{eqn:ohtc}\textbf{]}} e la potenza termica dispersa nell'ambiente, attraverso il vetro
+  borosilicato \textit{\textbf{[}\ref{eqn:recalc_heat_tr}\textbf{]}}. In fine, per completare tutto ciò che concerne
+  la dispersione di calore verso l'ambiente, sono state stimate anche le temperature sulla superficie interna ed
+  esterna del vetro in diversi punti (a titolo esemplificativo
+  \textit{\textbf{[}\hyperref[fig:temp_trend]{Fig. }\ref{fig:temp_trend}\textbf{]}}), mediante la formula
+  \textit{\textbf{[}\ref{eqn:surf_temp}\textbf{]}}. I risultati principali di quanto descritto sopra, sono stati
+  inseriti all'interno della tabella
+  \textit{\textbf{[}\hyperref[tab:nat_conv_calcs]{Tab. }\ref{tab:nat_conv_calcs}\textbf{]}}.
 
 \section{Conclusioni}                                                                                                       % Section creation: "Conclusioni"
 \label{sec:conclusions}                                                                                                     % "conclusions" reference-label definition and following section text
-  Per concludere,
-  In aggiunta, è stata
+  Per concludere, sono stati calcolati alcuni valori percentuali significativi, per poter fare un bilancio di potenze
+  termiche. Come possibile notare dai valori in tabella
+  \textit{\textbf{[}\hyperref[tab:perc_calcs]{Tab. }\ref{tab:perc_calcs}\textbf{]}}, le percentuali di calore disperso
+  (differenza tra potenza termica emanata dal fluido caldo ed acquisita dal fluido freddo), sono comprese tra il 5.4 ed il
+  13.4\%. Unitamente al fatto che, i valori percentuali di potenza termica dispersa verso l'ambiente attraverso la parete
+  esterna (in vetro pyrex), oscillano tra lo 0.4 e l'1.4\% di quello totale disperso; stanno a significare che il il
+  grosso della dispersione avviene altrove. Con molta probabilità, una parte consistente avviene sulle tubazioni che
+  conducono i fluidi dai punti di misurazione della temperatura, allo scambiatore. Un'altra osservazione che è possibile
+  fare alla luce dei dati sopra citati, è che la differenza precentuale tra il calcolo della potenza termica trasmessa
+  effettuato con approccio sperimentale ovvero teorico, è compresa tra il 33.5 ed il 38.4\%. Questi valori possono essere
+  considerati pienamente in linea, con le approssimazione effettuate in fase di modellizzazione del fenomeno ed
+  applicazione di formule empiriche per il calcolo dei numeri adimensionali.\vspace{2mm}\\
+  \textit{Nota:} Allo scopo di confermare quanto fatto nelle fasi di stima dei numeri adimensionali di Reynolds, è stata
   predisposta anche una porzione di codice (abilitabile con un flag nella prima parte dello script in JupyterNotebook),
-  atta al calcolo del numero adimensionale di Reynolds in maniera alternativa:
-  \textit{\textbf{[}\ref{eqn:re_alt}\textbf{]}}. I risultati ottenuti, sono comparabili con quelli ricavati mediante
-  l'applicazione del metodo precedentemente descritto.
-  ..........
-  \textit{\textbf{[}\hyperref[tab:perc_calcs]{Tab. }\ref{tab:perc_calcs}\textbf{]}}
+  atta al calcolo di Reynolds in maniera alternativa: secondo l'equazione \textit{\textbf{[}\ref{eqn:re_alt}\textbf{]}}.
+  I risultati ottenuti, sono comparabili con quelli ricavati mediante l'applicazione del metodo precedentemente descritto.
+\clearpage                                                                                                                  % New page
 
 \section{Formule}                                                                                                           % Section creation: "Formule"
 \label{sec:formulas}                                                                                                        % "formulas" reference-label definition and following section text
@@ -462,7 +491,7 @@
   \varepsilon_{cc} = \frac{1-exp{[-NTU(1-\mathcal{\dot{C}}_{ratio})}]}                                                      % Formula pt.1
   {1-\mathcal{\dot{C}}_{ratio}exp{[-NTU(1-\mathcal{\dot{C}}_{ratio})]}}                                                     % Formula pt.2
 \end{equation}                                                                                                              % Equation-end
-\vspace{3mm}                                                                                                                % Vert space
+\clearpage                                                                                                                  % New page
 \subsubsection{Metodo numeri adimensionali}                                                                                 % Subsubsection creation: "Metodo numeri adimensionali"
 \label{subsubsec:adim_num}                                                                                                  % "adim_num" reference-label definition and following subsubsection text
 \vspace{1mm}                                                                                                                % Vert space
@@ -597,6 +626,9 @@
   esportati all'interno di file nella segente
   \textit{\href{https://github.com/CristianMerli/DataAnalysis/tree/master/final_doc/code_exports/output}{directory}}.
 \begin{table}[H]                                                                                                            % Table-start
+  \caption{Valori delle variabili misurate ottenuti dall'analisi dei dati sperimentali}                                     % Table caption
+  \label{tab:measures_data}                                                                                                 % Reference-label to table
+  \vspace{3mm}                                                                                                              % Vert space
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
@@ -610,11 +642,11 @@
     T4 [°C]   & 41.90           & 41.69             & 45.01             & 45.50           \\
     \hline
   \end{tabular}                                                                                                             % End tabular definition
-  \caption{Valori delle variabili misurate ottenuti dall'analisi dei dati sperimentali}                                     % Table caption
-  \label{tab:measures_data}                                                                                                 % Reference-label to table
 \end{table}                                                                                                                 % Table-end
-\vspace{3mm}                                                                                                                % Vert space
 \begin{table}[H]                                                                                                            % Table-start
+  \caption{\textit{Valori ottenuti mediante i calcoli ingegneristici effettuati (potenze termiche scambiate)}}              % Table caption
+  \label{tab:heat_tr_calcs}                                                                                                 % Reference-label to table
+  \vspace{3mm}                                                                                                              % Vert space
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
@@ -626,11 +658,11 @@
     $\bar{Q}$ [kW]                                      & 5.86            & 6.12              & 3.86              & 3.70            \\
     \hline
   \end{tabular}                                                                                                             % End tabular definition
-  \caption{\textit{Valori ottenuti mediante i calcoli ingegneristici effettuati (potenze termiche scambiate)}}              % Table caption
-  \label{tab:heat_tr_calcs}                                                                                                 % Reference-label to table
 \end{table}                                                                                                                 % Table-end
-\vspace{3mm}                                                                                                                % Vert space
 \begin{table}[H]                                                                                                            % Table-start
+  \caption{\textit{Valori ottenuti mediante i calcoli ingegneristici effettuati (metodo $\varepsilon$-NTU)}}                % Table caption
+  \label{tab:eps_ntu_calcs}                                                                                                 % Reference-label to table
+  \vspace{3mm}                                                                                                              % Vert space
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
@@ -643,11 +675,11 @@
     $\varepsilon$                               & 0.26            & 0.28              & 0.56              & 0.52            \\
     \hline
   \end{tabular}                                                                                                             % End tabular definition
-  \caption{\textit{Valori ottenuti mediante i calcoli ingegneristici effettuati (metodo $\varepsilon$-NTU)}}                % Table caption
-  \label{tab:eps_ntu_calcs}                                                                                                 % Reference-label to table
 \end{table}                                                                                                                 % Table-end
-\vspace{3mm}                                                                                                                % Vert space
 \begin{table}[H]                                                                                                            % Table-start
+  \caption{\textit{Valori rilevanti ottenuti mediante i calcoli ingegneristici effettuati (metodo numeri adimensionali)}}   % Table caption
+  \label{tab:adim_num_calcs}                                                                                                % Reference-label to table
+  \vspace{3mm}                                                                                                              % Vert space
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
@@ -662,11 +694,11 @@
     Q\textsubscript{adim} [kW]                          & 3.81            & 3.77              & 2.43              & 2.46            \\
     \hline
   \end{tabular}                                                                                                             % End tabular definition
-  \caption{\textit{Valori rilevanti ottenuti mediante i calcoli ingegneristici effettuati (metodo numeri adimensionali)}}   % Table caption
-  \label{tab:adim_num_calcs}                                                                                                % Reference-label to table
 \end{table}                                                                                                                 % Table-end
-\vspace{3mm}                                                                                                                % Vert space
 \begin{table}[H]                                                                                                            % Table-start
+  \caption{\textit{Valori rilevanti ottenuti mediante i calcoli ingegneristici effettuati (analisi convezione naturale)}}   % Table caption
+  \label{tab:nat_conv_calcs}                                                                                                % Reference-label to table
+  \vspace{3mm}                                                                                                              % Vert space
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
@@ -678,11 +710,11 @@
     Q\textsubscript{perso,vetro} [W]                & 3.14            & 2.32              & -7.79             & -7.49           \\
     \hline
   \end{tabular}                                                                                                             % End tabular definition
-  \caption{\textit{Valori rilevanti ottenuti mediante i calcoli ingegneristici effettuati (analisi convezione naturale)}}   % Table caption
-  \label{tab:nat_conv_calcs}                                                                                                % Reference-label to table
 \end{table}                                                                                                                 % Table-end
-\vspace{3mm}                                                                                                                % Vert space
 \begin{table}[H]                                                                                                            % Table-start
+  \caption{\textit{Valori percentuali calcolati}}                                                                           % Table caption
+  \label{tab:perc_calcs}                                                                                                    % Reference-label to table
+  \vspace{3mm}                                                                                                              % Vert space
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
@@ -693,9 +725,8 @@
     $\Delta{Calc(Q)}$ [\%]            & 35.0            & 38.4              & 37.2              & 33.5            \\
     \hline
   \end{tabular}                                                                                                             % End tabular definition
-  \caption{\textit{Valori percentuali calcolati}}                                                                           % Table caption
-  \label{tab:perc_calcs}                                                                                                    % Reference-label to table
 \end{table}                                                                                                                 % Table-end
+\clearpage                                                                                                                  % New page
 
 \section{Immagini e grafici}                                                                                                % Section creation: "Immagini e grafici"
   Le figure ed i grafici sottostanti, sono stati manualmente esportati dallo script principale di calcolo e salvati in una
@@ -707,41 +738,48 @@
   flusso e diametri equivalenti termici/idraulici.
 \label{sec:imgs_graphs}                                                                                                     % "imgs_graphs" reference-label definition and following section text
 \begin{figure}[H]                                                                                                           % Figure-start
-  \centering                                                                                                                % Center image
-  \includegraphics[width=0.9\textwidth]{../final_doc/code_exports/imgs/measures.png}                                        % Size: 100% width of the text
   \caption{\textit{Dati sperimentali analizzati dallo scambiatore di calore e rilevamento delle diverse misure}}            % Image caption
   \label{fig:measures}                                                                                                      % Reference-label to image
+  \vspace{3mm}                                                                                                              % Vert space
+  \centering                                                                                                                % Center image
+  \includegraphics[width=0.8\textwidth]{../final_doc/code_exports/imgs/measures.png}                                        % Size: 100% width of the text
 \end{figure}                                                                                                                % Figure-end
 \begin{figure}[H]                                                                                                           % Figure-start
-  \centering                                                                                                                % Center image
-  \includegraphics[width=0.9\textwidth]{../final_doc/code_exports/imgs/measure3.png}                                        % Size: 100% width of the text
   \caption{\textit{Scelta del miglior intervallo dati durante la terza misura (ricerca condizioni stazionarie)}}            % Image caption
   \label{fig:measure1}                                                                                                      % Reference-label to image
+  \vspace{3mm}                                                                                                              % Vert space
+  \centering                                                                                                                % Center image
+  \includegraphics[width=0.8\textwidth]{../final_doc/code_exports/imgs/measure3.png}                                        % Size: 100% width of the text
 \end{figure}                                                                                                                % Figure-end
 \begin{figure}[H]                                                                                                           % Figure-start
-  \centering                                                                                                                % Center image
-  \includegraphics[width=0.9\textwidth]{../final_doc/code_exports/imgs/water_fitted_pr.png}                                 % Size: 100% width of the text
   \caption{\textit{Fitting polinomiale numero di Prandlt acqua (scartato per approssimazione insoddisfacente)}}             % Image caption
   \label{fig:water_fitted_pr}                                                                                               % Reference-label to image
+  \vspace{3mm}                                                                                                              % Vert space
+  \centering                                                                                                                % Center image
+  \includegraphics[width=0.8\textwidth]{../final_doc/code_exports/imgs/water_fitted_pr.png}                                 % Size: 100% width of the text
 \end{figure}                                                                                                                % Figure-end
 \begin{figure}[H]                                                                                                           % Figure-start
-  \centering                                                                                                                % Center image
-  \includegraphics[width=0.9\textwidth]{../final_doc/code_exports/imgs/water_intp_pr.png}                                   % Size: 100% width of the text
   \caption{\textit{Interpolazione polinomiale numero di Prandlt acqua (accettata, buona approssimazione)}}                  % Image caption
   \label{fig:water_intp_pr}                                                                                                 % Reference-label to image
+  \vspace{3mm}                                                                                                              % Vert space
+  \centering                                                                                                                % Center image
+  \includegraphics[width=0.8\textwidth]{../final_doc/code_exports/imgs/water_intp_pr.png}                                   % Size: 100% width of the text
 \end{figure}                                                                                                                % Figure-end
 \begin{figure}[H]                                                                                                           % Figure-start
-  \centering                                                                                                                % Center image
-  \includegraphics[width=0.9\textwidth]{../final_doc/code_exports/imgs/temp_trend.png}                                      % Size: 100% width of the text
   \caption{\textit{Alcune temperature nella parte superiore dello scambiatore durante la seconda misura in equi-corrente}}  % Image caption
   \label{fig:temp_trend}                                                                                                    % Reference-label to image
+  \vspace{3mm}                                                                                                              % Vert space
+  \centering                                                                                                                % Center image
+  \includegraphics[width=0.8\textwidth]{../final_doc/code_exports/imgs/temp_trend.png}                                      % Size: 100% width of the text
 \end{figure}                                                                                                                % Figure-end
 \begin{figure}[H]                                                                                                           % Figure-start
-  \centering                                                                                                                % Center image
-  \includegraphics[width=0.75\textwidth]{../final_doc/code_exports/imgs/heat_exchanger.png}                                 % Size: 100% width of the text
   \caption{\textit{Dimensioni scambiatore di calore utilizzate per calcolo dei diametri equivaleti (creata da autocad)}}    % Image caption
   \label{fig:he}                                                                                                            % Reference-label to image
+  \vspace{3mm}                                                                                                              % Vert space
+  \centering                                                                                                                % Center image
+  \includegraphics[width=0.8\textwidth]{../final_doc/code_exports/imgs/heat_exchanger.png}                                  % Size: 100% width of the text
 \end{figure}                                                                                                                % Figure-end
+\clearpage                                                                                                                  % New page
 
 \addcontentsline{toc}{section}{Riferimenti bibliografici}                                                                   % Add bibliography inside table of contents
 \bibliography{biblio/references}                                                                                            % Bibliography inclusion (biblio/references.bib)
