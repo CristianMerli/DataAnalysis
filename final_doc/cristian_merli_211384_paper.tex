@@ -211,7 +211,7 @@
   Questi dati, sono quindi la base su cui uno script appositamente sviluppato, esegue operazioni di approssimazione
   polinomiale mediante interpolazione o "curve-fitting". Dopo di che, caso per caso, viene scelto il metodo che meglio
   definisce l'andamento del grafico. Anche queste operazioni vengono rappresentate mediante grafici, utilizzati per
-  scegliere il metodo d'apprissimazioni più affidabile per ogni trend. A titolo esemplificativo, al fine di approssimare
+  scegliere il metodo d'approssimazione più affidabile per ogni trend. A titolo esemplificativo, al fine di approssimare
   l'andamento del numero di Prandtl per l'acqua (in funzione della temperatura), si è scelto il metodo di interpolazione
   contro quello di "curve-fitting". Dopo aver cercato di ottenere la miglior curva con entrambe i metodi per confronto
   visivo, si è scelto il quello migliore per il caso in oggetto: com'è possibile notare dai trend in
@@ -235,13 +235,13 @@
   portate volumetriche in [l/h] sono state trasformate in [m\textsuperscript{3}/s] e successivamente in portate di massa
   [kg/s]. Il passaggio da portate volumetriche a portate di massa, è stato compiuto sfruttando i dati dei fluidi prima
   dell'ingresso nello scambiatore di calore, in quanto il fluido si presenta in condizioni più stabili rispetto
-  all'uscita. In termini matematici, questa conversione è statata riportata nell'equazione
+  all'uscita. In termini matematici, questa conversione è stata riportata nell'equazione
   \textit{\textbf{[}\ref{eqn:conv}\textbf{]}}.
 \subsection{Trasferimento di calore}                                                                                        % Subsection creation: "Trasferimento di calore"
 \label{subsec:heat_tr}                                                                                                      % "heat_tr" reference-label definition and following subsection text 
   Il primo step di calcoli ingegneristici veri è propri, è caratterizzato dal calcolo delle potenze termiche, utilizzando i
   dati sperimentali raccolti. Sono state definite le potenze scambiate dal fluido caldo e fluido freddo, mediante le
-  due relazioni simmetriche riportate nell'equazione \textit{\textbf{[}\ref{eqn:heat_tr}\textbf{]}}. Si è proceduto quidi
+  due relazioni simmetriche riportate nell'equazione \textit{\textbf{[}\ref{eqn:heat_tr}\textbf{]}}. Si è proceduto quindi
   al calcolo della potenza media scambiata e della potenza persa, che rappresenta la non-adiabaticità del
   sistema reale oggetto di misurazioni \textit{\textbf{[}\ref{eqn:heat_tr2}\textbf{]}}. I risultati ottenuti, sono riporati
   all'interno della tabella dati \textit{\textbf{[}\hyperref[tab:heat_tr_calcs]{Tab. }\ref{tab:heat_tr_calcs}\textbf{]}}.
@@ -249,7 +249,7 @@
   positivi acquisizione di calore. Facilmente osservabile, è la diretta correlazione tra configurazione dello scambiatore
   (equi o contro-corrente) e la potenza termica scambiata, a parità di portate volumetriche: nelle misure in
   contro-corrente si nota una maggiore quantità di calore trasferito, dovuto alla presenza di maggiori gradienti di
-  temperatura. Sempre alla luce dei dati sopra ciatati, si denota una spiccata proporzionalità diretta, tra portate
+  temperatura. Sempre alla luce dei dati sopra citati, si denota una spiccata proporzionalità diretta, tra portate
   volumetriche e potenze termiche scambiate (entrambe nettamente maggiori nelle prime due misure). Il fatto più importante
   da notare è la quantità di calore disperso verso l'ambiente dalla macchina termica, anche se questo valore è influenzato
   da errori di misura, riguardanti la portata volumetrica del fluido freddo. Infatti, a causa di malfunzionamenti della
@@ -274,7 +274,7 @@
   parametri intermedi utili per arrivare alla definizione dei valori di NTU e dell'efficienza, mediante le relazioni
   \textit{\textbf{[}\ref{eqn:ntu}\textbf{]}} e \textit{\textbf{[}\ref{eqn:epsilon}\textbf{]}}. I valori ricavati, sono
   riportati nella tabella \textit{\textbf{[}\hyperref[tab:eps_ntu_calcs]{Tab. }\ref{tab:eps_ntu_calcs}\textbf{]}}.
-  Interssante notare, come per le misure in cofigurazione contro-corrente si presentino valori di U\textsubscript{i},
+  Interessante notare, come per le misure in cofigurazione contro-corrente si presentino valori di U\textsubscript{i},
   U\textsubscript{e}, NTU ed epsilon, leggermente maggiori rispetto alle misure in cofigurazione di tipo equi-corrente.
   Mentre ancora più marcata, è la differenza tra misure caratterizzate da alte o basse portate volumetriche di fluido
   freddo (prima e seconda misura circa 550 [l/h], mentre terza e quarta approssimativamente 170 [l/h]). In particolare, per
@@ -283,17 +283,17 @@
 \subsection{Metodo numeri adimensionali}                                                                                    % Subsection creation: "Metodo numeri adimensionali"
 \label{subsec:adimnum_meth}                                                                                                 % "adimnum_meth" reference-label definition and following subsection text
   Un ulteriore metodo attraverso il quale è possibile ottenere informazioni sulla quantità di calore scambiato, è quello
-  che fa ricorso all'utilizzo dei numeri adimensionali. Procendendo quindi con un approccio più teorico, vengono
+  che fa ricorso all'utilizzo dei numeri adimensionali. Procedendo quindi con un approccio più teorico, vengono
   ricalcolati i valori delle potenze termiche scambiate per ogni misura, confrontandoli poi con quelli ottenuti mediante
   l'approccio sperimentale, descritto poco sopra \textit{\textbf{[}\hyperref[subsec:heat_tr]{Capitolo }\ref{subsec:heat_tr},
   \hyperref[subsec:heat_tr]{pagina }\pageref{subsec:heat_tr}\textbf{]}}. A tal fine, è stato necessario calcolare anche le
   varie resistenze termiche di tipo conduttivo e convettivo. Si è iniziato determinando il valore della resistenza
   conduttiva legata ai tubi interni in acciaio inox, attraverso la formula \textit{\textbf{[}\ref{eqn:cond_r}\textbf{]}}.
-  In quest'equazione, la conducibiltà termica, è stata valutata alla temperatura media tra i due fluidi. In maniera
+  In quest'equazione, la conducibilità termica, è stata valutata alla temperatura media tra i due fluidi. In maniera
   analoga, per il calcolo della maggior parte delle variabili termofisiche dipendenti dalla temperatura, è stato fatto
-  ricorso alle temperature media del fluido. Con tale concetto, si è definito il valore della viscosità dinamica attraverso
+  ricorso alle temperature medie dei fluidi. Con tale concetto, si è definito il valore della viscosità dinamica attraverso
   la relazione \textit{\textbf{[}\ref{eqn:dyn_vis}\textbf{]}}, il numero di Prandtl e la conducibilità termica del fluido
-  caldo (interno). Noti tali valori, è stato possibile procedere alla stima del nunmero di Reynolds all'interno delle
+  caldo (interno). Noti tali valori, è stato possibile procedere alla stima del numero di Reynolds all'interno delle
   tubazioni in acciaio: \textit{\textbf{[}\ref{eqn:re_pipe}\textbf{]}}. A seconda del valore ottenuto, il software decide
   se applicare l'equazione per il calcolo del numero di Nusselt all'interno di una tubazione con fluido in moto laminare
   o turbolento: rispettivamente \textit{\textbf{[}\ref{eqn:nu_pipe_l}\textbf{]}} e
@@ -301,12 +301,12 @@
   convettivo relativo al fluido interno: \textit{\textbf{[}\ref{eqn:h}\textbf{]}}. Successivamente, è stato possibile
   definire la resistenza convettiva interna \textit{\textbf{[}\ref{eqn:conv_r}\textbf{]}} (con A=area-interna tubazioni
   interne) e le temperature sulle superfici interne/esterne delle tubazioni in acciaio
-  \textit{\textbf{[}\ref{eqn:surf_temp}\textbf{]}}. Cocncluso tutto ciò che riguarda il fluido interno, si è spostata
+  \textit{\textbf{[}\ref{eqn:surf_temp}\textbf{]}}. Concluso tutto ciò che riguarda il fluido interno, si è spostata
   l'attenzione su quello esterno (fluido freddo). L'analisi di quanto avviene all'interno dello "shell" dello
   scambiatore, risulta essere notevolmente più complessa e necessita quindi di una serie di osservazioni ed
   approssimazioni, per poterla modellizzare ingegneristicamente. La tubazione esterna in vetro, essendo interrotta da
   diaframmi che causano un moto del fluido pressochè orizzontale, si presta ad essere studiata per sezioni circolari.
-  Conoscedo solamente i valori di temperatura delle sezioni agli estremi: in ingresso (in basso) e in uscita (in alto),
+  Conoscendo solamente i valori di temperatura delle sezioni agli estremi: in ingresso (in basso) e in uscita (in alto),
   le due sezioni vengono studiate separatamente, per poi calcolarne il coefficiente medio di scambio termico convettivo.
   Ogni sezione trasversale, può essere vista come tre diverse sotto-sezioni di scambio, attraversate dal fluido: due
   contenenti un tubo e una contenente tre tubi del fascio. Lo scambio termico convettivo nella sezione, sarà quindi una
@@ -333,7 +333,7 @@
 \label{subsec:extnat_conv}                                                                                                  % "extnat_conv" reference-label definition and following subsection text 
   Per completezza, sono poi stati calcolati i numeri adimensionali ed i valori di resistenze/temperature, anche all'esterno
   del tubo in vetro dello scambiatore di calore, a contatto con l'aria dell'ambiente circostante. Per descrivere tali
-  fenomeni, si è quindi fatto ricorso alle relazione descriventi la convezione naturale, attreverso i numeri adimensionali
+  fenomeni, si è quindi fatto ricorso alle relazione descriventi la convezione naturale, attraverso i numeri adimensionali
   di Grashof e Rayleigh. Così facendo, è stato inoltre possibile identificare la quantità di calore dispersa attraverso il
   vetro borosilicato (pyrex), costituente la parete esterna della macchina termica in oggetto. Per prima cosa, è stata
   fatta una stima della temperatura sulla superficie esterna, calcolando la temperatura media tra ambiente e fluido
@@ -349,14 +349,14 @@
   esterno, attraverso la relazione \textit{\textbf{[}\ref{eqn:conv_r}\textbf{]}} (con A=area-interna tubo esterno).
   Infine, per concludere anche l'analisi dello scambio verso l'ambiente, si è proceduto definendo quanto accade
   all'esterno del tubo in vetro. Una volta determinato il valore della conducibilità termica dell'aria a temperatura
-  ambiente, sono stati calcolari i numeri adimensionali di Grashof \textit{\textbf{[}\ref{eqn:gr}\textbf{]}}, Rayleigh
+  ambiente, sono stati calcolati i numeri adimensionali di Grashof \textit{\textbf{[}\ref{eqn:gr}\textbf{]}}, Rayleigh
   \textit{\textbf{[}\ref{eqn:ra}\textbf{]}} e Nusselt \textit{\textbf{[}\ref{eqn:nu_ra}\textbf{]}}; dai cui poter
   ricavare il valore del coefficiente di scambio h, attraverso l'equazione \textit{\textbf{[}\ref{eqn:h}\textbf{]}}.
   Sono poi stati definiti i valori di resistenze convettive esterne \textit{\textbf{[}\ref{eqn:conv_r}\textbf{]}}, e
   resistenze termiche totali tra fluido esterno ed ambiente \textit{\textbf{[}\ref{eqn:tot_r}\textbf{]}}. Da qui, è
   stato possibile definire i valori dei coefficienti globali di scambio
   \textit{\textbf{[}\ref{eqn:ohtc}\textbf{]}} e la potenza termica dispersa nell'ambiente, attraverso il vetro
-  borosilicato \textit{\textbf{[}\ref{eqn:recalc_heat_tr}\textbf{]}}. In fine, per completare tutto ciò che concerne
+  borosilicato \textit{\textbf{[}\ref{eqn:recalc_heat_tr}\textbf{]}}. Infine, per completare tutto ciò che concerne
   la dispersione di calore verso l'ambiente, sono state stimate anche le temperature sulla superficie interna ed
   esterna del vetro in diversi punti (a titolo esemplificativo
   \textit{\textbf{[}\hyperref[fig:temp_trend]{Fig. }\ref{fig:temp_trend}\textbf{]}}), mediante la formula
@@ -371,11 +371,11 @@
   \textit{\textbf{[}\hyperref[tab:perc_calcs]{Tab. }\ref{tab:perc_calcs}\textbf{]}}, le percentuali di calore disperso
   (differenza tra potenza termica emanata dal fluido caldo ed acquisita dal fluido freddo), sono comprese tra il 5.4 ed il
   13.4\%. Unitamente al fatto che, i valori percentuali di potenza termica dispersa verso l'ambiente attraverso la parete
-  esterna (in vetro pyrex), oscillano tra lo 0.4 e l'1.4\% di quello totale disperso; stanno a significare che il il
-  grosso della dispersione avviene altrove. Con molta probabilità, una parte consistente avviene sulle tubazioni che
-  conducono i fluidi dai punti di misurazione della temperatura, allo scambiatore. Un'altra osservazione che è possibile
-  fare alla luce dei dati sopra citati, è che la differenza precentuale tra il calcolo della potenza termica trasmessa
-  effettuato con approccio sperimentale ovvero teorico, è compresa tra il 33.5 ed il 38.4\%. Questi valori possono essere
+  esterna (in vetro pyrex), oscillano tra lo 0.4 e l'1.4\% di quello totale disperso; stanno a significare che il grosso
+  della dispersione avviene altrove. Con molta probabilità, una parte consistente avviene sulle tubazioni che conducono i
+  fluidi dai punti di misurazione della temperatura, allo scambiatore. Un'altra osservazione che è possibile fare alla
+  luce dei dati sopra citati, è che la differenza precentuale tra il calcolo della potenza termica trasmessa effettuato
+  con approccio sperimentale ovvero teorico, è compresa tra il 33.5 ed il 38.4\%. Questi valori possono essere
   considerati pienamente in linea, con le approssimazione effettuate in fase di modellizzazione del fenomeno ed
   applicazione di formule empiriche per il calcolo dei numeri adimensionali.\vspace{2mm}\\
   \textit{Nota:} Allo scopo di confermare quanto fatto nelle fasi di stima dei numeri adimensionali di Reynolds, è stata
