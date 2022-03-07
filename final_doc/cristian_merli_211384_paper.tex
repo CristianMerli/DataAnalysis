@@ -4,7 +4,7 @@
 
 \documentclass[a4paper,10pt]{article}                                                                                       % Document specs
 \usepackage[legalpaper, margin=2cm]{geometry}                                                                               % Document margin
-\usepackage[utf8]{inputenc}                                                                                                 % Encoding specs
+\usepackage[italian]{babel}                                                                                                 % Document language
 \usepackage{tocloft}                                                                                                        % Package import for table of contents with dots
 \usepackage{abstract}                                                                                                       % Package import for abstract
 \usepackage{hyperref}                                                                                                       % Package import for external references
@@ -30,10 +30,6 @@
   pdftitle={DataAnalysis},
   pdfpagemode=FullScreen}                                                                                                   % External references definition: dark-grey links and blue URLs (\href call)
 \setlength{\parindent}{1cm}                                                                                                 % Remove indentation at paragraph's start
-\renewcommand{\abstractname}{Sommario}                                                                                      % Abstract title
-\renewcommand{\contentsname}{Indice}                                                                                        % Change table of contents (ToC) title
-\renewcommand{\listtablename}{Lista tabelle}                                                                                % Change list of tables (LoT) title
-\renewcommand{\listfigurename}{Lista immagini}                                                                              % Change list of images (LoF) title
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}                                                                       % Configure table of contents (ToC) to display dots
 \renewcommand{\cftsecfont}{\normalsize}                                                                                     % ToC-sec font
 \renewcommand{\cftsubsecfont}{\normalsize}                                                                                  % ToC-subsec font
@@ -48,10 +44,7 @@
 \counterwithin*{equation}{section}                                                                                          % Restart equations enumeration at new section
 \counterwithin*{equation}{subsection}                                                                                       % Restart equations enumeration at new subsection
 \counterwithin*{equation}{subsubsection}                                                                                    % Restart equations enumeration at new subsubsection
-\renewcommand{\tablename}{Tab.}                                                                                             % Change tables enumeration
-\renewcommand{\figurename}{Fig.}                                                                                            % Change figures enumeration
 \bibliographystyle{plain}                                                                                                   % Bibliography style (plain standard style)
-\renewcommand\refname{Riferimenti bibliografici}                                                                            % Bibliography title
 
 \title{Analisi dati e calcoli ingegneristici scambiatore di calore\\                                                        % Title definition (printed with \maketitle command)
 \large Laboratorio - Gruppo n.5 del 26/11/2021, fisica tecnica [140078] AA 2021/2022}                                       % Subtitle definition (printed with \maketitle command)
@@ -76,7 +69,7 @@
   Nei capitoli successivi, verranno elencate le richieste di progetto avanzate dal docente e verranno ripercorse le varie
   tappe, che hanno condotto alla realizzazione e comparazione di diversi modelli ingegneristici più o meno raffinati,
   mediante l'analisi assistita da calcolatore dei dati raccolti durante l'esperienza di laboratorio (effettuata in data
-  26/11/2021 con il gruppo numero 5, presso i laboratori del dipartimanto di fisica dell'università di Trento).}
+  26/11/2021 con il gruppo numero 5, presso i laboratori del dipartimento di fisica dell'università di Trento).}
 \end{abstract}                                                                                                              % Abstract end
 \pagebreak                                                                                                                  % Go to new page
 
@@ -177,7 +170,7 @@
   costituenti o interagenti con l'apparato di scambio termico, sono state approssimate polinomialmente in funzione della
   temperatura. I dati di partenza utilizzati per approssimare l'andamento delle diverse proprietà con la temperatura,
   derivano da fonti ufficiali ed affidabili. Nel dettaglio, i dati riguardanti i fluidi: aria ed acqua, sono stati forniti
-  dal docente sottoforma di tabelle (pdf), poi trascritte in file CSV ed importate sottoforma di database. Procedura
+  dal docente sotto forma di tabelle (pdf), poi trascritte in file CSV ed importate sotto forma di database. Procedura
   analoga, anche per i materiali costituenti lo scambiatore: acciaio inox AISI-316 (tubi interni) e vetro borosilicato
   (pyrex, tubo esterno), i cui dati derivano però dalla rete. Di seguito, sono riportate nel dettaglio le fonti dati
   utilizzate:
@@ -202,8 +195,8 @@
       pagina 39 pdf, tabella 6 (pagina 16 file)
       (\textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/Pyrex_glass.pdf}{file-PDF}},
       \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/data_analysis/thermophys_vars/pyrex_glass_thermo_vars.csv}{file-CSV}}).
-      \vspace{1.5mm}\\\textit{Nota:} i valori della conducibilià termica, sono stati convertiti da [W/(cm\*K)] a [W/(m\*K)],
-      all'interno dello script dedicato
+      \vspace{1.5mm}\\\textit{Nota:} i valori della conducibilità termica, sono stati convertiti da [W/(cm\*K)] a
+      [W/(m\*K)], all'interno dello script dedicato
       \vspace{1.5mm}\\\textit{Nota:} in caso d'errore in fase di caricamento dell'anteprima file PDF, dovuto alle
       dimensioni eccessive del file stesso, premere il pulsante "download", oppure usa il seguente
       \textit{\href{https://github.com/CristianMerli/DataAnalysis/raw/master/lab_doc/Pyrex_glass.pdf}{link}}).
@@ -218,14 +211,14 @@
   \textit{\textbf{[}\hyperref[fig:water_fitted_pr]{Fig. }\ref{fig:water_fitted_pr}\textbf{]}} e
   \textit{\textbf{[}\hyperref[fig:water_intp_pr]{Fig. }\ref{fig:water_intp_pr}\textbf{]}}.
 \subsection{Definizione dettagli scambiatore di calore e calcoli preliminari}                                               % Subsection creation: "Definizione dettagli scambiatore di calore e calcoli preliminari"
-\label{subsec:hedef_prelcalcs}                                                                                              % "hedef_prelcalcs" reference-label definition and following subsection text  
+\label{subsec:hedef_precalcs}                                                                                               % "hedef_precalcs" reference-label definition and following subsection text  
   I dati/dettagli essenziali riguardanti le geometrie dello scambiatore di calore, derivano dai file messi a disposizione
   dal docente:
   \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/DescrizioneScambiatore.pdf}{descrizione-scambiatore-PDF}}
   e \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/RelazioniScambiatore.pdf}{relazioni-scambiatore-PDF}}
   (prima pagina). Attraverso un'ulteriore script dedicato, si è creato un oggetto informatico di tipo 'he' (HeatExchanger),
   popolato mediante preset dei parametri geometrici a disposizione. Al contempo, sono stati determinati anche i parametri
-  geometrici derivati: superfici, diametri equicalenti ecc. Proprio per calcolare aree di flusso e diametri equivalenti
+  geometrici derivati: superfici, diametri equivalenti ecc. Proprio per calcolare aree di flusso e diametri equivalenti
   termici ed idraulici, è stato realizzato uno schema della sezione orizzontale dello scambiatore:
   \textit{\textbf{[}\hyperref[fig:he]{Fig. }\ref{fig:he}\textbf{]}}. Tali parametri, sono consultabili al seguente
   \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/final_doc/code_exports/output/he.txt}{link}}.
@@ -243,7 +236,7 @@
   dati sperimentali raccolti. Sono state definite le potenze scambiate dal fluido caldo e fluido freddo, mediante le
   due relazioni simmetriche riportate nell'equazione \textit{\textbf{[}\ref{eqn:heat_tr}\textbf{]}}. Si è proceduto quindi
   al calcolo della potenza media scambiata e della potenza persa, che rappresenta la non-adiabaticità del
-  sistema reale oggetto di misurazioni \textit{\textbf{[}\ref{eqn:heat_tr2}\textbf{]}}. I risultati ottenuti sono riporati
+  sistema reale oggetto di misurazioni \textit{\textbf{[}\ref{eqn:heat_tr2}\textbf{]}}. I risultati ottenuti sono riportati
   all'interno della tabella dati \textit{\textbf{[}\hyperref[tab:heat_tr_calcs]{Tab. }\ref{tab:heat_tr_calcs}\textbf{]}}.
   Le potenze termiche sono state prese con segno, per cui i valori negativi rappresentano perdita di calore, mentre quelli
   positivi acquisizione di calore. Facilmente osservabile, è la diretta correlazione tra configurazione dello scambiatore
@@ -260,11 +253,11 @@
   \hyperref[sec:data_analysis]{pagina }\pageref{sec:data_analysis}\textbf{]}}.
   \clearpage                                                                                                                % New page
 \subsection{Metodo epsilon-NTU}                                                                                             % Subsection creation: "Metodo epsilon-NTU"
-\label{subsec:espntu_meth}                                                                                                  % "espntu_meth" reference-label definition and following subsection text 
+\label{subsec:epsntu_meth}                                                                                                  % "epsntu_meth" reference-label definition and following subsection text 
   Una volta ottenuto il valor medio della potenza termica trasferita tra fluido caldo e freddo, questa viene utilizza allo
   scopo di determinare il parametro NTU (Number of Transfer Units) e l'efficienza dello scambiatore (epsilon),
   approssimando la configurazione dello scambiatore in equi/contro-corrente. L'approssimazione consiste nel trascurare la
-  presenza dei diaframmi orizzontali, che causano un moto del fluido esterno pressochè ortogonale ai tubi interni. Tale
+  presenza dei diaframmi orizzontali, che causano un moto del fluido esterno pressoché ortogonale ai tubi interni. Tale
   fenomeno, oltre a creare un'imperfetta configurazione equi/contro-corrente, ha anche l'effetto di aumentare il numero
   di Reynolds e quindi lo scambio termico per convezione. Per poter arrivare ad un valore di efficienza dello scambiatore,
   si è prima calcolata la differenza di temperatura medio-logaritmica \textit{\textbf{[}\ref{eqn:deltatml}\textbf{]}}, le
@@ -274,8 +267,8 @@
   parametri intermedi utili per arrivare alla definizione dei valori di NTU e dell'efficienza, mediante le relazioni
   \textit{\textbf{[}\ref{eqn:ntu}\textbf{]}} e \textit{\textbf{[}\ref{eqn:epsilon}\textbf{]}}. I valori ricavati, sono
   riportati nella tabella \textit{\textbf{[}\hyperref[tab:eps_ntu_calcs]{Tab. }\ref{tab:eps_ntu_calcs}\textbf{]}}.
-  Interessante notare, come per le misure in cofigurazione contro-corrente si presentino valori di U\textsubscript{i},
-  U\textsubscript{e}, NTU ed epsilon, leggermente maggiori rispetto alle misure in cofigurazione di tipo equi-corrente.
+  Interessante notare, come per le misure in configurazione contro-corrente si presentino valori di U\textsubscript{i},
+  U\textsubscript{e}, NTU ed epsilon, leggermente maggiori rispetto alle misure in configurazione di tipo equi-corrente.
   Mentre ancora più marcata, è la differenza tra misure caratterizzate da alte o basse portate volumetriche di fluido
   freddo (prima e seconda misura circa 550 [l/h], mentre terza e quarta approssimativamente 170 [l/h]). In particolare, per
   le prime due misure (alte portate di fluido freddo), si notano valori di scambio ed efficienza drammaticamente inferiori
@@ -285,7 +278,8 @@
   Un ulteriore metodo attraverso il quale è possibile ottenere informazioni sulla quantità di calore scambiato, è quello
   che fa ricorso all'utilizzo dei numeri adimensionali. Procedendo quindi con un approccio più teorico, vengono
   ricalcolati i valori delle potenze termiche scambiate per ogni misura, confrontandoli poi con quelli ottenuti mediante
-  l'approccio sperimentale, descritto poco sopra \textit{\textbf{[}\hyperref[subsec:heat_tr]{Capitolo }\ref{subsec:heat_tr},
+  l'approccio sperimentale, descritto poco sopra
+  \textit{\textbf{[}\hyperref[subsec:heat_tr]{Capitolo }\ref{subsec:heat_tr},
   \hyperref[subsec:heat_tr]{pagina }\pageref{subsec:heat_tr}\textbf{]}}. A tal fine, è stato necessario calcolare anche le
   varie resistenze termiche di tipo conduttivo e convettivo. Si è iniziato determinando il valore della resistenza
   conduttiva legata ai tubi interni in acciaio inox, attraverso la formula \textit{\textbf{[}\ref{eqn:cond_r}\textbf{]}}.
@@ -305,7 +299,7 @@
   l'attenzione su quello esterno (fluido freddo). L'analisi di quanto avviene all'interno dello "shell" dello
   scambiatore, risulta essere notevolmente più complessa e necessita quindi di una serie di osservazioni ed
   approssimazioni, per poterla modellizzare ingegneristicamente. La tubazione esterna in vetro, essendo interrotta da
-  diaframmi che causano un moto del fluido pressochè orizzontale, si presta ad essere studiata per sezioni circolari.
+  diaframmi che causano un moto del fluido pressoché orizzontale, si presta ad essere studiata per sezioni circolari.
   Conoscendo solamente i valori di temperatura delle sezioni agli estremi: in ingresso (in basso) e in uscita (in alto),
   le due sezioni vengono studiate separatamente, per poi calcolarne il coefficiente medio di scambio termico convettivo.
   Ogni sezione trasversale, può essere vista come tre diverse sotto-sezioni di scambio, attraversate dal fluido: due
@@ -326,7 +320,7 @@
   questa volta attraverso i numeri adimensionali: \textit{\textbf{[}\ref{eqn:ohtc}\textbf{]}}. Infine, per completare
   anche dell'analisi teorica, è stato ricalcolato il valore della potenza termica scambiata sfruttando l'equazione
   \textit{\textbf{[}\ref{eqn:recalc_heat_tr}\textbf{]}}, considerando lo scambiatore come adiabatico. I risultati dei
-  calcoli più significativi, sono stati riporati all'interno della tabella
+  calcoli più significativi, sono stati riportati all'interno della tabella
   \textit{\textbf{[}\hyperref[tab:adim_num_calcs]{Tab. }\ref{tab:adim_num_calcs}\textbf{]}}.
 \clearpage                                                                                                                  % New page
 \subsection{Convezione naturale esterna}                                                                                    % Subsection creation: "Convezione naturale esterna"
@@ -339,7 +333,7 @@
   fatta una stima della temperatura sulla superficie esterna, calcolando la temperatura media tra ambiente e fluido
   esterno. Questo valore, è stato utilizzato poi per definire la conducibilità termica del vetro e quindi la resistenza
   conduttiva dello stesso, attraverso l'equazione \textit{\textbf{[}\ref{eqn:cond_r}\textbf{]}}. Successivamente, sono
-  stati determinati i valori di conducibilità termiche, viscosità dinamiche e numeri di Prandlt medi del fluido freddo
+  stati determinati i valori di conducibilità termiche, viscosità dinamiche e numeri di Prandtl medi del fluido freddo
   (valori intermedi tra quelli calcolati sulla sezione in ingresso e in uscita, al capitolo
   \textit{\textbf{[}\hyperref[subsec:adimnum_meth]{Capitolo }\ref{subsec:adimnum_meth},
   \hyperref[subsec:adimnum_meth]{pagina }\pageref{subsec:adimnum_meth}\textbf{]}}). Si sono calcolati inoltre, i numeri di
@@ -378,7 +372,7 @@
   alla rumorosità del valore di portata volumetrica di fluido freddo (F2), anche se limitato attraverso le azioni messe in
   campo, descritte al \textit{\textbf{[}\hyperref[sec:data_analysis]{Capitolo }\ref{sec:data_analysis},
   \hyperref[sec:data_analysis]{pagina }\pageref{sec:data_analysis}\textbf{]}}. Un'altra osservazione che è possibile fare
-  alla luce dei dati sopra citati, è che la differenza precentuale tra il calcolo della potenza termica trasmessa
+  alla luce dei dati sopra citati, è che la differenza percentuale tra il calcolo della potenza termica trasmessa
   effettuato con approccio sperimentale ovvero teorico, è compresa tra il 33.5 ed il 38.4\%. Questa discrepanza può essere
   considerata pienamente in linea con le approssimazione effettuate in fase di modellizzazione del fenomeno, l'applicazione
   di formule empiriche per il calcolo dei numeri adimensionali e la presenza di errori sperimentali.\vspace{2mm}\\
@@ -628,7 +622,7 @@
 \section{Tabelle}                                                                                                           % Section creation: "Tabelle"
 \label{sec:tables}                                                                                                          % "tables" reference-label definition and following section text
   Le seguenti tabelle, sono frutto dell'estrapolazione dei dati dallo script principale di calcolo, automaticamente
-  esportati all'interno di file nella segente
+  esportati all'interno di file nella seguente
   \textit{\href{https://github.com/CristianMerli/DataAnalysis/tree/master/final_doc/code_exports/output}{directory}}.
 \begin{table}[H]                                                                                                            % Table-start
   \caption{Valori delle variabili misurate ottenuti dall'analisi dei dati sperimentali}                                     % Table caption
@@ -757,14 +751,14 @@
   \includegraphics[width=0.8\textwidth]{../final_doc/code_exports/imgs/measure3.png}                                        % Size: 100% width of the text
 \end{figure}                                                                                                                % Figure-end
 \begin{figure}[H]                                                                                                           % Figure-start
-  \caption{\textit{Fitting polinomiale numero di Prandlt acqua (scartato per approssimazione insoddisfacente)}}             % Image caption
+  \caption{\textit{Fitting polinomiale numero di Prandtl acqua (scartato per approssimazione insoddisfacente)}}             % Image caption
   \label{fig:water_fitted_pr}                                                                                               % Reference-label to image
   \vspace{3mm}                                                                                                              % Vert space
   \centering                                                                                                                % Center image
   \includegraphics[width=0.8\textwidth]{../final_doc/code_exports/imgs/water_fitted_pr.png}                                 % Size: 100% width of the text
 \end{figure}                                                                                                                % Figure-end
 \begin{figure}[H]                                                                                                           % Figure-start
-  \caption{\textit{Interpolazione polinomiale numero di Prandlt acqua (accettata, buona approssimazione)}}                  % Image caption
+  \caption{\textit{Interpolazione polinomiale numero di Prandtl acqua (accettata, buona approssimazione)}}                  % Image caption
   \label{fig:water_intp_pr}                                                                                                 % Reference-label to image
   \vspace{3mm}                                                                                                              % Vert space
   \centering                                                                                                                % Center image
@@ -778,7 +772,7 @@
   \includegraphics[width=0.8\textwidth]{../final_doc/code_exports/imgs/temp_trend.png}                                      % Size: 100% width of the text
 \end{figure}                                                                                                                % Figure-end
 \begin{figure}[H]                                                                                                           % Figure-start
-  \caption{\textit{Dimensioni scambiatore di calore utilizzate per calcolo dei diametri equivaleti (creata da autocad)}}    % Image caption
+  \caption{\textit{Dimensioni scambiatore di calore utilizzate per calcolo dei diametri equivalenti (creata da autocad)}}   % Image caption
   \label{fig:he}                                                                                                            % Reference-label to image
   \vspace{3mm}                                                                                                              % Vert space
   \centering                                                                                                                % Center image
