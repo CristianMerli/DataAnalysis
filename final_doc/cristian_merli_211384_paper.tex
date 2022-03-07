@@ -144,22 +144,22 @@
   Quest'ultimo, a sua volta convertito in un database, viene utilizzato come sorgente dati da cui attingere al fine di
   estrapolare informazioni, per compiere operazioni di filtraggio e di calcolo. Il programma, identifica quindi in maniera
   autonoma le diverse misure all'interno del database, ripulendo inoltre ulteriori eventuali dati intermedi corrispondenti
-  ad 'altre operazioni'. Il tutto viene poi mostrato graficamente, evidenziando le finestre dati corrispondenti alle
+  ad "altre operazioni". Il tutto viene poi mostrato graficamente, evidenziando le finestre dati corrispondenti alle
   misure stesse \textit{\textbf{[}\hyperref[fig:measures]{Fig. }\ref{fig:measures}\textbf{]}}.
 \subsection{Definizione valori e creazione strutture dati}                                                                  % Subsection creation: "Definizione valori e creazione strutture dati"
 \label{subsec:valsdef_datastruct}                                                                                           % "valsdef_datastruct" reference-label definition and following subsection text  
-  Conclusa questa fase preliminare, vengono automaticamente richiamate le istruzioni di analisi dati vera e propria. Tali
-  istruzioni hanno come scopo principale, quello di ottenere i valori numerici delle diverse variabili misurate, per ogni
-  misura: temperature e portate volumetriche. Il tutto, cercando di ricavare valori numerici significativi, per poter
-  successivamente svolgere i calcoli ingegneristici richiesti. In particolare essendo le equazioni utilizzate, valide
-  sotto condizioni di stazionarietà, il software sceglie intervalli dati che soddisfino al meglio tali requisiti. Nello
-  specifico, ciò avviene mediante l'implementazione informatica dell'equazione
+  Conclusa questa fase preparativa, vengono automaticamente richiamate le istruzioni per compiere l'analisi dati vera e
+  propria. Tali istruzioni hanno come scopo principale, quello di ottenere i valori numerici delle diverse variabili
+  misurate, per ogni misura: temperature e portate volumetriche. Il tutto, cercando di ricavare valori numerici
+  significativi, per poter successivamente svolgere i calcoli ingegneristici richiesti. In particolare, essendo le
+  equazioni utilizzate valide sotto condizioni di stazionarietà, il software sceglie intervalli dati che soddisfino
+  al meglio tali requisiti. Nello specifico, ciò avviene mediante l'implementazione informatica dell'equazione
   \textit{\textbf{[}\ref{eqn:stat}\textbf{]}}, utilizzata per identificare gli intervalli dati, da cui ricavare il valore
   medio delle variabili rilevate sperimentalmente. Anche in questo caso le operazioni vengono rappresentate graficamente,
   come mostrato ad esempio per la prima misura in
   \textit{\textbf{[}\hyperref[fig:measure1]{Fig. }\ref{fig:measure1}\textbf{]}}, dove viene evidenziato l'intervallo
-  selezionato. Vengono quindi creati in maniera autonoma, degli oggetti informatici di tipo 'misura', i quali ne
-  conterranno tutte le informazioni. In fase di creazione della lista di oggetti 'misura', ne viene auto-determinata la
+  selezionato. Vengono quindi creati in maniera autonoma, degli oggetti informatici di tipo "misura", i quali ne
+  conterranno tutte le informazioni. In fase di creazione della lista di oggetti "misura", ne viene auto-determinata la
   tipologia (equi-corrente o contro-corrente) in base al testo di descrizione, e vengono popolate le variabili
   corrispondenti ai valori delle misure, riportati anche nella tabella dedicata:
   \textit{\textbf{[}\hyperref[tab:measures_data]{Tab. }\ref{tab:measures_data}\textbf{]}}. Questi oggetti, hanno inoltre
@@ -179,8 +179,8 @@
   derivano da fonti ufficiali ed affidabili. Nel dettaglio, i dati riguardanti i fluidi: aria ed acqua, sono stati forniti
   dal docente sottoforma di tabelle (pdf), poi trascritte in file CSV ed importate sottoforma di database. Procedura
   analoga, anche per i materiali costituenti lo scambiatore: acciaio inox AISI-316 (tubi interni) e vetro borosilicato
-  (pyrex, tubo esterno), i cui dati sono però derivanti dalla rete. Di seguito, sono riportate nel dettaglio, le
-  fonti dati utilizzate:
+  (pyrex, tubo esterno), i cui dati derivano però dalla rete. Di seguito, sono riportate nel dettaglio le fonti dati
+  utilizzate:
   \begin{itemize}                                                                                                           % List-start
     \item \textbf{proprietà aria a pressione atmosferica:}
       prima tabella all'interno del file pdf
@@ -205,7 +205,7 @@
       \vspace{1.5mm}\\\textit{Nota:} i valori della conducibilià termica, sono stati convertiti da [W/(cm\*K)] a [W/(m\*K)],
       all'interno dello script dedicato
       \vspace{1.5mm}\\\textit{Nota:} in caso d'errore in fase di caricamento dell'anteprima file PDF, dovuto alle
-      dimensioni eccessive del file stesso, premere il pulante 'download', oppure usa il seguente
+      dimensioni eccessive del file stesso, premere il pulsante "download", oppure usa il seguente
       \textit{\href{https://github.com/CristianMerli/DataAnalysis/raw/master/lab_doc/Pyrex_glass.pdf}{link}}).
   \end{itemize}                                                                                                             % List-end
   Questi dati, sono quindi la base su cui uno script appositamente sviluppato, esegue operazioni di approssimazione
@@ -243,7 +243,7 @@
   dati sperimentali raccolti. Sono state definite le potenze scambiate dal fluido caldo e fluido freddo, mediante le
   due relazioni simmetriche riportate nell'equazione \textit{\textbf{[}\ref{eqn:heat_tr}\textbf{]}}. Si è proceduto quindi
   al calcolo della potenza media scambiata e della potenza persa, che rappresenta la non-adiabaticità del
-  sistema reale oggetto di misurazioni \textit{\textbf{[}\ref{eqn:heat_tr2}\textbf{]}}. I risultati ottenuti, sono riporati
+  sistema reale oggetto di misurazioni \textit{\textbf{[}\ref{eqn:heat_tr2}\textbf{]}}. I risultati ottenuti sono riporati
   all'interno della tabella dati \textit{\textbf{[}\hyperref[tab:heat_tr_calcs]{Tab. }\ref{tab:heat_tr_calcs}\textbf{]}}.
   Le potenze termiche sono state prese con segno, per cui i valori negativi rappresentano perdita di calore, mentre quelli
   positivi acquisizione di calore. Facilmente osservabile, è la diretta correlazione tra configurazione dello scambiatore
@@ -257,7 +257,7 @@
   \textit{\textbf{[}\hyperref[fig:measures]{Fig. }\ref{fig:measures}\textbf{]}}), è disturbato dalla presenza
   di rumore elettronico di fondo. Per cercare di limitare tale fenomeno, sono state adottate le strategie precedentemente
   descritte al \textit{\textbf{[}\hyperref[sec:data_analysis]{Capitolo }\ref{sec:data_analysis},
-  \hyperref[sec:data_analysis]{pagina }\pageref{sec:data_analysis}\textbf{]}}. 
+  \hyperref[sec:data_analysis]{pagina }\pageref{sec:data_analysis}\textbf{]}}.
   \clearpage                                                                                                                % New page
 \subsection{Metodo epsilon-NTU}                                                                                             % Subsection creation: "Metodo epsilon-NTU"
 \label{subsec:espntu_meth}                                                                                                  % "espntu_meth" reference-label definition and following subsection text 
@@ -323,8 +323,8 @@
   \textit{\textbf{[}\ref{eqn:conv_r}\textbf{]}} (con A=area-esterna tubazioni interne). Note tutte le resistenze termiche
   all'interno dello scambiatore di calore, è possibile calcolare la resistenza termica totale mediante la relazione
   \textit{\textbf{[}\ref{eqn:tot_r}\textbf{]}}, per poi ri-determinare il valore dei coefficienti globali di scambio,
-  questa volta attraverso i numeri adimensionali: \textit{\textbf{[}\ref{eqn:ohtc}\textbf{]}}. Infine, per chiudere anche
-  con l'analisi teorica, è stato ricalcolato il valore della potenza termica scambiata sfruttando l'equazione
+  questa volta attraverso i numeri adimensionali: \textit{\textbf{[}\ref{eqn:ohtc}\textbf{]}}. Infine, per completare
+  anche dell'analisi teorica, è stato ricalcolato il valore della potenza termica scambiata sfruttando l'equazione
   \textit{\textbf{[}\ref{eqn:recalc_heat_tr}\textbf{]}}, considerando lo scambiatore come adiabatico. I risultati dei
   calcoli più significativi, sono stati riporati all'interno della tabella
   \textit{\textbf{[}\hyperref[tab:adim_num_calcs]{Tab. }\ref{tab:adim_num_calcs}\textbf{]}}.
@@ -366,22 +366,28 @@
 
 \section{Conclusioni}                                                                                                       % Section creation: "Conclusioni"
 \label{sec:conclusions}                                                                                                     % "conclusions" reference-label definition and following section text
-  Per concludere, sono stati calcolati alcuni valori percentuali significativi, per poter fare un bilancio di potenze
-  termiche. Come possibile notare dai valori in tabella
+  Per concludere, sono stati calcolati alcuni valori percentuali significativi, al fine di poter fare un bilancio di
+  potenze termiche. Come possibile notare dai valori in tabella
   \textit{\textbf{[}\hyperref[tab:perc_calcs]{Tab. }\ref{tab:perc_calcs}\textbf{]}}, le percentuali di calore disperso
   (differenza tra potenza termica emanata dal fluido caldo ed acquisita dal fluido freddo), sono comprese tra il 5.4 ed il
   13.4\%. Unitamente al fatto che, i valori percentuali di potenza termica dispersa verso l'ambiente attraverso la parete
-  esterna (in vetro pyrex), oscillano tra lo 0.4 e l'1.4\% di quello totale disperso; stanno a significare che il grosso
-  della dispersione avviene altrove. Con molta probabilità, una parte consistente avviene sulle tubazioni che conducono i
-  fluidi dai punti di misurazione della temperatura, allo scambiatore. Un'altra osservazione che è possibile fare alla
-  luce dei dati sopra citati, è che la differenza precentuale tra il calcolo della potenza termica trasmessa effettuato
-  con approccio sperimentale ovvero teorico, è compresa tra il 33.5 ed il 38.4\%. Questi valori possono essere
-  considerati pienamente in linea, con le approssimazione effettuate in fase di modellizzazione del fenomeno ed
-  applicazione di formule empiriche per il calcolo dei numeri adimensionali.\vspace{2mm}\\
+  esterna (in vetro pyrex), oscillano tra lo 0.4 e l'1.4\% di quello totale disperso; stanno a significare che la maggior
+  parte della dispersione avviene altrove. Con molta probabilità, una porzione considerevole avviene sulle tubazioni che
+  conducono i fluidi, dai punti di misurazione della temperatura allo scambiatore. La causa di ciò, sarebbe imputabile ad
+  un maggior gradiente di temperatura tra ambiente e macchina termica. Non da trascurare, è però anche il contributo dovuto
+  alla rumorosità del valore di portata volumetrica di fluido freddo (F2), anche se limitato attraverso le azioni messe in
+  campo, descritte al \textit{\textbf{[}\hyperref[sec:data_analysis]{Capitolo }\ref{sec:data_analysis},
+  \hyperref[sec:data_analysis]{pagina }\pageref{sec:data_analysis}\textbf{]}}. Un'altra osservazione che è possibile fare
+  alla luce dei dati sopra citati, è che la differenza precentuale tra il calcolo della potenza termica trasmessa
+  effettuato con approccio sperimentale ovvero teorico, è compresa tra il 33.5 ed il 38.4\%. Questa discrepanza può essere
+  considerata pienamente in linea, con le approssimazione effettuate in fase di modellizzazione del fenomeno e
+  l'applicazione di formule empiriche per il calcolo dei numeri adimensionali, oltre alla presenza di errori
+  sperimentali.\vspace{2mm}\\
   \textit{Nota:} Allo scopo di confermare quanto fatto nelle fasi di stima dei numeri adimensionali di Reynolds, è stata
   predisposta anche una porzione di codice (abilitabile con un flag nella prima parte dello script in JupyterNotebook),
   atta al calcolo di Reynolds in maniera alternativa: secondo l'equazione \textit{\textbf{[}\ref{eqn:re_alt}\textbf{]}}.
-  I risultati ottenuti, sono comparabili con quelli ricavati mediante l'applicazione del metodo precedentemente descritto.
+  I risultati così ottenuti, sono comparabili con quelli ricavati mediante l'implementazione del metodo descritto nei
+  capitoli precedenti.
 \clearpage                                                                                                                  % New page
 
 \section{Formule}                                                                                                           % Section creation: "Formule"
