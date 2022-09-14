@@ -25,7 +25,7 @@ class Output_typ(en.Enum):                                                      
   std_devs = 1                                                                                                          # Standard-deviations output
   measures = 2                                                                                                          # Measure-values output
   he = 3                                                                                                                # Heat-exchanger output
-  measures_approx_calcs = 4                                                                                             # Measures calculated approximative values output
+  measures_approx_calcs = 4                                                                                             # Measures calculated approssimative values output
   measures_calcs = 5                                                                                                    # Measures calculated values output
 
 ##########

@@ -14,14 +14,14 @@ import libs.output_lib as out                                                   
 ########
 
 # Heat-exchanger physical properties called by heat-exchanger class constructor
-_eff_len_m = 0.68                                                                                                       # Heat-exchamher effective length [m]
-_glass_pipe_id_m = 5*1e-2                                                                                               # Heat-exchamher glass pipe internal-diameter [m]
+_eff_len_m = 0.68                                                                                                       # Heat-exchanger effective length [m]
+_glass_pipe_id_m = 5*1e-2                                                                                               # Heat-exchanger glass pipe internal-diameter [m]
 _supp_glass_pipe_thick_m = 1*1e-3                                                                                       # Supposed heat-exchanger glass pipe thickness [m]
 _glass_pipe_diaph_num  = 13                                                                                             # Number of heat-exchanger diaphragms in glass pipe
 _glass_pipe_diaph_pace_m = 5*1e-2                                                                                       # Heat-exchanger glass pipe diaphragms pace [m]
-_steel_pipes_id_m = 8*1e-3                                                                                              # Heat-exchamher steel pipes internal-diameter [m]
-_steel_pipes_ed_m = 1*1e-2                                                                                              # Heat-exchamher steel pipes external-diameter [m]
-_steel_pipes_num = 5                                                                                                    # Number of heat-exchamher steel pipes
+_steel_pipes_id_m = 8*1e-3                                                                                              # Heat-exchanger steel pipes internal-diameter [m]
+_steel_pipes_ed_m = 1*1e-2                                                                                              # Heat-exchanger steel pipes external-diameter [m]
+_steel_pipes_num = 5                                                                                                    # Number of heat-exchanger steel pipes
 _steel_pipes_pace_m = 15*1e-3                                                                                           # Heat-exchanger steel pipes pace [m]
 _env_temp = 21.3                                                                                                        # Environment temperature [°C]
 # Rounding vars
@@ -80,8 +80,8 @@ class He:                                                                       
   glass_pipe_ext_etd_m = 0.0                                                                                            # Heat-exchanger glass pipe external equivalent thermal diameter [m]
   env_temp = 0.0                                                                                                        # Environment temperature [°C]
   def __init__(self):                                                                                                   # Constructor
-    self.eff_len_m = _eff_len_m                                                                                         # Heat-exchamher effective length [m] init
-    self.glass_pipe_id_m = _glass_pipe_id_m                                                                             # Heat-exchamher glass pipe internal-diameter [m] init
+    self.eff_len_m = _eff_len_m                                                                                         # Heat-exchanger effective length [m] init
+    self.glass_pipe_id_m = _glass_pipe_id_m                                                                             # Heat-exchanger glass pipe internal-diameter [m] init
     self.glass_pipe_ibs_m2 = cyl_bas_surf(self.glass_pipe_id_m)                                                         # Heat-exchanger glass pipe internal-basal surface [m^2] init
     self.glass_pipe_ils_m2 = cyl_lat_surf(1, self.glass_pipe_id_m, self.eff_len_m)                                      # Heat-exchanger glass pipe internal-lateral surface [m^2] init
     self.supp_glass_pipe_thick_m = _supp_glass_pipe_thick_m                                                             # Supposed heat-exchanger glass pipe thickness [m] init
@@ -89,11 +89,11 @@ class He:                                                                       
     self.supp_glass_pipe_els_m2 = cyl_lat_surf(1, self.supp_glass_pipe_ed_m, self.eff_len_m)                            # Supposed heat-exchanger glass pipe external-lateral surface [m^2] init
     self.glass_pipe_diaph_num = _glass_pipe_diaph_num                                                                   # Number of heat-exchanger diaphragms in glass pipe init
     self.glass_pipe_diaph_pace_m = _glass_pipe_diaph_pace_m                                                             # Heat-exchanger glass pipe diaphragms pace [m] init
-    self.steel_pipes_id_m = _steel_pipes_id_m                                                                           # Heat-exchamher steel pipes internal-diameter [m] init
-    self.steel_pipes_ed_m = _steel_pipes_ed_m                                                                           # Heat-exchamher steel pipes external-diameter [m] init
-    self.steel_pipes_num = _steel_pipes_num                                                                             # Number of heat-exchamher steel pipes init
+    self.steel_pipes_id_m = _steel_pipes_id_m                                                                           # Heat-exchanger steel pipes internal-diameter [m] init
+    self.steel_pipes_ed_m = _steel_pipes_ed_m                                                                           # Heat-exchanger steel pipes external-diameter [m] init
+    self.steel_pipes_num = _steel_pipes_num                                                                             # Number of heat-exchanger steel pipes init
     self.steel_pipes_pace_m = _steel_pipes_pace_m                                                                       # Heat-exchanger steel pipes pace [m] init
-    self.steel_pipes_thick_m = round((self.steel_pipes_ed_m-self.steel_pipes_id_m)/2, rnd_dec_places)                   # Heat-exchamher steel pipes thickness [m] init and round value to avoid floating-point errors
+    self.steel_pipes_thick_m = round((self.steel_pipes_ed_m-self.steel_pipes_id_m)/2, rnd_dec_places)                   # Heat-exchanger steel pipes thickness [m] init and round value to avoid floating-point errors
     self.steel_pipes_interspce = round(self.steel_pipes_pace_m-self.steel_pipes_ed_m, rnd_dec_places)                   # Heat-exchanger interspace between steel pipes [m] init and value to avoid floating-point errors
     self.steel_pipes_ibs_m2 = cyl_bas_surf(self.steel_pipes_id_m)                                                       # Heat-exchanger steel pipes internal-basal surface [m^2] init
     self.steel_pipes_ils_m2 = cyl_lat_surf(self.steel_pipes_num, self.steel_pipes_id_m, self.eff_len_m)                 # Heat-exchanger steel pipes internal-lateral surface [m^2] init
@@ -184,14 +184,14 @@ def perc(partial, total, dec_cyph):                                             
   if (partial != None and total != 0 and dec_cyph >= 0):                                                                # Check in-vals consistency, if ok
     return round(float(100.0)*float(abs(partial))/float(abs(total)), dec_cyph)                                          # Return calculated percentage between partial and total values with specified rounding
   else:                                                                                                                 # Else if in-vals consistency ain't ok
-    return -1                                                                                                           # Retur err val
+    return -1                                                                                                           # Return err val
 
 # Function definition to convert temperatures from [K] to [°C]
 def conv_temp_k_c(temp_array):                                                                                          # conv_temp_k_c(Temperatures array [K])
   conv_factor = zero_k                                                                                                  # Conversion factor from [K] to [°C]
   return temp_array+conv_factor                                                                                         # Return converted temperatures array [°C]
 
-# Function definition to convert thermal conductivities (lamba) from [W/(cm*K)] to [W/(m*K)]
+# Function definition to convert thermal conductivities (lambda) from [W/(cm*K)] to [W/(m*K)]
 def conv_lambda_w_cm_k_w_m_k(lambda_array):                                                                             # conv_lambda_w_cm_k_w_m_k(Lambda: thermal conductivities array [W/(cm*k)])
   conv_factor = 1*1e-2                                                                                                  # Conversion factor from [W/(cm*K)] to [W/(m*K)]
   return lambda_array/conv_factor                                                                                       # Return converted thermal conductivities array [W/(m*k)]
@@ -201,14 +201,14 @@ def cyl_lat_surf(num_cyl, diam, len):                                           
   if (num_cyl > 0 and diam > 0 and len > 0):                                                                            # Check in-vals consistency, if ok
     return num_cyl*mt.pi*diam*len                                                                                       # Return cylindrical lateral surface
   else:                                                                                                                 # Else if in-vals consistency ain't ok
-    return -1                                                                                                           # Retur err val
+    return -1                                                                                                           # Return err val
 
 # Function definition to calculate cylindrical basal surface
 def cyl_bas_surf(diam):                                                                                                 # cyl_bas_surf(Cylinder diameter)
   if (diam > 0):                                                                                                        # Check in-vals consistency, if ok
     return mt.pi*mt.pow(diam/2, 2)                                                                                      # Return cylindrical basal surface
   else:                                                                                                                 # Else if in-vals consistency ain't ok
-    return -1                                                                                                           # Retur err val
+    return -1                                                                                                           # Return err val
 
 # Function definition to convert volume flow rate [l/h] into [m^3/s] and mass flow rate [kg/s]
 def vol_flow_rate_mass_flow_rate(vol_flow_rate_l_h, density):                                                           # vol_flow_rate_mass_flow_rate(Volume flow rate value [l/h], density value)
@@ -220,7 +220,15 @@ def vol_flow_rate_mass_flow_rate(vol_flow_rate_l_h, density):                   
     return -1, -1                                                                                                       # Return err vals
 
 # Function definition to calculate log-mean temperature difference (LMTD)
-def lmtd(delta1, delta2):                                                                                               # lmtd(delta(Temperature1), delta(Temperature2))
+def lmtd(meas):                                                                                                         # lmtd(Measure)
+  if (meas.typ == da.Meas_typ.ccurr):                                                                                   # In case of cocurrent measure type
+    delta1=meas.t2-meas.t1                                                                                              # Calc delta1 (temperature)
+    delta2=meas.t4-meas.t3                                                                                              # Calc delta2 (temperature)
+  elif (meas.typ == da.Meas_typ.cntcurr):                                                                               # Else in case of countercurrent measure type
+    delta1=meas.t2-meas.t3                                                                                              # Calc delta1 (temperature)
+    delta2=meas.t4-meas.t1                                                                                              # Calc delta2 (temperature)
+  else:                                                                                                                 # Else in case of undefined measure type
+    return -1                                                                                                           # Return err val
   if (delta1/delta2 > 0):                                                                                               # Check in-vals consistency, if ok
     return (delta1-delta2)/mt.log((delta1/delta2), mt.e)                                                                # Return log-mean temperature difference (LMTD)
   else:                                                                                                                 # Else if in-vals consistency ain't ok
@@ -260,7 +268,7 @@ def ntu(glob_htc_coeff, surf_m2, cpt_min):                                      
     return -1                                                                                                           # Return err val
 
 # Function definition to calculate effectiveness
-def effectiveness(meas_typ, ntu, cpts_ratio):                                                                           # effectiveness(Measure type: Cocurrent/countercurrent/undefined, Number of tranfer units, C-points-ratio --> Cptmin/Cptmax)
+def effectiveness(meas_typ, ntu, cpts_ratio):                                                                           # effectiveness(Measure type: Cocurrent/countercurrent/undefined, Number of transfer units, C-points-ratio --> Cptmin/Cptmax)
   if (meas_typ != None and ntu > 0 and cpts_ratio > 0):                                                                 # Check in-vals consistency, if ok
     if (meas_typ == da.Meas_typ.ccurr):                                                                                 # In case of cocurrent measure type
       epsilon = (1-mt.exp(-ntu*(1+cpts_ratio)))/(1+cpts_ratio)                                                          # Calc effectiveness (epsilon)
@@ -317,7 +325,7 @@ def re_cyl_pipe(pipe_mass_flow_rate, pipe_int_diam, fluid_dyn_vis):             
 
 # Function definition to calculate Reynolds number from EQUATIONS 5.144 and 5.144a 'RelazioniScambiatore' using
 # volume flow rate to calculate fluid velocity, pipe equivalent diameter and fluid kinematic viscosity (alternative)
-def re_aternative(pipe_vol_flow_rate, fluid_flow_surf_m2, pipe_equiv_hyd_diam, fluid_kin_vis):                          # re_aternative(Pipe volume flow rate [m^3/s], fluid flow surface [m^2], Pipe equivalent hydraulic diameter [m], kinematic viscosity [m^2/s])
+def re_alternative(pipe_vol_flow_rate, fluid_flow_surf_m2, pipe_equiv_hyd_diam, fluid_kin_vis):                         # re_alternative(Pipe volume flow rate [m^3/s], fluid flow surface [m^2], Pipe equivalent hydraulic diameter [m], kinematic viscosity [m^2/s])
   if (pipe_vol_flow_rate > 0 and pipe_equiv_hyd_diam > 0 and fluid_kin_vis > 0):                                        # Check in-vals consistency, if ok
     return (pipe_vol_flow_rate*pipe_equiv_hyd_diam)/(fluid_flow_surf_m2*fluid_kin_vis)                                  # Return calculated Reynolds number [adimensional] --> ([m^3/s]*[m])/([m^2]*[m^2/s])=[adimensional]
   else:                                                                                                                 # Else if in-vals consistency ain't ok
@@ -430,7 +438,7 @@ def abs_cond_res(pipe_int_diam, pipe_ext_diam, pipe_len, pipes_num, therm_cond):
 
 # Function definition to calculate pipe internal and external surface temperatures [°C]
 # using q=delta(T)/R <=> q=(Tm-Ts)/R  =>  Ts=Tm-R*q [°C]
-def calc_pipe_int_ext_surf_temp(therm_pow_kw, avg_int_fl_temp, int_fl_conv_r, pipe_cond_r):                             # calc_pipe_int_ext_surf_temp(Exchanged thermal power [kW], Average interal fluid temperature [°C], Internal fluid absolute convective resistance [K/W], Pipe absolute conductive resistance [K/W])
+def calc_pipe_int_ext_surf_temp(therm_pow_kw, avg_int_fl_temp, int_fl_conv_r, pipe_cond_r):                             # calc_pipe_int_ext_surf_temp(Exchanged thermal power [kW], Average internal fluid temperature [°C], Internal fluid absolute convective resistance [K/W], Pipe absolute conductive resistance [K/W])
   if (therm_pow_kw != 0 and avg_int_fl_temp >= zero_k and int_fl_conv_r > 0 and pipe_cond_r > 0):                       # Check in-vals consistency, if ok
     therm_pow_w = therm_pow_kw*1*1e3                                                                                    # Thermal power conversion from [kW] into [W]
     int_surf_temp = avg_int_fl_temp-(int_fl_conv_r*therm_pow_w)                                                         # Calculate pipe internal surface temperature [°C]  -->  con [K/W]=[°C/W]  -->  [°C]-([°C/W]*[W])=[°C]

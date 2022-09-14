@@ -33,7 +33,7 @@ tp_intp_var_col = "#ff7c00"                                                     
 dbs_c = "#0045c4"                                                                                                       # Datablocks lines color (hex)
 dbs_sel_c = "#4fbd37"                                                                                                   # Selected datablocks lines color (hex)
 dbs_sel_col = "#0cf700"                                                                                                 # Selected datablocks fill color (hex)
-inteval_box_col = "#ae00ff"                                                                                             # Interval text-box color (hex)
+interval_box_col = "#ae00ff"                                                                                            # Interval text-box color (hex)
 poly_approx_res_col = ["#ff0000", "#00a013"]                                                                            # Poly-approximation result text-box colors: Discarded/Accepted (hex)
 plt_size_x = 26                                                                                                         # Plotting figure X size
 plt_size_y = 14                                                                                                         # Plotting figure Y size
@@ -82,15 +82,15 @@ plt_fit_beta_lbl = "fitted thermal expansion coefficient - β [1/K]"            
 plt_fit_pr_lbl = "fitted Prandtl number - Pr"                                                                           # Y-axis lbl: poly-fitted thermophysical variable
 materials = ["Atm pressure air ", "Water ", "AISI-316 ", "Pyrex glass "]                                                # Materials-lbls (Air-atmp/Water/AISI-316-stainless-steel/Borosilicate (pyrex) glass)
 poly_approx_res = ["BAD APPROXIMATION - DISCARDED", "GOOD APPROXIMATION - ACCEPTED"]                                    # Poly-approximation result (Discarded/Accepted)
-# Approximative temperature trend in heat-exchanger section plotting label-vars
-plt_he_temp_trend_titles = [" approximative temperature trend in heat-exchanger inlet (bottom) section",
-                            " approximative temperature trend in heat-exchanger central section",
-                            " approximative temperature trend in heat-exchanger outlet (top) section"]                  # Title lbls
+# Approssimative temperature trend in heat-exchanger section plotting label-vars
+plt_he_temp_trend_titles = [" approssimative temperature trend in heat-exchanger inlet (bottom) section",
+                            " approssimative temperature trend in heat-exchanger central section",
+                            " approssimative temperature trend in heat-exchanger outlet (top) section"]                 # Title lbls
 plt_he_dist_lbl = "Distance - d [m]"                                                                                    # X-axis lbl
 plt_he_temp_lbl = "Temperature - T [°C]"                                                                                # Y-axis lbl
-he_temp_trend_lbls = ["Approximative temperature trend in heat-exchanger bottom section",
-                      "Approximative temperature trend in heat-exchanger central section",
-                      "Approximative temperature trend in heat-exchanger top section"]                                  # Heat-exchanger temperature trend lbls
+he_temp_trend_lbls = ["approssimative temperature trend in heat-exchanger bottom section",
+                      "approssimative temperature trend in heat-exchanger central section",
+                      "approssimative temperature trend in heat-exchanger top section"]                                 # Heat-exchanger temperature trend lbls
 he_steel_pipe_lbl = "Steel pipe profile"                                                                                # Heat-exchanger steel pipe profile lbl
 he_glass_pipe_lbl = "Glass pipe profile"                                                                                # Heat-exchanger glass pipe profile lbl
 he_temp_trend_col = "#13ff00"                                                                                           # Heat-exchanger temperature trend color
@@ -142,7 +142,7 @@ def init_plt_style():                                                           
   return                                                                                                                # Return nothing
 
 # Function definition to graphically plot data filtering operations
-def plot_data_flt(db, call_str, start_idxs_dbs, end_idxs_dbs, min_stddevs_dbs_idx, mode):                               # plot_data_flt(Datablock to split, Datablocks start idxs, Datablocks end idxs, Function call string, Ploting mode: complete/detailed)
+def plot_data_flt(db, call_str, start_idxs_dbs, end_idxs_dbs, min_stddevs_dbs_idx, mode):                               # plot_data_flt(Datablock to split, Datablocks start idxs, Datablocks end idxs, Function call string, Plotting mode: complete/detailed)
   plt.title(call_str)                                                                                                   # Plot title
   plt.xlabel(plt_time_lbl)                                                                                              # X-axis lbl
   plt.ylabel(plt_temp_flow_lbl)                                                                                         # Y-axis lbl
@@ -170,7 +170,7 @@ def plot_data_flt(db, call_str, start_idxs_dbs, end_idxs_dbs, min_stddevs_dbs_id
       plt.axvspan(start_col, end_col, alpha=dbs_sel_alpha, color=dbs_sel_col)                                           # Plot fill-color
       plt.text((start_col+end_col)/2, (bottom+top)/2+(((bottom+top)/2)/100)*sel_interval_txt_y_offs_p,
                sel_interval_lbl, fontsize=interval_txt_size, ha="center", va="center",
-               bbox=dict(facecolor=inteval_box_col, alpha=interval_box_alpha))                                          # Plot selected interval txt and box
+               bbox=dict(facecolor=interval_box_col, alpha=interval_box_alpha))                                         # Plot selected interval txt and box
     else:                                                                                                               # Else in case of unselected datablocks and/or complete plottin' mode selected
       plt.axvline(db[da.time_col].values[e_idx-1], linewidth=dbs_w, color=dbs_c)                                        # Plot normal datablocks-lines
       if (mode == Plt_mode.complete and idx == tgt_idx and idx < len(end_idxs_dbs)-1):                                  # Check fill-color plottin' cond
@@ -180,7 +180,7 @@ def plot_data_flt(db, call_str, start_idxs_dbs, end_idxs_dbs, min_stddevs_dbs_id
         plt.axvspan(start_col, end_col, alpha=dbs_sel_alpha, color=dbs_sel_col)                                         # Plot fill-color
         plt.text((start_col+end_col)/2, (bottom+top)/2+(((bottom+top)/2)/100)*interval_txt_y_offs_p,
                  da.meas_str+str(int(idx/2)+1), fontsize=interval_txt_size, ha="center", va="center",
-                 bbox=dict(facecolor=inteval_box_col, alpha=interval_box_alpha))                                        # Plot interval txt and box
+                 bbox=dict(facecolor=interval_box_col, alpha=interval_box_alpha))                                       # Plot interval txt and box
         tgt_idx += 2                                                                                                    # Upd detailed plotting mode list scrolling target index
     idx += 1                                                                                                            # Upd detailed plotting mode list scrolling index
   if (mode == Plt_mode.detailed):                                                                                       # In case of detailed plottin' mode selected
@@ -209,7 +209,7 @@ def plot_tp_vars(x_arr, y_arr, f_intp_fit, intp_fit_pts, mat_typ, x_lbl, y_lbl, 
   plt.figure()                                                                                                          # Plot figure
   return                                                                                                                # Return nothing
 
-# Function definition to graphically plot approximative temperature trend in heat-exchanger section
+# Function definition to graphically plot approssimative temperature trend in heat-exchanger section
 def plot_he_sect_approx_temp_trend(meas_arr, he, section):                                                              # plot_he_sect_approx_temp_trend(Measures array, Heat exchanger, Heat-exchanger section: inlet(bottom)/outlet(top))
   for meas in meas_arr:                                                                                                 # Measures scrollin' cycle
     plt.title(meas.name+plt_he_temp_trend_titles[section.value])                                                        # Plot title

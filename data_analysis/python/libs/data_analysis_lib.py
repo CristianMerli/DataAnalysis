@@ -27,7 +27,7 @@ oth_op_lbl = "Altra-operazione"                                                 
 cocurrent_flow_lbl = "Equicorrente"                                                                                     # Cocurrent flow lbl
 countercurrent_flow_lbl = "Controcorrente"                                                                              # Countercurrent flow lbl
 # Dataset columns vars
-time_col = "Time(s)"                                                                                                    # Time col in dataset (time ellapsed vals [s])
+time_col = "Time(s)"                                                                                                    # Time col in dataset (time elapsed vals [s])
 f1_col = "F1(l/h)"                                                                                                      # Volume flow rate 1 col in dataset (cold fluid volume flow rate vals [l/h])
 f2_col = "F2(l/h)"                                                                                                      # Volume flow rate 2 col in dataset (hot fluid volume flow rate vals [l/h])
 t1_col = "T1(degC)"                                                                                                     # Temp 1 col in dataset (cold-in fluid temp vals [°C])
@@ -69,13 +69,13 @@ class Meas_vars:                                                                
   hot_fl_tr_heat = 0.0                                                                                                  # Hot fluid transferred heat (thermal power) [kW]
   heat_losses = 0.0                                                                                                     # Heat losses (thermal power) [kW]
   avg_tr_heat = 0.0                                                                                                     # Average value of transferred heat (thermal power) [kW]
-  lmtd = 0.0                                                                                                            # Approximative log-mean temperature difference (LMTD) [°C] or [K]
-  int_approx_glob_htc = 0.0                                                                                             # Approximative internal global heat transfer coefficient (global HTC) [kW/(m^2*K)]
-  ext_approx_glob_htc = 0.0                                                                                             # Approximative external global heat transfer coefficient (global HTC) [kW/(m^2*K)]
-  cpt_min = 0.0                                                                                                         # Approximative C-point-min=min(mass-flow-rate*Cp) [kJ/(K*s)]
-  cpt_max = 0.0                                                                                                         # Approximative C-point-max=max(mass-flow-rate*Cp) [kJ/(K*s)]
-  ntu = 0.0                                                                                                             # Approximative number of transfer units (NTU)
-  epsilon = 0.0                                                                                                         # Approximative effectiveness (epsilon)
+  lmtd = 0.0                                                                                                            # Approssimative log-mean temperature difference (LMTD) [°C] or [K]
+  int_approx_glob_htc = 0.0                                                                                             # Approssimative internal global heat transfer coefficient (global HTC) [kW/(m^2*K)]
+  ext_approx_glob_htc = 0.0                                                                                             # Approssimative external global heat transfer coefficient (global HTC) [kW/(m^2*K)]
+  cpt_min = 0.0                                                                                                         # Approssimative C-point-min=min(mass-flow-rate*Cp) [kJ/(K*s)]
+  cpt_max = 0.0                                                                                                         # Approssimative C-point-max=max(mass-flow-rate*Cp) [kJ/(K*s)]
+  ntu = 0.0                                                                                                             # Approssimative number of transfer units (NTU)
+  epsilon = 0.0                                                                                                         # Approssimative effectiveness (epsilon)
   approx_surf_temp = 0.0                                                                                                # Heat-exchange surface approximated temperature [°C] for steel thermal conductivity calculation
   steel_pipes_therm_cond = 0.0                                                                                          # Steel pipes thermal conductivity [W/(m*K)]
   int_pipes_cond_r = 0.0                                                                                                # Steel pipes absolute conductive resistance [K/W]
@@ -89,27 +89,27 @@ class Meas_vars:                                                                
   int_pipes_int_surf_temp = 0.0                                                                                         # Steel pipes internal surface temperature [°C]
   int_pipes_ext_surf_temp = 0.0                                                                                         # Steel pipes external surface temperature [°C]
   ext_fl_dyn_vis_s = 0.0                                                                                                # External fluid dynamic viscosity at steel pipes external surface temperature [kg/(m*s)]
-  ext_in_sect_fl_temp = 0.0                                                                                             # Cold fluid temperature inside glass pipe inlet secion (bottom) [°C] 
-  ext_in_sect_therm_cond = 0.0                                                                                          # Fluid thermal conductivity inside glass pipe inlet secion [W/(m*K)]
-  ext_in_sect_dyn_vis = 0.0                                                                                             # Fluid dynamic viscosity inside glass pipe inlet secion [kg/(m*s)]
-  ext_in_sect_pr = 0.0                                                                                                  # Prandtl number inside glass pipe inlet secion
-  ext_1pipe_in_sect_re = 0.0                                                                                            # Reynolds number inside glass pipe 1-pipe inlet secion
-  ext_1pipe_in_sect_nu = 0.0                                                                                            # Nusselt number inside glass pipe 1-pipe inlet secion
-  ext_1pipe_in_sect_h = 0.0                                                                                             # Heat transfer coefficient (h) inside glass pipe 1-pipe inlet secion [W/(m^2*K)]
-  ext_3pipes_in_sect_re = 0.0                                                                                           # Reynolds number inside glass pipe 3-pipes inlet secion
-  ext_3pipes_in_sect_nu = 0.0                                                                                           # Nusselt number inside glass pipe 3-pipes inlet secion
-  ext_3pipes_in_sect_h = 0.0                                                                                            # Heat transfer coefficient (h) inside glass pipe 3-pipes outlet secion [W/(m^2*K)]
+  ext_in_sect_fl_temp = 0.0                                                                                             # Cold fluid temperature inside glass pipe inlet section (bottom) [°C] 
+  ext_in_sect_therm_cond = 0.0                                                                                          # Fluid thermal conductivity inside glass pipe inlet section [W/(m*K)]
+  ext_in_sect_dyn_vis = 0.0                                                                                             # Fluid dynamic viscosity inside glass pipe inlet section [kg/(m*s)]
+  ext_in_sect_pr = 0.0                                                                                                  # Prandtl number inside glass pipe inlet section
+  ext_1pipe_in_sect_re = 0.0                                                                                            # Reynolds number inside glass pipe 1-pipe inlet section
+  ext_1pipe_in_sect_nu = 0.0                                                                                            # Nusselt number inside glass pipe 1-pipe inlet section
+  ext_1pipe_in_sect_h = 0.0                                                                                             # Heat transfer coefficient (h) inside glass pipe 1-pipe inlet section [W/(m^2*K)]
+  ext_3pipes_in_sect_re = 0.0                                                                                           # Reynolds number inside glass pipe 3-pipes inlet section
+  ext_3pipes_in_sect_nu = 0.0                                                                                           # Nusselt number inside glass pipe 3-pipes inlet section
+  ext_3pipes_in_sect_h = 0.0                                                                                            # Heat transfer coefficient (h) inside glass pipe 3-pipes outlet section [W/(m^2*K)]
   ext_in_sect_tot_h = 0.0                                                                                               # Total heat transfer coefficient (h) inside glass pipe inlet section [W/(m^2*K)]
-  ext_out_sect_fl_temp = 0.0                                                                                            # Cold fluid temperature inside glass pipe outlet secion (top) [°C]
-  ext_out_sect_therm_cond = 0.0                                                                                         # Fluid thermal conductivity inside glass pipe outlet secion [W/(m*K)]
-  ext_out_sect_dyn_vis = 0.0                                                                                            # Fluid dynamic viscosity inside glass pipe outlet secion [kg/(m*s)]
-  ext_out_sect_pr = 0.0                                                                                                 # Prandtl number inside glass pipe outlet secion
-  ext_1pipe_out_sect_re = 0.0                                                                                           # Reynolds number inside glass pipe 1-pipe outlet secion
-  ext_1pipe_out_sect_nu = 0.0                                                                                           # Nusselt number inside glass pipe 1-pipe outlet secion
-  ext_1pipe_out_sect_h = 0.0                                                                                            # Heat transfer coefficient (h) inside glass pipe 1-pipe outlet secion [W/(m^2*K)]
-  ext_3pipes_out_sect_re = 0.0                                                                                          # Reynolds number inside glass pipe 3-pipes outlet secion
-  ext_3pipes_out_sect_nu = 0.0                                                                                          # Nusselt number inside glass pipe 3-pipes outlet secion
-  ext_3pipes_out_sect_h = 0.0                                                                                           # Heat transfer coefficient (h) inside glass pipe 3-pipes outlet secion [W/(m^2*K)]
+  ext_out_sect_fl_temp = 0.0                                                                                            # Cold fluid temperature inside glass pipe outlet section (top) [°C]
+  ext_out_sect_therm_cond = 0.0                                                                                         # Fluid thermal conductivity inside glass pipe outlet section [W/(m*K)]
+  ext_out_sect_dyn_vis = 0.0                                                                                            # Fluid dynamic viscosity inside glass pipe outlet section [kg/(m*s)]
+  ext_out_sect_pr = 0.0                                                                                                 # Prandtl number inside glass pipe outlet section
+  ext_1pipe_out_sect_re = 0.0                                                                                           # Reynolds number inside glass pipe 1-pipe outlet section
+  ext_1pipe_out_sect_nu = 0.0                                                                                           # Nusselt number inside glass pipe 1-pipe outlet section
+  ext_1pipe_out_sect_h = 0.0                                                                                            # Heat transfer coefficient (h) inside glass pipe 1-pipe outlet section [W/(m^2*K)]
+  ext_3pipes_out_sect_re = 0.0                                                                                          # Reynolds number inside glass pipe 3-pipes outlet section
+  ext_3pipes_out_sect_nu = 0.0                                                                                          # Nusselt number inside glass pipe 3-pipes outlet section
+  ext_3pipes_out_sect_h = 0.0                                                                                           # Heat transfer coefficient (h) inside glass pipe 3-pipes outlet section [W/(m^2*K)]
   ext_out_sect_tot_h = 0.0                                                                                              # Total heat transfer coefficient (h) inside glass pipe outlet section [W/(m^2*K)]
   ext_avg_h = 0.0                                                                                                       # Average heat transfer coefficient (h) inside glass pipe [W/(m^2*K)]
   ext_fl_conv_r = 0.0                                                                                                   # Absolute fluid convective resistance inside glass pipe [K/W]
@@ -163,15 +163,15 @@ class Meas_vars:                                                                
     +"\n- Hot fluid transferred heat (thermal power): "+str(self.hot_fl_tr_heat)+" [kW]"\
     +"\n- Heat losses (thermal power): "+str(self.heat_losses)+" [kW]"\
     +"\n- Average value of transferred heat (thermal power): "+str(self.avg_tr_heat)+" [kW]"\
-    +"\n- Approximative log-mean temperature difference (LMTD): "+str(self.lmtd)+" [°C]"\
-    +"\n- Approximative internal global heat transfer coefficient (global HTC) from hot fluid thermal power "\
+    +"\n- Approssimative log-mean temperature difference (LMTD): "+str(self.lmtd)+" [°C]"\
+    +"\n- Approssimative internal global heat transfer coefficient (global HTC) from hot fluid thermal power "\
       "and steel pipes internal surface: "+str(self.int_approx_glob_htc)+" [kW/(m^2*K)]"\
-    +"\n- Approximative external global heat transfer coefficient (global HTC) from cold fluid thermal power "\
+    +"\n- Approssimative external global heat transfer coefficient (global HTC) from cold fluid thermal power "\
       "and steel pipes external surface: "+str(self.ext_approx_glob_htc)+" [kW/(m^2*K)]"\
-    +"\n- Approximative C-point-min=min(mass-flow-rate*Cp): "+str(self.cpt_min)+" [kJ/(K*s)]"\
-    +"\n- Approximative C-point-max=max(mass-flow-rate*Cp): "+str(self.cpt_max)+" [kJ/(K*s)]"\
-    +"\n- Approximative number of transfer units (NTU): "+str(self.ntu)\
-    +"\n- Approximative effectiveness (epsilon): "+str(self.epsilon)\
+    +"\n- Approssimative C-point-min=min(mass-flow-rate*Cp): "+str(self.cpt_min)+" [kJ/(K*s)]"\
+    +"\n- Approssimative C-point-max=max(mass-flow-rate*Cp): "+str(self.cpt_max)+" [kJ/(K*s)]"\
+    +"\n- Approssimative number of transfer units (NTU): "+str(self.ntu)\
+    +"\n- Approssimative effectiveness (epsilon): "+str(self.epsilon)\
     +"\n- Heat-exchange surface approximated temperature for steel thermal conductivity calculation: "\
       +str(self.approx_surf_temp)+" [°C]"\
     +"\n- Steel pipes thermal conductivity: "+str(self.steel_pipes_therm_cond)+" [W/(m*K)]"\
@@ -187,32 +187,32 @@ class Meas_vars:                                                                
     +"\n- Steel pipes external surface temperature: "+str(self.int_pipes_ext_surf_temp)+" [°C]"\
     +"\n- External fluid dynamic viscosity at steel pipes external surface temperature: "\
       +str(self.ext_fl_dyn_vis_s)+" [kg/(m*s)]"\
-    +"\n- Cold fluid temperature inside glass pipe inlet secion (bottom): "+str(self.ext_in_sect_fl_temp)+" [°C]"\
-    +"\n- Fluid thermal conductivity inside glass pipe inlet secion: "+str(self.ext_in_sect_therm_cond)+" [W/(m*K)]"\
-    +"\n- Fluid dynamic viscosity inside glass pipe inlet secion: "+str(self.ext_in_sect_dyn_vis)+" [kg/(m*s)]"\
-    +"\n- Prandtl number inside glass pipe inlet secion: "+str(self.ext_in_sect_pr)\
-    +"\n- Reynolds number inside glass pipe 1-pipe inlet secion: "+str(self.ext_1pipe_in_sect_re)\
-    +"\n- Nusselt number inside glass pipe 1-pipe inlet secion: "+str(self.ext_1pipe_in_sect_nu)\
-    +"\n- Heat transfer coefficient (h) inside glass pipe 1-pipe inlet secion: "\
+    +"\n- Cold fluid temperature inside glass pipe inlet section (bottom): "+str(self.ext_in_sect_fl_temp)+" [°C]"\
+    +"\n- Fluid thermal conductivity inside glass pipe inlet section: "+str(self.ext_in_sect_therm_cond)+" [W/(m*K)]"\
+    +"\n- Fluid dynamic viscosity inside glass pipe inlet section: "+str(self.ext_in_sect_dyn_vis)+" [kg/(m*s)]"\
+    +"\n- Prandtl number inside glass pipe inlet section: "+str(self.ext_in_sect_pr)\
+    +"\n- Reynolds number inside glass pipe 1-pipe inlet section: "+str(self.ext_1pipe_in_sect_re)\
+    +"\n- Nusselt number inside glass pipe 1-pipe inlet section: "+str(self.ext_1pipe_in_sect_nu)\
+    +"\n- Heat transfer coefficient (h) inside glass pipe 1-pipe inlet section: "\
       +str(self.ext_1pipe_in_sect_h)+" [W/(m^2*K)]"\
-    +"\n- Reynolds number inside glass pipe 3-pipes inlet secion: "+str(self.ext_3pipes_in_sect_re)\
-    +"\n- Nusselt number inside glass pipe 3-pipes inlet secion: "+str(self.ext_3pipes_in_sect_nu)\
-    +"\n- Heat transfer coefficient (h) inside glass pipe 3-pipes outlet secion: "\
+    +"\n- Reynolds number inside glass pipe 3-pipes inlet section: "+str(self.ext_3pipes_in_sect_re)\
+    +"\n- Nusselt number inside glass pipe 3-pipes inlet section: "+str(self.ext_3pipes_in_sect_nu)\
+    +"\n- Heat transfer coefficient (h) inside glass pipe 3-pipes outlet section: "\
       +str(self.ext_3pipes_in_sect_h)+" [W/(m^2*K)]"\
     +"\n- Total heat transfer coefficient (h) inside glass pipe inlet section: "\
       +str(self.ext_in_sect_tot_h)+" [W/(m^2*K)]"\
-    +"\n- Cold fluid temperature inside glass pipe outlet secion (top): "+str(self.ext_out_sect_fl_temp)+" [°C]"\
-    +"\n- Fluid thermal conductivity inside glass pipe outlet secion: "\
+    +"\n- Cold fluid temperature inside glass pipe outlet section (top): "+str(self.ext_out_sect_fl_temp)+" [°C]"\
+    +"\n- Fluid thermal conductivity inside glass pipe outlet section: "\
       +str(self.ext_out_sect_therm_cond)+" [W/(m*K)]"\
-    +"\n- Fluid dynamic viscosity inside glass pipe outlet secion: "+str(self.ext_out_sect_dyn_vis)+" [kg/(m*s)]"\
-    +"\n- Prandtl number inside glass pipe outlet secion: "+str(self.ext_out_sect_pr)\
-    +"\n- Reynolds number inside glass pipe 1-pipe outlet secion: "+str(self.ext_1pipe_out_sect_re)\
-    +"\n- Nusselt number inside glass pipe 1-pipe outlet secion: "+str(self.ext_1pipe_out_sect_nu)\
-    +"\n- Heat transfer coefficient (h) inside glass pipe 1-pipe outlet secion: "\
+    +"\n- Fluid dynamic viscosity inside glass pipe outlet section: "+str(self.ext_out_sect_dyn_vis)+" [kg/(m*s)]"\
+    +"\n- Prandtl number inside glass pipe outlet section: "+str(self.ext_out_sect_pr)\
+    +"\n- Reynolds number inside glass pipe 1-pipe outlet section: "+str(self.ext_1pipe_out_sect_re)\
+    +"\n- Nusselt number inside glass pipe 1-pipe outlet section: "+str(self.ext_1pipe_out_sect_nu)\
+    +"\n- Heat transfer coefficient (h) inside glass pipe 1-pipe outlet section: "\
       +str(self.ext_1pipe_out_sect_h)+" [W/(m^2*K)]"\
-    +"\n- Reynolds number inside glass pipe 3-pipes outlet secion: "+str(self.ext_3pipes_out_sect_re)\
-    +"\n- Nusselt number inside glass pipe 3-pipes outlet secion: "+str(self.ext_3pipes_out_sect_nu)\
-    +"\n- Heat transfer coefficient (h) inside glass pipe 3-pipes outlet secion: "\
+    +"\n- Reynolds number inside glass pipe 3-pipes outlet section: "+str(self.ext_3pipes_out_sect_re)\
+    +"\n- Nusselt number inside glass pipe 3-pipes outlet section: "+str(self.ext_3pipes_out_sect_nu)\
+    +"\n- Heat transfer coefficient (h) inside glass pipe 3-pipes outlet section: "\
       +str(self.ext_3pipes_out_sect_h)+" [W/(m^2*K)]"\
     +"\n- Total heat transfer coefficient (h) inside glass pipe outlet section: "\
       +str(self.ext_out_sect_tot_h)+" [W/(m^2*K)]"\
@@ -296,7 +296,7 @@ def find_plt_save_measures(he_data, plt_flg, dbg_flg):                          
   if (len(delim_idxs)%2 == 1):                                                                                          # In case last configuration lasts 'till dataframe tail row
       delim_idxs.append(rows_scroll_index+1)                                                                            # Set last configuration end idx as tail row idx inside delimiter-idxs list (+1 for data split)
   for i in range(1, len(delim_idxs), 2):                                                                                # Heat-exchanger measures data extraction cycle
-    he_measures_data.append(he_data[delim_idxs[i-1]:delim_idxs[i]])                                                     # Extract and add measures (btwn indexs in delimiter-indexes list)
+    he_measures_data.append(he_data[delim_idxs[i-1]:delim_idxs[i]])                                                     # Extract and add measures (btwn indexes in delimiter-indexes list)
   for he_data_measure in he_measures_data:                                                                              # Heat-exchanger measures data scrollin' cycle
     he_data_measure = he_data_measure[~he_data_measure[conf_col].isin([oth_op_lbl])]                                    # Remove eventual data corresponding to other-operation in each heat-exchanger data measure in list
   if (plt_flg):                                                                                                         # If plotting flag is ena
@@ -315,7 +315,7 @@ def find_min_idx(vals):                                                         
       min_idx = i                                                                                                       # Min val idx upd oper
   return min_idx                                                                                                        # Return min val idx in vals list (non-zero idx)
 
-# Function definition to find and plot optimal steady-conditions data windows, by calulating mean
+# Function definition to find and plot optimal steady-conditions data windows, by calculating mean
 # standard-deviations in each window, avoiding the first transitory data-window and saving std-devs output
 def find_plt_save_stdy_cond_win(dbs, win_span, plt_flg, dbg_flg):                                                       # find_plt_save_stdy_cond_win(Measures-datablocks to split, Data-windows span [samples], Plotting flag, Debug flag)
   sc_windows = list()                                                                                                   # New steady-conditions data-windows list declaration and following definition
