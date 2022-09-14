@@ -83,9 +83,9 @@
 \section{Richieste}                                                                                                         % Section creation: "Richieste"
 \label{sec:project_request}                                                                                                 % "project_request" reference-label definition and following section text
   Le richieste di progetto consistono principalmente nella realizzazione di un sistema di analisi dati "computerizzato",
-  per poter cogliere da esso, le informazioni necessarie ad effettuare i diversi calcoli inerenti il fenomeno di scambio
+  per poter cogliere da esso le informazioni necessarie ad effettuare i diversi calcoli inerenti il fenomeno di scambio
   termico. Il tutto, con l'obiettivo di caratterizzare tale fenomeno sul manufatto oggetto di analisi sperimentale. In
-  aggiunta, è stato richiesto di identificare le analogie e tutto ciò in cui i risultati teorici attesi, differiscono da
+  aggiunta è stato richiesto di identificare le analogie e tutto ciò in cui i risultati teorici attesi differiscono da
   quelli sperimentali ottenuti, con particolare attenzione in riferimento alla non adiabaticità del sistema e alle varie
   approssimazioni effettuate in fase di modellazione, per lo studio del trasferimento di calore all'interno e all'esterno
   della macchina termica.
@@ -143,15 +143,15 @@
 \label{subsec:valsdef_datastruct}                                                                                           % "valsdef_datastruct" reference-label definition and following subsection text  
   Conclusa questa fase preparativa, vengono automaticamente richiamate le istruzioni per compiere l'analisi dati vera e
   propria. Tali istruzioni hanno come scopo principale, quello di ottenere i valori numerici delle diverse variabili
-  misurate, per ogni misura: temperature e portate volumetriche. Il tutto, cercando di ricavare valori numerici
-  significativi, per poter successivamente svolgere i calcoli ingegneristici richiesti. In particolare, essendo le
-  equazioni utilizzate valide sotto condizioni di stazionarietà, il software sceglie intervalli dati che soddisfino
-  al meglio tali requisiti. Nello specifico, ciò avviene mediante l'implementazione informatica dell'equazione
-  \textit{\textbf{[}\ref{eqn:stat}\textbf{]}}, utilizzata per identificare gli intervalli dati, da cui ricavare il valore
+  misurate, per ogni diversa configurazione realizzata: temperature e portate volumetriche. Il tutto, cercando di ricavare
+  valori numerici significativi, per poter successivamente svolgere i calcoli ingegneristici richiesti. In particolare,
+  essendo le equazioni utilizzate valide sotto condizioni di stazionarietà, il software sceglie intervalli dati che
+  soddisfino al meglio tali requisiti. Nello specifico, ciò avviene mediante l'implementazione informatica dell'equazione
+  \textit{\textbf{[}\ref{eqn:stat}\textbf{]}}, utilizzata per identificare gli intervalli dati da cui ricavare il valore
   medio delle variabili rilevate sperimentalmente. Anche in questo caso le operazioni vengono rappresentate graficamente,
   come mostrato ad esempio per la prima misura in
   \textit{\textbf{[}\hyperref[fig:measure1]{Fig. }\ref{fig:measure1}\textbf{]}}, dove viene evidenziato l'intervallo
-  selezionato. Vengono quindi creati in maniera autonoma, degli oggetti informatici di tipo "misura", i quali ne
+  selezionato. Vengono quindi creati in maniera autonoma, degli oggetti informatici di tipo "misura" i quali, ne
   conterranno tutte le informazioni. In fase di creazione della lista di oggetti "misura", ne viene auto-determinata la
   tipologia (equi-corrente o contro-corrente) in base al testo di descrizione, e vengono popolate le variabili
   corrispondenti ai valori delle misure, riportati anche nella tabella dedicata:
@@ -189,25 +189,25 @@
       (\textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/AISI316.pdf}{file-PDF}},
       \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/data_analysis/thermophys_vars/aisi_316_thermo_vars.csv}{file-CSV}}).
       \vspace{1.5mm}\\\textit{Nota:} le temperature sono state convertite da [K] a [°C], all'interno dello script dedicato
-      all'approssimazione delle proprietà termofisiche.
+      all'approssimazione polinomiale delle proprietà termofisiche.
     \item \textbf{proprietà vetro pyrex:}
       \textit{\href{https://nvlpubs.nist.gov/nistpubs/Legacy/RPT/nbsreport7836.pdf}{https://nvlpubs.nist.gov/nistpubs/Legacy/RPT/nbsreport7836.pdf}}
       pagina 39 pdf, tabella 6 (pagina 16 file)
       (\textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/lab_doc/Pyrex_glass.pdf}{file-PDF}},
       \textit{\href{https://github.com/CristianMerli/DataAnalysis/blob/master/data_analysis/thermophys_vars/pyrex_glass_thermo_vars.csv}{file-CSV}}).
-      \vspace{1.5mm}\\\textit{Nota:} i valori della conducibilità termica, sono stati convertiti da [W/(cm\*K)] a
-      [W/(m\*K)], all'interno dello script dedicato
+      \vspace{1.5mm}\\\textit{Nota:} i valori della conducibilità termica, sono stati convertiti da [W/(cm*K)] a
+      [W/(m*K)], all'interno dello script dedicato.
       \vspace{1.5mm}\\\textit{Nota:} in caso d'errore in fase di caricamento dell'anteprima file PDF, dovuto alle
       dimensioni eccessive del file stesso, premere il pulsante "download", oppure usa il seguente
       \textit{\href{https://github.com/CristianMerli/DataAnalysis/raw/master/lab_doc/Pyrex_glass.pdf}{link}}).
   \end{itemize}                                                                                                             % List-end
   Questi dati, sono quindi la base su cui uno script appositamente sviluppato, esegue operazioni di approssimazione
-  polinomiale mediante interpolazione o "curve-fitting". Dopo di che, caso per caso, viene scelto il metodo che meglio
+  polinomiale mediante interpolazione o "curve-fitting". Dopo di che caso per caso, viene scelto il metodo che meglio
   definisce l'andamento del grafico. Anche queste operazioni vengono rappresentate mediante grafici, utilizzati per
   scegliere il metodo d'approssimazione più affidabile per ogni trend. A titolo esemplificativo, al fine di approssimare
   l'andamento del numero di Prandtl per l'acqua (in funzione della temperatura), si è scelto il metodo di interpolazione
-  contro quello di "curve-fitting". Dopo aver cercato di ottenere la miglior curva con entrambe i metodi per confronto
-  visivo, si è scelto il quello migliore per il caso in oggetto: com'è possibile notare dai trend in
+  contro quello di "curve-fitting". Dopo aver cercato di ottenere la miglior curva con entrambe i metodi, per confronto
+  visivo, si è scelto quello migliore per il caso in oggetto: com'è possibile notare dai trend in
   \textit{\textbf{[}\hyperref[fig:water_fitted_pr]{Fig. }\ref{fig:water_fitted_pr}\textbf{]}} e
   \textit{\textbf{[}\hyperref[fig:water_intp_pr]{Fig. }\ref{fig:water_intp_pr}\textbf{]}}.
 \subsection{Definizione dettagli scambiatore di calore e calcoli preliminari}                                               % Subsection creation: "Definizione dettagli scambiatore di calore e calcoli preliminari"
@@ -227,8 +227,9 @@
   coinvolti. Sono state quindi definite temperature medie dei fluidi e differenze di temperatura in gioco. Dopo di che, le
   portate volumetriche in [l/h] sono state trasformate in [m\textsuperscript{3}/s] e successivamente in portate di massa
   [kg/s]. Il passaggio da portate volumetriche a portate di massa, è stato compiuto sfruttando i dati dei fluidi prima
-  dell'ingresso nello scambiatore di calore, in quanto il fluido si presenta in condizioni più stabili rispetto
-  all'uscita. In termini matematici, questa conversione è stata riportata nell'equazione
+  dell'ingresso nello scambiatore di calore, in quanto le portate volumetriche sono misurate proprio all'ingresso ed il
+  fluido si presenta in condizioni più stabili rispetto all'uscita. In termini matematici, questa conversione è stata
+  riportata nell'equazione
   \textit{\textbf{[}\ref{eqn:conv}\textbf{]}}.
 \subsection{Trasferimento di calore}                                                                                        % Subsection creation: "Trasferimento di calore"
 \label{subsec:heat_tr}                                                                                                      % "heat_tr" reference-label definition and following subsection text 
@@ -239,8 +240,8 @@
   sistema reale oggetto di misurazioni \textit{\textbf{[}\ref{eqn:heat_tr2}\textbf{]}}. I risultati ottenuti sono riportati
   all'interno della tabella dati \textit{\textbf{[}\hyperref[tab:heat_tr_calcs]{Tab. }\ref{tab:heat_tr_calcs}\textbf{]}}.
   Le potenze termiche sono state prese con segno, per cui i valori negativi rappresentano perdita di calore, mentre quelli
-  positivi acquisizione di calore. Facilmente osservabile, è la diretta correlazione tra configurazione dello scambiatore
-  (equi o contro-corrente) e la potenza termica scambiata, a parità di portate volumetriche: nelle misure in
+  positivi acquisizione dello stesso. Facilmente osservabile, è la diretta correlazione tra configurazione dello
+  scambiatore (equi o contro-corrente) e la potenza termica scambiata, a parità di portate volumetriche: nelle misure in
   contro-corrente si nota una maggiore quantità di calore trasferito, dovuto alla presenza di maggiori gradienti di
   temperatura. Sempre alla luce dei dati sopra citati, si denota una spiccata proporzionalità diretta, tra portate
   volumetriche e potenze termiche scambiate (entrambe nettamente maggiori nelle prime due misure). Il fatto più importante
@@ -267,12 +268,12 @@
   parametri intermedi utili per arrivare alla definizione dei valori di NTU e dell'efficienza, mediante le relazioni
   \textit{\textbf{[}\ref{eqn:ntu}\textbf{]}} e \textit{\textbf{[}\ref{eqn:epsilon}\textbf{]}}. I valori ricavati, sono
   riportati nella tabella \textit{\textbf{[}\hyperref[tab:eps_ntu_calcs]{Tab. }\ref{tab:eps_ntu_calcs}\textbf{]}}.
-  Interessante notare, come per le misure in configurazione contro-corrente si presentino valori di U\textsubscript{i},
-  U\textsubscript{e}, NTU ed epsilon, leggermente maggiori rispetto alle misure in configurazione di tipo equi-corrente.
-  Mentre ancora più marcata, è la differenza tra misure caratterizzate da alte o basse portate volumetriche di fluido
-  freddo (prima e seconda misura circa 550 [l/h], mentre terza e quarta approssimativamente 170 [l/h]). In particolare, per
-  le prime due misure (alte portate di fluido freddo), si notano valori di scambio ed efficienza drammaticamente inferiori
-  rispetto a quelli delle ultime due (basse portate di fluido freddo).
+  Interessante notare, come per le misure in configurazione contro-corrente si presentino valori di
+  $\Delta{T\textsubscript{m.l.}}$ ed $\varepsilon$, leggermente maggiori rispetto alle misure in configurazione di tipo
+  equi-corrente. Mentre ancora più marcata, è la differenza tra misure caratterizzate da alte o basse portate volumetriche
+  di fluido freddo (prima e seconda misura circa 550 [l/h], mentre terza e quarta approssimativamente 170 [l/h]).
+  In particolare per le prime due misure (alte portate di fluido freddo), si notano valori di scambio ed efficienza
+  drammaticamente inferiori rispetto a quelli delle ultime due (basse portate di fluido freddo).
 \subsection{Metodo numeri adimensionali}                                                                                    % Subsection creation: "Metodo numeri adimensionali"
 \label{subsec:adimnum_meth}                                                                                                 % "adimnum_meth" reference-label definition and following subsection text
   Un ulteriore metodo attraverso il quale è possibile ottenere informazioni sulla quantità di calore scambiato, è quello
@@ -360,23 +361,24 @@
 
 \section{Conclusioni}                                                                                                       % Section creation: "Conclusioni"
 \label{sec:conclusions}                                                                                                     % "conclusions" reference-label definition and following section text
-  Per concludere, sono stati calcolati alcuni valori percentuali significativi, al fine di poter fare un bilancio di
-  potenze termiche. Com'è possibile notare dai valori in tabella
+  Per concludere, sono stati calcolati alcuni valori percentuali significativi, al fine di poter fare un bilancio sulle
+  potenze termiche in gioco. Com'è possibile notare dai valori in tabella
   \textit{\textbf{[}\hyperref[tab:perc_calcs]{Tab. }\ref{tab:perc_calcs}\textbf{]}}, le percentuali di calore disperso
   (differenza tra potenza termica emanata dal fluido caldo ed acquisita dal fluido freddo), sono comprese tra il 5.4 ed il
-  13.4\%. Unitamente al fatto che, i valori percentuali di potenza termica dispersa verso l'ambiente attraverso la parete
-  esterna (in vetro pyrex), oscillano tra lo 0.4 e l'1.4\% di quello totale disperso; stanno a significare che la maggior
-  parte della dispersione avviene altrove. Con molta probabilità, una porzione considerevole avviene sulle tubazioni che
-  conducono i fluidi, dai punti di misurazione della temperatura allo scambiatore. La causa di ciò, sarebbe imputabile ad
-  un maggior gradiente di temperatura tra ambiente e macchina termica. Non da trascurare, è però anche il contributo dovuto
-  alla rumorosità del valore di portata volumetrica di fluido freddo (F2), anche se limitato attraverso le azioni messe in
-  campo, descritte al \textit{\textbf{[}\hyperref[sec:data_analysis]{Capitolo }\ref{sec:data_analysis},
+  13.4\%. Unitamente al fatto che, i valori percentuali stimati di potenza termica dispersa verso l'ambiente attraverso la
+  parete esterna (in vetro pyrex), oscillano tra lo 0.4 e l'1.4\% di quello totale disperso; stanno a significare che la
+  maggior parte della dispersione avviene altrove. Con molta probabilità, una porzione considerevole avviene sulle
+  tubazioni che conducono i fluidi, dai punti di misurazione della temperatura allo scambiatore. La causa di ciò, sarebbe
+  imputabile ad un maggior gradiente di temperatura tra ambiente e macchina termica. Non da trascurare, è però anche il
+  contributo dovuto alla rumorosità del valore di portata volumetrica di fluido freddo (F2), il cui effetto è stato
+  mitigato attraverso le azioni messe in campo, descritte al
+  \textit{\textbf{[}\hyperref[sec:data_analysis]{Capitolo }\ref{sec:data_analysis},
   \hyperref[sec:data_analysis]{pagina }\pageref{sec:data_analysis}\textbf{]}}. Un'altra osservazione che è possibile fare
   alla luce dei dati sopra citati, è che la differenza percentuale tra il calcolo della potenza termica trasmessa
   effettuato con approccio sperimentale ovvero teorico, è compresa tra il 33.5 ed il 38.4\%. Questa discrepanza può essere
   considerata pienamente in linea con le approssimazione effettuate in fase di modellizzazione del fenomeno, l'applicazione
   di formule empiriche per il calcolo dei numeri adimensionali e la presenza di errori sperimentali.\vspace{2mm}\\
-  \textit{Nota:} Allo scopo di confermare quanto fatto nelle fasi di stima dei numeri adimensionali di Reynolds, è stata
+  \textit{Nota:} Allo scopo di confermare quanto ottenuto in fase di stima dei numeri adimensionali di Reynolds, è stata
   predisposta anche una porzione di codice (abilitabile con un flag nella prima parte dello script in JupyterNotebook),
   atta al calcolo di Reynolds in maniera alternativa: secondo l'equazione \textit{\textbf{[}\ref{eqn:re_alt}\textbf{]}}.
   I risultati così ottenuti, sono comparabili con quelli ricavati mediante l'implementazione del metodo descritto nei
@@ -631,7 +633,7 @@
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
-    Dati      & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 1 \\
+    Dati      & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 2 \\
     \hline\hline
     F1 [l/h]  & 539.92          & 534.83            & 170.21            & 166.03          \\
     F2 [l/h]  & 562.52          & 568.41            & 574.23            & 578.83          \\
@@ -649,11 +651,11 @@
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
-    Dati/misure                                         & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 1 \\
+    Dati/misure                                         & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 2 \\
     \hline\hline
     Q\textsubscript{fl.caldo} [kW]                      & -6.02           & -6.41             & -4.14             & -3.96           \\
     Q\textsubscript{fl.freddo} [kW]                     & 5.70            & 5.84              & 3.59              & 3.43            \\
-    $\Delta{Q\textsubscript{fl.caldo-fl.freddo}}$ [kW]  & -0.32           & -0.56             & -0.55             & -0.53           \\
+    $\Delta{Q\textsubscript{fl.caldo-fl.freddo}}$ [kW]  & -0.32           & -0.57             & -0.55             & -0.53           \\
     $\bar{Q}$ [kW]                                      & 5.86            & 6.12              & 3.86              & 3.70            \\
     \hline
   \end{tabular}                                                                                                             % End tabular definition
@@ -665,13 +667,13 @@
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
-    Dati/misure                                 & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 1 \\
+    Dati/misure                                 & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 2 \\
     \hline\hline
-    $\Delta{T\textsubscript{m.l.}}$ [°C]        & 25.68           & 25.28             & 21.45             & 22.05           \\
-    U\textsubscript{int} [$\frac{kW}{m^{2}K}$]  & 2.6718          & 2.8354            & 2.1081            & 1.9629          \\
-    U\textsubscript{ext} [$\frac{kW}{m^{2}K}$]  & 2.1374          & 2.2683            & 1.6865            & 1.5703          \\
-    NTU                                         & 0.3642          & 0.3902            & 0.9122            & 0.8708          \\
-    $\varepsilon$                               & 0.26            & 0.28              & 0.56              & 0.52            \\
+    $\Delta{T\textsubscript{m.l.}}$ [°C]        & 25.68           & 26.48             & 23.22             & 22.05           \\
+    U\textsubscript{int} [$\frac{kW}{m^{2}K}$]  & 2.6718          & 2.7061            & 1.9474            & 1.9629          \\
+    U\textsubscript{ext} [$\frac{kW}{m^{2}K}$]  & 2.1375          & 2.1649            & 1.5579            & 1.5703          \\
+    NTU                                         & 0.3642          & 0.3725            & 0.8427            & 0.8708          \\
+    $\varepsilon$                               & 0.26            & 0.27              & 0.53              & 0.52            \\
     \hline
   \end{tabular}                                                                                                             % End tabular definition
 \end{table}                                                                                                                 % Table-end
@@ -682,14 +684,14 @@
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
-    Dati/misure                                         & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 1 \\
+    Dati/misure                                         & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 2 \\
     \hline\hline
-    Re\textsubscript{int}                               & 8475            & 8567              & 8892              & 9013            \\
+    Re\textsubscript{int}                               & 8475            & 8568              & 8892              & 9013            \\
     h\textsubscript{int} [$\frac{W}{m^{2}K}$]           & 4303.85         & 4346.33           & 4458.61           & 4505.98         \\
     $\lambda\textsubscript{AISI-316}$ [$\frac{W}{mK}$]  & 13.5644         & 13.5675           & 13.6197           & 13.6218         \\
     $\bar{h}$\textsubscript{ext} [$\frac{W}{m^{2}K}$]   & 2650.21         & 2633.57           & 1466.46           & 1450.12         \\
     U\textsubscript{int,adim} [$\frac{kW}{m^{2}K}$]     & 1.6666          & 1.6677            & 1.1971            & 1.1917          \\
-    U\textsubscript{ext,adim} [$\frac{kW}{m^{2}K}$]     & 1.3333          & 1.3341            & 0.9577            & 0.9533          \\
+    U\textsubscript{ext,adim} [$\frac{kW}{m^{2}K}$]     & 1.3333          & 1.3341            & 0.9577            & 0.9534          \\
     Q\textsubscript{adim} [kW]                          & 3.81            & 3.77              & 2.43              & 2.46            \\
     \hline
   \end{tabular}                                                                                                             % End tabular definition
@@ -701,9 +703,9 @@
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
-    Dati/misure                                     & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 1 \\
+    Dati/misure                                     & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 2 \\
     \hline\hline
-    Gr\textsubscript{ext}                           & 338032689       & 26692070          & 70486373          & 68353765        \\  
+    Gr\textsubscript{ext}                           & 33803269        & 26692070          & 70486373          & 68353765        \\  
     Ra\textsubscript{ext}                           & 24114245        & 19041327          & 50282878          & 48761539        \\
     $\lambda$\textsubscript{pyrex} [$\frac{W}{mK}$] & 1.1318          & 1.1320            & 1.1343            & 1.1342          \\
     Q\textsubscript{perso,vetro} [W]                & 3.14            & 2.32              & -7.79             & -7.49           \\
@@ -717,7 +719,7 @@
   \centering                                                                                                                % Center table
   \begin{tabular}{||c|c|c|c|c||}                                                                                            % 5 columns tabular with centered text
     \hline
-    Dati/misure                       & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 1 \\
+    Dati/misure                       & Equi-corrente 1 & Contro-corrente 1 & Contro-corrente 2 & Equi-corrente 2 \\
     \hline\hline
     Q\textsubscript{perso} [\%]       & 5.4             & 8.8               & 13.3              & 13.4            \\
     Q\textsubscript{perso,vetro} [\%] & 1.0             & 0.4               & 1.4               & 1.4             \\
